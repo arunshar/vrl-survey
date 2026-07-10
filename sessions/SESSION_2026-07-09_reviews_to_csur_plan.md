@@ -20,6 +20,14 @@ ARR May 2026 reviews arrived for the VRL survey (Submission 12040): Overall 3 / 
 - `scripts/verify_bib.py`: citation gate; selftest green; 42 flagged ids verified (2 retitles); full 229-entry run: 177 OK, 52 flagged (mostly Crossref false positives on entries lacking arXiv ids; script since extended with arXiv title-search fallback; re-run pending).
 - `scripts/workflow_lit_ingestion.js`: Phase C workflow (8 thread agents + survey shelf + CSUR guidelines).
 
+## REFRAME (same evening): TIST-style revision of the VRL paper
+
+Arun clarified: the attached TIST zips (Abnormal Trajectory Gap Detection, Sharma & Shekhar 2024, + Summary of Differences + decision letter) are the EXEMPLAR of how to do a journal revision; no TIST deadline exists. The active job is revising the VRL paper itself against the four ARR reviews, in that exemplar's style, before the Jul 13 response so the response can say "already implemented". Usage-limit guard active: no big workflows until Arun signals; bounded steps with hard checkpoints.
+
+R1 DONE: `revision/` workspace built from the ARR source; `preamble.tex` carries `\added{}` (red) / `\removed{}` (red strikethrough) behind an `\ifmarkup` toggle; `main.tex` = marked build with `[review]` line numbers, `main_clean.tex` = clean `[preprint]` build; new `new_section/limitations.tex` + `new_section/appendix_revision.tex` stubs; BOTH BUILDS COMPILE (main.pdf, main_clean.pdf). Committed (fa7bcfe).
+
+NEXT (R2, on Arun's go): write the reviewer-driven edits into the sections with \added/\removed per the approved content list in the plan file; then R3 (line-numbered marked PDF -> Responses table .docx/.md + Summary of Differences in the 2024 ltexpprt format), R4 (consistency red-team, budget-capped), R5 (upgrade docs/ARR_author_responses.md to already-implemented phrasing + emit VRL_ARR_Revision zip). Exemplar materials extracted at scratchpad tist/ (majrev manuscript = red-markup reference; summary/ltexpprt.tex = Summary of Differences template); copy ltexpprt.tex into revision/ before R3 (scratchpad is session-scoped).
+
 ## Open / next
 
 1. LAUNCH BLOCKED at session end? The Bash/Workflow safety classifier (glm-5.2) had an outage; if `workflow_lit_ingestion.js` did not launch, run it first (Workflow tool, scriptPath above).

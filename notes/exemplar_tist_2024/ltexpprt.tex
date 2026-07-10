@@ -1,0 +1,609 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%  ltexpprt.tex  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% This is ltexpprt.tex, an example file for use with the SIAM LaTeX2E
+% Preprint Series macros. It is designed to provide double-column output.
+% Please take the time to read the following comments, as they document
+% how to use these macros. This file can be composed and printed out for
+% use as sample output.
+
+% Any comments or questions regarding these macros should be directed to:
+%
+%                 Donna Witzleben
+%                 SIAM
+%                 3600 University City Science Center
+%                 Philadelphia, PA 19104-2688
+%                 USA
+%                 Telephone: (215) 382-9800
+%                 Fax: (215) 386-7999
+%                 e-mail: witzleben@siam.org
+
+
+% This file is to be used as an example for style only. It should not be read
+% for content.
+
+%%%%%%%%%%%%%%% PLEASE NOTE THE FOLLOWING STYLE RESTRICTIONS %%%%%%%%%%%%%%%
+
+%%  1. There are no new tags.  Existing LaTeX tags have been formatted to match
+%%     the Preprint series style.
+%%
+%%  2. Do not change the margins or page size!  Do not change from the default 
+%%     text font!
+%%
+%%  3. You must use \cite in the text to mark your reference citations and
+%%     \bibitem in the listing of references at the end of your chapter. See
+%%     the examples in the following file. If you are using BibTeX, please
+%%     supply the bst file with the manuscript file.
+%%
+%%  4. This macro is set up for two levels of headings (\section and
+%%     \subsection). The macro will automatically number the headings for you.
+%%
+%%  5. No running heads are to be used for this volume.
+%%
+%%  6. Theorems, Lemmas, Definitions, Equations, etc. are to be double numbered,
+%%     indicating the section and the occurrence of that element
+%%     within that section. (For example, the first theorem in the second
+%%     section would be numbered 2.1. The macro will
+%%     automatically do the numbering for you.
+%%
+%%  7. Figures and Tables must be single-numbered.
+%%     Use existing LaTeX tags for these elements.
+%%     Numbering will be done automatically.
+%%
+%%  8. Page numbering is no longer included in this macro.
+%%     Pagination will be set by the program committee.
+%%
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\documentclass[twoside,leqno,onecolumn]{article}
+
+% Comment out the line below if using A4 paper size
+\usepackage[letterpaper]{geometry}
+\usepackage{ltexpprt}
+\usepackage{lastpage}
+
+\usepackage{fancyhdr}
+
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{verbatim}
+\usepackage{comment}
+\usepackage{subfigure}
+\usepackage{color}
+\usepackage{csquotes}
+\usepackage{authblk}
+\usepackage{booktabs}
+\usepackage{caption}
+\captionsetup[figure]{labelfont=bf}
+\captionsetup[table]{labelfont=bf}
+
+\usepackage[labelformat=simple]{subcaption}
+\newcommand{\yell}[1]{{\color{red} \textbf{#1}}}
+\renewcommand\thesubfigure{(\alph{subfigure})}
+
+\newcommand{\nr}[1]{{\color{red} \textbf{#1}}}
+\fancyfoot[C]{Page \thepage\ of \pageref{LastPage}}
+
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+\makeatletter
+\usepackage{amsmath}
+\usepackage{svg}
+% Reinsert missing \algbackskip
+\def\algbackskip{\hskip-\ALG@thistlm}
+\makeatother
+% \usepackage{lmodern}
+\algnewcommand\algorithmicforeach{\textbf{for each:}}
+\algnewcommand\ForEach{\item[ \algorithmicforeach]}
+\algdef{S}[FOR]{ForEach}[1]{\algorithmicforeach\ #1\ \algorithmicdo}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{array}
+\usepackage{multirow}
+
+\newcommand\MyBox[2]{
+  \fbox{\lower0.75cm
+    \vbox to 1.7cm{\vfil
+      \hbox to 1.7cm{\hfil\parbox{1.4cm}{#1\\#2}\hfil}
+      \vfil}%
+  }%
+}
+
+% Uncomment to remove the header rule
+% \renewcommand{\headrulewidth}{0pt} 
+
+\pagestyle{fancy}
+
+\begin{document}
+
+
+%\setcounter{chapter}{2} % If you are doing your chapter as chapter one,
+%\setcounter{section}{3} % comment these two lines out.
+
+\title{\Large Summary of Differences}
+\author[]{Arun Sharma}
+\date{9th March 2024}
+
+
+
+\maketitle
+
+% Copyright Statement
+% When submitting your final paper to a SIAM proceedings, it is requested that you include 
+% the appropriate copyright in the footer of the paper.  The copyright added should be 
+% consistent with the copyright selected on the copyright form submitted with the paper.
+% Please note that "20XX" should be changed to the year of the meeting.
+
+% Default Copyright Statement
+% \fancyfoot[R]{\scriptsize{Copyright \textcopyright\ 20XX by SIAM\\
+% Unauthorized reproduction of this article is prohibited}}
+
+% Depending on which copyright you agree to when you sign the copyright form, the copyright 
+% can be changed to one of the following after commenting out the default copyright statement
+% above.
+
+%\fancyfoot[R]{\scriptsize{Copyright \textcopyright\ 20XX\\
+%Copyright for this paper is retained by authors}}
+
+%\fancyfoot[R]{\scriptsize{Copyright \textcopyright\ 20XX\\
+%Copyright retained by principal author's organization}}
+
+%\pagenumbering{arabic}
+%\setcounter{page}{1}%Leave this line commented out.
+
+% \begin{abstract} \small\baselineskip=9pt This is the text of my abstract. It is a brief
+% description of my
+% paper, outlining the purposes and goals I am trying to address.\end{abstract}
+This document, entitled '\textbf{Summary of Differences}', details the differences from the previous version. The differences are highlighted in \textcolor{red}{red}.
+
+\section{Introduction}
+\subsection{Paragraph 1: (Page 1-2)\\} 
+\paragraph{Previous Version:} Given multiple trajectory gaps and a signal coverage map based on historical object activity, we find possible abnormal gaps in activity where moving objects (e.g., ships) may have behaved abnormally, such as not reporting their locations in an area where other ships historically did report their location. The top half of Figure 1 shows the problem's \textit{input}, which includes a map of the signal coverage area (grey cells) for a set of derived historical trajectories (Figure  1a) and trajectory gaps $G_{1}$, ..., $G_{10}$ (Figure 1b). The bottom half of the figure shows the output where gaps $G_{1}$, $G_{4}$ $G_{6}$ and $G_{9}$ are entirely outside the signal coverage map (Figure 1c), indicating weak signal coverage. In contrast, the rest of the gaps overlap the signal coverage map. The absence of location reporting in an area known to have signal coverage may be interpreted as intentional behavior by a ship that temporarily switched off its location broadcasting device. The output shown in Figure 1c reflects on \textit{intermediate output} stage where trajectory gaps ($G_{1}$, ..., $G_{10}$) are modeled in the form of geo-ellipses [17, 19] along with their intersections with the signal coverage map. Figure 1c also shows two pairs of gaps $G_{2}$, $G_{3}$ and $G_{7}$, $G_{8}$, that have highly intersecting regions (i.e., dark grey cells), which suggests two ships in a rendezvous potentially engaging in illegal activity. The gaps entirely outside the signal coverage area have been filtered out. Figure 1d shows the \textit{final output} where gap pairs $G_{2}$, $G_{3}$ and $G_{7}$, $G_{8}$ are merged to their overlapping regions and gap $G_{10}$ is filtered out since it did not meet the user-defined \textit{priority threshold}.\\
+
+
+% \begin{figure}[h]
+%   \centering
+%   \includegraphics[width=0.7\linewidth]{Images/InputOutput.png}
+%   \caption{An illustration of rendezvous region detection (Best in color)}
+%   \label{fig:InputOutput}
+% \end{figure}
+
+\paragraph{Updated Version: } Given multiple trajectory gaps and a signal coverage map based on historical object activity, we find possible abnormal gaps in activity where moving objects (e.g., ships) may have behaved abnormally, such as not reporting their locations in an area where other ships historically did report their location. The top half of Figure 1 shows the problem's \textit{input}, which includes a map of the signal coverage area (grey cells) for a set of derived historical trajectories (Figure  1) and trajectory gaps $G_{1}$, ..., and $G_{10}$ (Figure 1b). \textcolor{red}{Cells are created by mapping the spatial extent of latitude and longitude coordinates across all historical location traces. A cell is assigned to a signal coverage (i.e., grey) if it contains historic location traces whose total number exceeds a certain threshold $\theta$ (more details in section 2)}. The bottom half of the figure shows the output where gaps $G_{1}$, $G_{4}$ $G_{6}$ and $G_{9}$ are entirely outside the signal coverage map (Figure 1c), indicating weak signal coverage. In contrast, the rest of the gaps overlap the signal coverage map. The absence of location reporting in an area known to have signal coverage may be interpreted as intentional behavior by a ship that temporarily switched off its location broadcasting device. The output shown in Figure 1c reflects on \textit{intermediate output} stage where trajectory gaps ($G_{1}$, ..., $G_{10}$) are modeled in the form of geo-ellipses [17, 19] along with their intersections with the signal coverage map. Figure 1c also shows two pairs of gaps $G_{2}$, $G_{3}$ and $G_{7}$, $G_{8}$, that have highly intersecting regions (i.e., dark grey cells), which suggests two ships in a rendezvous potentially engaging in illegal activity. The gaps entirely outside the signal coverage area have been filtered out. Figure 1d shows the \textit{final output} where gap pairs $G_{2}$, $G_{3}$ and $G_{7}$, $G_{8}$ are merged to their overlapping regions and gap $G_{10}$ is filtered out since it did not meet the user-defined \textit{priority threshold}.
+
+
+
+% \begin{figure}[h]
+%   \centering
+%   \includegraphics[width=0.7\linewidth]{ImagesPDF/InputOutput.pdf}
+%   \caption{An illustration of rendezvous region detection (Best in color)}
+%   \label{fig:InputOutput}
+% \end{figure}
+
+\subsection{Paragraph 4: (Page 3)\\}
+\paragraph{Previous Version: }Most of the studies [5, 14, 18] on trajectory gaps bound the location of the moving object is based on shortest path discovery. For instance, [14] derives knowledge of maritime traffic to detect low-likelihood behaviors and predict a vessel’s future positions using linear interpolation. Some studies [13, 17] do bound an object's possible location by providing some deterministic methods (e.g., space-time prism model) and probabilistic methods [28], but none of the approaches address abnormality within trajectory gaps. Figure \ref{fig:ComparisonofRelatedWorkOld} shows a comparison with related work.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.50\textwidth]{./ImagesPDF/Related_Work_Old.png}
+    \caption{Comparison of Related Work\\}
+    \label{fig:ComparisonofRelatedWorkOld}
+\end{figure}
+
+\paragraph{Updated Version: } Most of the studies [6, 18. 23] on trajectory gaps that bound the location of the moving object is based on shortest path discovery. For instance, [18] derives knowledge of maritime traffic to detect low-likelihood behaviors and predict a vessel’s future positions using linear interpolation. \textcolor{red}{Other linear interpolation methods are based on K Nearest Neighbor [26] reputation where each point is predicted based on Constant Velocity Model (CVM) followed by nearest neighbor computation}. Some studies [17, 22] do bound an object's possible location by providing some deterministic methods (e.g., space-time prism model) and probabilistic methods [34], but none of the approaches address abnormality within trajectory gaps. Figure \ref{fig:ComparisonofRelatedWorkNew}  shows a comparison with related work.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.50\textwidth]{./ImagesPDF/Related_Work.png}
+    \caption{Comparison of Related Work\\}
+    \label{fig:ComparisonofRelatedWorkNew}
+\end{figure}
+
+\section{Section 2.1: Basic Concept (Page 5-7)}
+
+\paragraph{Previous Version: }
+A \textbf{signal coverage map (SCM)} is defined as a discretized grid space where each grid cell $GC_{i}$ represents the historically reported location traces $p_{i}$ generated by a set of trajectories.
+The signal coverage map classifies each grid cell denoted as $GC_{i}$ (e.g., $GC_{1}$, $GC_{2}$,..., $GC_{n}$) as reported or not. A reported cell ($GC_{m}$) is a cell whose total number of location traces is greater than a certain threshold $\theta$ (i.e., $\sum_{i=1}^{n} P_{i} \geq \theta$). In Figure 1, the grid cells in \textit{grey} are reported cells or cells which are frequently reported by end-user, whereas the not reported cells are cells, where reported ship traffic is low or signal strength is under capacity (i.e., low density or sparse regions), are shown in \textit{white}. Hence, the signal coverage map is a boolean representation of discretized grid $\forall$ $GC_{i} \in \lbrack0,1\rbrack$. 
+
+
+\paragraph{Updated Version: }
+A \textbf{signal coverage map (SCM)} is defined as a discretized grid space where each grid cell $GC_{i}$ represents the historically reported location traces $p_{i}$ generated by a set of trajectories.
+
+\textcolor{red}{The process initiates by dividing the study area into a grid structure for a specific geographic region, ensuring global coverage of location traces. Initially, we calculate the maximum and minimum latitudes and longitudes to establish the minimum orthogonal bounding rectangle (MOBR). Subsequently, we evenly subdivide the MOBR using both latitude and longitude to construct grid cells and each grid cell is populated by the historic location-traces for a \textbf{fixed} time-frame. We finally classify each cell as reported (grey) or not reported (white) based on certain threshold $\theta$}
+
+The signal coverage map classifies each grid cell denoted as $GC_{i}$ (e.g., $GC_{1}$, $GC_{2}$,..., $GC_{n}$) as reported or not. A reported cell ($GC_{m}$) is a cell whose total number of location traces is greater than a certain threshold $\theta$ (i.e., $\sum_{i=1}^{n} P_{i} \geq \theta$). In Figure 1, the grid cells in \textit{grey} are reported cells or cells which are frequently reported by end-user, whereas the not reported cells are cells, where reported ship traffic is low or signal strength is under capacity (i.e., low density or sparse regions), are shown in \textit{white}. Hence, the signal coverage map is a boolean representation of discretized grid $\forall$ $GC_{i} \in \lbrack0,1\rbrack$.  It is important to note that the accuracy of the proposed algorithm significantly depends on the selection of the spatial region and the time frame. (more in Section 7).\\
+
+
+\paragraph{Previous Version: (Page 5)} A \textbf{trajectory gap ($G_{i}$)} is defined as a space-time interpolated region within a missing location signal time period between two consecutive points.
+
+In Figure 1, $G_{1}$,$G_{2}$,$G_{3}$...$G_{10}$ represent trajectory gaps that have been estimated via space-time interpolation in the form of geo-ellipses based on the properties of a space-time prism model [17]. A space-time prism can be projected onto an $x-y$ plane [17,19] in the form of a geo-ellipse which spatially delimits the extent of a moving object's mobility given a maximum speed during a missing signal period. Figure 3a shows a geo-ellipse representation with start point $P$ at ($x_1$,$y_1$) at time $t_1$ and end point $Q$ at ($x_2$,$y_2$) at time $t_2$, where $t_1 < t_2$ with focii $(x_1,y_1)$ and $(x_2,y_2)$.\\
+
+
+\paragraph{Updated Version: (Page 5-6)}
+A \textbf{trajectory gap ($G_{i}$)} is defined as a space-time interpolated region within a missing location signal time period between two consecutive points.
+
+In Figure 1, $G_{1}$,$G_{2}$,$G_{3}$...$G_{10}$ represent trajectory gaps that have been estimated via space-time interpolation in the form of geo-ellipses based on the properties of a space-time prism model [17]. A space-time prism can be projected onto an $x-y$ plane [22,14] in the form of a geo-ellipse which spatially delimits the extent of a moving object's mobility given a maximum speed during a missing signal period. Figure  3a shows a geo-ellipse representation with start point $P$ at ($x_1$,$y_1$) at time $t_1$ and end point $Q$ at ($x_2$,$y_2$) at time $t_2$, where $t_1 < t_2$ with focii $(x_1,y_1)$ and $(x_2,y_2)$.
+
+
+\textcolor{red}{The minimum orthogonal bounding rectangle (MOBR) is constructed over this ellipse, particularly focusing on the endpoints of its major axis by calculating the angle of this axis relative to a fixed coordinate system. This step is followed by rotating the ellipse to align this axis with one of the coordinate axes and then identifying the maximum and minimum extents of the ellipse in the direction perpendicular to the major axis. These extents, combined with the major axis endpoints, establish the MOBR's boundaries. Employing geometric transformations and the inherent properties of an ellipse, this approach is an effective means of determining the MOBR.}
+
+\textcolor{red}{The R*-tree hierarchically organizes MOBRs within bounding boxes that cover child nodes allowing addition or removal of MOBRs without needing to restructure the entire tree. Through insertion, controlled splitting, and, when necessary, reinsertion, the tree maintains balance and enhances query performance. Incremental indexing of MOBRs in the R*-Tree, guided by a meticulous selection and splitting process, ensures efficient storage, access, and querying of spatial data, capitalizing on the R*-Tree's architectural advantages.}
+
+\textcolor{red}{The temporal dimension, specifically the start and end points of a given period, is indexed separately within a large array, where each array index corresponds directly to a unique timestamp. This method ensures that every position in the array represents a distinct moment in time, allowing for efficient mapping and retrieval of temporal data. By aligning each index with a specific timestamp, this approach facilitates quick access to the associated start and end points, optimizing the process of querying temporal intervals within the dataset.}\\
+
+
+\paragraph{Previous Version: (Page 6)} An \textbf{abnormal gap measure (AGM)} for a gap $G_{i}$ is the probability that a possible location of an object during a gap (unreported data time interval) has signal coverage. A higher value AGM indicates anomalous behavior since it means an object is not reporting its location despite having signal coverage.
+
+$GC_{int}$ denotes as the interpolated grid cells that reside within a spatial boundary (in the case of space time interpolation) or that intersect a  straight line (in the case of linear interpolation). The AGM computes the ratio of interpolated grid cells $GC_{int}$ intersecting with reported calls $GC_{m}$ (where $GC_{m}$ $\subseteq$ $GC_{int}$) to $GC_{int}$ . The formula is as follows:
+\begin{equation}
+\centering
+   AGM = \frac{GC_{m} \cap GC_{int}}{GC_{int}}
+\end{equation}
+
+Figure 4 (i) and (ii) show an example of computing AGM scores for linear and space-time interpolation, respectively. The linear interpolation captures only one $GC_{m}$ within its interpolated space $GC_{int}$ (i.e., a straight line). As a result, only 1 grey cell within 7 white cells is intersected by the straight line (i.e., $\frac{1}{7}$ or 0.14). By contrast, the space-time interpolation is able to capture 28 grey cells which intersect or are within its spatial boundary, resulting in $\frac{28}{32}$ or 0.80, and a better estimate than the linear interpolation.\\
+
+\paragraph{Updated Version: (Page 6 - Page 7)}
+An \textbf{abnormal gap measure (AGM)} for a gap $G_{i}$ is the probability that a possible location of an object during a gap (unreported data time interval) has signal coverage. A higher value AGM indicates anomalous behavior since it means an object is not reporting its location despite having signal coverage.
+
+$GC_{int}$ denotes as the interpolated grid cells that reside within a spatial boundary (in the case of space time interpolation) or that intersect a  straight line (in the case of linear interpolation). The AGM computes the ratio of interpolated grid cells $GC_{int}$ intersecting with reported calls $GC_{m}$ (where $GC_{m}$ $\subseteq$ $GC_{int}$) to $GC_{int}$ . The formula is as follows:
+\begin{equation}
+\centering
+   AGM = \frac{GC_{m} \cap GC_{int}}{GC_{int}}
+\end{equation}
+
+Figure 4 (i) and (ii) show an example of computing AGM scores for linear and space-time interpolation, respectively. The linear interpolation captures only one $GC_{m}$ within its interpolated space $GC_{int}$ (i.e., a straight line). As a result, only 1 grey cell within 7 white cells is intersected by the straight line (i.e., $\frac{1}{7}$ or 0.14). By contrast, the space-time interpolation is able to capture 28 grey cells which intersect or are within its spatial boundary, resulting in $\frac{28}{32}$ or 0.80, and a better estimate than the linear interpolation. 
+
+\textcolor{red}{In this study, we confined our analysis to a static time frame spanning two years (2014-2016) as the computation of the abnormal gap measure is subject to significant variations over time. For example, employing a longer temporal range with a constant threshold, such as from 2009 to 2019, results in every cell being categorized as grey, in contrast to a more limited time frame, like from 2014 to 2016. This demonstrates that selecting an optimal threshold value is crucial for achieving a meaningful distribution of grey and white cells in the signal coverage map, which in turn facilitates the derivation of a significant AGM score within a trajectory gap.}
+
+% \begin{figure}[ht]
+%     \centering
+%     \includegraphics[width=1\textwidth]{./Images/baseline_figure.png}
+%     \caption*{\textbf{Fig 8: }Execution Trace of Linear Time Interval Slicing (LTS) algorithm\\}
+%     \label{fig:TraceLTS}
+% \end{figure}
+
+% \paragraph{Updated Version: } Figure 8 shows the execution trace of Step 4 of Algorithm 1 in a 2-dimensional representation with the intersection of two CAVs over a 12x10 grid. The x-axis represents longitude and the y-axis, time. Prior to time slicing, we first decide the common temporal time range [$t_{start}^{STI}$,$t_{end}^{STI}$] where $STI$ stands for Spatiotemporal Intersection and $t_{start}^{STI}$,$t_{end}^{STI}$ are the actual times of the intersection from the start and end points followed by a common MOBR approximation. Grid cells $grid(x,y)$ residing in none of the CAVs are shown in red. Cells residing in one of the CAVs are shown in yellow while cells that reside in both CAVs are colored blue. As shown in Figure 8(a), no grid cell $grid(x,y)$ resides in any of the CAVs  at time $t$ = 1, whereas in a subsequent iteration, some cells do reside in one of the CAVs at t = 2 (shown in Figure 8(b)). Figure 8 (c) and (d) show the common grid cells inside both CAVs in blue from time $t$ = 5 to $t$ = 8. These common grid cells serve as the intersection of 4 circular discs $D_{start}^{EMP1}$, $D_{start}^{EMP1}$, $D_{start}^{EMP2}$, $D_{start}^{EMP2}$ in 3 dimensional space as shown in Figure 6(c) where the green cells are the common intersection of the 4 circular discs (i.e. blue cells in Figure 8(c), (d) and (e)).
+
+% \begin{figure}[ht]
+%     \centering
+%     \includegraphics[width=1\textwidth]{./ImagesPDF/baseline_figure.pdf}
+%     \caption*{\textbf{Fig 8: }Execution Trace of Linear Temporal Scan (LTS) algorithm}
+%     \label{fig:TraceLTS}
+% \end{figure}
+
+% \subsection{Algorithm 1 Linear Temporal Scan (LTS) Algorithm\\}
+% \paragraph{Previous Version: (Page 9)} Step 12:  [$t_{start}^{STI}$,$t_{start}^{STI}$] = \lbrack    max($t_{EMP1}^{start}$,$t_{EMP2}^{start}$), min($t_{EMP2}^{end}$,$t_{EMP2}^{end}$)\rbrack \\
+
+% \paragraph{Updated Version: (Page 10)} Step 12: [$t_{start}^{STI}$,$t_{start}^{STI}$] = \lbrack    max($t^{EMP1}_{start}$,$t^{EMP2}_{start}$), min($t^{EMP1}_{end}$,$t^{EMP2}_{end}$)\rbrack
+
+\section{Section 4.3: Problem Formulation\\}
+\paragraph{Previous Version : (Page 7)\\}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.9\textwidth]{./ImagesPDF/Framework_Old.png}
+    \caption{Framework for detecting possible abnormal gaps to reduce manual inspection by analyst\\}
+    \label{fig:framework}
+\end{figure}
+
+We formulated the problem to optimally identify an abnormal trajectory gap region in a spatiotemporal domain is formulated as follows:\\
+\textbf{Input:}\\
+A study area $S$,\\
+A set of $|N|$ trajectory gaps\\
+A signal coverage map $SCP$\\
+A priority and a degree overlap threshold $\lambda$\\
+\textbf{Output:} Summarized abnormal trajectory gaps.\\
+\textbf{Objective:} Solution Quality and Computational Efficiency\\
+\textbf{Constraints:\\}
+(1) Grid layout is not available.\\ (2) Acceleration is not available.\\ (3) Correctness and Completeness.
+
+Figure 1 (a) and (b) show the input as a two-dimensional representation of a signal coverage area and a set of trajectory gaps. Figure 1 (c) and (d) show the significant summarized abnormal output after execution of the proposed algorithms.\\
+
+\paragraph{Updated Version : (Page 8)\\}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.9\textwidth]{./ImagesPDF/Framework_New.png}
+    \caption{Framework for detecting possible abnormal gaps to reduce manual inspection by analyst\\}
+    \label{fig:framework}
+\end{figure}
+
+We formulated the problem to optimally identify an abnormal trajectory gap region in a spatiotemporal domain is formulated as follows:\\
+\textbf{Input:}
+A study area $S$,\\
+A set of $|N|$ trajectory gaps\\
+A signal coverage map $SCP$\\
+A priority and a degree overlap threshold $\lambda$\\
+\textbf{Output:} Summarized abnormal trajectory gaps.\\
+\textbf{Objective:} Solution Quality and Computational Efficiency\\
+\textbf{Constraints:\\}
+(1) Grid layout is not available.\\ (2) Acceleration is not available.\\ (3) Correctness and Completeness.
+
+Figure 1(a) and (b) show the input as a two-dimensional representation of a signal coverage area and a set of trajectory gaps. Figure 1 (c) and (d) show the significant summarized abnormal output after execution of the proposed algorithms.
+
+\textcolor{red}{\textbf{DO Threshold ($\lambda$) Interpretation:} The Degree Overlap (DO) threshold can be adjusted externally by a human analyst to yield more significant merged gap regions as shown in Figure \ref{fig:framework} where  serves as an input parameter for the proposed algorithm. Specifically, incrementing the value of imposes stricter criteria for merging gaps, allowing for more precision for human analysts to analyze individual gaps. The concept of Degree Overlap is founded on the principle of the minimum participation index between pairs of trajectory gaps or merged groups (collections of trajectory gaps). This metric provides insight into the potential proximity of two entities to engage in unauthorized activities in maritime domain (e.g., illegal oil transfers) despite adequate signal coverage. By adjusting the Degree Overlap threshold, analysts are afforded greater flexibility in scrutinizing each gap within merged groups. This includes the identification of significantly anomalous gaps within groups characterized by high anomaly scores. For example, a higher DO threshold  leads to a larger number of distinct abnormal gaps for verification by human analysts using satellite imagery, compared to lower threshold values. Nonetheless, verifying gaps through satellite imagery necessitates extensive post-processing work. Therefore, finding an optimal DO threshold is crucial to striking a balance between the quality of solutions and computational efficiency.}
+
+\section{Section 4.1: Spatial-Time Aware Gap Detection (STAGD) \\}
+\paragraph{Previous Version : (Page 9) \\}
+First, we describe our conceptual understanding of \textit{temporal} and \textit{spatial} merge aware indexing approach with examples. In addition, we also introduce a \textit{maximal union merge-based criterion} along with its algorithm and execution trace.% resulting in Intersection Boundary (IB) and Union Boundary of each gap $G_{i}$ and providing $G_{i}^{IB}$ and $G_{i}^{UB}$. 
+
+\subsubsection{Temporal Merge Aware Indexing}
+\label{subsubsection:Time based indexing}
+
+Traditional sorting algorithms (e.g., quicksort) have the interesting property of comparing and sorting elements in $\mathcal{O}(n\log{}n)$ time which proves to be computationally expensive, especially in case of large data volume. In this paper, we use \textit{comparison-less} sorting by assuming $n$ gap elements in the start time ($t_{start}$) range 1 to $k$ such that each gap can be indexed in an input array. For instance, in Figure 5, $<A>$ to $<H>$ can be indexed based on $t_{start}$ where we can get a sorted order of trajectory gaps $<C>,<B>,<A>,<D>,<E>, <F>, <H>$, and $<G>$.  We can now perform a plane sweep to an already sorted list and compare the end-time and start-time of the gap, similar to the traditional to Memo-AGD [23]. However, this operation still requires quadratic computations but will more efficiently pre-process time. 
+% Since we are trading off space to improve time, there is a risk the algorithms will overflow their defined space due to large input values. In addition, if another gap with a large temporal range is encountered, indexing it may result in a large geo-ellipse resulting in multiple overlaps. This also results in skew distribution of gaps and also results in false positive results. In order to overcome this problem, we use DO threshold for filtering out such long gaps to avoid large skew distribution. 
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.8\textwidth]{./ImagesPDF/Time_Order.png}
+    \caption{Temporal-Merge Aware Indexing of trajectory gaps\\}
+    \label{fig:TimeIndex}
+\end{figure}
+
+\subsubsection{Spatial Merge Aware Indexing}
+\label{subsubsection:Time based indexing}
+A spatial index organizes access to data so that spatial objects can be found quickly without searching in a given spatial partition. It also enables the indexing of multidimensional objects, which can drastically speed up GIS operations like intersections and joins. For instance, R-Trees organize data in a tree-shaped structure, with a minimum orthogonal bounding rectangle (MOBR) at the nodes. MOBRs indicate the farthest extent of the data and can be indexed easily but they can lead to "false positives" (i.e., MOBRs may intersect when the precise geometries (geo-ellipses) does not actually intersect). In this paper, we leverage this space-time access method to efficiently compare gaps that are further spatially proximate effectively. \\
+
+\paragraph{Updated Version : (Page 11) \\} \textcolor{red}{First, we describe our conceptual understanding of the \textit{temporal} and \textit{spatial merge-aware indexing approach} with examples, which essentially handle the indexing of the ellipse by first handling the temporal indexing in the array list followed by hierarchical spatial indexing. After indexing, at the very end of the leaf node, we introduce the overlapping condition maximal union merge-based criterion along with its algorithm and execution trace.} % resulting in Intersection Boundary (IB) and Union Boundary of each gap $G_{i}$ and providing $G_{i}^{IB}$ and $G_{i}^{UB}$. 
+
+\subsubsection{Temporal Merge Aware Indexing}
+\label{subsubsection:Time based indexing}
+
+Traditional sorting algorithms (e.g., quicksort) have the interesting property of comparing and sorting elements in $\mathcal{O}(n\log{}n)$ time which proves to be computationally expensive, especially in case of large data volume. In this paper, we use \textit{comparison-less} sorting by assuming $n$ gap elements in the start time ($t_{start}$) range 1 to $k$ such that each gap can be indexed in an input array. \textcolor{red}{We initiate our analysis by defining a global start time, denoted as $t_{start}$, and a global end time, denoted as $t_{end}$. These temporal bounds are subdivided into intervals of one second each, serving as indices within an array list. The value assigned to each index corresponds to $t_{start}$. Each time segment ($t_{start}$, $t_{end}$) is efficiently indexed via binary search, exhibiting O($nlogn$) time. Subsequently, we also maintain a monotonic stack with ($t_{start}$, $t_{end}$) elements sorted by $t_{start}$, efficiently comparing the $t_{end}$ of the current gap and the $t_{start}$ of the previous gap.}
+
+For instance, in Figure 6, $<A>$ to $<H>$ can be indexed based on $t_{start}$ where we can get a sorted order of trajectory gaps $<C>,<B>,<A>,<D>,<E>, <F>, <H>$, and $<G>$.  We can now perform a plane sweep to an already sorted list and compare the end-time and start-time of the gap, similar to the traditional Memo-AGD [29]. Although this operation still requires quadratic computations, it will more efficiently pre-process time. 
+% Since we are trading off space to improve time, there is a risk the algorithms will overflow their defined space due to large input values. In addition, if another gap with a large temporal range is encountered, indexing it may result in a large geo-ellipse resulting in multiple overlaps. This also results in skew distribution of gaps and also results in false positive results. In order to overcome this problem, we use DO threshold for filtering out such long gaps to avoid large skew distribution. 
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.8\textwidth]{./ImagesPDF/Time_Order.png}
+    \caption{Temporal-Merge Aware Indexing of trajectory gaps\\}
+    \label{fig:TimeIndex}
+\end{figure}
+
+\subsubsection{Spatial Merge Aware Indexing}
+\label{subsubsection:Time based indexing}
+A spatial index organizes access to data so that spatial objects can be found quickly without searching in a given spatial partition. It also enables the indexing of multidimensional objects, which can drastically speed up GIS operations like intersections and joins. For instance, R-Trees organize data in a tree-shaped structure, with a minimum orthogonal bounding rectangle (MOBR) at the nodes. MOBRs indicate the farthest extent of the data and can be indexed easily but they can lead to "false positives" (i.e., MOBRs may intersect when the precise geometries (geo-ellipses) does not actually intersect). In this paper, we leverage this space-time access method to efficiently compare gaps that are further spatially proximate effectively. 
+
+\textcolor{red}{\textbf{Index Generation: } We first calculate the minimum and maximum values for xmin, ymin, xmax, and ymax across all MBRs to create a global rectangle that encompasses all individual MBRs. This effectively sets the stage for a hierarchical organization in which each node represents a spatial subdivision, thereby enhancing query performance through spatial locality. We have found that operations such as node splitting, bounding box updates, and overflow handling are better managed by estimating the overall spatial extent of the study area. Moreover, this approach efficiently handles a wide range of queries, including point queries, range queries, and nearest neighbor searches, by exploiting the spatial hierarchy and locality inherent in the global rectangle and its subdivisions.}
+
+\section{Section 5: PROPOSED APPROACH\\}
+\paragraph{Previous Version:} \subsection{Dynamic Region Merge (DRM) Approach (Page 13 - 14)}
+\label{subsection:DRM}
+Our method of caching temporal information and spatial indexing effectively reduces comparison operations prior to performing AGM computations. In addition, maximal union merge criteria reduce the total number of merged gap unions to aid cells in polygon interactions for the AGM computations. However, the maximal union criterion relies on a DO threshold and the nature of the data distribution, i.e., whether the distribution of gaps is uniform or skewed. For instance, if a gap distribution is skewed and no gaps are involved in any spatiotemporal intersection operations, then all gaps will reside in a single index. This results in a large number of isolated gaps which also increases cell in polygon operations as shown in Figure 12. Hence, we propose more optimal two methods for finding significant AGM scores based on maximal groups considering the sliding window approach and early termination criterion.
+
+\subsubsection{Sliding Window with Memoization Approach}
+\label{subsubsection:SlidingWindow}
+
+Given multiple gaps intersecting within a spatial partition, we compute AGM scores incrementally whenever a new gap intersects a maximal group spatially. In this technique, we cache the previously computed AGM cells for each maximal group defined by the maximal union merge criterion, which permits intersection and union criteria thresholds. Hence, we only need to append the reported signal coverage cells associated with the new gap and avoid the need to recompute the AGM scores of the entire maximal subgroup. The sliding window technique can achieve this, along with caching current cells involved with the group in a linear time (similar to the linear scan) but caching ensures fewer cells in polygon comparisons. An example of the approach is illustrated in Figure 7 as follows:
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.95\textwidth]{./ImagesPDF/Sliding_Window.png}
+    \caption{Proposed sliding window approach to compute AGM incrementally\\}
+    \label{fig:Sliding}
+\end{figure}
+
+Figure \ref{fig:Sliding} shows an illustration of a sliding window with caching where gaps $<A>, <B>, and <C>$ are involved in maximal subsets and we further initialize left (L) and right (R) pointer around the MOBR defined around Polygon ($<A,B,C>$). AGM score is based on the cells involved in the MOBR defined around them. For instance, if gap $<D>$ intersects the $A \cap B \cap C$ above the given DO threshold ($\lambda$), we can merge gap $<D>$ with the $<A \cup B \cup C>$ by itself based on \textit{maximal union merge-based criteria}, then we are required to recompute scores for $<A \cup B \cup C>$ (leftmost Figure 7). To eliminate this redundancy, we cache such cells $\in$ $<A,B,C>$ and append only $GC_{i}$ $\in$ <$D$> with $GC_{i}$ $\in$ $<A,B,C>$.
+
+
+\subsubsection{Early Termination Criteria:}
+\label{subsubsection:Caching}
+
+Since the proposed criterion helps to reduce isolated gaps by providing less stricter conditions by merging with the maximal subgroups via union operations, it may also result in a long chain of gaps which may also lead to false positive or false negative results based on AGM criteria. For instance, if there is some variability in terms of signal coverage map (as shown in Figure 13 (b) and Figure 13 (c)) and a new gap (e.g., $<D>$) may fall below the defined threshold and the entire maximal subgroup may not be abnormal. To avoid such false negatives, we use an early termination criterion where we incrementally check both the previous and new AGM scores prior to satisfying the maximal union merge criteria as demonstrated in Equation \ref{earlytermination} below: 
+
+\begin{equation}
+\label{earlytermination}
+    || AGM (<G_{i},..G_{k}>) - AGM(<G_{j}>) || \geq \delta
+\end{equation}
+
+where $\delta$ is the threshold for determining whether the difference between previous and new AGM scores is more significant or not. If it's not, we then we merge $<G_{i},..G_{k}>$ and <$G_{j}$> and compute AGM ($<G_{i},..G_{k}>$ $\cup$ $<G_{j}>$). Otherwise, we calculate the AGM of $<G_{i},..G_{k}>$ and $<G_{j}>$ separately i.e., AGM ($<G_{i}$,..$G_{k}>$) and AGM($<G_{j}>$).\\
+
+\paragraph{Updated Version:} \subsection{Dynamic Region Merge (DRM) Approach (Page 15 - 16)} 
+Our method of caching temporal information and spatial indexing effectively reduces comparison operations prior to performing AGM computations. In addition, maximal union merge criteria reduce the total number of merged gap unions to aid cells in polygon interactions for the AGM computations. However, the maximal union criterion relies on a DO threshold and the nature of the data distribution, i.e., whether the distribution of gaps is uniform or skewed. For instance, if a gap distribution is skewed and no gaps are involved in any spatiotemporal intersection operations, then all gaps will reside in a single index. This results in a large number of isolated gaps which also increases cell in polygon operations. Hence, we propose more optimal two methods for finding significant AGM scores based on maximal groups considering the sliding window approach and early termination criterion.
+
+\subsubsection{Sliding Window with Memoization Approach}
+\label{subsubsection:SlidingWindow}
+
+Given multiple gaps intersecting within a spatial partition, we compute AGM scores incrementally whenever a new gap intersects a maximal group spatially. In this technique, we cache the previously computed AGM cells for each maximal group defined by the maximal union merge criterion, which permits intersection and union criteria thresholds. Hence, we only need to append the reported signal coverage cells associated with the new gap and avoid the need to recompute the AGM scores of the entire maximal subgroup. The sliding window technique can achieve this, along with caching current cells involved with the group in a linear time (similar to the linear scan) but caching ensures fewer cells in polygon comparisons. An example of the approach is illustrated in Figure \ref{fig:Sliding} as follows:
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.95\textwidth]{./ImagesPDF/Sliding_Window.png}
+    \caption{Proposed sliding window approach to compute AGM incrementally\\}
+    \label{fig:Sliding}
+\end{figure}
+
+Figure \ref{fig:Sliding} shows an illustration of a sliding window with caching where gaps $<A>, <B>, and <C>$ are involved in maximal subsets, and we further initialize left (L) and right (R) pointer around the MOBR defined around Polygon( $<A, B, C>$). AGM score is based on the cells involved in the MOBR defined around them. For instance, if gap $<D>$ intersects the $A \cap B \cap C$ above the given DO threshold ($\lambda$), we can merge gap $<D>$ with the $<A \cup B \cup C>$ by itself based on \textit{maximal union merge-based criteria}, then we are required to recompute scores for $<A \cup B \cup C>$ (leftmost Figure \ref{fig:Sliding}). To eliminate this redundancy, we cache such cells $\in$ $<A,B,C>$ and append only $GC_{i}$ $\in$ $<D>$ with $GC_{i}$ $\in$ $<A,B,C>$.
+
+\textcolor{red}{\textbf{Incremental Spatial Indexing:} The minimum orthogonal bounding rectangle (MOBR) of the group $<A, B, C>$ is defined by the coordinates ($x_{1}, y_{1}$), ($x_{2}, y_{1}$), ($x_{1}, y_{2}$), and ($x_{2}, y_{2}$), with the left pointer (L) encompassed within the range [($x_{1}, y_{1}$), ($x_{1}, y_{2}$)] and the right pointer (R) within [($x_{2}, y_{1}$), ($x_{2}, y_{2}$)]. Upon encountering an intersecting MOBR of $<D>$, we perform union of $<A, B, C>$ and $<D>$ and updating the smallest ($x_{min}$,$y_{min}$) and largest ($x_{max}$,$y_{max}$) coordinates among the two MOBRs resulting with $<A,B,C,D>$. In case of union, we update the right pointer (R) to a new [($x_{2}^{new}, y_{1}^{new}$), ($x_{2}^{new}, y_{2}^{new}$)], else we update the Left pointer (L) [($x_{1}^{new}, y_{1}^{new}$), ($x_{1}^{new}, y_{2}^{new}$)]. We index grid cells situated between the left and right pointers and update the AGM score for the merged group.}
+
+\subsubsection{Early Termination Criteria:}
+\label{subsubsection:Caching}
+
+Since the proposed criterion helps to reduce isolated gaps by providing less stricter conditions by merging with the maximal subgroups via union operations, it may also result in a long chain of gaps which may also lead to false positive or false negative results based on AGM criteria. For instance, if there is some variability in terms of signal coverage map (as shown in Figure 14 (b) and Figure 14 (c)) and a new gap (e.g., $<D>$) may fall below the defined threshold and the entire maximal subgroup may not be abnormal. To avoid such false negatives, we use an early termination criterion where we incrementally check both the previous and new AGM scores prior to satisfying the maximal union merge criteria as demonstrated in Equation \ref{earlytermination} below: 
+
+\begin{equation}
+\label{earlytermination}
+    || AGM (<G_{i},..G_{k}>) - AGM(<G_{j}>) || \geq \delta
+\end{equation}
+
+where $\delta$ is the threshold for determining whether the difference between previous and new AGM scores is more significant or not. If it's not, we then we merge $<G_{i},..G_{k}>$ and <$G_{j}$> and compute AGM ($<G_{i},..G_{k}$> $\cup$ <$G_{j}>$). Otherwise, we calculate the AGM of $<G_{i},..G_{k}>$ and $<G_{j}>$ separately i.e., AGM ($<G_{i}$,..$G_{k}>$) and AGM($<G_{j}>$). 
+
+
+\subsubsection{\textcolor{red}{AGM-based Decreasing Queue:}} 
+\label{subsubsection:Caching}
+
+\textcolor{red}{Given multiple merged regions in some leaf node, we can further leverage the $\textit{monotonic property}$ as mentioned while indexing the temporal gaps start-times which results in $\textit{comparison-less}$ sorting. Here we leverage a decreasing queue (deque) data structure, which maintains the non-increasing order of AGM scores of the merged-groups. The main intuition behind this is doing an on-the-fly comparison of the AGM score of incoming gap $G_{i}$ with the AGMs of gaps which are previously sorted in the decreasing order such that Equation \ref{earlytermination} terminates the comparison at an early stage. For instance, a gap $G_{i}$ with a high AGM score is likely to merge with groups having a high AGM score and vice-versa such that Equation \ref{earlytermination} is satisfied.}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.80\textwidth]{./ImagesPDF/Deque.png}
+    \caption{Proposed Decreasing Queue strategy to sort gaps in leaf node by decreasing order\\}
+    \label{fig:Deque}
+\end{figure}
+
+\textcolor{red}{Figure \ref{fig:Deque} illustrates the decreasing queue approach, where the AGM scores for merged gaps $<A, B, C>$ for gap $<D>$, and for gap $<E>$ are 0.84, 0.23, and 0.33 respectively. Consider $<F>$ undergoing spatial comparison with the groups $<A, B, C>, <D>, and <E>$. With a specified threshold $\delta = 0.15$, it becomes evident that $<F>$, having an AGM of 0.83, is more likely to merge with the group $<A, B, C>$ than with $<D>$ or $<E>$, owing to the similarity in AGM values. Organizing all minimum orthogonal bounding rectangle (MOBR) coordinates (xmin, ymin, xmax, ymax) in a decreasing queue—sorted by descending AGM values—facilitates the early termination of comparisons. For instance, $<F>$ need only compare with $<A, B, C>$ and can terminate the process upon reaching $<D>$, as $||AGM(<A, B, C>) - AGM(<F>)|| \geq \delta$. This reduction progresses from $n$ possible comparisons to $k$ (where $k < n$), thus enhancing computational efficiency.}\\
+
+\section{Section 6.1: Experiment Design}
+\paragraph{Previous Version: (Page 17)\\ }
+\textbf{Comparative Study:} The goal of the experiments was to assess and compare the solution quality of three methods: Linear Interpolation (Related Work) and STAGD+DRM (Proposed). In the case of execution time, we compared Memo-AGD (Baseline) and STAGD+DRM (Proposed). Both solution quality and computational efficiency we compared based on five parameters: the number of GPS points, the number of trajectory gaps, the effective missing period (EMP) (i.e., the minimum time period the object is missing), the average speed ($S_{avg}$), and the degree of overlap (DO) threshold. The detailed design of the experiments is presented in Figure \ref{fig:ExperimentDesign}.
+
+\begin{figure*}[ht]
+    \centering
+    \includegraphics[width=0.65\textwidth]{./ImagesPDF/Experiment_Design_Old.png}
+    \captionsetup{justification=centering}
+    \caption{Experiment Design}
+    \label{fig:ExperimentDesign}
+\end{figure*}
+
+\textbf{Real World Dataset:} We utilized the real-world MarineCadastre [1] dataset to measure computational efficiency. The dataset contains various attributes, such as longitude, latitude, speed over ground, and others, for 150,000 objects that were recorded between 2009 and 2017. The geographical area covered by the data extends from 180W to 66W degrees longitude and from the 90S to 90N degrees latitude, based on the WGS 1984 coordinate system. In our experiments, we only considered the attributes of longitude, latitude, time, speed over ground (SOG), and Maritime Mobile Service Identity (MMSI). The maximum speed was calculated by taking the average SOG of the effective missing period (EMP). Figure \ref{fig:ExperimentDesign} shows an Entity Relationship (E-R) Diagram for three entities: vessels, trips, and location signals. A vessel can take multiple trips, and each trip can emit multiple location signals.
+% Maximum speed was calculated by taking the average
+% SOG of the EMP
+\begin{figure*}[ht]
+    \centering
+    \includegraphics[width=0.75\textwidth]{./ImagesPDF/E-R Diagram.png}
+    \captionsetup{justification=centering}
+    \caption{Entity Relation diagram of the MarineCadastre [1] dataset}
+    \label{fig:ER Diagram}
+\end{figure*}
+
+% Entity Relation Diagram of MarineCadastre[1] dataset
+% In addition, we also used \textbf{MarineTraffic}, a widely used real-world commercial dataset \cite{aisdataUSNew} for a case-study near the Galapagos Islands to verify the effectiveness of the proposed algorithms.
+
+\textbf{Synthetic Dataset Generation:} In the experiment for solution quality, there is a lack of ground truth data, meaning there is no information on whether a gap in a trajectory is normal or abnormal. To overcome this, the proposed algorithms were evaluated using synthetic data created from a real-world dataset. The dataset consists of 1.25 x $10^{5}$ trajectories collected in the Bering Sea, covering a study area from $179.9W$ to $171W$ degrees longitude and from $50N$ to $58N$ degrees latitude, with 1500 trajectory gaps between 2014 and 2016. The data was preprocessed to identify gaps with a duration of more than 30 minutes, which were then considered to be trajectory gaps. The AGM score was calculated using linear interpolation and the proposed methods, and each gap was classified as abnormal or non-abnormal (based on an AGM threshold of 0.6). Gaps with an AGM score greater than 0.6 were considered to be abnormal.\\
+
+\paragraph{Updated Version: (Page 19-20)\\ }
+\textbf{Comparative Study:} The goal of the experiments was to assess and compare the solution quality of three methods: Linear Interpolation (Related Work), K Nearest Neighbor Imputation (Related Work), and STAGD+DRM (Proposed). In the case of execution time, we compared Memo-AGD (Baseline) and STAGD+DRM (Proposed). Both solution quality and computational efficiency were compared based on five parameters: the number of GPS points, the number of trajectory gaps, the effective missing period (EMP) (i.e., the minimum time period the object is missing), the average speed ($S_{avg}$), and the degree of overlap (DO) threshold. The detailed design of the experiments is presented in Figure \ref{fig:ExperimentDesign}.
+
+\begin{figure*}[ht]
+    \centering
+    \includegraphics[width=0.65\textwidth]{./ImagesPDF/Experiment_Design_New.png}
+    \captionsetup{justification=centering}
+    \caption{Experiment Design}
+    \label{fig:ExperimentDesign}
+\end{figure*}
+
+\textcolor{red}{\textbf{KNN Imputation:} In this paper, we apply the k-Nearest Neighbors (k-NN) imputation method, previously utilized for anomaly detection in [21], to identify and address the issue of missing Automatic Identification System (AIS) messages, referred to as dropouts, for vessels at specific times. This method aims to reconstruct the missing data, including the estimated position of the vessel and the Received Signal Strength Indicator (RSSI). The vessel's position is initially estimated or predicted using tracking systems and models such as the Constant Velocity Model (CVM). Subsequently, we attempt to estimate the missing RSSI values. However, as RSSI data is not provided in [21], we employ a KNN imputer that calculates based on the inverse-weighted Euclidean distance from the predicted position to the fixed K neighbors. In our experimental setup, we chose K=5 and computed the weighted average from all existing neighbors to update the latitude-longitude coordinates derived using the Constant Velocity Model (CVM).}
+
+\textbf{Real World Dataset:} We utilized the real-world MarineCadastre [1] dataset to measure computational efficiency. The dataset contains various attributes, such as longitude, latitude, speed over ground, and others, for 150,000 objects that were recorded between 2009 and 2017. The geographical area covered by the data extends from 180W to 66W degrees longitude and from the 90S to 90N degrees latitude, based on the WGS 1984 coordinate system. In our experiments, we only considered the attributes of longitude, latitude, time, speed over ground (SOG), and Maritime Mobile Service Identity (MMSI). The maximum speed was calculated by taking the average SOG of the effective missing period (EMP). Figure \ref{fig:ER Diagram} shows an Entity Relationship (E-R) Diagram for three entities: vessels, trips, and location signals. A vessel can take multiple trips, and each trip can emit multiple location signals.
+% Maximum speed was calculated by taking the average
+% SOG of the EMP
+\begin{figure*}[ht]
+    \centering
+    \includegraphics[width=0.75\textwidth]{./ImagesPDF/E-R Diagram.png}
+    \captionsetup{justification=centering}
+    \caption{Entity Relation diagram of the MarineCadastre [1] dataset}
+    \label{fig:ER Diagram}
+\end{figure*}
+
+% Entity Relation Diagram of MarineCadastre[1] dataset
+% In addition, we also used \textbf{MarineTraffic}, a widely used real-world commercial dataset \cite{aisdataUSNew} for a case-study near the Galapagos Islands to verify the effectiveness of the proposed algorithms.
+
+\textcolor{red}{\textbf{Synthetic Dataset Generation:} The experiment for solution quality, lacked ground truth data, meaning we had no information on whether a gap in a trajectory was normal or abnormal. To overcome this, the proposed algorithms were evaluated using synthetic data created from a real-world dataset. The dataset consists of 1.25 x $10^{5}$ trajectories collected in the Bering Sea, covering a study area from $179.9W$ to $171W$ degrees longitude and from $50N$ to $58N$ degrees latitude, with 1500 trajectory gaps between 2014 and 2016. Figure \ref{fig:SyntheticDataGeneration} shows the detailed methodology for synthetic data generation.}
+ 
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.90\textwidth]{./ImagesPDF/SyntheticDataGeneration.png}
+    \caption{Synthetic Data Generation\\}
+    \label{fig:SyntheticDataGeneration}
+\end{figure}
+
+\textcolor{red}{The data was preprocessed to identify gaps lasting more than 30 minutes, which were considered trajectory gaps. The AGM (Abnormal Gap Measure) score was calculated using linear interpolation along with the proposed methods, and each gap was classified as either abnormal or non-abnormal based on an AGM threshold of 0.6. Gaps with an AGM score above 0.6 were deemed abnormal. The choice of the AGM score threshold was designed to reduce bias in the accuracy of the results, which was achieved by conducting multiple trial runs of both the baseline and proposed approaches.}
+
+\section{Section 6.2: Experiment Results}
+\subsection{Solution Quality}
+\paragraph{Previous Versions: (Page 18 - 20)\\} The proposed STAGD+DRM approach was compared with a Linear interpolation and 3D R-Tree method that is widely used in the literature [5] using space-time interpolation approach (also used in Memo-AGD [23]) in terms of accuracy. The accuracy metric is defined in Equation \ref{ineq19} as the ratio of the actual trajectory gaps involved in abnormal behavior to the total number of abnormal gaps.
+\begin{equation}
+    \label{ineq19}
+    Accuracy = \frac{Actual\ Gaps\ involved\ in\ Abnormal\ Behavior}{Total\ Gaps\ involved\ in\ Abnormal\ Behaviour}
+\end{equation}\\
+
+Figure 16 shows results for solution quality based on different parameters for the related work, baseline, and the proposed algorithms.\\ 
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=1\textwidth]{./ImagesPDF/Solution Quality_Old.png}
+    \label{fig:Solution Quality_Old}
+\end{figure}
+
+\textbf{Computational Efficiency:} Figure 17 shows results for computational efficiency based on different parameters for the baseline, and the proposed algorithms.\\
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=1\textwidth]{./ImagesPDF/ComputationalCost_Old.png}
+    \label{fig:ComputationalOld}
+\end{figure}
+
+\paragraph{Updated Version : (Page 21 - Page 24)\\} The proposed STAGD+DRM approach was compared with a Linear interpolation and KNN Imputation method that is widely used in the literature [6] using space-time interpolation approach (also used in Memo-AGD [29]) in terms of accuracy. The accuracy metric is defined in Equation \ref{ineq19} as the ratio of the actual trajectory gaps involved in abnormal behavior to the total number of abnormal gaps.
+\begin{equation}
+    \label{ineq19}
+    Accuracy = \frac{Actual\ Gaps\ involved\ in\ Abnormal\ Behavior}{Total\ Gaps\ involved\ in\ Abnormal\ Behaviour}
+\end{equation}
+% Besides, other indexing methods mentioned in \cite{zheng2015trajectory} are not considered in this paper. 
+\textcolor{red}{The Equation \ref{ineq19}, the "Actual Gaps" in the numerator are the "true positives" (correct abnormal gaps) and "true negatives" (correct non-abnormal gaps) generated by the two baseline approaches from the related work (Linear Interpolation and KNN Imputation) and the proposed approach (STAGD+DRM). Total Gaps in the denominator are all the gaps which are correctly and incorrectly classified as abnormal in a given study area.}\\
+
+Figure 18 shows results for solution quality based on different parameters for the related work, baseline, and the proposed algorithms.\\
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=1\textwidth]{./ImagesPDF/Solution Quality_New.png}
+    \label{fig:TCSpatial}
+\end{figure}
+
+\textbf{(2) Computational Efficiency:} Figure 18 shows results for computational efficiency based on different parameters for the baseline, and the proposed algorithms.\\
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=1\textwidth]{./ImagesPDF/ComputationalCost_New.png}
+    \label{fig:ComputationalNew}
+\end{figure}
+
+
+\subsection{Case Study}
+\textcolor{red}{We conducted a case study based on an actual event [14] where a fishing vessel switched off its transponder while entering a protected marine habitat and then switched it back on after 15 days. We applied linear (shortest path) interpolation, KNN imputation, and our proposed space-time interpolation based algorithms on a MarineTraffic, [1] dataset to find abnormal regions in a study area ranging from 48.3 W to 65.8 W degrees in longitude and from 23.4 N to 29.6 N degrees in latitude near the Galapagos Marine Reserve. Figure 20 (a) shows that a ship switched off its transponder at point P in the Marine Reserve and switched it back on at point Q. Figure 20 (b) assumes a linear interpolation where the vessel interacts with a small number of islands situated in the north resulting in an AGM score of 0.0 due to the absence of historical trajectories. Nearest Neighbor imputation shows that the vessels take a more frequented path than linear interpolation. Figure 20 (c) shows the geo-ellipse formed by our space-time interpolation method. The elliptical region encompasses more historical trajectories, generating a higher AGM score (0.41) and thus meriting further investigation by human analysts.}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=1\textwidth]{./ImagesPDF/Case Study.png}
+    \caption*{\textbf{Fig. 20} Comparison of k-NN Imputation, Linear Interpolation, and Space-Time Interpolation\\}
+    \label{fig:case-study}
+\end{figure}
+
+
+\section{Section 7: Discussion}
+\subsection{Page 20-21 (After Abnormal Gap Measure)}
+\textbf{Probabilistic Interpretation:} Monitoring the distribution of location traces also helps define probabilistic interpretations of trajectory gaps. For instance, Gaussian processes may provide the assumption of availability of location trace based on the Gaussian distribution instead of the precise location. Other probabilistic interpretations within a geo-ellipse can further be considered as an average case in contrast to geo-ellipse (worst case) and shortest path (best case) interpretations. \\
+
+\textbf{Updated Version: (Page 24-Page 25)\\ }
+\textbf{Probabilistic Interpretation:} Monitoring the distribution of location traces also helps define probabilistic interpretations of trajectory gaps. For instance, Gaussian processes may provide the assumption of availability of location trace based on the Gaussian distribution instead of the precise location. Other probabilistic interpretations within a geo-ellipse can further be considered as an average case in contrast to geo-ellipse (worst case) and shortest path (best case) interpretations. \\
+
+\textcolor{red}{\textbf{Kernel Density Estimation:} Kernel density estimation (KDE) is a non-parametric way to estimate the probability density function of a random variable. KDE transforms point data into a continuous surface, estimating the density of points across the area. It is particularly useful in various fields like ecology, urban planning, and criminology to identify clusters or "hotspots" of activity or occurrences. Incorporating time as an additional dimension in kernel density estimation (KDE) enables the analysis of spatiotemporal data, revealing dynamic patterns, trends, and hotspots that change over both space and time. This approach involves preparing spatiotemporal data with precise timestamps, selecting appropriate spatial and temporal kernel functions, and optimizing bandwidths for both dimensions to accurately capture the scale of patterns.}\\
+
+\section{Section 8: Related Work}
+\label{section:Related_work}
+\textbf{Previous Version: (Page 21 - Page 22)\\} The extensive amount of trajectory data being generated via location-acquisition services today has spurred new research in anomaly detection, pattern recognition, etc. The survey in [31] gives a broad overview of trajectory data mining techniques related to pre-processing, data management, uncertainty, pattern mining, etc. Methods for detecting anomalous trajectories are included in a broad classification of anomaly detection methods [4], which also includes trajectory anomaly detection. The literature [10] also provides a comprehensive taxonomy of movement patterns, classifying them as primitive, compound, individual, group, etc. There are several methods for determining the similarity of trajectories, including edit distance [6], longest common sub-sequence (LCSS) [16], and dynamic time warping (DTW) [29]. A recent technique called TS-Join [220] uses both spatial and temporal factors in a two-step process to determine similarity. Another method, Strain-Join [25], uses a signature-based approach to identify similar trajectories by creating unique signatures and eliminating dissimilar ones. Other techniques include using a sliding window approach [1,7] to identify potential candidates and filtering out non-similar trajectories using time interval thresholds [2, 9]. For trajectories with silent periods, Clue-aware Trajectory Similarity [11] uses clustering and aggregation based on movement behavior patterns. In terms of processing queries for spatiotemporal joins, methods based on 3D R-Trees, such as Spatiotemporal R-Tree and TB-Tree [20], is used. However, none of the literature has addressed anomaly detection within trajectory gaps. In the maritime domain, Riveiro et al. [21] provide a generalized view of maritime anomaly detection but do not cover trajectory gaps.
+
+Uncertainty within trajectory gaps can be quantified based on behavioral patterns of moving objects, where many techniques perform linear interpolation assuming shortest path discovery. There are many realistic frameworks [5, 14, 18] that do quantify uncertainty within trajectory gaps, but they are loosely based on shortest path discovery. For instance, one study [18] derives knowledge of maritime traffic in an unsupervised way to detect low-likelihood behaviors and predict a vessel's future positions. However, the movement behavior is assumed linear and relies on historical mobility behavior, which requires extensive training data. The space-time prism model [17, 19] is a more realistic estimation of trajectory gap because it identifies a larger spatial region surrounding a gap where an object could have potentially deviated from the predefined linear path. A number of applications based on joins [19] and probabilistic interpretation [28] have been proposed, but they are limited to theoretical simulations and need real-world validation. Other probabilistic frameworks [8, 26] incorporate space-time prisms but do not address the abnormal mobility behavior of an object. A recent work [30] considers trajectory gaps but only focuses on the space-time prism and does not consider abnormal behavior within gaps. This paper uses a space-time prism model to capture abnormal gaps based on historical data, which allows us to distinguish abnormal gaps for possible anomaly hypotheses.
+
+\paragraph{Updated Version : (Page 25 - Page 26)\\} The extensive amount of trajectory data being generated via location-acquisition services today has spurred new research in anomaly detection, pattern recognition, etc. The survey in [37] gives a broad overview of trajectory data mining techniques related to pre-processing, data management, uncertainty, pattern mining, etc. Methods for detecting anomalous trajectories are included in a broad classification of anomaly detection methods [5], which also includes trajectory anomaly detection. The literature [12] also provides a comprehensive taxonomy of movement patterns, classifying them as primitive, compound, individual, group, etc. There are several methods for determining the similarity of trajectories, including edit distance [8], longest common sub-sequence (LCSS) [20], and dynamic time warping (DTW) [35]. A recent technique called TS-Join [28] uses both spatial and temporal factors in a two-step process to determine similarity. Another method, Strain-Join [31], uses a signature-based approach to identify similar trajectories by creating unique signatures and eliminating dissimilar ones. Other techniques include using a sliding window approach [2, 9] to identify potential candidates and filtering out non-similar trajectories using time interval thresholds [3, 11]. For trajectories with silent periods, Clue-aware Trajectory Similarity [16] uses clustering and aggregation based on movement behavior patterns. In terms of processing queries for spatiotemporal joins, methods based on 3D R-Trees, such as Spatiotemporal R-Tree and TB-Tree [25], is used. However, none of the literature has addressed anomaly detection within trajectory gaps. In the maritime domain, Riveiro et al. [27] provide a generalized view of maritime anomaly detection but do not cover trajectory gaps.
+
+Uncertainty within trajectory gaps can be quantified based on behavioral patterns of moving objects, where many techniques perform linear interpolation assuming shortest path discovery. There are many realistic frameworks [6, 18, 23] that do quantify uncertainty within trajectory gaps, but they are loosely based on shortest path discovery. For instance, one study [23] derives knowledge of maritime traffic in an unsupervised way to detect low-likelihood behaviors and predict a vessel's future positions. However, the movement behavior is assumed linear and relies on historical mobility behavior, which requires extensive training data. 
+
+\textcolor{red}{Besides the shortest path, the paper [21] uses k-Nearest Neighbors (k-NN) imputation to estimate missing Received Signal Strength Indicator (RSSI) values in AIS vessel trajectory data. When a dropout (missing AIS message) is detected, the vessel's position is first predicted using a tracking system like the Constant Velocity Model (CVM). Then, the k-NN method finds the k AIS messages nearest in position to the predicted vessel position, and the RSSI value of the single nearest AIS message (k=1) is used as the imputed RSSI for the missing message, leveraging the spatial correlation in the trajectory data. A variant of KNN [7] was also studied, which is a resampling method used to estimate the variance of a statistic, such as a sample mean. It is useful when the theoretical variance is difficult to derive or when the data has been subject to complex procedures like imputation. Bayesian Networks [15] were used, where multiple Bayesian networks are constructed, one for each attribute with missing values. However, all of the above methods either consider the shortest path or the most frequented path, which does not take into account other object movement capabilities.}
+
+The space-time prism model [22, 24] is a more realistic estimation of trajectory gap because it identifies a larger spatial region surrounding a gap where an object could have potentially deviated from the predefined linear path. A number of applications based on joins [24] and probabilistic interpretation [34] have been proposed, but they are limited to theoretical simulations and need real-world validation. Other probabilistic frameworks [10, 32] incorporate space-time prisms but do not address the abnormal mobility behavior of an object. A recent work [36] considers trajectory gaps but only focuses on the space-time prism and does not consider abnormal behavior within gaps. This paper uses a space-time prism model to capture abnormal gaps based on historical data, which allows us to distinguish abnormal gaps for possible anomaly hypotheses.
+
+\section{Section 9: Conclusion and Future Work}
+\paragraph{Previous Version: (Page 22-23)\\ }
+\textbf{Future Work:} Computing abnormal gaps in trajectories is time-consuming and challenging. We are investigating new indexing methods that are more efficient than hierarchical indexing and linear search and better suited for modeling gaps in regional space. We intend to use these techniques in other areas of application. In addition, we aim to validate our evaluation metrics with real-world data and consider other external factors (e.g., device malfunction, hardware failure, etc.). We also aim to improve our measurement of unusual gaps by incorporating more physics-based parameters (e.g., draft) and exploring more sophisticated models (e.g., kinetic prisms). Finally, we plan to study ways to identify anomalies that are based on deception, such as fake trajectories or gaps generated by users who manipulate their location devices.\\
+
+\paragraph{Updated Version: (Page 27)\\ }
+\textbf{Future Work:} Computing abnormal gaps in trajectories is time-consuming and challenging. We are investigating new indexing methods that are more efficient than hierarchical indexing and linear search and better suited for modeling gaps in regional space. We intend to use these techniques in other areas of application. \textcolor{red}{Our plan also include other methods (e.g., Baeysian Estimation [15], regression-based [17] and provide more accurate estimation of signal coverage density using kernel density estimation and identifying spatiotemporal hotspots with time as an additional dimension.} In addition, we aim to validate our evaluation metrics with real-world data and consider other external factors (e.g., device malfunction, hardware failure, etc.). We also aim to improve our measurement of unusual gaps by incorporating more physics-based parameters (e.g., draft) and exploring more sophisticated models (e.g., kinetic prisms). Finally, we plan to study ways to identify anomalies that are based on deception, such as fake trajectories or gaps generated by users who manipulate their location devices.
+\\
+
+% \bibliographystyle{unsrt}
+% \bibliography{references}
+\end{document}
+
+% End of ltexpprt.tex
