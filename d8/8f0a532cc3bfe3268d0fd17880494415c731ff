@@ -1,0 +1,19 @@
+sessions/SESSION_2026-07-09_reviews_to_csur_plan.md
+  s_bf18bbc67718dc::t_166e65418188c8 37-39
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "d88f0a532cc3bfe3268d0fd17880494415c731ff",
+  "prompts": {},
+  "sessions": {
+    "s_bf18bbc67718dc": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "a9f52875-eaef-4d6d-9da3-22e5787685f7",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Arun Sharma <sharm485@umn.edu>"
+    }
+  }
+}
