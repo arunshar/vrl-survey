@@ -26,7 +26,15 @@ Arun clarified: the attached TIST zips (Abnormal Trajectory Gap Detection, Sharm
 
 R1 DONE: `revision/` workspace built from the ARR source; `preamble.tex` carries `\added{}` (red) / `\removed{}` (red strikethrough) behind an `\ifmarkup` toggle; `main.tex` = marked build with `[review]` line numbers, `main_clean.tex` = clean `[preprint]` build; new `new_section/limitations.tex` + `new_section/appendix_revision.tex` stubs; BOTH BUILDS COMPILE (main.pdf, main_clean.pdf). Committed (fa7bcfe).
 
-NEXT (R2, on Arun's go): write the reviewer-driven edits into the sections with \added/\removed per the approved content list in the plan file; then R3 (line-numbered marked PDF -> Responses table .docx/.md + Summary of Differences in the 2024 ltexpprt format), R4 (consistency red-team, budget-capped), R5 (upgrade docs/ARR_author_responses.md to already-implemented phrasing + emit VRL_ARR_Revision zip). Exemplar materials extracted at scratchpad tist/ (majrev manuscript = red-markup reference; summary/ltexpprt.tex = Summary of Differences template); copy ltexpprt.tex into revision/ before R3 (scratchpad is session-scoped).
+R2-R5 COMPLETE (2026-07-09 evening, commits 9ec747d..2abbdf8). The full revision package exists:
+- revision/main.pdf = marked manuscript ([review] build, line numbers, additions red, deletions red-strikethrough); revision/main_clean.pdf = clean build; body lands at ~9 content pages (the one extra page Kshitij said is available; Limitations/refs/appendix do not count).
+- 24 tracked changes (changes_lines.json) covering every reviewer point: fence + exclusions + boundary + modality scope + genealogy (Sec 1), assignment rule + hybrid Table 1 + MDP caveat + no-lifecycle reframe (Sec 2), reward-code and memory clarifications, search cell renamed Evaluator Feedback in Search, RLHF/DPO boundary + online/offline (Sec 5.4), new Sec 6.1 Algorithmic Interactions, eval quality-vs-utilization, research agenda, expanded Limitations, Appendix A comparison table (12 surveys) + Appendix B practitioner table; 11 new refs, all arXiv-verified.
+- revision/Responses_to_Reviewers.md + .docx (Google-Docs-ready): every comment incl. strengths, per-row "addressed as follows + page/lines" against the marked PDF; polite/accepting register.
+- revision/summary_of_differences.pdf (4pp, 2024 exemplar format, Previous/Updated blocks, red).
+- Consistency panel (3 agents) ran; ALL findings fixed (hybrid table is Table 1 not 2; Limitations range 830-843; ~10 range tightenings; dropped an unverifiable "recommended for Findings" attribution; tone softenings; bnae C3 row added; dead appendix.tex pillar numbering corrected).
+- docs/ARR_author_responses.md upgraded to already-implemented phrasing.
+- DELIVERABLE ZIP: ~/Downloads/VRL_ARR_Revision_2026-07-09.zip (also revision/): marked PDF, clean PDF, Summary of Differences PDF, Responses docx+md, full LaTeX source.
+Known leftovers for authors: figure re-export (Figure 4 caption still says "search-guided deliberation"; any "Grounded Signal" text inside PNGs), and final page-budget trimming is the co-authors' call.
 
 ## Open / next
 
