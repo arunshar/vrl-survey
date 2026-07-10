@@ -1,0 +1,172 @@
+\begin{figure*}[!t]
+\centering
+\begin{tikzpicture}[
+  >=Stealth,
+  llmfroz/.style={rectangle, rounded corners=2pt, draw=branch1!85, fill=branch1!10,
+    dashed, line width=0.6pt, minimum width=1.5cm, minimum height=0.65cm,
+    align=center, font=\scriptsize},
+  llmtrained/.style={rectangle, rounded corners=2pt, draw=branch5!90, fill=branch5!10,
+    line width=0.8pt, minimum width=1.5cm, minimum height=0.65cm,
+    align=center, font=\scriptsize},
+  llmcritic/.style={rectangle, rounded corners=2pt, draw=branch4!90, fill=branch4!10,
+    line width=0.8pt, minimum width=1.85cm, minimum height=0.75cm,
+    align=center, font=\scriptsize},
+  artif/.style={rectangle, rounded corners=1pt, draw=black!50, fill=black!4,
+    minimum width=1.1cm, minimum height=0.5cm, align=center, font=\scriptsize},
+  vartif/.style={rectangle, rounded corners=1pt, draw=branch1!60, fill=branch1!8,
+    minimum width=1.1cm, minimum height=0.5cm, align=center, font=\scriptsize\itshape},
+  vflow/.style={->, semithick, branch1, dashed},
+  flow/.style={->, semithick, black!70},
+  gflow/.style={->, line width=1.0pt, branch3!90},
+  ttl/.style={font=\bfseries\small, align=center},
+  note/.style={font=\scriptsize\itshape, text=black!55, align=center},
+  glbl/.style={font=\scriptsize, text=black!60}
+]
+
+\def\Bx{8.4}     % horizontal offset between panels
+\def\By{-4.7}    % vertical offset between panels
+
+%========== PANEL (a): Inference-Time VRL ==========
+\begin{scope}[shift={(0, 0)}]
+  \node[ttl] at (0, 1.55) {(a) Inference-Time VRL};
+  \node[llmfroz] (a_llm)  at (-1.8, 0) {Frozen\\LLM};
+  \node[artif]   (a_out)  at ( 1.5, 0.55) {output};
+  \node[vartif]  (a_crit) at ( 1.5,-0.55) {critique $\ell$};
+  \draw[flow]  (a_llm.east) -- ++(0.3,0) |- (a_out.west);
+  \draw[flow]  (a_out.south) -- (a_crit.north);
+  \draw[vflow] (a_crit.west) -- ++(-0.3,0) |- (a_llm.east);
+  \node[note] at (0, -1.6) {frozen weights;\\$\ell$ accumulates in context};
+\end{scope}
+
+%========== PANEL (b): Verbal RL on Prompts ==========
+\begin{scope}[shift={(\Bx, 0)}]
+  \node[ttl] at (0, 1.55) {(b) Verbal RL on Prompts};
+  \node[llmfroz] (b_opt) at (-2.0, 0) {Optimizer\\LLM};
+  \node[vartif, fill=branch1!18, line width=0.7pt] (b_p) at (0, 0) {prompt};
+  \node[llmfroz] (b_llm) at (2.0, 0.55) {Frozen\\LLM};
+  \node[artif]   (b_sc)  at (2.0,-0.55) {score};
+  \draw[flow] (b_opt.east) -- (b_p.west);
+  \draw[flow] (b_p.east) -- ++(0.25,0) |- (b_llm.west);
+  \draw[flow] (b_llm.south) -- (b_sc.north);
+  \draw[flow] (b_sc.south) -- ++(0,-0.35) -| (b_opt.south);
+  \node[note] at (0, -1.6) {prompt is the policy;\\outer-loop search};
+\end{scope}
+
+%========== PANEL (c): Training-Time VRL ==========
+\begin{scope}[shift={(0, \By)}]
+  \node[ttl] at (0, 1.55) {(c) Training-Time VRL};
+  \node[llmtrained] (c_llm)  at (-1.8, 0)     {LLM $\pi_\theta$};
+  \node[artif]      (c_out)  at ( 0.2, 0.55)  {output};
+  \node[vartif]     (c_crit) at ( 1.8, 0.55)  {critique $\ell$};
+  \node[artif, fill=branch5!8, draw=branch5!55] (c_data) at (0.5,-0.55) {train data};
+  \draw[flow]  (c_llm.east) -- ++(0.3,0) |- (c_out.west);
+  \draw[vflow] (c_out.east) -- (c_crit.west);
+  \draw[flow]  (c_crit.south) -- ++(0,-0.35) -| (c_data.east);
+  \draw[gflow] (c_data.west) -- ++(-0.5,0)
+    node[below, glbl, pos=0.5] {$\nabla_\theta J$} |- (c_llm.south);
+  \node[note] at (0, -1.65) {weights updated by\\critique-derived signal};
+\end{scope}
+
+%========== PANEL (d): Verbal Critics \& Verifiers ==========
+\begin{scope}[shift={(\Bx, \By)}]
+  \node[ttl] at (0, 1.55) {(d) Verbal Critics \& Verifiers};
+  \node[artif]     (d_in)   at (-2.0, 0)    {candidate};
+  \node[llmcritic] (d_crit) at ( 0,   0)    {Trained Critic\\\scriptsize ORM\,/\,PRM\,/\,gen.};
+  \node[vartif]    (d_v)    at ( 2.0, 0.55) {verdict /\\critique};
+  \node[artif]     (d_cons) at ( 2.0,-0.55) {(a), (b), (c)};
+  \draw[flow]  (d_in.east) -- (d_crit.west);
+  \draw[vflow] (d_crit.east) -- ++(0.25,0) |- (d_v.west);
+  \draw[vflow] (d_v.south) -- (d_cons.north);
+  \node[note] at (0, -1.6) {critic supplies verbal verdicts\\to downstream branches};
+\end{scope}
+
+% Light grid separators
+\draw[dashed, gray!35] (\Bx/2, 2.1) -- (\Bx/2, \By - 2.0);
+\draw[dashed, gray!35] (-3.0, \By/2 + 0.3) -- (\Bx + 3.0, \By/2 + 0.3);
+
+\end{tikzpicture}
+\caption{Branch archetypes of the VRL taxonomy.
+\textbf{(a)} Inference-time VRL: a frozen LLM (dashed blue) generates outputs and consumes verbal critiques $\ell$ from itself, an external tool, or another agent, accumulating them in context across iterations within a single episode.
+\textbf{(b)} Verbal RL on prompts: an optimizer LLM proposes candidate prompts that are evaluated by a separate frozen LLM, with scores driving an outer-loop search; the prompt itself is the optimization variable.
+\textbf{(c)} Training-time VRL: the LLM's weights are updated by gradients $\nabla_\theta J$ derived from critique-conditioned training data (SFT on critiques, preference optimization with verbal rationales, or RL with verbal-derived rewards).
+\textbf{(d)} Verbal critics and verifiers: a dedicated trained critic ingests candidate outputs and emits verbal verdicts and critiques that are consumed by the other three branches.
+Dashed blue borders mark frozen models; solid red borders mark parameter-updated models; the trained critic in (d) is drawn in purple. Dashed blue arrows mark verbal signals, solid black arrows mark generic flows, and the thick orange arrow in (c) is the gradient update. All four panels realize the language channel of Figure~\ref{fig:mdp-augmented} at a different locus, which is what the taxonomy classifies.}
+\label{fig:branch-archetypes}
+\end{figure*}
+
+
+\begin{figure*}[t]
+\centering
+\begin{tikzpicture}[
+  >=Stealth,
+  rlnode/.style={rectangle, rounded corners=2pt, draw=black!70, fill=orange!12,
+    minimum width=2.2cm, minimum height=1.0cm, align=center, font=\small},
+  vrlnode/.style={rectangle, rounded corners=2pt, draw=branch1!85, fill=branch1!10,
+    minimum width=2.2cm, minimum height=1.0cm, align=center, font=\small\itshape},
+  flowarrow/.style={->, semithick, black!75},
+  vrlflowarrow/.style={->, semithick, branch1!90},
+  subarrow/.style={->, thick, gray!65, dashed},
+  lbl/.style={font=\scriptsize, black!60},
+  rowlbl/.style={font=\bfseries\small, black!80}
+]
+\def\dx{2.95}
+
+% Top row: Classical RL
+\node[rowlbl, anchor=east] at (-0.4, 1.7) {Classical RL};
+\node[rlnode] (rl_p) at (0*\dx, 1.7) {Policy\\$\pi_\theta(a|s)$};
+\node[rlnode] (rl_r) at (1*\dx, 1.7) {Reward\\$r \in \mathbb{R}$};
+\node[rlnode] (rl_c) at (2*\dx, 1.7) {Critic\\$V(s)$};
+\node[rlnode] (rl_d) at (3*\dx, 1.7) {Replay\\$\mathcal{D}$};
+\node[rlnode] (rl_u) at (4*\dx, 1.7) {Update\\$\nabla_\theta J$};
+
+\draw[flowarrow] (rl_p) -- (rl_r);
+\draw[flowarrow] (rl_r) -- (rl_c);
+\draw[flowarrow] (rl_c) -- (rl_d);
+\draw[flowarrow] (rl_d) -- (rl_u);
+\draw[flowarrow] (rl_u.north) to[out=60, in=120, looseness=0.7] (rl_p.north);
+
+% Bottom row: VRL
+\node[rowlbl, anchor=east] at (-0.4, -1.7) {VRL};
+\node[vrlnode] (vrl_p) at (0*\dx, -1.7) {LLM\,$+$\,prompt\\or prompt itself};
+\node[vrlnode] (vrl_r) at (1*\dx, -1.7) {Verbal\\critique $\ell$};
+\node[vrlnode] (vrl_c) at (2*\dx, -1.7) {LLM-as-Judge\\PRM, gen.\ critic};
+\node[vrlnode] (vrl_d) at (3*\dx, -1.7) {NL memory\\cheatsheet};
+\node[vrlnode] (vrl_u) at (4*\dx, -1.7) {SFT on critique\\or prompt rewrite};
+
+\draw[vrlflowarrow] (vrl_p) -- (vrl_r);
+\draw[vrlflowarrow] (vrl_r) -- (vrl_c);
+\draw[vrlflowarrow] (vrl_c) -- (vrl_d);
+\draw[vrlflowarrow] (vrl_d) -- (vrl_u);
+\draw[vrlflowarrow] (vrl_u.south) to[out=-60, in=-120, looseness=0.7] (vrl_p.south);
+
+% Vertical substitution arrows
+\foreach \i in {0,1,2,3,4} {
+  \draw[subarrow] ({\i*\dx},1.2) -- ({\i*\dx},-1.2);
+}
+\node[lbl, anchor=west, rotate=90] at (-0.05*\dx, -0.05) {\itshape substitute};
+\end{tikzpicture}
+\caption{The substitution principle. Classical reinforcement learning (top, orange) and Verbal Reinforcement Learning (bottom, blue) implement structurally identical loops, but every scalar primitive of the classical pipeline --- policy, reward, critic, replay, update --- is substituted by a linguistic analogue. Methods surveyed in this paper differ in which rows they substitute and how the substitutions compose (Table~\ref{tab:substitutions}); the loop topology itself is shared across the literature. Reading vertically gives the substitution principle row by row; reading horizontally gives the two reinforcement learning paradigms loop by loop.}
+\label{fig:substitution-pipeline}
+\end{figure*}
+
+
+% ===== (b) Language-Augmented MDP =====
+\begin{scope}[xshift=9.4cm]
+  \node[hdr] at (2.1,2.0) {(b) Language-Augmented MDP};
+  \node[policy] (agentR) at (0,0)     {Agent\\$\pi(a \mid s, \ell)$};
+  \node[env]    (envR)   at (4.2,0)   {Environment\\+ Evaluator};
+  \node[channel] (chanR) at (2.1,-1.85) {Language channel $\mathcal{L}$};
+
+  \draw[scalararrow] (agentR.north east) to[bend left=22]
+    node[above, caplbl] {action $a_t$} (envR.north west);
+  \draw[scalararrow] (envR.south west) to[bend left=12]
+    node[above, caplbl, pos=0.6, yshift=-0.6mm] {$s_{t+1},\, r_t$}
+    (agentR.south east);
+
+  % Verbal feedback channel: env -> L -> agent
+  \draw[langarrow] (envR.south) to[bend left=20]
+    node[right, caplbl, pos=0.45, xshift=1.5mm, align=left]
+      {$\ell_t$:\\critique,\\rationale,\\reflection}
+    (chanR.east);
+  \draw[langarrow] (chanR.west) to[bend left=20] (agentR.south);
+\end{scope}

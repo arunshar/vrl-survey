@@ -1,0 +1,63 @@
+%% VRL survey, expanded version for ACM Computing Surveys.
+%% Submission format: acmart manuscript (single column, review-friendly).
+%% Switch to [acmsmall,screen] for the final version per ACM instructions.
+\documentclass[manuscript,screen,review]{acmart}
+
+\usepackage{tikz}
+\usepackage[edges]{forest}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{colortbl}
+\usepackage{adjustbox}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{pifont}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{xspace}
+\usetikzlibrary{trees,shapes,calc,arrows.meta,positioning}
+
+\newcommand{\verbalrl}{Verbal RL\xspace}
+\newcommand{\vrl}{VRL\xspace}
+
+%% Draft-phase margin notes; strip before submission.
+\newcommand{\todonote}[1]{\textcolor{red}{[TODO: #1]}}
+
+\citestyle{acmauthoryear}
+\setcopyright{none}
+
+\begin{document}
+
+\title{The Rise of Verbal Reinforcement Learning: A Survey}
+
+%% Authors withheld in working draft; fill at submission:
+%% Kshitij Tayal, Arun Sharma, Genta Indra Winata, Anirban Das, Sambit Sahu
+\author{Anonymous}
+\affiliation{\institution{Working draft}\city{}\country{}}
+
+\begin{abstract}
+\todonote{Rewritten abstract: signal-centric framing, definitional fence, four contributions.}
+\end{abstract}
+
+\maketitle
+
+\input{sections/s01_introduction}
+\input{sections/s02_formal_framework}
+\input{sections/s03_taxonomy}
+\input{sections/s04_pillar_grounding}
+\input{sections/s05_pillar_deliberative}
+\input{sections/s06_pillar_learning}
+\input{sections/s07_verbal_reward_stack}
+\input{sections/s08_credit_assignment}
+\input{sections/s09_language_space_optimizers}
+\input{sections/s10_embodied}
+\input{sections/s11_evaluation}
+\input{sections/s12_safety}
+\input{sections/s13_practitioner_guide_agenda}
+\input{sections/s14_conclusion}
+
+\bibliographystyle{ACM-Reference-Format}
+\bibliography{references}
+
+\end{document}

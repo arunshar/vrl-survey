@@ -1,0 +1,104 @@
+\section{Taxonomy}
+\label{sec:taxonomy}
+We organize VRL methods along a single axis: \emph{when} natural language enters the agent's lifecycle and, consequently, \emph{what} it modifies. This yields three pillars, summarized in Figure~\ref{fig:taxonomy} and synthesized in Table~\ref{tab:pillar-overview}.
+
+\begin{itemize}
+    \setlength\itemsep{0.25em}
+    \item \textbf{Pillar~1: Language as Grounding Signal} (\S\ref{sec:pillar1}) acts at \emph{problem-definition time}, specifying the MDP \citep{sutton1998reinforcement} itself: goals, states, actions, and rewards. A natural-language task description such as \textit{``You are in a room with two doors''} defines what the agent perceives, how it can act, and what counts as success, all before any policy runs.
+    \item \textbf{Pillar~2: Language as Deliberative Feedback} (\S\ref{sec:pillar2}) acts at \emph{inference time}, refining outputs or reasoning traces through critique, memory, debate, or search, without updating parameters. A message such as \textit{``Step~3 has an error; try dividing by~2, not~4''} redirects a single generation episode but leaves the model unchanged for future tasks.
+    \item \textbf{Pillar~3: Language as Learning Signal} (\S\ref{sec:pillar3}) acts at \emph{training time}, where verbal feedback is distilled into gradient updates that persistently reshape the policy. A judgment such as \textit{``Response~A is better than B because it addresses the edge case''} becomes a preference pair that alters model weights, affecting all subsequent interactions.
+\end{itemize}
+
+\noindent The key distinction is \emph{persistence}: grounding defines the task space, deliberative feedback improves a single episode, and learning signal permanently reshapes the policy. We discuss each pillar in consecutive sections. Methods spanning multiple pillars are categorized by their role in the primary function of verbal feedback.
+
+\begin{table}[ht]
+    \centering
+    \small
+    \renewcommand{\arraystretch}{1.2}
+    \caption{Overview of the three VRL pillars.}
+    \label{tab:pillar-overview}
+    \begin{tabularx}{\linewidth}{@{} l *{3}{>{\raggedright\arraybackslash}X} @{}}
+        \toprule
+        \textbf{Axis} & \textbf{Grounding Signal} & \textbf{Deliberative Feedback} & \textbf{Learning Signal} \\
+        \midrule
+        \textbf{When} & Problem-definition time & Inference time & Training time \\
+        \midrule
+        \textbf{Modifies} & Task, State, Action, Reward & Outputs or reasoning traces & Model weights, Training data \\
+        \midrule
+        \textbf{Persistence} & Defines the task & Single episode (extendable via memory) & All future interactions \\
+        \midrule
+        \textbf{Methods} & Environment specification & Prompting and critique & SFT, PPO, DPO \\
+        \midrule
+        \textbf{Challenges} & Grounding gap; Compositionality & Feedback Quality; Compute Cost & Signal Compression; Filter Quality \\
+        \bottomrule
+    \end{tabularx}
+\end{table}
+
+
+\paragraph{Working Example: the coding agent - }
+The three pillars are complementary, not competing; they operate together across a single development cycle. Consider an agent \citep{wang2025openhands} tasked with resolving a GitHub issue. \emph{Grounding} (Pillar~1) enters first: the natural-language issue description defines the goal, the repository structure specifies the state space, and the test suite implicitly encodes a reward function. At inference time, \emph{deliberative feedback} (Pillar~2) drives the iterative loop: the agent generates a patch, executes the tests, treats traces and error messages as verbal feedback, critiques its own output, and revises. When successful and failed trajectories are later collected and used to fine-tune the model via preference optimization, they become a \emph{learning signal} (Pillar~3) that persistently improves the policy for future tasks. The same agent thus drives reinforcement loop by consuming verbal feedback at three distinct timescales, each producing a different effect. This example demonstrates the rationale for organizing by temporal scope rather than by feedback source (human, model, tool) or modality (text, scalar, code). Identical verbal feedback can yield fundamentally different effects depending on when it is consumed, and each temporal regime introduces distinct technical challenges, which we will discuss in later sections. 
+ 
+ 
+% \paragraph{Why temporal scope?}
+% Alternative taxonomies could organize methods by feedback source (human, model, tool) or by modality (text, scalar, code). We adopt the temporal-scope view because it captures a distinction that matters in practice: the same piece of verbal feedback produces fundamentally different effects depending on \emph{when} it is consumed. Consider a single critique: \textit{``The gripper pressure is too high.''} Embedded in a task description, it constrains what the robot considers a valid grasp, grounding the problem. Surfaced at inference time as a verbal hint during planning, it helps the robot recover from a dropped cup, serving as deliberative feedback. Fed into a reward-code generator that trains the robot's policy, it permanently shapes what the robot considers a successful grasp, becoming a learning signal. One sentence, three effects, determined entirely by temporal scope. Crucially, each temporal regime poses distinct technical challenges: grounding methods must bridge the gap between language and executable MDP components, deliberative methods must ensure feedback quality without circularity, and learning methods must compress rich verbal signal into useful gradient updates. Organizing by temporal scope therefore helped us groups methods that share failure modes and solutions, which an organization by source or modality would scatter across categories.
+
+% Since some methods span multiple pillars, we assign them by the primary role of verbal feedback; the taxonomy is thus an organizing lens rather than a strict partition.
+ 
+
+%  \paragraph{Internal organization of each pillar.}
+% Each subsequent section follows a common structure. We first define the pillar's scope and relate it to the agent lifecycle. We then identify subcategories within the pillar, survey representative methods within each subcategory, and close by identifying the shared bottleneck that limits current approaches. Table~\ref{tab:pillar-overview} provides a comparative summary across all three pillars.
+
+
+
+
+%==========================================
+
+
+
+
+% To see where verbal feedback enters, consider the lifecycle of a learning agent: the agent observes its environment, deliberates over what to do, acts, receives a reward, and updates its policy. Each stage presents an opportunity for natural-language feedback to shape behavior. At the level of observation, the agent must perceive a complex, often partially observable environment; here, \textit{language serves as a grounding signal}, providing task descriptions, environment narrations, and state representations (e.g., ``You are in a room with two doors''). At the level of deliberation, the agent must reason over and evaluate candidate plans; here, \textit{language serves as deliberative feedback}, providing verbal critique or memory retrievals that augment reasoning without any parameter update (e.g., ``Step 3 has an error; try dividing by 2, not 4''). At the level of reward and learning, the agent must extract a training signal from experience; here, \textit{language serves as a learning signal}, providing preference annotations or refined outputs that are distilled into gradient updates (e.g., ``Response A is better than B because it addresses the edge case''). We organize our taxonomy around these three modes of intervention, distinguished by \emph{when} language acts and \emph{what} it modifies, as summarized in Table~\ref{tab:pillar-overview} and illustrated in Figure~\ref{fig:taxonomy}.
+
+% \begin{table}[ht]
+%     \centering
+%     \small
+%     \renewcommand{\arraystretch}{1.2}
+%     \caption{Summary comparison of the three \verbalrl{} pillars.}
+%     \label{tab:pillar-overview}
+%     \begin{tabularx}{\linewidth}{@{} l *{3}{>{\raggedright\arraybackslash}X} @{}}
+%         \toprule
+%         \textbf{Axis} & \textbf{Deliberative Feedback} & \textbf{Learning Signal} & \textbf{Grounding Signal} \\
+%         \midrule
+%         \textbf{When} & Inference time & Training time & Problem-definition time \\
+%         \midrule
+%         \textbf{Modifies} & Outputs or reasoning traces & Model weights, Training data & Task, State, Action, Reward \\
+%         \midrule
+%         \textbf{Methods} & Prompting and critique & SFT, PPO, DPO & Environment specification \\
+%         \midrule
+%         \textbf{Challenges} & Feedback Quality; Compute Cost & Signal Compression; Filter Quality & Grounding gap; Compositionality \\
+%         \bottomrule
+%     \end{tabularx}
+% \end{table}
+
+% \paragraph{Organizing principle:}
+% Our taxonomy is organized along the axis of \emph{temporal scope}: the point in an agent's lifecycle at which verbal feedback takes effect and the persistence of its influence. Deliberative feedback operates at inference time and does not modify the model's parameters; its effects are confined to the current generation context, though external mechanisms such as memory stores can extend its influence across episodes.
+% Learning signal operates at training time and produces persistent changes to the model's weights, shaping behavior across all future interactions. Grounding signal operates at problem-definition time and specifies the structure of the task itself, determining what the agent should optimize (goals), what it perceives (states), how it can act (actions), and what constitutes success (rewards). 
+
+% \paragraph{Why this decomposition:}
+% Alternative taxonomies could organize methods by feedback source (human, model, tool), by modality (text, scalar, code), or by application domain. We adopt the temporal-scope view because it captures a functionally meaningful distinction: the same piece of verbal feedback produces fundamentally different effects depending on \emph{when} it is consumed. The temporal lens thus clarifies the mechanism through which language influences the agent. We note that some methods span multiple pillars; in such cases, we assign based on the primary functional role of the verbal feedback. 
+% For example, Constitutional AI \citep{bai2022constitutional} uses self-critique at inference time (Pillar~1) to generate revised outputs that then become training data (Pillar~2); we discuss it under both pillars according to which role is foregrounded.
+
+
+
+
+% The three pillars differ fundamentally along the axis of \emph{temporal
+% scope}. Deliberative feedback is ephemeral: it improves the current output
+% without lasting effect on future model behavior. \das{this expects that there exists no external memory, but more importantly, can we not simply say that hey this pillar do not change the model weights but can potentially still have lasting behavioral changes?} Learning signal is
+% persistent: it shapes what the model ``knows'' and can do across all future
+% interactions. Grounding signal is constitutive: it defines the space in which
+% the agent operates, independent of which learning algorithm is used. \das{the last one is not clear, rephrase to tell the user what defining the space means. do we want to callout any reason why it is not a subset of the first pillar ? }
+
+% \das{oh sorry, I just realized the taxonomy section ended. We have not argued why we did taxonomy in this way, or why the temporal way is the way to go and what other alternatives (suboptimal perhaps) that could exist. considering the boundaries as we had discussed earlier are not strictly separable. somewhere a sentence like "some methods span different pillars; we assign based on the primary functional role" would help. Also also perhaps this is the ripe place to introduce a worked our example that spans all 3 pillars, take like a coding agent as an example and show how its output is influences by the pillars?}
+
+% % A Three-Pillar View of Language in the RL Loop"
+% To see where language feedback enters, consider the life-cycle of a learning agent: the agent observes its environment, deliberates over what to do, acts, receives a reward, and updates its policy. Each stage of this loop presents an opportunity for natural-language feedback to interject\das{interject? how will it interject?}. At the level of observation, the agent must perceive and make sense of a complex, often partially observable environment; here, \textit{language can serve as a grounding signal}, providing task descriptions and environment narrations. At the level of deliberation, the agent must reason and evaluate candidate plans; here, \textit{language can serve as deliberative feedback}, providing verbal critique, memory retrievals that augments the agent's reasoning, without requiring any parameter update. Finally, at the level of reward and learning, the agent must extract a training signal from its experience; here, \textit{language can serve as a learning signal}, providing preference annotations, or refined outputs that are then distilled into gradient updates. Building on these three modes of language intervention, we organize this survey around three pillars: language as deliberation, language as a learning signal \das{several comflations, training signal, grounding signal, learninng signals, also also what are the `levels` }, and language as a grounding signal. This survey makes three primary contributions:
+% \das{i also think some examples would be useful here for each three, at th every least add it in fiog 2 and talk about it etc.}

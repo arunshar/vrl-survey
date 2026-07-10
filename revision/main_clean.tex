@@ -1,0 +1,27 @@
+% CLEAN build: identical content with markup resolved (additions plain, deletions gone).
+\pdfoutput=1
+\documentclass[11pt]{article}
+\usepackage[preprint]{acl}
+\input{preamble}
+\markupfalse
+
+\begin{document}
+\maketitle
+
+\input{new_section/abstract}
+\input{new_section/introduction}
+\input{new_section/taxonomy}
+\input{new_section/pillar_1}
+\input{new_section/pillar_2}
+\input{new_section/pillar_3}
+\input{new_section/Discussion}
+\input{new_section/conclusion}
+\input{new_section/limitations}
+
+\bibliography{references}
+
+\newpage
+\appendix
+\input{new_section/appendix_revision}
+
+\end{document}

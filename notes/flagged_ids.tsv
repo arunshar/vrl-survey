@@ -1,0 +1,43 @@
+# arxiv_id <TAB> expected title (flagged as from-training-knowledge by research agents, 2026-07-09)
+2309.03409	Large Language Models as Optimizers
+2310.03714	DSPy: Compiling Declarative Language Model Calls into Self-Improving Pipelines
+2406.11695	Optimizing Instructions and Demonstrations for Multi-Stage Language Model Programs
+2406.16218	Trace is the Next AutoDiff: Generative Optimization with Rich Feedback, Execution Traces, and LLMs
+2309.16797	Promptbreeder: Self-Referential Self-Improvement Via Prompt Evolution
+2408.15240	Generative Verifiers: Reward Modeling as Next-Token Prediction
+2411.15124	Tulu 3: Pushing Frontiers in Open Language Model Post-Training
+2501.12948	DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning
+2505.02387	RM-R1: Reward Modeling as Reasoning
+2505.10320	J1: Incentivizing Thinking in LLM-as-a-Judge via Reinforcement Learning
+2504.16828	Process Reward Models That Think
+2507.18624	Checklists Are Better Than Reward Models For Aligning Language Models
+2501.07301	The Lessons of Developing Process Reward Models in Mathematical Reasoning
+2303.11366	Reflexion: Language Agents with Verbal Reinforcement Learning
+2305.16291	Voyager: An Open-Ended Embodied Agent with Large Language Models
+2308.10144	ExpeL: LLM Agents Are Experiential Learners
+2509.25140	ReasoningBank: Scaling Agent Self-Evolving with Reasoning Memory
+2504.07952	Dynamic Cheatsheet: Test-Time Learning with Adaptive Memory
+2504.19413	Mem0: Building Production-Ready AI Agents with Scalable Long-Term Memory
+2410.12784	JudgeBench: A Benchmark for Evaluating LLM-based Judges
+2406.13352	AgentDojo: A Dynamic Environment to Evaluate Attacks and Defenses for LLM Agents
+2506.11930	Feedback Friction: LLMs Struggle to Fully Incorporate External Feedback
+2312.06853	LLF-Bench: Benchmark for Interactive Learning from Language Feedback
+2402.10893	RLVF: Learning from Verbal Feedback without Overgeneralization
+2311.18232	LMRL Gym: Benchmarks for Multi-Turn Reinforcement Learning with Language Models
+2402.06782	Debating with More Persuasive LLMs Leads to More Truthful Answers
+2502.08788	If Multi-Agent Debate is the Answer, What is the Question?
+2502.18439	MAPoRL: Multi-Agent Post-Co-Training for Collaborative Large Language Models with Reinforcement Learning
+2412.01928	MALT: Improving Reasoning with Multi-Agent LLM Training
+2403.01823	RT-H: Action Hierarchies Using Language
+2410.00371	AHA: A Vision-Language-Model for Detecting and Reasoning Over Failures in Robotic Manipulation
+2309.11489	Text2Reward: Reward Shaping with Language Models for Reinforcement Learning
+2406.01967	DrEureka: Language Model Guided Sim-To-Real Transfer
+2406.01297	When Can LLMs Actually Correct Their Own Mistakes? A Critical Survey of Self-Correction of LLMs
+1906.03926	A Survey of Reinforcement Learning Informed by Natural Language
+2501.03124	PRMBench: A Fine-grained and Challenging Benchmark for Process-Level Reward Models
+2403.02691	InjecAgent: Benchmarking Indirect Prompt Injections in Tool-Integrated Large Language Model Agents
+2402.06627	Feedback Loops With Language Models Drive In-Context Reward Hacking
+2502.08177	SycEval: Evaluating LLM Sycophancy
+2505.13995	Social Sycophancy: A Broader Understanding of LLM Sycophancy
+2411.16594	From Generation to Judgment: Opportunities and Challenges of LLM-as-a-judge
+2308.03188	Automatically Correcting Large Language Models: Surveying the landscape of diverse self-correction strategies

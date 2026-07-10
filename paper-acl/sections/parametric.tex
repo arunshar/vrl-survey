@@ -1,0 +1,68 @@
+\section{Parametric}
+
+Unlike Non-parameteric based method discussed in section \ref{sec:non-parametric}, which keeps model weights fixed, in Parametric methods we update the policy parameters $\theta$ to internalize linguistic feedback.  Let $\pi_\theta(a \mid p, x)$ denote a language model policy. Given a verbal feedback signal $f \in \mathcal{F}$, such as a critique, preference explanation, or constitutional rule, the objective here is to optimize $\theta$ such that future generations better satisfy feedback-induced behavioral constraints. Models typically learn from tuples $(p, x, a, f, r)$, where $p$ is the prompt template, $x$ is the task input, $a \sim \pi_\theta$ is the generated response, and $r$ is an optional scalar reward. The general optimization objective is:
+\begin{equation}
+    \max_\theta \mathbb{E}_{a \sim \pi_\theta(\cdot \mid p, x)} \left[ R(p, x, a, f) \right]
+\end{equation}
+where the feedback $f$ informs the reward $R$ either implicitly through curated training targets or explicitly through conditioning.
+
+
+\subsection{Training-Time VRL}
+\label{sec:branchB}
+
+
+Training-time VRL serves as the parametric counterpart to inference-time methods; instead of holding verbal feedback in context, these methods propagate that feedback to the model’s weights via supervised fine-tuning (SFT), preference optimization, or reinforcement learning. Unlike early RLHF pipelines that discarded the nuance of verbal annotations by compressing them into scalars, the methods surveyed here treat natural language as a load-bearing signal. By training directly on critiques, rationales, or feedback-conditioned outputs, these models acquire complex skills—such as calibrated self-correction and principled reasoning—that cannot be reliably installed through prompting alone. The primary advantage of this approach is permanence: once a skill is integrated into the weights, it persists across deployments without the need for constant re-prompting. However, this comes at the cost of high gradient compute and the risk of catastrophic forgetting.
+
+\subsubsection{Iterative Self-Training (SFT-based)}
+
+These class of approach utilizes an offline refinement process to generate high-quality training data. An initial response $a^{(0)} \sim \pi_\theta(\cdot \mid p, x)$ is modified via a refinement function $\mathcal{R}$ using verbal feedback $f$ to produce a target response $a^\star = \mathcal{R}(p, x, a^{(0)}, f)$. The model parameters $\theta$ are then updated via maximum likelihood estimation:
+\begin{equation}
+    \max_\theta \mathbb{E}_{(p, x, a^\star)} \left[ \log \pi_\theta(a^\star \mid p, x) \right]
+\end{equation}
+This converts transient verbal feedback into explicit target demonstrations, forcing the model to internalize refined behaviors directly into its weights.
+
+The most straightforward form of parametric VRL discards policy-gradient methods in favor of training a model on its own refined outputs. \citet{zelikman2022star} introduced \textit{STaR}, a bootstrap loop where a model generates rationales for training examples and is fine-tuned only on those that lead to correct answers. This has been extended by Critique Fine-Tuning (CFT), which trains models on critiques of incorrect answers rather than just correct solutions, based on the theory that explaining errors leads to better generalization \citep{wang2025cft}. These methods essentially substitute hand-curated labels with generated verbal content. While computationally cheaper than human labeling, they risk amplifying the model's existing biases, making the quality of the internal or external critic a decisive factor for success \citep{kapusuzoglu2025cgd}.
+
+\subsubsection{Preference \& Alignment Optimization}
+Preference optimization methods, such as Direct Preference Optimization (DPO), learn from comparative judgments over candidate responses. Given a pair of responses $(a^+, a^-)$ for a context $(p, x)$, where $a^+$ is preferred over $a^-$, the policy is optimized to reshape the response distribution:
+\begin{equation}
+    \max_\theta \mathbb{E}_{(p, x, a^+, a^-)} \left[ \log \sigma \left( \beta \log \frac{\pi_\theta(a^+ \mid p, x)}{\pi_\theta(a^- \mid p, x)} \right) \right]
+\end{equation}
+where $\sigma(\cdot)$ is the sigmoid function and $\beta$ is a temperature parameter controlling the strength of the preference constraint. In this framework, verbal feedback is distilled into relative preference supervision.
+
+This subbranch evolves traditional RLHF by preserving the verbal content of preferences. \citet{bai2022constitutional} introduced \textit{Constitutional AI}, where a model evaluates and revises its responses based on a written set of natural-language principles. This effectively replaces human labelers with an LLM judging against a verbal rule-set. Similarly, self-rewarding language models allow a single model to generate responses and judge them simultaneously, creating preference pairs for DPO-style fine-tuning \citep{yuan2025selfrewarding}. In these cases, the verbal rationale is not just auxiliary data; it is the core of the optimization process. However, a major concern remains the coupling of the judge and the policy: if a model's self-evaluation is flawed, it may systematically reinforce its own errors.
+
+\subsubsection{Feedback-Conditional Modeling}
+
+Instead of implicitly updating the policy, feedback-conditional approaches explicitly condition the generation on verbal feedback at both training and inference time. The model learns a conditional policy:
+\begin{equation}
+    \pi_\theta(a \mid p, x, f)
+\end{equation}
+where $f$ can encode style constraints, critiques, or constitutional principles. Training is performed by maximizing:
+\begin{equation}
+    \max_\theta \mathbb{E}_{(p, x, f, a^\star)} \left[ \log \pi_\theta(a^\star \mid p, x, f) \right]
+\end{equation}
+This formulation makes feedback a functional part of the policy state, allowing for dynamic, controllable generation.
+
+Feedback-conditional methods occupy a unique space by training models to consume verbal feedback as a standard part of their input. Instead of using feedback to update weights offline, \citet{luo2025fcp} fine-tune models on triples of input, feedback, and output, allowing the trained policy to be steered post-hoc by a critique provided at inference time. This approach has been applied to tool-use and self-correction, enabling models to adjust their actions based on real-time execution feedback \citep{feng2025retool, kumar2025score}. By including verbal feedback as a first-class conditioning signal, these models are essentially "pre-trained" for inference-time VRL, creating a bridge between parametric and non-parametric approaches.
+
+%==============================================================================
+\subsection{Verbal Critics and Verifiers}
+\label{sec:branchD}
+%==============================================================================
+
+The final branch of the taxonomy surveys models trained explicitly to evaluate other models' outputs. We argue that verbal critics and verifiers warrant a separate branch --- rather than absorption into training-time VRL --- because they constitute the \emph{evaluative substrate} of the entire VRL ecosystem: every method surveyed in Sections~\ref{sec:branchA}, \ref{sec:branchC}, and \ref{sec:branchB} consumes a verbal evaluation signal at some step in its operation, and recent evidence suggests that the marginal returns to scaling generation capacity are increasingly bottlenecked on the quality of these critics. The methods in this branch are parametric in the sense that the critic itself is a trained model, but they need not perform any policy update; their function is to supply the verbal judgments that drive the other branches. We organize the subbranch by the granularity of the verdict supplied: outcome verifiers issue a single judgment on the final answer; process verifiers issue step-level verdicts over intermediate reasoning; and generative critics issue free-form natural-language critiques whose content, not merely whose score, is the load-bearing output.
+
+\subsubsection{Outcome Verifiers (ORM)}
+
+Outcome reward models provide a single verdict—typically a correctness probability or an accept/reject signal—on a final answer. \citet{chen2022codet} demonstrated this with \textit{CodeT}, which uses LLM-generated unit tests to rank candidate code solutions. Others have used learned verifiers to filter self-generated solutions before they are added to a training set \citep{hosseini2024vstar}. While outcome verifiers are simple and efficient, they are limited because they tell the model \textit{if} it was wrong, but not \textit{why}. This makes them a transitional technology between scalar-only RLVR and the richer feedback models discussed below.
+
+\subsubsection{Process-Based Verifiers (PRM)}
+
+Process-based verifiers improve upon outcome models by assigning verdicts to individual reasoning steps. \citet{wang2024mathshepherd} introduced \textit{Math-Shepherd}, which uses automated rollouts to generate step-level labels without the need for expensive human annotation. This has evolved into generative PRMs like \textit{GenPRM}, which provide both a step-level verdict and a justification for that verdict \citep{zhao2025genprm}. Empirical evidence consistently shows that step-level feedback is significantly more effective than outcome-level feedback for tasks involving long reasoning chains. The central challenge here is the circular dependency: the verifier is often trained on labels generated by another model, making it only as reliable as its training source.
+
+
+\subsubsection{Generative Feedback Models (Critics)}
+
+The most advanced verifiers move beyond scalar verdicts entirely, producing free-form natural-language critiques. Early work in this area showed that models could generate critiques that exposed errors they could not fix on their own \citep{saunders2022selfcritiquing}. Dedicated critic models, such as \textit{Shepherd} and \textit{CriticGPT}, are now trained specifically to provide structured feedback that improves human and model performance in complex domains like code review \citep{wang2023shepherd, mcaleese2024criticgpt}. These generative critics provide the most actionable information for a policy, but they are also the most difficult to evaluate. Identifying the ideal level of feedback granularity for different tasks remains one of the most pressing open problems in the field.
+

@@ -1,0 +1,64 @@
+% Shared preamble for the marked (main.tex) and clean (main_clean.tex) builds.
+\usepackage{times}
+\usepackage{latexsym}
+\usepackage{tikz}
+\usepackage{hyperref}
+\usepackage[edges]{forest}
+\usepackage{graphicx}
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+\algnewcommand{\LeftComment}[1]{\Statex{}$\triangleright$~#1}
+\usepackage{multicol}
+\usepackage{rotating}
+\usetikzlibrary{trees,shapes,calc,arrows.meta,positioning}
+\usepackage{makecell}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{colortbl}
+\usepackage{adjustbox}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{pifont}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{xspace}
+\usepackage[normalem]{ulem}
+
+\definecolor{branch1}{HTML}{2E86C1}
+\definecolor{branch2}{HTML}{27AE60}
+\definecolor{branch3}{HTML}{E67E22}
+\definecolor{branch4}{HTML}{8E44AD}
+\definecolor{branch5}{HTML}{C0392B}
+\definecolor{leafbg}{HTML}{F0F4F8}
+
+\setlength{\textfloatsep}{5pt}
+\setlength{\floatsep}{5pt}
+\setlength{\intextsep}{5pt}
+\setlength{\emergencystretch}{3em}
+\setcounter{dbltopnumber}{2}
+\renewcommand{\dbltopfraction}{0.95}
+\renewcommand{\dblfloatpagefraction}{0.9}
+\renewcommand{\textfraction}{0.05}
+\newcommand{\das}[1]{\textcolor{orange}{das: #1}}
+
+\raggedbottom%
+\hbadness=10000
+\vbadness=10000
+\newcommand{\verbalrl}{Verbal\ RL\xspace}
+
+% ---- Revision markup -------------------------------------------------------
+% \added{...}   : new or updated text (red in the marked build, plain in clean)
+% \removed{...} : deleted text (red strikethrough in marked, absent in clean)
+% The \ifmarkup switch is set in main.tex (true) / main_clean.tex (false).
+\newif\ifmarkup
+\newcommand{\added}[1]{\ifmarkup\textcolor{red}{#1}\else#1\fi}
+\newcommand{\removed}[1]{\ifmarkup\textcolor{red}{\sout{#1}}\fi}
+% ----------------------------------------------------------------------------
+
+\title{The Rise of Verbal Reinforcement Learning: A Survey}
+\author{Anonymous ACL Submission}

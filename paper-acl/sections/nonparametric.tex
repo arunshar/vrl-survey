@@ -1,0 +1,75 @@
+\section{Non Parametric}
+\label{sec:non-parametric}
+
+Although both critique-based refinement and prompt optimization operate with a fixed language model policy, they optimize fundamentally different objects and therefore constitute distinct problem settings. Let $\pi_\theta(a \mid p, x)$ denote a pretrained language model with fixed parameters $\theta$, where $p$ is the conditioning prompt or instruction, $x$ is the task-specific context, and $a$ is the generated response.
+\subsection{Inference-Time VRL}
+\label{sec:branchA}
+
+In self-refinement methods, the objective is to iteratively improve a \emph{specific generated trajectory} for a given input $x$ under a fixed prompt $p$. The process begins with an initial response:
+\begin{equation}
+    a^{(0)} \sim \pi_\theta(\cdot \mid p, x)
+\end{equation}
+This is followed by the generation of a natural-language critique $c^{(k)}$ and a subsequent refined response $a^{(k+1)}$:
+\begin{align}
+    c^{(k)} &\sim \pi_\theta(\cdot \mid p, x, a^{(k)}) \\
+    a^{(k+1)} &\sim \pi_\theta(\cdot \mid p, x, a^{(k)}, c^{(k)})
+\end{align}
+In this setting, optimization occurs over the response trajectory $\mathcal{T} = \{a^{(0)}, a^{(1)}, \dots, a^{(n)}\}$ within a single inference episode. The critique acts as a transient auxiliary state that guides the search toward higher-reward responses without modifying the underlying policy $\pi_\theta$ or the global prompt $p$.
+
+Inference-time VRL refers to methods where a frozen language model improves its performance within a single session without updating its underlying weights. This paradigm was popularized by \citet{shinn2023reflexion}, who proposed using natural language as a ``semantic gradient''—a high-density signal that replaces the traditional sparse scalar. In this branch, adaptation happens entirely within the context window; the policy remains unchanged, and learning is achieved by accumulating natural-language traces like critiques and reflections. This approach is particularly valuable for complex tasks like code synthesis or mathematical reasoning where fine-tuning is too expensive or impossible due to API restrictions. However, its main limitation is that the model's success depends entirely on its ability to accurately evaluate its own performance.
+
+\subsubsection{Self-Refinement Loops}
+
+The most basic form of inference-time VRL is the self-refinement loop, where a model generates an output, critiques it, and then produces a revised version. \citet{madaan2023selfrefine} formalized this as \textit{Self-Refine}, showing improvements across various generation tasks. Similar patterns have been applied to code debugging \citep{chen2023selfdebug} and refined response generation \citep{lee2025feedback}. The core characteristic of these methods is that they require no external signal; the same model acts as both the creator and the critic. While effective when a model has the latent knowledge to fix a draft, this method often struggles when the model's self-evaluation is as flawed as its initial output.
+
+\subsubsection{Externally Grounded}
+
+To address the limitations of self-critique, externally grounded methods replace self-generated feedback with signals from external verifiers like compilers, proof assistants, or executable tests. \citet{gou2024critic} introduced \textit{CRITIC}, which uses API and tool calls to provide the model with concrete error messages. This has been expanded to formal theorem proving \citep{first2023baldur} and constraint satisfaction \citep{ferraz2024decrim}. By grounding the critique outside the model, the quality of the feedback is no longer limited by the policy’s self-evaluation. While highly effective in technical domains like math and code, these methods are restricted to fields where automated verifiers already exist.
+
+\subsubsection{Multi-Agent Collaboration}
+
+Another way to improve critique quality is to use multiple agents to provide feedback, based on the idea that disagreement between models can lead to better reasoning. \citet{du2023debate} proposed multi-agent debate, where different LLM instances critique each other to reach a consensus, significantly reducing factual errors. Other frameworks like \textit{AutoGen} \citep{wu2023autogen} and \textit{MetaGPT} \citep{hong2024metagpt} use specialized roles—such as a coder and a reviewer—to structure this dialogue. The main challenge here is determining whether gains come from the collaborative process itself or simply from the increased computational effort spent on each query.
+
+\subsubsection{Stateful Memory}
+
+While the previous methods work within a single episode, stateful-memory methods allow VRL to persist across multiple sessions by maintaining a buffer of past reflections and insights. \citet{shinn2023reflexion} introduced this as \textit{episodic memory}, where agents read their past reflections before starting a new trial. This has been refined through dynamic cheatsheets \citep{suzgun2026dynamic} and flexible memory operations that allow agents to merge or delete old insights \citep{cai2025flex, wang2026memento2, zhao2024expel}. By replacing a scalar replay buffer with natural language, these models preserve the \textit{why} behind a success or failure, though they remain limited by the model's context window and retrieval accuracy.
+
+\subsubsection{Tree Search}
+
+Tree-search methods combine verbal critique with structured exploration. \citet{zhou2024lats} introduced \textit{Language Agent Tree Search} (LATS), which uses Monte Carlo tree search guided by self-reflective critiques. Each node in the search tree represents a reasoning state, and verbal critiques serve as the value function that decides which branches to prune or prioritize. This is a clear example of the substitution principle: replacing a learned value head with a verbal critic. While it significantly improves reasoning performance, it requires a large amount of inference-time compute. =={\color{red}\citet{yao2023tree}}==
+
+%==============================================================================
+\subsection{Verbal RL on Prompts (Prompts as Policy)}
+\label{sec:branchC}
+%==============================================================================
+
+In contrast to section \ref{sec:branchA}, prompt optimization seeks to optimize the conditioning prompt $p$ to improve the model's performance across an entire distribution of inputs $X$. Here, the response for any input $x$ is sampled as:
+\begin{equation}
+    a \sim \pi_\theta(\cdot \mid p, x)
+\end{equation}
+Prompt optimization aims to find an optimal prompt $p^\star$ within a candidate space $\mathcal{P}$:
+\begin{equation}
+    p^\star = \arg\max_{p \in \mathcal{P}} \mathbb{E}_{x \sim X} \left[ R(a) \mid a \sim \pi_\theta(\cdot \mid p, x) \right]
+\end{equation}
+where $R(a)$ is a task-specific reward function. Unlike self-refinement, which performs \emph{trajectory-level optimization} for a local input, prompt optimization performs \emph{conditioning-level optimization} to induce broad behavioral changes across all future generations.
+
+
+Verbal RL on prompts treats the natural-language prompt itself as the policy to be optimized. This category replaces manual prompt engineering with an automated process, as LLM performance is often highly sensitive to specific wording that is difficult for humans to predict \citep{zhou2023ape}. In these methods, an outer LLM acts as an optimizer, proposing and mutating prompt text to maximize performance. This makes discovered prompts highly portable and usable across different models without requiring weight access. However, optimizing discrete text is difficult, and the process can easily result in prompts that are overly long or irrelevant without proper constraints.
+
+\subsubsection{Textual Gradient}
+
+Textual-gradient methods treat prompt optimization like backpropagation, using natural-language critiques as "gradients." \citet{pryzant2023protegi} introduced \textit{ProTeGi}, which analyzes why a prompt failed on specific examples and suggests minor improvements. This was generalized by \textit{TextGrad} \citep{yuksekgonul2024textgrad}, which allows these linguistic gradients to flow through complex tool-use pipelines. Other work has combined this with optimized few-shot examples \citep{agarwal2024promptwizard}. These methods are fundamentally local; they make small, incremental changes to an existing prompt rather than proposing entirely new versions.
+
+\subsubsection{Evolutionary Search}
+
+Evolutionary methods take a broader approach by maintaining a population of different prompts and using an LLM to perform crossover and mutation. \citet{guo2024evoprompt} introduced \textit{EvoPrompt} to manage this process, while \textit{Promptbreeder} \citep{fernando2023promptbreeder} even evolves the mutation instructions themselves. These methods are better than gradient-style updates at escaping local optima because they explore a more diverse range of prompts. However, they can be computationally expensive and sometimes suffer from "mode collapse," where the population loses its diversity over time.
+
+\subsubsection{Multi-Stage Optimization}
+
+As AI systems become more complex, they often use pipelines of multiple LLM calls. \citet{opsahlong2024mipro} introduced \textit{MIPRO} to jointly optimize the instructions and demonstrations across every stage of such a system. Unlike single-prompt optimization, these methods must figure out which specific part of the pipeline is responsible for a final error—a credit-assignment problem similar to hierarchical reinforcement learning. As compound AI systems become more common, optimizing the entire pipeline as a single unit is becoming increasingly important.
+
+\subsubsection{Discrete Optimization}
+
+The final subbranch treats prompt optimization as a search over token space where the LLM serves as a black-box proposer. \citet{zhou2023ape} introduced \textit{Automatic Prompt Engineer} (APE) to generate and rank candidate instructions, while \citet{yang2024opro} developed \textit{OPRO}, which asks the LLM to propose new prompts based on the performance history of past attempts. These methods are structure-agnostic and can be applied to any task with a measurable score. While they are very general, they can be less efficient than gradient or evolutionary methods because they lack local search structure.
+
+

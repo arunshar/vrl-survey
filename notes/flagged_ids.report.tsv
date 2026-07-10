@@ -1,0 +1,43 @@
+key	status	detail	canonical_title
+2309.03409	OK	sim=1.00 api_title=Large Language Models as Optimizers	Large Language Models as Optimizers
+2310.03714	OK	sim=1.00 api_title=DSPy: Compiling Declarative Language Model Calls into Self-Improving Pipelines	DSPy: Compiling Declarative Language Model Calls into Self-Improving Pipelines
+2406.11695	OK	sim=1.00 api_title=Optimizing Instructions and Demonstrations for Multi-Stage Language Model Programs	Optimizing Instructions and Demonstrations for Multi-Stage Language Model Programs
+2406.16218	OK	sim=1.00 api_title=Trace is the Next AutoDiff: Generative Optimization with Rich Feedback, Execution Traces, and LLMs	Trace is the Next AutoDiff: Generative Optimization with Rich Feedback, Execution Traces, and LLMs
+2309.16797	OK	sim=1.00 api_title=Promptbreeder: Self-Referential Self-Improvement Via Prompt Evolution	Promptbreeder: Self-Referential Self-Improvement Via Prompt Evolution
+2408.15240	OK	sim=1.00 api_title=Generative Verifiers: Reward Modeling as Next-Token Prediction	Generative Verifiers: Reward Modeling as Next-Token Prediction
+2411.15124	OK	sim=1.00 api_title=Tulu 3: Pushing Frontiers in Open Language Model Post-Training	Tulu 3: Pushing Frontiers in Open Language Model Post-Training
+2501.12948	OK	sim=1.00 api_title=DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning	DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning
+2505.02387	OK	sim=1.00 api_title=RM-R1: Reward Modeling as Reasoning	RM-R1: Reward Modeling as Reasoning
+2505.10320	OK	sim=1.00 api_title=J1: Incentivizing Thinking in LLM-as-a-Judge via Reinforcement Learning	J1: Incentivizing Thinking in LLM-as-a-Judge via Reinforcement Learning
+2504.16828	OK	sim=1.00 api_title=Process Reward Models That Think	Process Reward Models That Think
+2507.18624	OK	sim=1.00 api_title=Checklists Are Better Than Reward Models For Aligning Language Models	Checklists Are Better Than Reward Models For Aligning Language Models
+2501.07301	OK	sim=1.00 api_title=The Lessons of Developing Process Reward Models in Mathematical Reasoning	The Lessons of Developing Process Reward Models in Mathematical Reasoning
+2303.11366	OK	sim=1.00 api_title=Reflexion: Language Agents with Verbal Reinforcement Learning	Reflexion: Language Agents with Verbal Reinforcement Learning
+2305.16291	OK	sim=1.00 api_title=Voyager: An Open-Ended Embodied Agent with Large Language Models	Voyager: An Open-Ended Embodied Agent with Large Language Models
+2308.10144	OK	sim=1.00 api_title=ExpeL: LLM Agents Are Experiential Learners	ExpeL: LLM Agents Are Experiential Learners
+2509.25140	OK	sim=1.00 api_title=ReasoningBank: Scaling Agent Self-Evolving with Reasoning Memory	ReasoningBank: Scaling Agent Self-Evolving with Reasoning Memory
+2504.07952	OK	sim=1.00 api_title=Dynamic Cheatsheet: Test-Time Learning with Adaptive Memory	Dynamic Cheatsheet: Test-Time Learning with Adaptive Memory
+2504.19413	OK	sim=1.00 api_title=Mem0: Building Production-Ready AI Agents with Scalable Long-Term Memory	Mem0: Building Production-Ready AI Agents with Scalable Long-Term Memory
+2410.12784	OK	sim=1.00 api_title=JudgeBench: A Benchmark for Evaluating LLM-based Judges	JudgeBench: A Benchmark for Evaluating LLM-based Judges
+2406.13352	OK	sim=0.90 api_title=AgentDojo: A Dynamic Environment to Evaluate Prompt Injection Attacks and Defenses for LLM Agents	AgentDojo: A Dynamic Environment to Evaluate Attacks and Defenses for LLM Agents
+2506.11930	OK	sim=1.00 api_title=Feedback Friction: LLMs Struggle to Fully Incorporate External Feedback	Feedback Friction: LLMs Struggle to Fully Incorporate External Feedback
+2312.06853	OK	sim=1.00 api_title=LLF-Bench: Benchmark for Interactive Learning from Language Feedback	LLF-Bench: Benchmark for Interactive Learning from Language Feedback
+2402.10893	OK	sim=1.00 api_title=RLVF: Learning from Verbal Feedback without Overgeneralization	RLVF: Learning from Verbal Feedback without Overgeneralization
+2311.18232	OK	sim=1.00 api_title=LMRL Gym: Benchmarks for Multi-Turn Reinforcement Learning with Language Models	LMRL Gym: Benchmarks for Multi-Turn Reinforcement Learning with Language Models
+2402.06782	OK	sim=1.00 api_title=Debating with More Persuasive LLMs Leads to More Truthful Answers	Debating with More Persuasive LLMs Leads to More Truthful Answers
+2502.08788	MISMATCH	sim=0.43 api_title=Stop Overvaluing Multi-Agent Debate -- We Must Rethink Evaluation and Embrace Model Heterogeneity	If Multi-Agent Debate is the Answer, What is the Question?
+2502.18439	OK	sim=1.00 api_title=MAPoRL: Multi-Agent Post-Co-Training for Collaborative Large Language Models with Reinforcement Learning	MAPoRL: Multi-Agent Post-Co-Training for Collaborative Large Language Models with Reinforcement Learning
+2412.01928	OK	sim=1.00 api_title=MALT: Improving Reasoning with Multi-Agent LLM Training	MALT: Improving Reasoning with Multi-Agent LLM Training
+2403.01823	OK	sim=1.00 api_title=RT-H: Action Hierarchies Using Language	RT-H: Action Hierarchies Using Language
+2410.00371	OK	sim=1.00 api_title=AHA: A Vision-Language-Model for Detecting and Reasoning Over Failures in Robotic Manipulation	AHA: A Vision-Language-Model for Detecting and Reasoning Over Failures in Robotic Manipulation
+2309.11489	OK	sim=1.00 api_title=Text2Reward: Reward Shaping with Language Models for Reinforcement Learning	Text2Reward: Reward Shaping with Language Models for Reinforcement Learning
+2406.01967	OK	sim=1.00 api_title=DrEureka: Language Model Guided Sim-To-Real Transfer	DrEureka: Language Model Guided Sim-To-Real Transfer
+2406.01297	OK	sim=1.00 api_title=When Can LLMs Actually Correct Their Own Mistakes? A Critical Survey of Self-Correction of LLMs	When Can LLMs Actually Correct Their Own Mistakes? A Critical Survey of Self-Correction of LLMs
+1906.03926	OK	sim=1.00 api_title=A Survey of Reinforcement Learning Informed by Natural Language	A Survey of Reinforcement Learning Informed by Natural Language
+2501.03124	OK	sim=1.00 api_title=PRMBench: A Fine-grained and Challenging Benchmark for Process-Level Reward Models	PRMBench: A Fine-grained and Challenging Benchmark for Process-Level Reward Models
+2403.02691	OK	sim=1.00 api_title=InjecAgent: Benchmarking Indirect Prompt Injections in Tool-Integrated Large Language Model Agents	InjecAgent: Benchmarking Indirect Prompt Injections in Tool-Integrated Large Language Model Agents
+2402.06627	OK	sim=1.00 api_title=Feedback Loops With Language Models Drive In-Context Reward Hacking	Feedback Loops With Language Models Drive In-Context Reward Hacking
+2502.08177	OK	sim=1.00 api_title=SycEval: Evaluating LLM Sycophancy	SycEval: Evaluating LLM Sycophancy
+2505.13995	MISMATCH	sim=0.41 api_title=ELEPHANT: Measuring and understanding social sycophancy in LLMs	Social Sycophancy: A Broader Understanding of LLM Sycophancy
+2411.16594	OK	sim=1.00 api_title=From Generation to Judgment: Opportunities and Challenges of LLM-as-a-judge	From Generation to Judgment: Opportunities and Challenges of LLM-as-a-judge
+2308.03188	OK	sim=1.00 api_title=Automatically Correcting Large Language Models: Surveying the landscape of diverse self-correction strategies	Automatically Correcting Large Language Models: Surveying the landscape of diverse self-correction strategies

@@ -1,0 +1,50 @@
+\section{Insights, Discussion and Future Prospects}
+\label{sec:discussion}
+In practice, the three pillars operate together, as the coding-agent example in \S\ref{sec:taxonomy} illustrates. Four cross-cutting challenges span them: feedback-model quality (\S\ref{sec:Feedback_models}), tool-interface design (\S\ref{sec:designing_tools}), adversarial robustness (\S\ref{sec:adversarial_verbal_feedback}), and the absence of formal guarantees (\S\ref{sec:theoritical_foundation}).
+
+
+% \das{overall the main shortcoming of this section is the extremely sparse number of papers considering this is the insights section, and even the ones that are there are oldish }
+
+% \das{we also claim earlier is that our contribution is to provide insights and design recommendations, but we are ONLY discussing insights, the section proposes NO recommendations or solutions or hypothesis or empirical recommendations}
+
+% \das{every of sub sections reads like the following: here is an important problem, here is a paper or couple papers, we agree solving the problem is a challenge.}
+
+% \das{do we want to say something like in production all three pillars are increasingly becoming useful together?}
+
+
+
+
+\subsection{Dedicated Feedback Models}
+\label{sec:Feedback_models}
+Verbal feedback quality remains the key performance factor, but current practice typically reuses the same LLM for both generation and critique. Dedicated critics consistently outperform this approach: Shepherd \citep{wang2023shepherd} provides more actionable feedback than untuned baselines, CriticGPT \citep{mcaleese2024criticgpt} detects code bugs more reliably, and CritiqueLLM \citep{ke2024critiquellm} scales critique data via multi-path prompting. Co-training critics with reasoners yields further improvements \citep{liu2026generativeadversarialreasonerenhancing}, while generative process reward models that reason before scoring preserve more verbal signal than scalar PRMs \citep{khalifa2025processrewardmodelsthink}. CriticBench \citep{lin2024criticbench} offers the first systematic benchmark for critique quality. These results indicate a natural next step: just as the field invested in instruction-tuned models \citep{ouyang2022training}, it should now develop feedback-tuned models whose objectives address error localization, actionability, and calibration. Recent advances in span-level feedback gradients \citep{wang2026text2gradreinforcementlearningnatural} and multi-turn didactic interactions \citep{klissarov2026improving} suggest such models can serve as differentiable training signals across each pillars.
+
+
+
+
+% \subsection{Verbal Feedback Structure}
+% The structure and specificity of verbal feedback matter more than its length. \citet{madaan2023selfrefine} found that effective refinement requires critique identifying specific failure points; \citet{thakkar2025can} confirmed this at scale in peer review. Span-level feedback alignment \citep{wang2025text2grad} achieves finer-grained updates than scalar RL, and free-form feedback can serve as a first-class conditioning signal without compression \citep{luo2025verbal}. Early work showed that retaining versus discarding critique text produces measurably different outcomes \citep{scheurer2023training}. Benchmarks such as FeedbackEval \citep{feedbackeval2025} and CriticBench \citep{lin2024criticbench} begin to standardize evaluation.
+ 
+% \textbf{Recommendation.} The field should develop a \emph{feedback specification schema}---structured fields such as \texttt{\{error\_type, location, severity, fix, confidence\}}---enabling systematic comparison of feedback quality independent of downstream task performance.
+ 
+
+
+\subsection{Designing Tools for Verbal Feedback}
+\label{sec:designing_tools}
+Developer-oriented tools often yield outputs that are terse or conflate error types. \citet{yang2024swe} demonstrated that LLM-optimized interfaces enhance agent performance, while \citet{bandlamudi2025framework} showed ambiguous outputs cause many agent failures across 750 API calls. Tool-interactive critiquing requires interpretable output \citep{gou2024critic}, and executable code actions benefit agents by providing structured feedback \citep{wang2024executable}. RL on execution feedback \citep{gehring2024rlef} presumes adequate tool-output signal, while agent harness frameworks \citep{ning2026code} set tool quality as the limit of iterative refinement. However, a metric to measure this limit is lacking: tool-output compliance should quantify agent consumability. Tool APIs must expose structured metadata distinguishing task-level errors from infrastructure failures to enable agents to apply suitable recovery strategies.
+
+
+
+
+
+\subsection{Adversarial Verbal Feedback}
+\label{sec:adversarial_verbal_feedback}
+Because VRL agents inherently act on feedback, adversarial feedback constitutes policy manipulation, introducing vulnerabilities beyond standard prompt injection. \citet{zhan2025adaptive} demonstrated that adaptive attacks circumvent all eight tested defenses, while tool-level injection attains a 96.7\% success rate on GPT-4o \citep{shi2025prompt}. Hidden instructions in API responses covertly manipulate agents \citep{zhan2024injecagent}, adversarial memory injection induces cross-session drift \citep{dong2026memory}, and even benign incorrect feedback leads to sycophancy \citep{sharma2024towards}. Defenses are developing: instruction hierarchies \citep{wallace2024instruction}, adversarial fine-tuning \citep{chen2025secaligndefendingpromptinjection}, and system-level design patterns \citep{beurer2025design} each mitigate narrow attack surfaces. Comprehensive solutions will require feedback-provenance mechanisms to verify source integrity and assign trust, as well as adversarial feedback benchmarks to evaluate robustness as the primary metric.
+ 
+% \das{we have to say how this is relevant, is it because something like verbal RL agents act on feedback by design, they're structurally more vulnerable than models that merely generate text becuas of things like prompt injection? }
+
+
+\subsection{Theoretical Foundations}
+\label{sec:theoritical_foundation}
+Verbal RL lacks formal guarantees; it remains unclear when verbal feedback enhances sample efficiency or policy quality. Three promising directions emerge. First, if verbal critics serve as noisy oracles with bounded error, PAC-learning frameworks \citep{strehl2009reinforcement} can bound VRL sample complexity, and critic benchmarks \citep{lin2024criticbench} allow empirical estimation of error rates. Second, modeling feedback as partial observation links VRL to POMDP instruction following \citep{luketina2019survey}, where belief-state planning yields convergence guarantees; \citet{mccallum2023feedback} implement this with feedback-conditioned decision transformers. Third, rate-distortion theory may quantify signal retention from critique to scalar, clarifying when preference shaping aligns with feedback-conditioned methods. Empirical studies support these directions: language models learn from verbal feedback without scalar rewards \citep{luo2025fcp}, text feedback broadens RL capabilities \citep{song2026expanding}, and recent surveys link RLHF to language-conditioned RL theory \citep{kaufmann2023survey}. Formalizing results in these areas would clarify when the cost of rich verbal feedback is warranted over scalar alternatives.
+
+% \das{this is handwavy for me, why is and how is PAC learning going to help? how is POMDP going to help, we just hypothesized that they will help, but what in the technique there is that will help ? should we talk about convergence in addition to learning dynamics and sample efficiency?}

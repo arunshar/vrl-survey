@@ -1,0 +1,27 @@
+\section{Discussion}
+\label{sec:discussion}
+
+The taxonomy presented in the preceding sections highlights a central shift in the field: natural-language feedback is no longer a peripheral technique but the primary optimization signal driving modern AI advancement. This synthesis examines the empirical patterns supporting this shift, the theoretical implications of the substitution principle, and the open problems currently facing the community.
+
+The most consistent finding in the VRL literature is that externally grounded feedback dominates intrinsic self-critique. Critique that relies on an external verifier—such as a compiler, a math oracle, or a proof assistant—consistently outperforms a model simply critiquing itself. Studies show that when a model acts as its own critic, it often inherits the same blind spots that caused the initial error; if a model misunderstands a math concept, it will likely misjudge its own incorrect solution to that problem \citep{gou2024critic, first2023baldur}. This suggests that the marginal returns of scaling self-correction without external grounding are limited, as self-generated critiques tend to correlate with self-generated errors.
+
+Furthermore, trained critics consistently outperform off-the-shelf ``LLM-as-Judge'' models. While it is common practice to use a frontier model as a generic judge, research indicates that critics fine-tuned specifically for evaluation—whether for code review or step-by-step math verification—provide much more reliable signals \citep{mcaleese2024criticgpt, zhao2025genprm}. This follows the substitution principle: specialized parameters shaped by an evaluation loss are more effective than using a general-purpose model for a task it was not specifically optimized to perform. This suggests that the field's current reliance on generic models for evaluation is likely a transitional phase that will be displaced by dedicated, task-specific critics.
+
+A third regularity concerns the cross-episode dimension: memory-augmented agents consistently beat stateless ones in multi-trial settings. By maintaining a natural-language episodic memory, agents can preserve the causal reasons why a past attempt failed, rather than just the outcome. This allows them to generalize lessons across different tasks in a form that the policy can directly condition on, whereas scalar replay buffers are forced to discard this content during summarization \citep{shinn2023reflexion, suzgun2026dynamic}. Consequently, benchmarks that do not allow for multiple trials may be understating the true utility of contemporary VRL methods.
+
+Any honest synthesis must also acknowledge that many VRL gains correlate with increased test-time compute. Methods like tree search or multi-agent debate naturally require more forward passes than a single prompt. While verbal feedback generally outperforms uniform random sampling at a fixed compute budget, it is essential for researchers to report compute-controlled baselines—such as ``best-of-$n$'' sampling—to ensure that gains are truly methodological and not just a result of spending more FLOPs \citep{snell2024scaling}. The current variance in this practice remains one of the largest sources of conflicting empirical claims in the field.
+
+When the substitution principle is applied, VRL is revealed not as an alternative to reinforcement learning, but as a re-implementation of the RL pipeline using linguistic primitives. While this substitution forfeits the traditional convergence guarantees of scalar math—textual gradients are not analytic gradients—it gains a major advantage in information density. Because a verbal critique explains the structure of an error, it is far more resistant to the reward-hacking pathologies that frequently plague scalar RL. The deepest unsolved theoretical challenge remains whether a new framework can provide the same rigorous guarantees for verbal feedback that contraction-based analysis provides for scalar rewards.
+
+For researchers and practitioners, the priority should shift from purely scaling policy models to investing in critic quality. We recommend that compute-controlled baselines be reported as standard practice and that researchers bridge the parametric/non-parametric divide by using feedback-conditional fine-tuning to make models more receptive to inference-time critiques. Furthermore, the community must address the critic bootstrapping problem: the circular dependency where verifiers are trained on labels produced by imperfect models. Solving these issues, alongside developing better evaluation protocols for free-form text, will determine whether VRL matures into a fully grounded theoretical framework.
+
+
+
+
+
+
+
+
+
+
+

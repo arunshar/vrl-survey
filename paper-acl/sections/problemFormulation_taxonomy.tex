@@ -1,0 +1,117 @@
+\section{Problem Formulation and Taxonomy}
+%==============================================================================
+\subsection{Problem Formulation}
+\label{sec:formulation}
+%==============================================================================
+
+We formalize Verbal RL as follows. Consider an agent operating in an environment modeled as a Markov Decision Process (MDP) $\mathcal{M} = (\mathcal{S}, \mathcal{A}, T, R, \gamma)$, where $\mathcal{S}$ is the state space, $\mathcal{A}$ the action space, $T$ the transition function, $R$ the reward function, and $\gamma$ the discount factor. In standard RL, the agent seeks a policy $\pi^* = \arg\max_\pi \mathbb{E}\left[\sum_{t=0}^{\infty} \gamma^t R(s_t, a_t)\right]$.
+
+Verbal RL extends this formulation by introducing a \textbf{language channel} $\mathcal{L}$ that mediates between the agent and the environment (or a human/LLM evaluator). Formally, we augment the MDP with:
+\begin{equation}
+\pi^*_{\text{VRL}} = \arg\max_\pi \mathbb{E}\left[\sum_{t=0}^{\infty} \gamma^t \mathcal{R}(s_t, a_t, \ell_t)\right]
+\end{equation}
+where $\ell_t \in \mathcal{L}$ is a linguistic signal (instruction, critique, or reflection) at time $t$, and $\mathcal{R}$ is a reward function that may incorporate both scalar and linguistic feedback. The language channel $\mathcal{L}$ can serve multiple roles: (i) conditioning the policy on instructions, (ii) providing feedback for reward shaping, (iii) enabling self-reflection for iterative improvement, or (iv) facilitating inter-agent communication.
+
+
+\subsection{Taxonomic Criterion}
+\label{sec:taxonomy-criterion}
+
+To organize the diverse landscape of VRL, we categorize the literature along two intersecting axes: whether model parameters are updated and where the verbal signal is integrated into the RL pipeline. As shown in Table~\ref{tab:substitutions}, this approach results in four distinct branches. The first axis distinguishes between non-parametric and parametric VRL. Non-parametric methods improve performance through contextual inputs—such as refined prompts, episodic memory, or reasoning loops—without modifying the base model's weights. In contrast, parametric VRL propagates verbal feedback directly to the weights by converting critiques into training data or using verbalized rewards to drive policy updates. This distinction is fundamental because it dictates the computational cost, the persistence of new skills, and whether the method can be used with closed-source models.
+
+
+Within these categories, we further divide the literature by identifying where language replaces scalar signals in the RL process. On the non-parametric side, we distinguish between inference-time VRL and verbal RL on prompts. Inference-time VRL replaces the reward and replay buffer for a frozen policy. Here, a model generates an output, receives a critique—from itself, a tool, or another agent—and uses that feedback to improve the next attempt within the same session \citep{shinn2023reflexion, suzgun2026dynamic, cai2025flex}. This differs from verbal RL on prompts, which treats the instruction itself as the optimizable policy. In this branch, a "meta-LLM" optimizes the prompt across many different episodes using techniques like textual gradients \citep{pryzant2023protegi, yuksekgonul2024textgrad} or evolutionary search \citep{guo2024evoprompt, agrawal2026gepa}. While both are non-parametric, they operate on different timescales: one adapts within a single conversation, while the other searches for a high-performing instruction to be used globally.
+
+On the parametric side, we separate training-time VRL from verbal critics and verifiers. Training-time VRL focuses on the update rule, using critiques or preferences as direct training targets for supervised fine-tuning or preference optimization \citep{luo2025fcp, yuan2025selfrewarding, wang2025cft}. This branch answers the question of how to conduct weight updates using rich linguistic feedback. However, these training methods rely on an underlying evaluative substrate, which we categorize as the fourth branch: verbal critics and verifiers. This group includes outcome reward models \citep{hosseini2024vstar}, process reward models \citep{zhao2025genprm}, and generative critics \citep{mcaleese2024criticgpt}. These models are not policies themselves; instead, they generate the natural-language judgments that the other three branches consume to function.
+
+Finally, our taxonomy is designed to focus strictly on methods where natural language is the primary optimization signal. Consequently, we exclude standard RLHF or RLVR where verbal feedback is reduced to a number before it reaches the optimizer. We also exclude standard supervised fine-tuning that lacks a feedback loop, as well as basic chain-of-thought prompting that does not involve a reinforcement signal. By treating critics as a co-equal branch, we highlight an emerging theme in the field: the quality of the critic, rather than the capacity of the policy, is increasingly becoming the bottleneck for performance in modern AI systems.
+
+
+
+
+
+
+
+
+
+%--- TAXONOMY FIGURE ---
+\newcommand{\taxocites}[1]{{\fontsize{3.8}{4.0}\selectfont #1}}
+\newcommand{\taxoleaf}[2]{#1\\\taxocites{#2}}
+\begin{figure*}[!t]
+\centering
+\resizebox{0.98\textwidth}{!}{
+\begin{tikzpicture}[
+  grow=right,
+  edge from parent/.style={draw, semithick},
+  edge from parent path={(\tikzparentnode.east) -- +(4mm,0) |- ([xshift=-1.0mm]\tikzchildnode.west)},
+  parent anchor=east,
+  child anchor=west,
+  every node/.style={font=\fontsize{5.5}{6.0}\selectfont, align=left, inner sep=1.0pt},
+  root/.style={rectangle, rounded corners=2pt, draw=black!80, fill=black!8, font=\fontsize{5.5}{6.0}\selectfont, minimum width=1.50cm, minimum height=0.34cm, text centered},
+  branch/.style={rectangle, rounded corners=2pt, draw=#1!80, fill=#1!12, font=\fontsize{5.3}{5.8}\selectfont, minimum width=1.60cm, minimum height=0.32cm, inner xsep=2.0pt, text centered},
+  leaf/.style={rectangle, rounded corners=2pt, draw=gray!60, fill=leafbg, font=\fontsize{4.6}{5.2}\selectfont, minimum width=1.72cm, minimum height=0.24cm, inner xsep=2.3pt, inner ysep=1.3pt, text width=2.95cm},
+  level 1/.style={sibling distance=6.10cm, level distance=2.25cm},
+  level 2/.style={sibling distance=3.05cm, level distance=2.55cm},
+  level 3/.style={sibling distance=0.72cm, level distance=3.25cm},
+]
+
+
+\node[root] {Verbal RL}
+  child {node[branch=branch5] {Parametric}
+    child {node[branch=branch2] {Training-\\Time RL}
+      child {node[leaf] {\taxoleaf{Iterative Self-Training\\(SFT-based)}{\citeauthor{wang2025cft}; \citeauthor{kapusuzoglu2025cgd}; \citeauthor{zelikman2022star}}}}
+      child {node[leaf] {\taxoleaf{Preference \& Alignment\\Optimization}{\citeauthor{bai2022constitutional}; \citeauthor{yuan2025selfrewarding}}}}
+      child {node[leaf] {\taxoleaf{Feedback-Conditional\\Modeling}{\citeauthor{luo2025fcp}; \citeauthor{feng2025retool}; \citeauthor{kumar2025score}}}}
+    }
+    child {node[branch=branch4] {Critics \&\\Verifiers}
+      child {node[leaf] {\taxoleaf{Outcome Verifiers\\(ORM)}{\citeauthor{chen2022codet}; \citeauthor{hosseini2024vstar}}}}
+      child {node[leaf] {\taxoleaf{Process-Based\\Verifiers (PRM)}{\citeauthor{zhao2025genprm}; \citeauthor{wang2024mathshepherd}}}}
+      child {node[leaf] {\taxoleaf{Generative Feedback\\Models (Critics)}{\citeauthor{saunders2022selfcritiquing}; \citeauthor{wang2023shepherd}; \citeauthor{mcaleese2024criticgpt}}}}
+    }
+  }
+  child {node[branch=branch1] {Non-\\Parametric}
+    child {node[branch=branch3] {Verbal RL\\on Prompts}
+      child {node[leaf] {\taxoleaf{Textual\\Gradient}{\citeauthor{pryzant2023protegi}; \citeauthor{yuksekgonul2024textgrad}; \citeauthor{agarwal2024promptwizard}}}}
+      child {node[leaf] {\taxoleaf{Evolutionary\\Search}{\citeauthor{guo2024evoprompt}; \citeauthor{fernando2023promptbreeder}; \citeauthor{agrawal2026gepa}}}}
+      child {node[leaf] {\taxoleaf{Multi-Stage\\Optimization}{\citeauthor{opsahlong2024mipro}}}}
+      child {node[leaf] {\taxoleaf{Discrete\\Optimization}{\citeauthor{zhou2023ape}; \citeauthor{yang2024opro}; \citeauthor{borges2024felt}}}}
+    }
+    child {node[branch=branch1] {Inference-\\Time RL}
+      child {node[leaf] {\taxoleaf{Self-Refinement\\Loops}{\citeauthor{madaan2023selfrefine}; \citeauthor{chen2023selfdebug}; \citeauthor{lee2025feedback}}}}
+      child {node[leaf] {\taxoleaf{Externally\\Grounded}{\citeauthor{gou2024critic}; \citeauthor{ferraz2024decrim}; \citeauthor{first2023baldur}}}}
+      child {node[leaf] {\taxoleaf{Multi-Agent\\Collaboration}{\citeauthor{du2023debate}; \citeauthor{wu2023autogen}; \citeauthor{hong2024metagpt}}}}
+      child {node[leaf] {\taxoleaf{Stateful\\Memory}{\citeauthor{shinn2023reflexion}; \citeauthor{suzgun2026dynamic}; \citeauthor{cai2025flex}; \citeauthor{wang2026memento2}}}}
+      child {node[leaf] {\taxoleaf{Tree\\Search}{\citeauthor{zhou2024lats}}}}
+    }
+  };
+\end{tikzpicture}
+}
+\caption{Taxonomy of Verbal Reinforcement Learning divided into parametric and non-parametric methods.}
+\label{fig:taxonomy}
+\end{figure*}
+
+
+
+
+\begin{table*}[t]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.15}
+\caption{Substitutions performed in the surveyed literature. Methods are characterized by which rows they substitute and how the substitutions compose.}
+\label{tab:substitutions}
+\begin{adjustbox}{max width=\textwidth}
+\begin{tabular}{p{2.0cm}p{6.6cm}p{7.2cm}}
+\toprule
+\textbf{Classical RL} & \textbf{Verbal RL realization} & \textbf{Representative papers} \\
+\midrule
+Policy & Frozen LLM with prompt; LLM with episodic memory; fine-tuned LLM; the prompt itself & \citealp{madaan2023selfrefine,yuksekgonul2024textgrad,huang2022selfimprove,zelikman2022star} \\
+Reward & Verbal critique; LLM-judged score; tool-grounded verdict; pairwise verbal preference & \citealp{luo2025fcp,lee2025feedback,akyurek2023rl4f,yuan2025selfrewarding} \\
+Critic or Value & LLM-as-Judge; generative verifier with chain-of-thought; process reward model; debate panel & \citealp{hosseini2024vstar,chan2023chateval,zhang2025genrm,zhao2025genprm} \\
+Replay & Episodic NL memory; experience pool; cheatsheet; structured insight library & \citealp{suzgun2026dynamic,cai2025flex,wang2026memento2,zhao2024expel} \\
+Update & Prompt rewrite; in-context append; SFT on critique data; RL with verbal reward & \citealp{bai2022constitutional,wang2025cft,pryzant2023protegi,feng2025retool} \\
+Exploration & Self-reflection-driven retry; population-based prompt mutation; tree search with verbal evaluation & \citealp{shinn2023reflexion,zhou2024lats,fernando2023promptbreeder} \\
+Reward design & LLM-generated reward function in code; LLM-elicited preferences over events & \citealp{ma2024eureka,xie2024text2reward,klissarov2023motif} \\
+\bottomrule
+\end{tabular}
+\end{adjustbox}
+\end{table*}

@@ -1,0 +1,137 @@
+% This must be in the first 5 lines to tell arXiv to use pdfLaTeX, which is strongly recommended.
+\pdfoutput=1
+
+\documentclass[11pt]{article}
+
+% Change "review" to "final" to generate the final (camera-ready) version.
+% Change to "preprint" to generate a non-anonymous version with page numbers.
+\usepackage[preprint]{acl}
+
+% Standard package includes
+\usepackage{times}
+\usepackage{latexsym}
+\usepackage{tikz}
+\usepackage{hyperref}
+\usepackage[edges]{forest}
+\usepackage{graphicx}
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+\algnewcommand{\LeftComment}[1]{\Statex{}$\triangleright$~#1}
+\usepackage{multicol}
+\usepackage{rotating}
+\usetikzlibrary{trees,shapes,calc,arrows.meta,positioning}
+\usepackage{makecell}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{microtype}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{colortbl}
+\usepackage{adjustbox}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{pifont}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{multirow}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{xspace}
+\definecolor{branch1}{HTML}{2E86C1}
+\definecolor{branch2}{HTML}{27AE60}
+\definecolor{branch3}{HTML}{E67E22}
+\definecolor{branch4}{HTML}{8E44AD}
+\definecolor{branch5}{HTML}{C0392B}
+\definecolor{leafbg}{HTML}{F0F4F8}
+
+\setlength{\textfloatsep}{5pt}
+\setlength{\floatsep}{5pt}
+\setlength{\intextsep}{5pt}
+\setlength{\emergencystretch}{3em}
+\setcounter{dbltopnumber}{2}
+\renewcommand{\dbltopfraction}{0.95}
+\renewcommand{\dblfloatpagefraction}{0.9}
+\renewcommand{\textfraction}{0.05}
+\newcommand{\das}[1]{\textcolor{orange}{das: #1}}
+
+\raggedbottom%
+\hbadness=10000
+\vbadness=10000
+\newcommand{\verbalrl}{Verbal\ RL\xspace}
+% \title{The Rise of Verbal Reinforcement Learning}
+% \title{Learning with Language Feedback: A Survey of \\Verbal Reinforcement Learning}
+\title{The Rise of Verbal Reinforcement Learning: A Survey}
+
+% Verbal Reinforcement Learning: Bridging Language and Reward Learning — A Survey 
+% Verbal Reinforcement Learning: From Language Feedback to Learning Systems — A Survey 
+% Learning with Language Feedback: A Survey of Verbal Reinforcement Learning
+
+\author{Anonymous ACL Submission}
+
+\begin{document}
+\maketitle
+
+
+
+\input{new_section/abstract}
+% \begin{abstract}
+% In this survey, we synthesize the rapidly growing literature on
+% Verbal Reinforcement Learning (VRL), in which natural-language
+% feedback, rather than scalar rewards, drives policy improvement
+% in language agents.
+% % Reinforcement learning has long relied on scalar rewards, which are simple numerical signals that tell whether an agent's behavior is desirable.
+% Natural language provides a richer form of feedback, capable of expressing
+% intent, preferences, explanations, domain knowledge, and causal structure in a
+% form interpretable by both humans and modern language models.
+% % This survey defines the term \emph{Verbal Reinforcement Learning} to describe the broad and rapidly expanding family of methods that deploy language as a functional component of the RL loop. 
+% Just as unsupervised and self-supervised learning unlocked the power of unlabeled data, verbal feedback is now emerging as a primary driver of progress for language-model-based agents. \das{I dont think the previous sentence adds any value.}
+% We organize this landscape
+% into three categories based on the \emph{role} language plays:
+% (1) \textbf{Language as Deliberative Feedback}, where natural language guides
+% test-time reasoning and iterative refinement without weight updates;
+% (2) \textbf{Language as Learning Signal}, where language feedback shapes model
+% parameters through training and
+% (3) \textbf{Language as Grounding Signal}, where language defines the RL
+% problem itself by specifying goals, states, and reward
+% specifications. For each category, we survey representative work, identify key subcategories,
+% and examine common themes \das{are we examining or proposing, if we are not proposing themes then this is just a summary}, limitations, and points of overlap. We then discuss
+% emerging applications and open challenges in this growing field. By centering
+% the role of verbal feedback \das{what does this mean? centering the role around what}, this survey offers a unified roadmap \das{do we propose this roadmap somewhere?  } for building
+% more capable, adaptable, and aligned agents \ddas{we are using these adjectives very loosely here}.
+
+
+% \end{abstract}
+%==============================================================================
+\input{new_section/introduction}
+\input{new_section/taxonomy}
+\input{new_section/pillar_1}
+\input{new_section/pillar_2}
+\input{new_section/pillar_3}
+\input{new_section/Discussion}
+% \input{new_section/application}
+\input{new_section/conclusion}
+
+\newpage
+\section*{Limitations}
+We aim to provide broad coverage of methods that use verbal feedback within the agent's lifecycle. Within each category, we focus on representative papers rather than attempting an exhaustive enumeration. Additionally, while our taxonomy offers a unifying framework, it may oversimplify methods that span multiple roles of language. Several approaches do not fit neatly into a single branch, since verbal feedback can simultaneously serve as a grounding signal, a deliberative mechanism, and a learning signal. Our taxonomy should therefore be understood as an organizing lens rather than a strict partition of the literature. Finally, our survey focuses primarily on methods in which verbal feedback is explicit and central to the agent’s process, and therefore does not fully cover adjacent work where language plays a more auxiliary role. AI writing tools were used for language editing and proofreading only; all research contributions are the authors' own.
+
+
+%==============================================================================
+% REFERENCES
+%==============================================================================
+\bibliography{references}
+
+%==============================================================================
+% APPENDIX
+%==============================================================================
+\newpage
+\appendix
+% \input{new_section/appendix}
+
+\end{document}
