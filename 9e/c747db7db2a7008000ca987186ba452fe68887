@@ -1,0 +1,44 @@
+revision/new_section/pillar_3.tex
+  s_05314c96764758::t_557b3f25453c66 53
+revision/new_section/pillar_1.tex
+  s_05314c96764758::t_b976f0ae24aa69 35
+revision/new_section/pillar_2.tex
+  s_05314c96764758::t_11bd4adb5157f2 44,46
+  s_05314c96764758::t_4c59cb22f8449b 38
+revision/new_section/appendix_revision.tex
+  s_05314c96764758::t_ce5f82e3351bc4 1-2,5-35,39-60
+revision/new_section/taxonomy.tex
+  s_05314c96764758::t_8342dd12d45f7f 58
+  s_05314c96764758::t_1054c621955993 12-31
+revision/new_section/abstract.tex
+  s_05314c96764758::t_3970c1aa3f8c28 2
+revision/new_section/Discussion.tex
+  s_05314c96764758::t_c0a5e1a8673d7a 23
+  s_05314c96764758::t_3c6e8b099eaaa7 3-7
+  s_05314c96764758::t_77153ed18a7422 52
+revision/new_section/introduction.tex
+  s_05314c96764758::t_5f5c8039146ff0 37
+  s_05314c96764758::t_b2c931ee114dd7 30
+  s_05314c96764758::t_1450880030cdb0 2
+  s_05314c96764758::t_fde5992c3392ab 41,43-44
+revision/new_section/limitations.tex
+  s_05314c96764758::t_250dafa1019207 2
+revision/references.bib
+  s_05314c96764758::t_32f8ea9c5c2951 1886-1957
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "9ec747db7db2a7008000ca987186ba452fe68887",
+  "prompts": {},
+  "sessions": {
+    "s_05314c96764758": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "ca200c03-1512-4621-9edd-de529b95311e",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Arun Sharma <sharm485@umn.edu>"
+    }
+  }
+}
