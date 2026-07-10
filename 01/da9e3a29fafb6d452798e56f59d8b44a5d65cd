@@ -1,0 +1,29 @@
+revision/preamble.tex
+  s_bf18bbc67718dc::t_e576e12f307ddd 53,55-58,62
+revision/new_section/pillar_2.tex
+  s_bf18bbc67718dc::t_9dd650317d84b3 7
+revision/Responses_to_Reviewers.md
+  s_bf18bbc67718dc::t_223b1010f318c6 5,14-15,17,24-26,28-30,32,39-42,44-46,53-56,59-60
+revision/changes_lines.json
+  s_bf18bbc67718dc::t_87401e8ca7709d 15-16,23-24,31-32,39-40,47-48,55-56,63-64,71-72,78-80,87-88,93,103-104,111-112,119-120,127-128,135-136,143-144,151-152,159-160,167-168,175-176,182
+revision/span_anchors.json
+  s_bf18bbc67718dc::t_b302b23a1c40f2 1-162
+revision/summary_of_differences.tex
+  s_bf18bbc67718dc::t_b477027f5a3406 16,24,30,36,42,48,54,60,66,70,72,78,82
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "01da9e3a29fafb6d452798e56f59d8b44a5d65cd",
+  "prompts": {},
+  "sessions": {
+    "s_bf18bbc67718dc": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "a9f52875-eaef-4d6d-9da3-22e5787685f7",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Arun Sharma <sharm485@umn.edu>"
+    }
+  }
+}
