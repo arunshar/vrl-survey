@@ -9,7 +9,26 @@ We organize VRL methods along a single axis: \emph{when} natural language enters
     \item \textbf{Pillar~3: Language as Learning Signal} (\S\ref{sec:pillar3}) acts at \emph{training time}, where verbal feedback is distilled into gradient updates that persistently reshape the policy. A judgment such as \textit{``Response~A is better than B because it addresses the edge case''} becomes a preference pair that alters model weights, affecting all subsequent interactions.
 \end{itemize}
 
-\noindent The key distinction is \emph{persistence}: grounding defines the task space, deliberative feedback improves a single episode, and learning signal permanently reshapes the policy. We discuss each pillar in consecutive sections. Methods spanning multiple pillars are categorized by their role in the primary function of verbal feedback.
+\noindent The key distinction is \emph{persistence}: grounding defines the task space, deliberative feedback improves a single episode, and learning signal permanently reshapes the policy. We discuss each pillar in consecutive sections. \removed{Methods spanning multiple pillars are categorized by their role in the primary function of verbal feedback.}\added{For methods whose signals span pillars, we use an explicit assignment rule: \emph{a method is placed by what its linguistic signal modifies at the moment the signal takes effect}. Table~\ref{tab:hybrid} applies this rule to the recurring hybrid cases and records their secondary roles instead of forcing each method into a single cell. Throughout, MDP vocabulary serves as an organizing lens rather than a claim that every method admits an MDP formulation; many language-agent settings are partially observable, non-Markovian, or lack explicit transition and reward functions, and we note where the formalism stops applying.}
+
+\begin{table}[ht]
+    \centering
+    \small
+    \renewcommand{\arraystretch}{1.15}
+    \caption{\added{Assignment rule applied to hybrid cases: placement follows what the signal modifies at the moment it takes effect; secondary roles are tagged, not suppressed.}}
+    \label{tab:hybrid}
+    {\ifmarkup\color{red}\fi
+    \begin{tabularx}{\linewidth}{@{} >{\raggedright\arraybackslash}p{0.26\linewidth} c >{\raggedright\arraybackslash}X @{}}
+        \toprule
+        \textbf{Hybrid case} & \textbf{Primary} & \textbf{Secondary role} \\
+        \midrule
+        Reward-code generation \citep{ma2024eureka} & P1 & Constructed reward later trains a policy (P3) \\
+        Experiential memory \citep{shinn2023reflexion} & P2 & Lessons persist across episodes, bordering long-term adaptation \\
+        Constitutional AI \citep{bai2022constitutional} & P3 & Self-critique generates the revisions at inference (P2) \\
+        Feedback-conditioned fine-tuning \citep{luo2025fcp} & P3 & Critique text retained verbatim in the training context \\
+        \bottomrule
+    \end{tabularx}}
+\end{table}
 
 \begin{table}[ht]
     \centering
@@ -36,7 +55,7 @@ We organize VRL methods along a single axis: \emph{when} natural language enters
 
 
 \paragraph{Working Example: the coding agent - }
-The three pillars are complementary, not competing; they operate together across a single development cycle. Consider an agent \citep{wang2025openhands} tasked with resolving a GitHub issue. \emph{Grounding} (Pillar~1) enters first: the natural-language issue description defines the goal, the repository structure specifies the state space, and the test suite implicitly encodes a reward function. At inference time, \emph{deliberative feedback} (Pillar~2) drives the iterative loop: the agent generates a patch, executes the tests, treats traces and error messages as verbal feedback, critiques its own output, and revises. When successful and failed trajectories are later collected and used to fine-tune the model via preference optimization, they become a \emph{learning signal} (Pillar~3) that persistently improves the policy for future tasks. The same agent thus drives reinforcement loop by consuming verbal feedback at three distinct timescales, each producing a different effect. This example demonstrates the rationale for organizing by temporal scope rather than by feedback source (human, model, tool) or modality (text, scalar, code). Identical verbal feedback can yield fundamentally different effects depending on when it is consumed, and each temporal regime introduces distinct technical challenges, which we will discuss in later sections. 
+The three pillars are complementary, not competing\removed{; they operate together across a single development cycle}\added{. We emphasize that the pillars classify individual signals, not stages of a pipeline: no method is claimed to traverse a grounding-deliberation-learning cycle, and the example below shows a system in which signals of all three kinds coexist}. Consider an agent \citep{wang2025openhands} tasked with resolving a GitHub issue. \emph{Grounding} (Pillar~1) enters first: the natural-language issue description defines the goal, the repository structure specifies the state space, and the test suite implicitly encodes a reward function. At inference time, \emph{deliberative feedback} (Pillar~2) drives the iterative loop: the agent generates a patch, executes the tests, treats traces and error messages as verbal feedback, critiques its own output, and revises. When successful and failed trajectories are later collected and used to fine-tune the model via preference optimization, they become a \emph{learning signal} (Pillar~3) that persistently improves the policy for future tasks. The same agent thus \removed{drives reinforcement loop by consuming}\added{consumes} verbal feedback at three distinct timescales, each producing a different effect. This example demonstrates the rationale for organizing by temporal scope rather than by feedback source (human, model, tool) or modality (text, scalar, code). Identical verbal feedback can yield fundamentally different effects depending on when it is consumed, and each temporal regime introduces distinct technical challenges, which we will discuss in later sections. 
  
  
 % \paragraph{Why temporal scope?}

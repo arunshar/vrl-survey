@@ -1,10 +1,60 @@
-% New appendix added in this revision (all content enters via \added{} in R2):
-% A. Comparison with prior surveys (table) + positioning paragraph.
-% B. Practitioner guidance table (language as reward vs state vs action vs deliberation).
+% Both appendix sections are new in this revision; their content renders red in the
+% marked build via the \ifmarkup color group below.
 \section{Comparison with Prior Surveys}
 \label{app:surveys}
-\added{Placeholder: comparison table lands in R2.}
+{\ifmarkup\color{red}\fi
+This survey is, to our knowledge, the first organized around the verbal signal itself: which component of the decision problem a linguistic artifact modifies and when it takes effect. Prior overviews organize by mechanism (how a method works) or by agent capability (what a system does). Table~\ref{tab:surveys} makes the positioning explicit. Relative to each row, our contribution is the signal-centric axis, the inclusion criteria of Section~\ref{sec:intro}, the hybrid-case decision rules of Table~\ref{tab:hybrid}, and the practitioner guidance of Appendix~\ref{app:guide}.
+
+\begin{table}[ht]
+    \centering
+    \footnotesize
+    \renewcommand{\arraystretch}{1.15}
+    \caption{Positioning against prior surveys and frameworks. Axis: the work's primary organizing principle. Feedback: signal types covered (S = scalar, P = preference, V = verbal). Stages: agent-lifecycle stages covered (D = problem definition, I = inference, T = training). Guide: whether prescriptive practitioner guidance is offered.}
+    \label{tab:surveys}
+    \begin{tabularx}{\linewidth}{@{} >{\raggedright\arraybackslash}p{0.34\linewidth} >{\raggedright\arraybackslash}X c c c @{}}
+        \toprule
+        \textbf{Survey / framework} & \textbf{Axis} & \textbf{Feedback} & \textbf{Stages} & \textbf{Guide} \\
+        \midrule
+        \citet{luketina2019survey} & Language-conditional vs.\ language-assisted RL & S & D, T & \ding{55} \\
+        \citet{pan2023automatically} & When correction happens & V & I, T & \ding{55} \\
+        \citet{kamoi2024can} & When self-correction works & V & I & \ding{55} \\
+        \citet{fernandes2023bridging} & Feedback format and usage for generation & S, P, V & T & \ding{55} \\
+        \citet{kaufmann2023survey} & RLHF pipeline & S, P & T & \ding{55} \\
+        \citet{xiao2024comprehensive} & Preference-optimization variants & P & T & \ding{55} \\
+        \citet{zhang2025survey} & Agent memory mechanisms & V & I & \ding{55} \\
+        \citet{zhang2025testtime} & Test-time scaling (what/how/where) & S, V & I & \ding{55} \\
+        \citet{gao2025selfevolving} & What/when/how agents evolve & S, V & I, T & \ding{55} \\
+        \citet{fang2025selfevolving} & Agent-system optimizers & S, V & I, T & \ding{55} \\
+        \citet{zhang2025agenticrl} & RL for agent capabilities & S & T & \ding{55} \\
+        \citet{feng2024natural} & RL components in language space (framework) & V & I, T & \ding{55} \\
+        \midrule
+        This survey & The verbal signal: what it modifies, when it acts & V (S, P as boundary) & D, I, T & \ding{51} \\
+        \bottomrule
+    \end{tabularx}
+\end{table}
+}
 
 \section{Choosing a Verbal-Feedback Mechanism}
 \label{app:guide}
-\added{Placeholder: practitioner guidance table lands in R2.}
+{\ifmarkup\color{red}\fi
+Table~\ref{tab:guide} distills the survey into prescriptive guidance. Each row states when a mechanism is the right choice, keyed to properties a practitioner can assess before building: whether task outcomes are verifiable, whether model weights are accessible, the latency and cost budget for feedback, and the dominant risk to monitor. Representative methods are drawn from the corresponding sections.
+
+\begin{table}[ht]
+    \centering
+    \footnotesize
+    \renewcommand{\arraystretch}{1.2}
+    \caption{Practitioner guidance: when to use language in each role.}
+    \label{tab:guide}
+    \begin{tabularx}{\linewidth}{@{} >{\raggedright\arraybackslash}p{0.17\linewidth} >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}p{0.21\linewidth} >{\raggedright\arraybackslash}p{0.20\linewidth} @{}}
+        \toprule
+        \textbf{Use language as} & \textbf{When} & \textbf{Dominant risk} & \textbf{Representative} \\
+        \midrule
+        Reward (compile to code or rubric) & Success is expressible as checks; simulator or executor available; training budget exists & Objective mis-specification; reward hacking & Eureka \citep{ma2024eureka}; Text2Reward \citep{xie2024text2reward} \\
+        State / task grounding & Raw observations too complex or task underspecified; language abstracts them faithfully & Information loss; state aliasing & ALFWorld \citep{shridhar2020alfworld}; SayCan \citep{ahn2022can} \\
+        Deliberative feedback & No weight access; latency budget allows iteration; a grounded critic (tool, tests) exists & Circular self-critique; inference cost & Self-Refine \citep{madaan2023selfrefine}; CRITIC \citep{gou2024critic}; ToT \citep{yao2023tree} \\
+        Memory & Tasks recur across episodes; lessons are reusable & Error persistence; memory poisoning & Reflexion \citep{shinn2023reflexion}; ExpeL \citep{zhao2024expel}; Voyager \citep{wang2023voyager} \\
+        Training signal & Persistent improvement needed; feedback plentiful; weights accessible & Sycophancy to wrong critiques; filter bias & FCP \citep{luo2025fcp}; STaR \citep{zelikman2022star}; PRMs \citep{lightman2024let} \\
+        \bottomrule
+    \end{tabularx}
+\end{table}
+}
