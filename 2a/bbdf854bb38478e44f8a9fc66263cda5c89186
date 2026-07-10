@@ -1,0 +1,35 @@
+docs/ARR_author_responses.md
+  s_05314c96764758::t_be52f05f95bee0 32
+  s_05314c96764758::t_00d141e9420bf3 40,42,44,46
+  s_05314c96764758::t_43fd76f16ce1d1 5
+  s_05314c96764758::t_854dd575a7dfdc 22
+  s_05314c96764758::t_4cb9fe57cdec8e 16,18,20
+  s_05314c96764758::t_1de3067508d4d8 56,58,60,62,64,66,68
+  s_05314c96764758::t_bab7b0ca063868 34,36,38
+  s_05314c96764758::t_bbc4eb05e9ebf0 78,80,82,84,86,88
+  s_05314c96764758::t_67ceab8498cb81 14
+revision/Responses_to_Reviewers.md
+  s_05314c96764758::t_f4b83b0ee4c256 13-17,23-24,26,28,30,32,39-40,45-46,54-56,58,60
+revision/changes_lines.json
+  s_05314c96764758::t_9966f7fd020920 7-8,15-16,23-24,31-32,39-40,55-56,87-88,93,95-96,103-104,119-120,167-168,175-176
+revision/new_section/appendix.tex
+  s_05314c96764758::t_1e957b4d93bda8 8,12,16,26,34,38,42,46
+revision/summary_of_differences.tex
+  s_05314c96764758::t_0640f7b182d4b5 18,24,34,36,40,46,48,52,60,72
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "2abbdf854bb38478e44f8a9fc66263cda5c89186",
+  "prompts": {},
+  "sessions": {
+    "s_05314c96764758": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "ca200c03-1512-4621-9edd-de529b95311e",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Arun Sharma <sharm485@umn.edu>"
+    }
+  }
+}
