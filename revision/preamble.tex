@@ -27,8 +27,6 @@
 \usepackage{tabularx}
 \usepackage{longtable}
 \usepackage{xspace}
-\usepackage[normalem]{ulem}
-\usepackage{soul}
 
 \definecolor{branch1}{HTML}{2E86C1}
 \definecolor{branch2}{HTML}{27AE60}
@@ -52,13 +50,16 @@
 \vbadness=10000
 \newcommand{\verbalrl}{Verbal\ RL\xspace}
 
-% ---- Revision markup -------------------------------------------------------
+% ---- Revision markup (direct-replacement policy) ---------------------------
 % \added{...}   : new or updated text (red in the marked build, plain in clean)
-% \removed{...} : deleted text (red strikethrough in marked, absent in clean)
+% \removed{...} : replaced text; renders in NEITHER build. Changes are shown by
+%                 direct replacement: the superseded text is dropped and the
+%                 replacement appears in red via \added. The source keeps the
+%                 old text inside \removed{} for provenance.
 % The \ifmarkup switch is set in main.tex (true) / main_clean.tex (false).
 \newif\ifmarkup
 \newcommand{\added}[1]{\ifmarkup\textcolor{red}{#1}\else#1\fi}
-\newcommand{\removed}[1]{\ifmarkup\textcolor{red}{\st{#1}}\fi}
+\newcommand{\removed}[1]{}
 % ----------------------------------------------------------------------------
 
 \title{The Rise of Verbal Reinforcement Learning: A Survey}

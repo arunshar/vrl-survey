@@ -1,0 +1,162 @@
+{
+ "abstract": [
+  null,
+  null,
+  null
+ ],
+ "criteria_start": [
+  2,
+  70,
+  74
+ ],
+ "exclusions_start": [
+  2,
+  79,
+  84
+ ],
+ "exclusions_end": [
+  2,
+  86,
+  91
+ ],
+ "boundary": [
+  2,
+  87,
+  92
+ ],
+ "modality": [
+  2,
+  92,
+  97
+ ],
+ "genealogy": [
+  2,
+  99,
+  104
+ ],
+ "surveys_start": [
+  3,
+  142,
+  146
+ ],
+ "surveys_end": [
+  3,
+  155,
+  157
+ ],
+ "bullet1": [
+  3,
+  164,
+  168
+ ],
+ "bullet_rules": [
+  null,
+  null,
+  null
+ ],
+ "bullet_guide": [
+  null,
+  null,
+  null
+ ],
+ "rule": [
+  3,
+  228,
+  233
+ ],
+ "mdp_caveat_start": [
+  3,
+  235,
+  237
+ ],
+ "mdp_caveat_end": [
+  4,
+  241,
+  241
+ ],
+ "pipeline_start": [
+  4,
+  242,
+  287
+ ],
+ "pipeline_end": [
+  null,
+  null,
+  null
+ ],
+ "rewardcode": [
+  5,
+  368,
+  370
+ ],
+ "memory": [
+  7,
+  467,
+  472
+ ],
+ "search_start": [
+  7,
+  488,
+  541
+ ],
+ "search_end": [
+  7,
+  489,
+  543
+ ],
+ "onoff": [
+  8,
+  561,
+  616
+ ],
+ "prefbound_start": [
+  8,
+  617,
+  622
+ ],
+ "prefbound_end": [
+  8,
+  623,
+  627
+ ],
+ "s61_start": [
+  8,
+  630,
+  634
+ ],
+ "s61_end": [
+  null,
+  null,
+  null
+ ],
+ "eval_start": [
+  9,
+  674,
+  679
+ ],
+ "eval_end": [
+  null,
+  null,
+  null
+ ],
+ "agenda_start": [
+  10,
+  758,
+  763
+ ],
+ "agenda_end": [
+  10,
+  769,
+  773
+ ],
+ "lim_start": [
+  10,
+  813,
+  818
+ ],
+ "lim_end": [
+  10,
+  826,
+  831
+ ]
+}
