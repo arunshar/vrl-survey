@@ -5,13 +5,13 @@
 {\ifmarkup\color{red}\fi
 This survey is, to our knowledge, the first organized around the verbal signal itself: which component of the decision problem a linguistic artifact modifies and when it takes effect. Prior overviews organize by mechanism (how a method works) or by agent capability (what a system does). Table~\ref{tab:surveys} makes the positioning explicit. Relative to each row, our contribution is the signal-centric axis, the inclusion criteria of Section~\ref{sec:intro}, the hybrid-case decision rules of Table~\ref{tab:hybrid}, and the practitioner guidance of Appendix~\ref{app:guide}.
 
-\begin{table}[ht]
+\begin{table*}[t]
     \centering
     \footnotesize
     \renewcommand{\arraystretch}{1.15}
     \caption{Positioning against prior surveys and frameworks. Axis: the work's primary organizing principle. Feedback: signal types covered (S = scalar, P = preference, V = verbal). Stages: agent-lifecycle stages covered (D = problem definition, I = inference, T = training). Guide: whether prescriptive practitioner guidance is offered.}
     \label{tab:surveys}
-    \begin{tabularx}{\linewidth}{@{} >{\raggedright\arraybackslash}p{0.34\linewidth} >{\raggedright\arraybackslash}X c c c @{}}
+    \begin{tabularx}{\textwidth}{@{} >{\raggedright\arraybackslash}p{0.28\textwidth} >{\raggedright\arraybackslash}X c c c @{}}
         \toprule
         \textbf{Survey / framework} & \textbf{Axis} & \textbf{Feedback} & \textbf{Stages} & \textbf{Guide} \\
         \midrule
@@ -31,7 +31,7 @@ This survey is, to our knowledge, the first organized around the verbal signal i
         This survey & The verbal signal: what it modifies, when it acts & V (S, P as boundary) & D, I, T & \ding{51} \\
         \bottomrule
     \end{tabularx}
-\end{table}
+\end{table*}
 }
 
 \section{Choosing a Verbal-Feedback Mechanism}
@@ -39,13 +39,13 @@ This survey is, to our knowledge, the first organized around the verbal signal i
 {\ifmarkup\color{red}\fi
 Table~\ref{tab:guide} distills the survey into prescriptive guidance. Each row states when a mechanism is the right choice, keyed to properties a practitioner can assess before building: whether task outcomes are verifiable, whether model weights are accessible, the latency and cost budget for feedback, and the dominant risk to monitor. Representative methods are drawn from the corresponding sections.
 
-\begin{table}[ht]
+\begin{table*}[t]
     \centering
     \footnotesize
     \renewcommand{\arraystretch}{1.2}
     \caption{Practitioner guidance: when to use language in each role.}
     \label{tab:guide}
-    \begin{tabularx}{\linewidth}{@{} >{\raggedright\arraybackslash}p{0.17\linewidth} >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}p{0.21\linewidth} >{\raggedright\arraybackslash}p{0.20\linewidth} @{}}
+    \begin{tabularx}{\textwidth}{@{} >{\raggedright\arraybackslash}p{0.18\textwidth} >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}p{0.22\textwidth} >{\raggedright\arraybackslash}p{0.24\textwidth} @{}}
         \toprule
         \textbf{Use language as} & \textbf{When} & \textbf{Dominant risk} & \textbf{Representative} \\
         \midrule
@@ -56,5 +56,5 @@ Table~\ref{tab:guide} distills the survey into prescriptive guidance. Each row s
         Training signal & Persistent improvement needed; feedback plentiful; weights accessible & Sycophancy to wrong critiques; filter bias & FCP \citep{luo2025fcp}; STaR \citep{zelikman2022star}; PRMs \citep{lightman2024let} \\
         \bottomrule
     \end{tabularx}
-\end{table}
+\end{table*}
 }

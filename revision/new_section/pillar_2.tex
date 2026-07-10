@@ -3,7 +3,7 @@
 
 \begin{figure}[!t]
      \centering    
-    \includegraphics[width=1.05\linewidth]{paper_images/Figure-3-new.png}
+    \includegraphics[width=\linewidth]{paper_images/Figure-3-new.png}
     \caption{\footnotesize Inference-time verbal feedback mechanisms. Each subcategory exhibits a distinct feedback loop structure: (a) self-critique loops within a single model, (b) externally grounded critique incorporates verified tool or environment output, (c) multi-agent debate distributes critique across parallel model instances and converges to a refined output, (d) experiential memory persists lessons across episodes, and (e) search-guided deliberation explores and prunes multiple candidate paths.}
     \label{fig:inference_time}
 \end{figure}
@@ -11,7 +11,6 @@
 With the task grounded, we turn to methods that refine reasoning within a single episode without updating model parameters, closely aligning with test-time compute scaling \citep{snell2024scaling}. As illustrated in Figure~\ref{fig:inference_time}, five subcategories differ in where critique originates: the model itself (\S\ref{sec:self-refine}), external tools (\S\ref{sec:external-critique}), peer models (\S\ref{sec:multi-agent-critique}), past episodes (\S\ref{sec:experiential Memory}), or parallel search paths (\S\ref{sec:search-guided}).
 
 % This pillar covers methods where verbal feedback improves reasoning during inference without updating model parameters, closely aligning with the idea of test-time compute scaling \citep{snell2024scaling}. As illustrated in Figure~\ref{fig:inference_time}, the five subcategories differ in where critique originates and how it feeds back: from the model itself (self-critique- \S\ref{sec:self-refine}), from external tools (grounded critique- \S\ref{sec:external-critique}), from peer models (debate- \S\ref{sec:multi-agent-critique}), from past episodes (memory- \S\ref{sec:experiential Memory}), or from parallel search paths (search guided deliberation - \S\ref{sec:search-guided}).
-
 
 \subsection{Self-Critique}%
 \label{sec:self-refine}

@@ -28,6 +28,7 @@
 \usepackage{longtable}
 \usepackage{xspace}
 \usepackage[normalem]{ulem}
+\usepackage{soul}
 
 \definecolor{branch1}{HTML}{2E86C1}
 \definecolor{branch2}{HTML}{27AE60}
@@ -57,7 +58,7 @@
 % The \ifmarkup switch is set in main.tex (true) / main_clean.tex (false).
 \newif\ifmarkup
 \newcommand{\added}[1]{\ifmarkup\textcolor{red}{#1}\else#1\fi}
-\newcommand{\removed}[1]{\ifmarkup\textcolor{red}{\sout{#1}}\fi}
+\newcommand{\removed}[1]{\ifmarkup\textcolor{red}{\st{#1}}\fi}
 % ----------------------------------------------------------------------------
 
 \title{The Rise of Verbal Reinforcement Learning: A Survey}
