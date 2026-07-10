@@ -1,0 +1,27 @@
+revision/new_section/appendix_revision.tex
+  s_bf18bbc67718dc::t_4d9538e002b9c3 8,14,34,42,48,59
+revision/new_section/introduction.tex
+  s_bf18bbc67718dc::t_264b440cfa4516 6
+revision/new_section/pillar_2.tex
+  s_bf18bbc67718dc::t_3938607d478482 6
+revision/new_section/pillar_3.tex
+  s_bf18bbc67718dc::t_8f6ddaca86ad74 32
+revision/preamble.tex
+  s_bf18bbc67718dc::t_bdbc2db86277e5 31,61
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "28a30a1aefe7bcf7c993c7ca8551cb913c206921",
+  "prompts": {},
+  "sessions": {
+    "s_bf18bbc67718dc": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "a9f52875-eaef-4d6d-9da3-22e5787685f7",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Arun Sharma <sharm485@umn.edu>"
+    }
+  }
+}
