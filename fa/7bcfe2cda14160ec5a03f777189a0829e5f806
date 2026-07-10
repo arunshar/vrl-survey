@@ -1,0 +1,157 @@
+revision/main_clean.tex
+  s_05314c96764758::t_a95794ec47e0eb 1-27
+paper-csur/sections/s12_safety.tex
+  s_05314c96764758::t_92fb193570554e 1-9
+revision/new_section/appendix_revision.tex
+  s_05314c96764758::t_fc338e703f0d66 1-10
+paper-csur/sections/s01_introduction.tex
+  s_05314c96764758::t_8f5436f16bd6f4 1-7
+paper-csur/sections/s07_verbal_reward_stack.tex
+  s_05314c96764758::t_02a1526aa44ab9 1-9
+paper-csur/sections/s09_language_space_optimizers.tex
+  s_05314c96764758::t_22ae3bad8f237b 1-9
+scripts/verify_bib.py
+  s_05314c96764758::t_655ea025d8d9b0 132-151
+  s_05314c96764758::t_4a2c322e56e74c 192-198,209-210
+  s_05314c96764758::t_461fc571677919 1-131,152-191,199-208,211-286
+notes/expansion_thread_map.md
+  s_05314c96764758::t_9bef387b83311f 1-30
+.gitignore
+  s_05314c96764758::t_62d335efd1597f 1-12
+paper-csur/main.tex
+  s_05314c96764758::t_e6856955ee2951 1-63
+paper-csur/sections/s08_credit_assignment.tex
+  s_05314c96764758::t_92c118b1c1b66d 1-10
+paper-csur/sections/s05_pillar_deliberative.tex
+  s_05314c96764758::t_db8b11aee8c998 1-8
+revision/preamble.tex
+  s_05314c96764758::t_216f58cdb08da5 1-64
+docs/coauthor_decision_memo.md
+  s_05314c96764758::t_231105cc7b2fdf 1-2,5-7,9,11-13,15,17,19,21,23,25,27-29
+  s_05314c96764758::t_9352bd99b8e9ab 3-4,8,10,14,16,18,20,22,24,26
+sessions/SESSION_2026-07-09_reviews_to_csur_plan.md
+  s_05314c96764758::t_8d5f92ca2e9b3d 1-31
+paper-csur/sections/s13_practitioner_guide_agenda.tex
+  s_05314c96764758::t_f4b2eba8f7126c 1-12
+revision/new_section/limitations.tex
+  s_05314c96764758::t_53cb1d5c8a7bc9 1-5
+paper-csur/sections/s03_taxonomy.tex
+  s_05314c96764758::t_167ed2e2de33b3 1-9
+paper-csur/sections/s10_embodied.tex
+  s_05314c96764758::t_fef6c5c7ff978a 1-7
+paper-csur/sections/s04_pillar_grounding.tex
+  s_05314c96764758::t_8f36a6a8c2dd50 1-7
+paper-csur/sections/s11_evaluation.tex
+  s_05314c96764758::t_3fa06011ed7d67 1-9
+notes/arr_reviews_2026_may.md
+  s_05314c96764758::t_3b15708f8ddf71 1-86
+paper-csur/sections/s02_formal_framework.tex
+  s_05314c96764758::t_cf87e671b2ed88 1-25
+scripts/workflow_lit_ingestion.js
+  s_05314c96764758::t_d83c5f8c13ab4e 1-75
+docs/ARR_author_responses.md
+  s_05314c96764758::t_0a33d0d5c3ca68 1-2,4,7-11,13,15,17-19,21,23-29,31,33,35,37,39,41,43,45,47-53,55,57,59,61,63,65,69-75,79,81,83,85,87,89
+  s_05314c96764758::t_a616e210f6acc7 3,5-6,12,14,16,20,22,30,32,34,36,38,40,42,44,46,54,56,58,60,62,64,66-68,76-78,80,82,84,86,88
+README.md
+  s_05314c96764758::t_13bc5187369664 1-26
+revision/main.tex
+  s_05314c96764758::t_eea9a7bc88b4de 1-27
+notes/flagged_ids.tsv
+  s_05314c96764758::t_f07a1426ddb42a 1-43
+paper-csur/sections/s06_pillar_learning.tex
+  s_05314c96764758::t_833b2e4e37e2bb 1-8
+paper-csur/sections/s14_conclusion.tex
+  s_05314c96764758::t_4369137b1af021 1-7
+notes/flagged_ids.report.tsv
+  s_05314c96764758::t_10dee036b354c3 1-43
+notes/prior_deep_dive_survey.md
+  s_05314c96764758::t_faa9771534c307 1-431
+paper-acl/acl.sty
+  s_05314c96764758::t_b4cf2fd72d1d4d 1-312
+paper-acl/acl_natbib.bst
+  s_05314c96764758::t_6872984c88b75c 1-1940
+paper-acl/figures.tex
+  s_05314c96764758::t_59ec811bcb670f 1-172
+paper-acl/main.tex
+  s_05314c96764758::t_b82a6e9f5231e0 1-137
+paper-acl/new_section/Discussion.tex
+  s_05314c96764758::t_1633a8d8d18cd4 1-50
+paper-acl/new_section/abstract.tex
+  s_05314c96764758::t_002ce1c9c3a218 1-7
+paper-acl/new_section/appendix.tex
+  s_05314c96764758::t_297b7b873c5333 1-128
+paper-acl/new_section/application.tex
+  s_05314c96764758::t_7f1a4a0223322b 1-22
+paper-acl/new_section/conclusion.tex
+  s_05314c96764758::t_a52f8dc7c788a7 1-27
+paper-acl/new_section/introduction.tex
+  s_05314c96764758::t_ea55b2ff0a30df 1-119
+paper-acl/new_section/pillar_1.tex
+  s_05314c96764758::t_09a2d6dcd60add 1-35
+paper-acl/new_section/pillar_2.tex
+  s_05314c96764758::t_a66d403337dab9 1-50
+paper-acl/new_section/pillar_3.tex
+  s_05314c96764758::t_c301c9b078a002 1-67
+paper-acl/new_section/rough.tex
+  s_05314c96764758::t_bc2c1881f59fa7 1-23
+paper-acl/new_section/taxonomy.tex
+  s_05314c96764758::t_20c61ecac5e293 1-104
+paper-acl/references.bib
+  s_05314c96764758::t_668782a3b66e05 1-1886
+paper-acl/sections/discussion.tex
+  s_05314c96764758::t_667f5e5e469af9 1-27
+paper-acl/sections/introduction.tex
+  s_05314c96764758::t_5f841b3f2f45f2 1-25
+paper-acl/sections/nonparametric.tex
+  s_05314c96764758::t_cbd51309468928 1-75
+paper-acl/sections/parametric.tex
+  s_05314c96764758::t_c9b4ce581e46ea 1-68
+paper-acl/sections/problemFormulation_taxonomy.tex
+  s_05314c96764758::t_03bf7de9ebce1d 1-117
+revision/acl.sty
+  s_05314c96764758::t_e090974da69958 1-312
+revision/acl_natbib.bst
+  s_05314c96764758::t_38ebd17bb19815 1-1940
+revision/figures.tex
+  s_05314c96764758::t_23fc58227801ed 1-172
+revision/new_section/Discussion.tex
+  s_05314c96764758::t_d3bc29ce9de1ea 1-50
+revision/new_section/abstract.tex
+  s_05314c96764758::t_75d99fee4db993 1-7
+revision/new_section/appendix.tex
+  s_05314c96764758::t_31acc1e3ac8c60 1-128
+revision/new_section/application.tex
+  s_05314c96764758::t_13b6841d2c63d1 1-22
+revision/new_section/conclusion.tex
+  s_05314c96764758::t_dab9db7556da43 1-27
+revision/new_section/introduction.tex
+  s_05314c96764758::t_b434511d2506e7 1-119
+revision/new_section/pillar_1.tex
+  s_05314c96764758::t_82679dfe5d9ece 1-35
+revision/new_section/pillar_2.tex
+  s_05314c96764758::t_6ca434b630419a 1-50
+revision/new_section/pillar_3.tex
+  s_05314c96764758::t_a8f03315a02471 1-67
+revision/new_section/rough.tex
+  s_05314c96764758::t_25a2c9b906a78c 1-23
+revision/new_section/taxonomy.tex
+  s_05314c96764758::t_a3add47468302c 1-104
+revision/references.bib
+  s_05314c96764758::t_371587c6057067 1-1886
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "fa7bcfe2cda14160ec5a03f777189a0829e5f806",
+  "prompts": {},
+  "sessions": {
+    "s_05314c96764758": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "ca200c03-1512-4621-9edd-de529b95311e",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Arun Sharma <sharm485@umn.edu>"
+    }
+  }
+}
