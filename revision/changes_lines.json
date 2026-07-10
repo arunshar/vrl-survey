@@ -4,40 +4,40 @@
   "section": "Abstract",
   "desc": "Inclusion-criteria clause added to the abstract",
   "page": 1,
-  "line_lo": 7,
-  "line_hi": 10
+  "line_lo": 8,
+  "line_hi": 11
  },
  {
   "id": "C2a",
   "section": "Section 1",
   "desc": "Old broad definition struck; two-criteria definition added",
   "page": 2,
-  "line_lo": 74,
-  "line_hi": 77
+  "line_lo": 76,
+  "line_hi": 95
  },
  {
   "id": "C2b",
   "section": "Section 1",
   "desc": "Explicit exclusions: instruction following, vanilla RLHF/DPO, language-conditioned RL",
   "page": 2,
-  "line_lo": 83,
-  "line_hi": 88
+  "line_lo": 85,
+  "line_hi": 95
  },
  {
   "id": "C2c",
   "section": "Section 1",
   "desc": "Specification-time boundary case (reward-code generation)",
   "page": 2,
-  "line_lo": 92,
-  "line_hi": 97
+  "line_lo": 95,
+  "line_hi": 99
  },
  {
   "id": "C2d",
   "section": "Section 1",
   "desc": "Modality scope: feedback is natural-language text; observations may be non-textual",
   "page": 2,
-  "line_lo": 96,
-  "line_hi": 101
+  "line_lo": 99,
+  "line_hi": 104
  },
  {
   "id": "C3",
@@ -52,8 +52,8 @@
   "section": "Section 1",
   "desc": "Positioning against prior surveys and NLRL; pointer to comparison table",
   "page": 3,
-  "line_lo": 149,
-  "line_hi": 151
+  "line_lo": 146,
+  "line_hi": 165
  },
  {
   "id": "C5a",
@@ -84,24 +84,24 @@
   "section": "Section 2",
   "desc": "MDP-as-lens caveat: partially observable, non-Markovian settings",
   "page": 4,
-  "line_lo": 244,
-  "line_hi": 249
+  "line_lo": 246,
+  "line_hi": 252
  },
  {
   "id": "C6c",
   "section": "Section 2",
-  "desc": "New hybrid-cases table",
+  "desc": "New hybrid-cases table (Table 1, page 4; no line range, table body)",
   "page": 4,
-  "line_lo": 249,
-  "line_hi": 252
+  "line_lo": null,
+  "line_hi": null
  },
  {
   "id": "C7",
   "section": "Section 2",
   "desc": "Pillars classify signals, not pipeline stages; working example reframed",
   "page": 4,
-  "line_lo": 254,
-  "line_hi": 259
+  "line_lo": 256,
+  "line_hi": 260
  },
  {
   "id": "C8",
@@ -116,8 +116,8 @@
   "section": "Section 4.4",
   "desc": "Memory classified by moment of consumption; boundary recorded",
   "page": 7,
-  "line_lo": 480,
-  "line_hi": 485
+  "line_lo": 481,
+  "line_hi": 486
  },
  {
   "id": "C10",
@@ -164,16 +164,16 @@
   "section": "Section 6.5",
   "desc": "Research agenda with five named open problems",
   "page": 10,
-  "line_lo": 775,
-  "line_hi": 828
+  "line_lo": 777,
+  "line_hi": 787
  },
  {
   "id": "C15",
   "section": "Limitations",
   "desc": "Failure modes and societal-impact expansion",
   "page": 10,
-  "line_lo": 827,
-  "line_hi": 832
+  "line_lo": 830,
+  "line_hi": 843
  },
  {
   "id": "C16",
