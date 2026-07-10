@@ -3,9 +3,9 @@
   "id": "C1",
   "section": "Abstract",
   "desc": "Inclusion-criteria clause added to the abstract",
-  "page": 1,
-  "line_lo": 8,
-  "line_hi": 11
+  "page": 3,
+  "line_lo": 164,
+  "line_hi": 168
  },
  {
   "id": "C2a",
@@ -13,7 +13,7 @@
   "desc": "Old broad definition struck; two-criteria definition added",
   "page": 2,
   "line_lo": 70,
-  "line_hi": 79
+  "line_hi": 74
  },
  {
   "id": "C2b",
@@ -21,15 +21,15 @@
   "desc": "Explicit exclusions: instruction following, vanilla RLHF/DPO, language-conditioned RL",
   "page": 2,
   "line_lo": 79,
-  "line_hi": 91
+  "line_hi": 84
  },
  {
   "id": "C2c",
   "section": "Section 1",
   "desc": "Specification-time boundary case (reward-code generation)",
   "page": 2,
-  "line_lo": 89,
-  "line_hi": 93
+  "line_lo": 87,
+  "line_hi": 92
  },
  {
   "id": "C2d",
@@ -44,7 +44,7 @@
   "section": "Section 1",
   "desc": "Terminology genealogy: explicit generalization of Shinn et al. (2023)",
   "page": 2,
-  "line_lo": 100,
+  "line_lo": 99,
   "line_hi": 104
  },
  {
@@ -53,7 +53,7 @@
   "desc": "Positioning against prior surveys and NLRL; pointer to comparison table",
   "page": 3,
   "line_lo": 142,
-  "line_hi": 157
+  "line_hi": 146
  },
  {
   "id": "C5a",
@@ -61,39 +61,39 @@
   "desc": "New contribution bullet: decision rules and hybrid-cases table",
   "page": 3,
   "line_lo": 177,
-  "line_hi": 180
+  "line_hi": 228
  },
  {
   "id": "C5b",
   "section": "Section 1",
   "desc": "New contribution bullet: practitioner guidance and survey comparison",
   "page": 3,
-  "line_lo": 181,
-  "line_hi": 184
+  "line_lo": 179,
+  "line_hi": 230
  },
  {
   "id": "C6a",
   "section": "Section 2",
   "desc": "Explicit assignment rule for multi-pillar methods",
   "page": 3,
-  "line_lo": 229,
+  "line_lo": 228,
   "line_hi": 233
  },
  {
   "id": "C6b",
   "section": "Section 2",
   "desc": "MDP-as-lens caveat: partially observable, non-Markovian settings",
-  "page": 4,
+  "page": 3,
   "line_lo": 235,
-  "line_hi": 241
+  "line_hi": 237
  },
  {
   "id": "C6c",
   "section": "Section 2",
   "desc": "New hybrid-cases table",
   "page": 4,
-  "line_lo": null,
-  "line_hi": null
+  "line_lo": 241,
+  "line_hi": 241
  },
  {
   "id": "C7",
@@ -109,7 +109,7 @@
   "desc": "Specification-time clarification; hybrid-table pointer for reward code",
   "page": 5,
   "line_lo": 368,
-  "line_hi": 372
+  "line_hi": 370
  },
  {
   "id": "C9",
@@ -125,47 +125,47 @@
   "desc": "Renamed to Evaluator Feedback in Search; inclusion criterion stated",
   "page": 7,
   "line_lo": 487,
-  "line_hi": 493
+  "line_hi": 491
  },
  {
   "id": "C11a",
   "section": "Section 5.4",
   "desc": "Online vs offline preference optimization distinction",
   "page": 8,
-  "line_lo": 611,
-  "line_hi": 616
+  "line_lo": 561,
+  "line_hi": 615
  },
  {
   "id": "C11b",
   "section": "Section 5.4",
   "desc": "Vanilla RLHF/DPO placed outside VRL as compression-spectrum endpoint",
   "page": 8,
-  "line_lo": 617,
+  "line_lo": 622,
   "line_hi": 627
  },
  {
   "id": "C12",
   "section": "Section 6.1 (new)",
   "desc": "New subsection: Algorithmic Interactions and Practitioner Guidance",
-  "page": 9,
-  "line_lo": 630,
-  "line_hi": 661
+  "page": 8,
+  "line_lo": 588,
+  "line_hi": 640
  },
  {
   "id": "C13",
   "section": "Section 6.2",
   "desc": "Evaluation practice: report quality and utilization separately",
   "page": 9,
-  "line_lo": 674,
-  "line_hi": 684
+  "line_lo": 678,
+  "line_hi": 683
  },
  {
   "id": "C14",
   "section": "Section 6.5",
   "desc": "Research agenda with five named open problems",
   "page": 10,
-  "line_lo": 758,
-  "line_hi": 773
+  "line_lo": 761,
+  "line_hi": 814
  },
  {
   "id": "C15",
@@ -173,7 +173,7 @@
   "desc": "Failure modes and societal-impact expansion",
   "page": 10,
   "line_lo": 813,
-  "line_hi": 831
+  "line_hi": 818
  },
  {
   "id": "C16",

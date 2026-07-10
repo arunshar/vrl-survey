@@ -62,5 +62,17 @@
 \newcommand{\removed}[1]{}
 % ----------------------------------------------------------------------------
 
+% ---- Two-column float safety around \textwidth (table*/figure*) -----------
+% The [review] build loads the `lineno` package for line numbers. lineno's own
+% documentation warns that its twocolumn-tracking machinery can corrupt the
+% placement of full-width (table*/figure*) floats unless line numbering is
+% explicitly suspended around them, and this failure mode is known to vary
+% by TeX engine/distribution. \linenumbers only exists when lineno is loaded
+% (review build); \nolinenumbers is a safe no-op in the clean build. These
+% wrappers apply the suspend/resume only when markup mode (review) is active.
+\newcommand{\widefloatnonumbers}{\ifmarkup\nolinenumbers\fi}
+\newcommand{\widefloatresumenumbers}{\ifmarkup\linenumbers\fi}
+% ----------------------------------------------------------------------------
+
 \title{The Rise of Verbal Reinforcement Learning: A Survey}
 \author{Anonymous ACL Submission}
