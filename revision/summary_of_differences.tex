@@ -1,0 +1,90 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{xcolor}
+\usepackage{times}
+\usepackage{parskip}
+\usepackage{hyperref}
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+
+\title{Summary of Differences}
+\author{Anonymous ACL Submission 12040}
+\date{July 2026}
+
+\begin{document}
+\maketitle
+
+This document, entitled \textbf{`Summary of Differences'}, details the differences from the previous version of ``The Rise of Verbal Reinforcement Learning: A Survey''. The differences are highlighted in \red{red}. Page and line references correspond to the marked, line-numbered revised manuscript, which uses the same red highlighting (deletions shown as red strikethrough).
+
+\section{Abstract (Page 1, lines 7--10)}
+
+\paragraph{Previous Version:} We call this paradigm Verbal Reinforcement Learning (VRL) and offer the first unified account of it.
+
+\paragraph{Updated Version:} We call this paradigm Verbal Reinforcement Learning (VRL) and offer the first unified account of it\red{, with explicit inclusion criteria that separate it from RLHF, instruction following, and language-conditioned RL}.
+
+\section{Section 1: Definition of VRL (Page 2, lines 74--112)}
+
+\paragraph{Previous Version:} We refer to this family of methods as \textbf{Verbal Reinforcement Learning (VRL)}: \textit{a paradigm in which an agent receives natural-language feedback, whether self-generated, provided by a human, or produced by an external tool or model, and uses it to improve its behavior and guide future decision-making}. Feedback may be used directly as text or converted into a compressed training signal for parameter updates. The term was introduced by Shinn et al.\ (2023) to describe self-reflective agents (specific instance of what we call deliberative feedback); here, it is adopted more broadly to encompass any method in which verbal feedback shapes an agent's outputs, learned policy, or problem specification.
+
+\paragraph{Updated Version:} We refer to this family of methods as \textbf{Verbal Reinforcement Learning (VRL)}\red{, and we define it by two inclusion criteria: \textit{(i) the feedback is expressed in natural language, whether self-generated, provided by a human, or produced by an external tool or model, and its linguistic structure is functionally consumed by the agent, rather than being collapsed to a scalar or preference bit before use; and (ii) the feedback participates in an improvement loop, that is, an output revision, a memory write, or a parameter update.} Both criteria are required, and they fence VRL off from adjacent paradigms. Plain instruction following satisfies neither, since no improvement loop exists. Vanilla RLHF and DPO satisfy only the second, because the verbal judgment is reduced to a preference bit before learning; we discuss them only as the scalar endpoint of the compression spectrum in Section 5. Language-conditioned RL treats language as an input to the policy rather than as feedback on its behavior. One boundary case the criteria settle: language consumed at specification time to construct a reward function, as in reward-code generation, satisfies criterion (i) even though the constructed function later emits scalars. The criteria also fix the modality scope: the feedback signal is natural-language text, while the agent's observations may be non-textual, as in embodied settings where verbal corrections accompany visual state.} The term was introduced by Shinn et al.\ (2023) to describe self-reflective agents (specific instance of what we call deliberative feedback); \red{we deliberately generalize it to any method meeting the two criteria above, and we state this generalization explicitly to avoid conflation with the original, narrower sense.}
+
+\section{Section 1: Prior Surveys and Contributions (Page 3, lines 141--236)}
+
+\paragraph{Previous Version:} Prior surveys have examined language-conditioned policies in text-based environments [Luketina et al.\ 2019], the bidirectional synergies between LLMs and RL [Pternea et al.\ 2024], LLM self-correction in isolation [Kamoi et al.\ 2024]. [Contributions: two bullets, ``defining the paradigm broadly...'']
+
+\paragraph{Updated Version:} The same sentence now additionally cites \red{automatic correction strategies [Pan et al.], feedback integration for text generation [Fernandes et al.], preference optimization [Kaufmann et al.; Xiao et al.], agent memory [Zhang et al.], test-time scaling [Zhang et al.], self-evolving agents [Gao et al.; Fang et al.], and reinforcement learning for LLM agents [Zhang et al.]; it notes that Natural Language Reinforcement Learning [Feng et al.] is a framework proposal rather than a survey, and points to the new comparison table (Appendix A, Table 3): prior overviews organize by mechanism or by agent capability, whereas we organize by the signal itself.} The contribution list is sharpened: \red{``defining the paradigm through explicit inclusion criteria that separate it from RLHF, instruction following, and language-conditioned RL''}, plus two new bullets: \red{explicit decision rules for methods whose signals span pillars, including a hybrid-cases table (Table 2), so the taxonomy is applicable rather than merely descriptive}; and \red{practitioner guidance for choosing among verbal-feedback mechanisms (Appendix B) together with the positioning against prior overviews (Appendix A)}.
+
+\section{Section 2: Taxonomy (Page 4, lines 239--259, and new Table 2)}
+
+\paragraph{Previous Version:} Methods spanning multiple pillars are categorized by their role in the primary function of verbal feedback. [Working example: ``The three pillars are complementary, not competing; they operate together across a single development cycle.'']
+
+\paragraph{Updated Version:} \red{For methods whose signals span pillars, we use an explicit assignment rule: a method is placed by what its linguistic signal modifies at the moment the signal takes effect. Table 2 applies this rule to the recurring hybrid cases (reward-code generation, experiential memory, Constitutional AI, feedback-conditioned fine-tuning) and records their secondary roles instead of forcing each method into a single cell. Throughout, MDP vocabulary serves as an organizing lens rather than a claim that every method admits an MDP formulation; many language-agent settings are partially observable, non-Markovian, or lack explicit transition and reward functions.} The working example now reads: the three pillars are complementary, not competing\red{; the pillars classify individual signals, not stages of a pipeline: no method is claimed to traverse a grounding-deliberation-learning cycle, and the example shows a system in which signals of all three kinds coexist}.
+
+\section{Section 3.4: Reward Code Generation (Page 5, lines 379--384)}
+
+\paragraph{Previous Version:} This subcategory overlaps with Pillar 3 when generated rewards are used for training; we categorize it here because verbal feedback defines the reward function itself, becoming part of the MDP.
+
+\paragraph{Updated Version:} The same sentence continues: \red{...becoming part of the MDP, and Table 2 records the downstream training role explicitly. Under our inclusion criteria, the linguistic signal is consumed at specification time, so reward-code generation satisfies criterion (i) even though the compiled function later emits scalar rewards.}
+
+\section{Section 4.4: Experiential Memory (Page 7, lines 480--485)}
+
+\paragraph{Previous Version:} [No statement on cross-episode persistence versus pillar assignment.]
+
+\paragraph{Updated Version:} \red{Although stored lessons persist across episodes, we classify memory by the moment of consumption: a retrieved lesson acts as deliberative feedback within the current episode, and Table 2 records the boundary with long-term adaptation.}
+
+\section{Section 4.5: Search Subsection (Page 7, lines 502--505)}
+
+\paragraph{Previous Version:} \textbf{Search-Guided Deliberation.} While previous approaches refine a single trajectory, search-guided deliberation explores multiple candidate paths and employs verbal feedback to determine which paths to expand, prune, or abandon.
+
+\paragraph{Updated Version:} \textbf{\red{Evaluator Feedback in Search.}} \red{The inclusion criterion for this subcategory is the verbal evaluator signal consumed during search, not the search procedure itself; decoding strategies that involve no linguistic feedback fall outside VRL.} While previous approaches refine a single trajectory, \red{these methods} explore multiple candidate paths and employ verbal feedback to determine which paths to expand, prune, or abandon.
+
+\section{Section 5.4: Preference Shaping (Page 8, lines 575--641)}
+
+\paragraph{Previous Version:} [Paragraph ends with the scalability trade-off sentence; no online/offline distinction; no boundary statement.]
+
+\paragraph{Updated Version:} Two additions: \red{The online and offline variants differ in practice: online optimization against a learned reward model can query feedback on fresh policy samples, while offline objectives such as DPO inherit the coverage of a fixed preference set.} And: \red{Under our inclusion criteria (Section 1), preference shaping marks the outer boundary of VRL: once the judgment is compressed to a preference bit before any learning, the linguistic structure is no longer consumed, so vanilla RLHF and DPO sit outside the paradigm. We retain them here as the endpoint of the compression spectrum because they clarify, by contrast, what the methods above preserve.}
+
+\section{Section 6: Discussion (Pages 9--10)}
+
+\paragraph{Previous Version:} Four cross-cutting challenges (feedback-model quality, tool-interface design, adversarial robustness, absence of formal guarantees); no algorithmic-interaction discussion; no research agenda.
+
+\paragraph{Updated Version:} \red{A new subsection ``Algorithmic Interactions and Practitioner Guidance'' (Section 6.1, page 9, lines 651--706) pairs each feedback form with its optimization family (generated reward functions with online policy gradients; pairwise judgments with offline preference objectives; filtered or feedback-conditioned text with supervised fine-tuning; step-level judgments with process reward models) and names the consequences inside the decision problem: reward mis-specification and hacking, state information loss and aliasing, and exploration under LLM priors, with a pointer to the new decision table (Appendix B).} In Section 6.2 (page 9, lines 692--697): \red{a recommendation to report feedback quality and feedback utilization separately, citing RewardBench, ProcessBench, and Feedback Friction.} In Section 6.5 (page 10): \red{a named research agenda: sample-efficiency conditions under which verbal feedback beats scalar reward; optimality and convergence under language-shaped rewards; temporal credit assignment from free-form critiques; provenance and robustness of feedback channels; and standardized, separate evaluation of feedback quality and utilization.}
+
+\section{Limitations (Page 10, lines 827--832)}
+
+\paragraph{Previous Version:} [Coverage and taxonomy-simplification caveats only.]
+
+\paragraph{Updated Version:} \red{Language-based feedback itself carries failure modes that this survey can name but not yet bound: reward-specification failures when language compiles to the wrong objective, unreliable interpretation of feedback by the consuming model, weak grounding between verbal descriptions and environment state, and the transfer of language-guided policies to real-world settings. Societal impact follows the same channels: when feedback is incorrect, biased, adversarial, or poorly grounded, harm falls on users of high-stakes deployments such as coding assistants, robotics, clinical decision support, and education, and on the people affected by those systems' outputs.}
+
+\section{New Appendices (Pages 18--19)}
+
+\paragraph{Previous Version:} [No appendix.]
+
+\paragraph{Updated Version:} \red{Appendix A, ``Comparison with Prior Surveys'' (Table 3, page 18): positioning against twelve surveys and frameworks with columns for organizing axis, feedback types covered, lifecycle stages, and practitioner guidance. Appendix B, ``Choosing a Verbal-Feedback Mechanism'' (Table 4, page 19): prescriptive guidance for language as reward, as state or task grounding, as deliberative feedback, as memory, and as training signal, each with its conditions, dominant risk, and representative methods.}
+
+\section{References}
+
+\paragraph{Previous Version:} 229 entries.
+
+\paragraph{Updated Version:} \red{Eleven entries added, all verified against the arXiv API: Feng et al.\ (Natural Language Reinforcement Learning); Pan et al.\ (self-correction survey, TACL); Fernandes et al.\ (feedback-integration survey, TACL); Xiao et al.\ (DPO survey); Gao et al.\ and Fang et al.\ (self-evolving-agent surveys); Zhang et al.\ (test-time-scaling survey); Zhang et al.\ (agentic-RL survey); Lambert et al.\ (RewardBench); Zheng et al.\ (ProcessBench); Jiang et al.\ (Feedback Friction).}
+
+\end{document}
