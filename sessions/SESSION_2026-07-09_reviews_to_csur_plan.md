@@ -34,7 +34,9 @@ R2-R5 COMPLETE (2026-07-09 evening, commits 9ec747d..2abbdf8). The full revision
 - Consistency panel (3 agents) ran; ALL findings fixed (hybrid table is Table 1 not 2; Limitations range 830-843; ~10 range tightenings; dropped an unverifiable "recommended for Findings" attribution; tone softenings; bnae C3 row added; dead appendix.tex pillar numbering corrected).
 - docs/ARR_author_responses.md upgraded to already-implemented phrasing.
 - DELIVERABLE ZIP: ~/Downloads/VRL_ARR_Revision_2026-07-09.zip (also revision/): marked PDF, clean PDF, Summary of Differences PDF, Responses docx+md, full LaTeX source.
-Known leftovers for authors: figure re-export (Figure 4 caption still says "search-guided deliberation"; any "Grounded Signal" text inside PNGs), and final page-budget trimming is the co-authors' call.
+Known leftovers for authors: figure re-export (any "Grounded Signal" text inside PNGs), and final page-budget trimming is the co-authors' call.
+
+ROUND 2 (first-author feedback, same night, commits 28a30a1..01da9e3): adopted Kshitij's Prism-cleaned source.zip as base; markup switched to DIRECT REPLACEMENT (\removed renders nothing, no strikethrough anywhere; red = new/updated text only); zero LaTeX errors AND zero warnings in both builds; Tables 3+4 span two columns on a single page (p.19); all page/line citations re-extracted and refreshed in both companion docs (spot-verified); Figure 3 caption updated to "evaluator feedback in search"; Responses also delivered as PDF; responses table uploaded as a native Google Doc: https://docs.google.com/document/d/124muXyEZhIN-9u7xeSA6GSX7rS_oKRMEi7FMdzV1F54/edit ; final package ~/Downloads/VRL_ARR_Revision_2026-07-10.zip.
 
 ## Open / next
 
