@@ -1,0 +1,27 @@
+revision/new_section/introduction.tex
+  s_05314c96764758::t_0eec70a180d476 30
+scripts/extract_lines.py
+  s_05314c96764758::t_e2c70c14291d91 1-108
+revision/summary_of_differences.tex
+  s_05314c96764758::t_727420a3f24e69 1-90
+revision/Responses_to_Reviewers.md
+  s_05314c96764758::t_0db506388d3285 1-59
+revision/changes_lines.json
+  s_05314c96764758::t_0fb7aaa73e3ddb 1-194
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "6d642f205899bb9093d6e19bb83ee56b7ccd4397",
+  "prompts": {},
+  "sessions": {
+    "s_05314c96764758": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "ca200c03-1512-4621-9edd-de529b95311e",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Arun Sharma <sharm485@umn.edu>"
+    }
+  }
+}
