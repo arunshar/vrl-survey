@@ -1,0 +1,72 @@
+notes/threads/T1_rl_theory_credit.md
+  s_bf18bbc67718dc::t_58024db1c464f5 1-275
+notes/threads/T8_safety_adversarial.md
+  s_bf18bbc67718dc::t_ff34f8b3891ca0 12-33,35-36,38-39
+  s_bf18bbc67718dc::t_48171b991151a2 106-248
+  s_bf18bbc67718dc::t_8f2a0ae643e23d 249-250
+  s_bf18bbc67718dc::t_f0ee6d8fbf5a87 1,3-8
+  s_bf18bbc67718dc::t_989442086e48eb 2
+  s_bf18bbc67718dc::t_64cc7d1dcb4109 34,37,40-87
+  s_bf18bbc67718dc::t_605da015b85f5d 88-105
+  s_bf18bbc67718dc::t_c2e479edb837fe 9-11
+notes/threads/T5_multiagent_feedback.md
+  s_bf18bbc67718dc::t_ad42198fb6991a 1-249
+notes/threads/T9_comparison_surveys.md
+  s_bf18bbc67718dc::t_abf9a0dd2be744 1-408
+notes/threads/T3_language_space_optimizers.md
+  s_bf18bbc67718dc::t_5271f5aea0cfa5 1-359
+notes/threads/T2_verbal_reward_stack.md
+  s_bf18bbc67718dc::t_7cd111b9f2ec7b 1-362
+scripts/merge_bibs.py
+  s_bf18bbc67718dc::t_9c586cfb03907b 26-41
+notes/threads/T1_rl_theory_credit.bib
+  s_bf18bbc67718dc::t_3a81defa10ff27 1-196
+notes/threads/T6_embodied_vlm.md
+  s_bf18bbc67718dc::t_f5c65bd0bc426f 1-220
+notes/threads/T7_benchmarks_eval.md
+  s_bf18bbc67718dc::t_915f5f1a62d30f 1-302
+paper-csur/bibsmoke.tex
+  s_bf18bbc67718dc::t_550bc92339a3cd 8
+  s_bf18bbc67718dc::t_034ef813e711ec 1-7,9-13
+notes/threads/T9_comparison_surveys.bib
+  s_bf18bbc67718dc::t_f615a59076f517 1-251
+notes/threads/T6_embodied_vlm.bib
+  s_bf18bbc67718dc::t_bb852bf71b3b1d 1-102,104-164
+  s_bf18bbc67718dc::t_5c1a4f881f62a9 103
+notes/threads/T4_memory_experience.md
+  s_bf18bbc67718dc::t_69a79f75bc8d69 1-299
+notes/threads/T8_safety_adversarial.bib
+  s_bf18bbc67718dc::t_332d450d0599d5 1-247
+notes/threads/T5_multiagent_feedback.bib
+  s_bf18bbc67718dc::t_400d117def42e4 1-237
+notes/merge_dup_map.tsv
+  s_bf18bbc67718dc::t_02df0f1c769a0a 1-9
+notes/threads/T2_verbal_reward_stack.bib
+  s_bf18bbc67718dc::t_8fe041625d88ca 1-293
+notes/threads/T3_language_space_optimizers.bib
+  s_bf18bbc67718dc::t_f3a694f7adc4c1 1-254
+notes/threads/T4_memory_experience.bib
+  s_bf18bbc67718dc::t_0bd8bba1fb66de 1-220
+notes/threads/T7_benchmarks_eval.bib
+  s_bf18bbc67718dc::t_710ac7af5dc826 1-259
+paper-csur/citation_keys.txt
+  s_bf18bbc67718dc::t_357b14d88b8ba9 1-478
+paper-csur/references.bib
+  s_bf18bbc67718dc::t_379124711a0573 1-3869
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.12",
+  "base_commit_sha": "3a1e3a4902a1f879311e189928066daac80bcbb2",
+  "prompts": {},
+  "sessions": {
+    "s_bf18bbc67718dc": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "a9f52875-eaef-4d6d-9da3-22e5787685f7",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Arun Sharma <sharm485@umn.edu>"
+    }
+  }
+}
