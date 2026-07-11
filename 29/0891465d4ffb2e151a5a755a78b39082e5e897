@@ -1,0 +1,30 @@
+scripts/verify_bib.py
+  s_bf18bbc67718dc::t_2674f40da0bcef 289
+  s_bf18bbc67718dc::t_fd831fffecc49b 171-187,189,197-199
+  s_bf18bbc67718dc::t_43e6725f3aebfe 277-278
+  s_bf18bbc67718dc::t_64d5930579824d 300-301
+notes/csur_submission_requirements.md
+  s_bf18bbc67718dc::t_19e762cdd7b502 1-91
+notes/bib_whitelist.tsv
+  s_bf18bbc67718dc::t_60ba13b4c1da30 1-10
+paper-acl/references.bib
+  s_bf18bbc67718dc::t_b25c10afca2a7e 31,35-36,274-275,277-279,283,285-288,344-345,450-451,460-461,534-539,554-555,570-571,590,623-624,642-643,719-720,841-842,1050-1053,1059-1063,1129-1133,1268-1269,1291-1292,1357-1358,1366-1367,1375-1376,1416-1417,1503-1504,1830,1833-1834,1856
+revision/references.bib
+  s_bf18bbc67718dc::t_ea7d28b9c3d37b 31,35-36,274-275,277-279,283,285-288,344-345,450-451,460-461,534-539,554-555,570-571,590,623-624,642-643,719-720,841-842,1050-1053,1059-1063,1129-1133,1268-1269,1291-1292,1357-1358,1366-1367,1375-1376,1416-1417,1502-1503,1828,1831-1832,1853
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.12",
+  "base_commit_sha": "290891465d4ffb2e151a5a755a78b39082e5e897",
+  "prompts": {},
+  "sessions": {
+    "s_bf18bbc67718dc": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "a9f52875-eaef-4d6d-9da3-22e5787685f7",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Arun Sharma <sharm485@umn.edu>"
+    }
+  }
+}
