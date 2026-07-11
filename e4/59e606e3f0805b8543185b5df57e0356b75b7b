@@ -1,0 +1,31 @@
+scripts/merge_bibs.py
+  s_bf18bbc67718dc::t_fb4446be2c1575 1-99
+scripts/workflow_section_writing.js
+  s_bf18bbc67718dc::t_c1f1fe9506a44d 1-160
+paper-acl/verify_bib_report.tsv
+  s_c45195745001a4::t_3b2661463f6a93 2-3,5,7-8,12,15-17,19-20,25,28-32,36,38,40,42,48-56,58-59,61,63-64,66,70-72,78-80,82-83,86,88-90,93,96-103,106-108,111-112,116,120-126,131,133-136,138-139,141,147,149-150,152,155,158,160-162,164,167-168,174-180,184,186-187,190-194,203-204,208,211,214,218-219,221-222,230
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.12",
+  "base_commit_sha": "e459e606e3f0805b8543185b5df57e0356b75b7b",
+  "prompts": {},
+  "sessions": {
+    "s_bf18bbc67718dc": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "a9f52875-eaef-4d6d-9da3-22e5787685f7",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Arun Sharma <sharm485@umn.edu>"
+    },
+    "s_c45195745001a4": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019f4fec-3590-74a3-933c-afc0f2e2c5ce",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Arun Sharma <sharm485@umn.edu>"
+    }
+  }
+}
