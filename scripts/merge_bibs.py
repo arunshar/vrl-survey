@@ -23,8 +23,22 @@ ARXIV_RE = re.compile(r"(\d{4}\.\d{4,5})")
 
 def parse_entries(text):
     entries = []
-    for m in re.finditer(r"@\w+\{([^,]+),.*?\n\}", text, re.S):
-        body = m.group(0)
+    for m in re.finditer(r"@\w+\{([^,]+),", text):
+        # brace-count from the entry's opening brace to its balanced close, so
+        # entries whose final "}" shares a line with the last field still parse
+        start = m.start()
+        i = text.index("{", start)
+        depth = 0
+        for j in range(i, len(text)):
+            if text[j] == "{":
+                depth += 1
+            elif text[j] == "}":
+                depth -= 1
+                if depth == 0:
+                    break
+        else:
+            continue
+        body = text[start:j + 1]
         key = m.group(1).strip()
         tm = re.search(r"title\s*=\s*[{\"](.*?)[}\"],?\s*\n", body, re.S)
         title = re.sub(r"[{}]", "", tm.group(1)) if tm else ""

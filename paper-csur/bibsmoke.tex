@@ -1,0 +1,13 @@
+%% Bibliography smoke test: render every merged entry under ACM-Reference-Format.
+%% Not part of the paper; run with latexmk -pdf bibsmoke.tex and read bibsmoke.blg.
+\documentclass[manuscript,screen,review]{acmart}
+\citestyle{acmauthoryear}
+\setcopyright{none}
+\begin{document}
+\title{Bibliography smoke test}
+\author{None}\affiliation{\institution{None}\city{Minneapolis}\country{USA}}
+\maketitle
+\nocite{*}
+\bibliographystyle{ACM-Reference-Format}
+\bibliography{references}
+\end{document}
