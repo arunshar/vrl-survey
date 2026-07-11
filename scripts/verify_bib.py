@@ -168,8 +168,25 @@ def query_crossref(title, year=None):
     return best
 
 
-def verify_entries(entries, sim_threshold=0.85):
+def load_whitelist(path):
+    """TSV lines: key <TAB> reason. Entries hand-verified against a primary
+    source (publisher page, DBLP, OpenAlex) that the automated stages cannot
+    resolve (books, retitled journal versions, non-arXiv classics)."""
+    wl = {}
+    p = Path(path)
+    if not p.exists():
+        return wl
+    for line in p.read_text().splitlines():
+        if not line.strip() or line.startswith("#"):
+            continue
+        key, _, reason = line.partition("\t")
+        wl[key.strip()] = reason.strip()
+    return wl
+
+
+def verify_entries(entries, sim_threshold=0.85, whitelist=None):
     rows = []
+    whitelist = whitelist or {}
     arxiv_entries = [(e, arxiv_id_of(e)) for e in entries]
     ids = sorted({i for _, i in arxiv_entries if i})
     print(f"{len(entries)} entries; {len(ids)} unique arXiv ids; querying arXiv...", flush=True)
@@ -177,6 +194,9 @@ def verify_entries(entries, sim_threshold=0.85):
     for e, aid in arxiv_entries:
         title = e["fields"].get("title", "")
         year = re.sub(r"\D", "", e["fields"].get("year", ""))[:4] or None
+        if e["key"] in whitelist:
+            rows.append((e["key"], "WHITELISTED", whitelist[e["key"]], ""))
+            continue
         if not title:
             rows.append((e["key"], "SKIPPED", "no title field", ""))
             continue
@@ -254,6 +274,8 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("bibfile", nargs="?")
     ap.add_argument("--ids", help="TSV of arxiv_id<TAB>expected_title to verify")
+    ap.add_argument("--whitelist", default="notes/bib_whitelist.tsv",
+                    help="TSV of key<TAB>reason for hand-verified entries")
     ap.add_argument("--selftest", action="store_true")
     args = ap.parse_args()
     if args.selftest:
@@ -264,7 +286,7 @@ def main():
         out = Path(args.ids).with_suffix(".report.tsv")
     elif args.bibfile:
         entries = parse_bib(Path(args.bibfile).read_text())
-        rows = verify_entries(entries)
+        rows = verify_entries(entries, whitelist=load_whitelist(args.whitelist))
         out = Path(args.bibfile).parent / "verify_bib_report.tsv"
     else:
         ap.error("give a bibfile, --ids, or --selftest")
@@ -275,7 +297,8 @@ def main():
             f.write("\t".join(str(x) for x in r) + "\n")
     bad = [r for r in rows if r[1] in ("MISMATCH", "NOT_FOUND")]
     ok = sum(1 for r in rows if r[1] == "OK")
-    print(f"OK={ok} MISMATCH/NOT_FOUND={len(bad)} SKIPPED={sum(1 for r in rows if r[1]=='SKIPPED')}")
+    wl = sum(1 for r in rows if r[1] == "WHITELISTED")
+    print(f"OK={ok} WHITELISTED={wl} MISMATCH/NOT_FOUND={len(bad)} SKIPPED={sum(1 for r in rows if r[1]=='SKIPPED')}")
     print(f"report: {out}")
     for r in bad[:40]:
         print("  ", "\t".join(str(x) for x in r[:3]))
