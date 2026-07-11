@@ -1,0 +1,479 @@
+key	status	detail	canonical_title
+Ramnath_2025	OK	arxiv-title sim=1.00 id=2502.16923	A Systematic Survey of Automatic Prompt Optimization Techniques
+wang2024executable	OK	arxiv-title sim=1.00 id=2402.01030	Executable Code Actions Elicit Better LLM Agents
+mon2025embodied	OK	crossref sim=1.00 year=2025 doi=10.1038/s42256-025-01005-x	Embodied large language models enable robots to complete complex tasks in unpredictable environments
+strehl2009reinforcement	WHITELISTED	JMLR 10(84):2413-2444, 2009; verified directly on jmlr.org 2026-07-11	
+wallace2024instruction	OK	arXiv:2404.13208 sim=1.00	The Instruction Hierarchy: Training LLMs to Prioritize Privileged Instructions
+zhan2024injecagent	OK	arxiv-title sim=1.00 id=2403.02691	InjecAgent: Benchmarking Indirect Prompt Injections in Tool-Integrated Large Language Model Agents
+debenedetti2024agentdojo	OK	arxiv-title sim=1.00 id=2406.13352	AgentDojo: A Dynamic Environment to Evaluate Prompt Injection Attacks and Defenses for LLM Agents
+greshake2023not	OK	crossref sim=1.00 year=2023 doi=10.1145/3605764.3623985	Not What You've Signed Up For: Compromising Real-World LLM-Integrated Applications with Indirect Prompt Injection
+thakkar2025can	OK	arXiv:2504.09737 sim=1.00	Can LLM feedback enhance review quality? A randomized study of 20K reviews at ICLR 2025
+bjorck2025gr00t	OK	arXiv:2503.14734 sim=1.00	GR00T N1: An Open Foundation Model for Generalist Humanoid Robots
+schmidgall2025agent	OK	arxiv-title sim=1.00 id=2501.04227	Agent Laboratory: Using LLM Agents as Research Assistants
+lu2024ai	OK	arXiv:2408.06292 sim=1.00	The AI Scientist: Towards Fully Automated Open-Ended Scientific Discovery
+szymanski2023autonomous	OK	crossref sim=1.00 year=2023 doi=10.1038/s41586-023-06734-w	An autonomous laboratory for the accelerated synthesis of inorganic materials
+m2024augmenting	OK	arxiv-title sim=0.92 id=2304.05376	ChemCrow: Augmenting large-language models with chemistry tools
+olausson2024self	OK	arxiv-title sim=1.00 id=2306.09896	Is Self-Repair a Silver Bullet for Code Generation?
+yang2023intercode	OK	arxiv-title sim=1.00 id=2306.14898	InterCode: Standardizing and Benchmarking Interactive Coding with Execution Feedback
+jimenez2024swebenchlanguagemodelsresolve	OK	arXiv:2310.06770 sim=1.00	SWE-bench: Can Language Models Resolve Real-World GitHub Issues?
+sharma2024towards	OK	arxiv-title sim=1.00 id=2310.13548	Towards Understanding Sycophancy in Language Models
+lloret2024towards	OK	arxiv-title sim=1.00 id=2407.16970	Towards Aligning Language Models with Textual Feedback
+luo2024improve	OK	arXiv:2406.06592 sim=1.00	Improve Mathematical Reasoning in Language Models by Automated Process Supervision
+wang2024mathshepherdverifyreinforcellms	OK	arXiv:2312.08935 sim=1.00	Math-Shepherd: Verify and Reinforce LLMs Step-by-step without Human Annotations
+uesato2022solving	OK	arXiv:2211.14275 sim=1.00	Solving math word problems with process- and outcome-based feedback
+shumailov2023curse	OK	arXiv:2305.17493 sim=1.00	The Curse of Recursion: Training on Generated Data Makes Models Forget
+huang2023large	OK	arxiv-title sim=1.00 id=2310.01798	Large Language Models Cannot Self-Correct Reasoning Yet
+achiam2023gpt	OK	arXiv:2303.08774 sim=1.00	GPT-4 Technical Report
+wang-etal-2025-dont	OK	crossref sim=1.00 year=2025 doi=10.18653/v1/2025.acl-long.1167	Don’t Get Lost in the Trees: Streamlining LLM Reasoning by Overcoming Tree Search Exploration Pitfalls
+xie2023self	OK	arxiv-title sim=1.00 id=2305.00633	Self-Evaluation Guided Beam Search for Reasoning
+zhang2025survey	OK	arxiv-title sim=1.00 id=2404.13501	A Survey on the Memory Mechanism of Large Language Model based Agents
+li2024improving	OK	arxiv-title sim=1.00 id=2406.11776	Improving Multi-Agent Debate with Sparse Communication Topology
+choi2026debate	WHITELISTED	NeurIPS 2025 (DBLP-verified) + arXiv:2508.17536; journal title differs from arXiv page title check	
+hu2026multi	OK	arXiv:2510.12697 sim=1.00	Multi-Agent Debate for LLM Judges with Adaptive Stability Detection
+estornell2024multi	OK	crossref sim=1.00 year=2024 doi=10.52202/079017-0911	Multi-LLM Debate: Framework, Principals, and Interventions
+chan2023chatevalbetterllmbasedevaluators	OK	arXiv:2308.07201 sim=1.00	ChatEval: Towards Better LLM-based Evaluators through Multi-Agent Debate
+liang2024encouragingdivergentthinkinglarge	OK	arXiv:2305.19118 sim=1.00	Encouraging Divergent Thinking in Large Language Models through Multi-Agent Debate
+yang2024swe	OK	arxiv-title sim=1.00 id=2405.15793	SWE-agent: Agent-Computer Interfaces Enable Automated Software Engineering
+gou2024toratoolintegratedreasoningagent	OK	arXiv:2309.17452 sim=1.00	ToRA: A Tool-Integrated Reasoning Agent for Mathematical Problem Solving
+chen2020simple	OK	arXiv:2002.05709 sim=1.00	A Simple Framework for Contrastive Learning of Visual Representations
+devlin2019bertpretrainingdeepbidirectional	OK	arXiv:1810.04805 sim=1.00	BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding
+brown2020language	OK	arxiv-title sim=1.00 id=2005.14165	Language Models are Few-Shot Learners
+anderljung2023frontier	OK	arXiv:2307.03718 sim=1.00	Frontier AI Regulation: Managing Emerging Risks to Public Safety
+mnih2015human	WHITELISTED	Nature 518:529-533 (2015), DOI 10.1038/nature14236; verified via OpenAlex 2026-07-11 (not on arXiv)	
+vamplew2021scalarrewardenoughresponse	OK	arXiv:2112.15422 sim=1.00	Scalar reward is not enough: A response to Silver, Singh, Precup and Sutton (2021)
+amodei2016concrete	OK	arXiv:1606.06565 sim=1.00	Concrete Problems in AI Safety
+degrave2022magnetic	OK	crossref sim=0.89 year=2024 doi=10.1109/tps.2024.3377811	Magnetic Control of WEST Plasmas Through Deep Reinforcement Learning
+mirhoseini2021graph	OK	crossref sim=1.00 year=2021 doi=10.1038/s41586-021-03544-w	A graph placement methodology for fast chip design
+silver2016mastering	OK	crossref sim=1.00 year=2016 doi=10.1038/nature16961	Mastering the game of Go with deep neural networks and tree search
+senior2020improved	WHITELISTED	Nature 577:706-710 (2020), DOI 10.1038/s41586-019-1923-7; verified via OpenAlex 2026-07-11 (not on arXiv)	
+welleck2023generating	OK	arXiv:2211.00053 sim=1.00	Generating Sequences by Learning to Self-Correct
+andreas2017modular	OK	arXiv:1611.01796 sim=1.00	Modular Multitask Reinforcement Learning with Policy Sketches
+hausknecht2020interactive	OK	arxiv-title sim=1.00 id=1909.05398	Interactive Fiction Games: A Colossal Adventure
+lynch2021language	OK	arxiv-title sim=1.00 id=2005.07648	Language Conditioned Imitation Learning over Unstructured Data
+yao2023tree	OK	arxiv-title sim=1.00 id=2305.10601	Tree of Thoughts: Deliberate Problem Solving with Large Language Models
+sutton2018reinforcement	WHITELISTED	MIT Press book, 2nd edition 2018 (books not resolvable by title APIs); near-duplicate of sutton1998reinforcement, dedup at CSUR merge	
+shinn2023reflexion	OK	arxiv-title sim=1.00 id=2303.11366	Reflexion: Language Agents with Verbal Reinforcement Learning
+madaan2023selfrefine	OK	arxiv-title sim=1.00 id=2303.17651	Self-Refine: Iterative Refinement with Self-Feedback
+casper2023open	OK	arXiv:2307.15217 sim=1.00	Open Problems and Fundamental Limitations of Reinforcement Learning from Human Feedback
+ouyang2022training	OK	arxiv-title sim=1.00 id=2203.02155	Training language models to follow instructions with human feedback
+chen2026does	OK	arXiv:2504.13837 sim=1.00	Does Reinforcement Learning Really Incentivize Reasoning Capacity in LLMs Beyond the Base Model?
+guo2025deepseek	OK	arXiv:2501.12948 sim=1.00	DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning
+christiano2017deep	OK	arXiv:1706.03741 sim=1.00	Deep reinforcement learning from human preferences
+singhal2023long	OK	arXiv:2310.03716 sim=1.00	A Long Way to Go: Investigating Length Correlations in RLHF
+gou2024critic	OK	arXiv:2305.11738 sim=1.00	CRITIC: Large Language Models Can Self-Correct with Tool-Interactive Critiquing
+kim2023rci	OK	arxiv-title sim=1.00 id=2303.17491	Language Models can Solve Computer Tasks
+chen2023selfdebug	OK	arXiv:2304.05128 sim=1.00	Teaching Large Language Models to Self-Debug
+ferraz2024decrim	OK	arXiv:2410.06458 sim=1.00	LLM Self-Correction with DeCRIM: Decompose, Critique, and Refine for Enhanced Following of Instructions with Multiple Constraints
+xu2024llmrefine	OK	arXiv:2311.09336 sim=1.00	LLMRefine: Pinpointing and Refining Large Language Models via Fine-Grained Actionable Feedback
+first2023baldur	OK	arXiv:2303.04910 sim=1.00	Baldur: Whole-Proof Generation and Repair with Large Language Models
+gao2023rarr	OK	arXiv:2210.08726 sim=1.00	RARR: Researching and Revising What Language Models Say, Using Language Models
+stiennon2020learning	OK	arXiv:2009.01325 sim=0.90	Learning to summarize from human feedback
+cote2018textworld	OK	arxiv-title sim=1.00 id=1806.11532	TextWorld: A Learning Environment for Text-based Games
+andrychowicz2017hindsight	OK	arXiv:1707.01495 sim=1.00	Hindsight Experience Replay
+huang2023voxposer	OK	arXiv:2307.05973 sim=1.00	VoxPoser: Composable 3D Value Maps for Robotic Manipulation with Language Models
+singh2022progprompt	OK	arXiv:2209.11302 sim=1.00	ProgPrompt: Generating Situated Robot Task Plans using Large Language Models
+liang2022code	OK	arXiv:2209.07753 sim=0.96	Code as Policies: Language Model Programs for Embodied Control
+driess2023palm	OK	arXiv:2303.03378 sim=1.00	PaLM-E: An Embodied Multimodal Language Model
+brohan2023rt	OK	arXiv:2307.15818 sim=0.96	RT-2: Vision-Language-Action Models Transfer Web Knowledge to Robotic Control
+branavan2009reinforcement	WHITELISTED	ACL-IJCNLP 2009, DOI 10.3115/1687878.1687892; verified via OpenAlex 2026-07-11 (not on arXiv)	
+misra2017mapping	OK	arxiv-title sim=1.00 id=1704.08795	Mapping Instructions and Visual Observations to Actions with Reinforcement Learning
+chaplot2018gated	OK	arxiv-title sim=1.00 id=1706.07230	Gated-Attention Architectures for Task-Oriented Language Grounding
+hermann2017grounded	OK	arXiv:1706.06551 sim=1.00	Grounded Language Learning in a Simulated 3D World
+macglashan2017interactive	OK	arXiv:1701.06049 sim=1.00	Interactive Learning from Policy-Dependent Human Feedback
+knox2009interactively	WHITELISTED	K-CAP 2009 pp.9-16, DOI 10.1145/1597735.1597738 (TAMER); verified via Crossref 2026-07-11	
+lee2023rlaif	OK	arXiv:2309.00267 sim=1.00	RLAIF vs. RLHF: Scaling Reinforcement Learning from Human Feedback with AI Feedback
+singh2023beyond	OK	arXiv:2312.06585 sim=1.00	Beyond Human Data: Scaling Self-Training for Problem-Solving with Language Models
+white1989markov	OK	arxiv-title sim=0.86 id=0812.4580	Feature Markov Decision Processes
+lambert2024tulu	OK	arXiv:2411.15124 sim=1.00	Tulu 3: Pushing Frontiers in Open Language Model Post-Training
+meng2024simpo	OK	arxiv-title sim=1.00 id=2405.14734	SimPO: Simple Preference Optimization with a Reference-Free Reward
+hong2024orpo	OK	arxiv-title sim=1.00 id=2403.07691	ORPO: Monolithic Preference Optimization without Reference Model
+azar2024general	OK	arxiv-title sim=1.00 id=2310.12036	A General Theoretical Paradigm to Understand Learning from Human Preferences
+ethayarajh2024kto	OK	arXiv:2402.01306 sim=1.00	KTO: Model Alignment as Prospect Theoretic Optimization
+yuan2024self	OK	arXiv:2401.10020 sim=1.00	Self-Rewarding Language Models
+wang2023self	OK	arxiv-title sim=1.00 id=2212.10560	Self-Instruct: Aligning Language Models with Self-Generated Instructions
+bai2022training	OK	arXiv:2204.05862 sim=1.00	Training a Helpful and Harmless Assistant with Reinforcement Learning from Human Feedback
+schulman2017proximal	OK	arXiv:1707.06347 sim=1.00	Proximal Policy Optimization Algorithms
+sun2023adaplanner	OK	arxiv-title sim=1.00 id=2305.16653	AdaPlanner: Adaptive Planning from Feedback with Language Models
+lightman2024let	OK	arXiv:2305.20050 sim=1.00	Let's Verify Step by Step
+hong2024metagpt	OK	arxiv-title sim=1.00 id=2308.00352	MetaGPT: Meta Programming for A Multi-Agent Collaborative Framework
+zheng2023judging	OK	arxiv-title sim=1.00 id=2306.05685	Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena
+besta2024graph	OK	arxiv-title sim=1.00 id=2308.09687	Graph of Thoughts: Solving Elaborate Problems with Large Language Models
+schick2023toolformer	OK	arxiv-title sim=1.00 id=2302.04761	Toolformer: Language Models Can Teach Themselves to Use Tools
+weng2023large	OK	arxiv-title sim=1.00 id=2212.09561	Large Language Models are Better Reasoners with Self-Verification
+chen2024teaching	OK	arxiv-title sim=1.00 id=2304.05128	Teaching Large Language Models to Self-Debug
+zhou2022least	OK	arXiv:2205.10625 sim=1.00	Least-to-Most Prompting Enables Complex Reasoning in Large Language Models
+wang2022self	OK	arXiv:2203.11171 sim=1.00	Self-Consistency Improves Chain of Thought Reasoning in Language Models
+wei2022chain	OK	arxiv-title sim=1.00 id=2201.11903	Chain-of-Thought Prompting Elicits Reasoning in Large Language Models
+kamoi2024can	OK	arxiv-title sim=1.00 id=2406.01297	When Can LLMs Actually Correct Their Own Mistakes? A Critical Survey of Self-Correction of LLMs
+pternea2024rl	OK	arxiv-title sim=1.00 id=2402.01874	The RL/LLM Taxonomy Tree: Reviewing Synergies Between Reinforcement Learning and Large Language Models
+luketina2019survey	OK	arXiv:1906.03926 sim=1.00	A Survey of Reinforcement Learning Informed by Natural Language
+yu2023language	OK	arXiv:2306.08647 sim=1.00	Language to Rewards for Robotic Skill Synthesis
+xie2024text2reward	OK	arxiv-title sim=1.00 id=2309.11489	Text2Reward: Reward Shaping with Language Models for Reinforcement Learning
+ma2024eureka	OK	arxiv-title sim=1.00 id=2310.12931	Eureka: Human-Level Reward Design via Coding Large Language Models
+sharma2022correcting	OK	arXiv:2204.05186 sim=1.00	Correcting Robot Plans with Natural Language Feedback
+huang2022inner	OK	arXiv:2207.05608 sim=1.00	Inner Monologue: Embodied Reasoning through Planning with Language Models
+shridhar2020alfworld	OK	arXiv:2010.03768 sim=1.00	ALFWorld: Aligning Text and Embodied Environments for Interactive Learning
+yao2020keep	OK	arxiv-title sim=1.00 id=2010.02903	Keep CALM and Explore: Language Models for Action Generation in Text-based Games
+chevalier2018babyai	OK	arXiv:1810.08272 sim=1.00	BabyAI: A Platform to Study the Sample Efficiency of Grounded Language Learning
+ahn2022can	OK	arXiv:2204.01691 sim=1.00	Do As I Can, Not As I Say: Grounding Language in Robotic Affordances
+peng2023llmaugmenter	OK	arXiv:2302.12813 sim=1.00	Check Your Facts and Try Again: Improving Large Language Models with External Knowledge and Automated Feedback
+suzgun2026dynamic	OK	arxiv-title sim=1.00 id=2504.07952	Dynamic Cheatsheet: Test-Time Learning with Adaptive Memory
+cai2025flex	OK	arXiv:2511.06449 sim=1.00	FLEX: Continuous Agent Evolution via Forward Learning from Experience
+wang2026memento2	OK	arXiv:2512.22716 sim=1.00	Memento 2: Learning by Stateful Reflective Memory
+zhou2024lats	OK	arxiv-title sim=1.00 id=2310.04406	Language Agent Tree Search Unifies Reasoning Acting and Planning in Language Models
+lee2025feedback	OK	arxiv-title sim=1.00 id=2511.07919	Feedback Descent: Open-Ended Text Optimization via Pairwise Comparison
+du2023debate	OK	arxiv-title sim=1.00 id=2305.14325	Improving Factuality and Reasoning in Language Models through Multiagent Debate
+liang2024mad	OK	arxiv-title sim=1.00 id=2305.19118	Encouraging Divergent Thinking in Large Language Models through Multi-Agent Debate
+chan2023chateval	OK	arXiv:2308.07201 sim=1.00	ChatEval: Towards Better LLM-based Evaluators through Multi-Agent Debate
+wu2023autogen	OK	arXiv:2308.08155 sim=0.93	AutoGen: Enabling Next-Gen LLM Applications via Multi-Agent Conversation
+bai2022constitutional	OK	arXiv:2212.08073 sim=1.00	Constitutional AI: Harmlessness from AI Feedback
+luo2025fcp	OK	arXiv:2509.22638 sim=1.00	Language Models Can Learn from Verbal Feedback Without Scalar Rewards
+kapusuzoglu2025cgd	OK	arXiv:2505.11628 sim=1.00	Critique-Guided Distillation for Robust Reasoning via Refinement
+saunders2022selfcritiquing	OK	arXiv:2206.05802 sim=1.00	Self-critiquing models for assisting human evaluators
+shridhar2023distilling	OK	arxiv-title sim=1.00 id=2212.00193	Distilling Reasoning Capabilities into Smaller Language Models
+hao2023reasoning	OK	arxiv-title sim=1.00 id=2305.14992	Reasoning with Language Model is Planning with World Model
+yu2024tripost	OK	arxiv-title sim=1.00 id=2310.13522	Teaching Language Models to Self-Improve through Interactive Demonstrations
+wang2025cft	OK	arxiv-title sim=1.00 id=2501.17703	Critique Fine-Tuning: Learning to Critique is More Effective than Learning to Imitate
+paul2024refiner	OK	arXiv:2304.01904 sim=1.00	REFINER: Reasoning Feedback on Intermediate Representations
+wadhwa2025dcr	OK	arxiv-title sim=1.00 id=2407.02397	Learning to Refine with Fine-Grained Natural Language Feedback
+chen2024ilf	WHITELISTED	TMLR 2024 title of arXiv:2303.16749 precursor (retitled at TMLR); same 8 authors; verified via OpenAlex + arXiv id 2026-07-11	
+liu2023coh	OK	arXiv:2302.02676 sim=1.00	Chain of Hindsight Aligns Language Models with Feedback
+akyurek2023rl4f	OK	arxiv-title sim=1.00 id=2305.08844	RL4F: Generating Natural Language Feedback with Reinforcement Learning for Repairing Model Outputs
+yuan2025selfrewarding	OK	arXiv:2401.10020 sim=1.00	Self-Rewarding Language Models
+qu2024rise	OK	arXiv:2407.18219 sim=1.00	Recursive Introspection: Teaching Language Model Agents How to Self-Improve
+kumar2025score	OK	arXiv:2409.12917 sim=1.00	Training Language Models to Self-Correct via Reinforcement Learning
+scheurer2023training	OK	arXiv:2303.16755 sim=1.00	Training Language Models with Language Feedback at Scale
+huang2022selfimprove	OK	arXiv:2210.11610 sim=1.00	Large Language Models Can Self-Improve
+rafailov2023direct	OK	arxiv-title sim=1.00 id=2305.18290	Direct Preference Optimization: Your Language Model is Secretly a Reward Model
+gulcehre2023rest	OK	arXiv:2308.08998 sim=1.00	Reinforced Self-Training (ReST) for Language Modeling
+singh2024restem	OK	arXiv:2312.06585 sim=1.00	Beyond Human Data: Scaling Self-Training for Problem-Solving with Language Models
+zelikman2022star	OK	arxiv-title sim=1.00 id=2203.14465	STaR: Bootstrapping Reasoning With Reasoning
+zelikman2024quietstar	OK	arXiv:2403.09629 sim=1.00	Quiet-STaR: Language Models Can Teach Themselves to Think Before Speaking
+hosseini2024vstar	OK	arXiv:2402.06457 sim=1.00	V-STaR: Training Verifiers for Self-Taught Reasoners
+klissarov2023motif	OK	arXiv:2310.00166 sim=1.00	Motif: Intrinsic Motivation from Artificial Intelligence Feedback
+feng2025retool	OK	arXiv:2504.11536 sim=1.00	ReTool: Reinforcement Learning for Strategic Tool Use in LLMs
+pryzant2023protegi	OK	arxiv-title sim=1.00 id=2305.03495	Automatic Prompt Optimization with "Gradient Descent" and Beam Search
+yuksekgonul2024textgrad	OK	arXiv:2406.07496 sim=1.00	TextGrad: Automatic "Differentiation" via Text
+paywallednature	OK	crossref sim=1.00 year=2025 doi=10.1038/s41586-025-08661-4	Optimizing generative AI by backpropagating language model feedback
+borges2024felt	OK	arxiv-title sim=1.00 id=2307.00279	Let Me Teach You: Pedagogical Foundations of Feedback for Language Models
+agrawal2026gepa	OK	arXiv:2507.19457 sim=1.00	GEPA: Reflective Prompt Evolution Can Outperform Reinforcement Learning
+zhou2023ape	OK	arXiv:2211.01910 sim=1.00	Large Language Models Are Human-Level Prompt Engineers
+yang2024opro	OK	arXiv:2309.03409 sim=1.00	Large Language Models as Optimizers
+guo2024evoprompt	WHITELISTED	ICLR 2024 published title; arXiv v3 retitled "EvoPrompt: Connecting LLMs..."; eprint 2309.08532 verified by id 2026-07-11	
+fernando2023promptbreeder	OK	arXiv:2309.16797 sim=1.00	Promptbreeder: Self-Referential Self-Improvement Via Prompt Evolution
+opsahlong2024mipro	OK	arxiv-title sim=1.00 id=2406.11695	Optimizing Instructions and Demonstrations for Multi-Stage Language Model Programs
+agarwal2024promptwizard	OK	arXiv:2405.18369 sim=0.89	PromptWizard: Task-Aware Prompt Optimization Framework
+chen2022codet	OK	arXiv:2207.10397 sim=1.00	CodeT: Code Generation with Generated Tests
+zhang2025genrm	OK	arXiv:2408.15240 sim=1.00	Generative Verifiers: Reward Modeling as Next-Token Prediction
+zhao2025genprm	OK	arxiv-title sim=1.00 id=2504.00891	GenPRM: Scaling Test-Time Compute of Process Reward Models via Generative Reasoning
+wang2024mathshepherd	OK	arXiv:2312.08935 sim=1.00	Math-Shepherd: Verify and Reinforce LLMs Step-by-step without Human Annotations
+wang2023shepherd	OK	arXiv:2308.04592 sim=1.00	Shepherd: A Critic for Language Model Generation
+mcaleese2024criticgpt	OK	arXiv:2407.00215 sim=1.00	LLM Critics Help Catch LLM Bugs
+asai2023selfrag	OK	arXiv:2310.11511 sim=1.00	Self-RAG: Learning to Retrieve, Generate, and Critique through Self-Reflection
+wang2023voyager	OK	arXiv:2305.16291 sim=1.00	Voyager: An Open-Ended Embodied Agent with Large Language Models
+park2023genagents	OK	arxiv-title sim=1.00 id=2304.03442	Generative Agents: Interactive Simulacra of Human Behavior
+zhao2024expel	OK	arxiv-title sim=1.00 id=2308.10144	ExpeL: LLM Agents Are Experiential Learners
+yao2023react	OK	arxiv-title sim=1.00 id=2210.03629	ReAct: Synergizing Reasoning and Acting in Language Models
+kim2025reflact	OK	arxiv-title sim=1.00 id=2505.15182	ReflAct: World-Grounded Decision Making in LLM Agents via Goal-State Reflection
+li2025revisor	OK	arxiv-title sim=1.00 id=2511.13026	REVISOR: Beyond Textual Reflection, Towards Multimodal Introspective Reasoning in Long-Form Video Understanding
+kamoi2024whencan	OK	arxiv-title sim=1.00 id=2406.01297	When Can LLMs Actually Correct Their Own Mistakes? A Critical Survey of Self-Correction of LLMs
+anonymous2025selfimprovement	OK	arxiv-title sim=1.00 id=2603.25681	Self-Improvement of Large Language Models: A Technical Overview and Future Outlook
+snell2024scaling	OK	arXiv:2408.03314 sim=1.00	Scaling LLM Test-Time Compute Optimally can be More Effective than Scaling Model Parameters
+ning2026code	OK	arXiv:2605.18747 sim=1.00	Code as Agent Harness
+cohen2025compositional	OK	arXiv:2501.12539 sim=1.00	Compositional Instruction Following with Language Models and Reinforcement Learning
+li2026ground	OK	arxiv-title sim=1.00 id=2507.10741	Ground-Compose-Reinforce: Grounding Language in Agentic Behaviours using Limited Data
+hu2025divide	OK	arXiv:2505.19761 sim=1.00	Divide and Conquer: Grounding LLMs as Efficient Decision-Making Agents via Offline Hierarchical Reinforcement Learning
+zhang2025towards	OK	arxiv-title sim=1.00 id=2405.14314	Towards Efficient LLM Grounding for Embodied Multi-Agent Collaboration
+sakai2025revisiting	OK	arxiv-title sim=1.00 id=2506.15629	Revisiting Compositional Generalization Capability of Large Language Models Considering Instruction Following Ability
+bhat2024grounding	OK	arXiv:2402.08546 sim=1.00	Grounding LLMs For Robot Task Planning Using Closed-loop State Feedback
+huang2025escacontextualizingembodiedagents	OK	arXiv:2510.15963 sim=1.00	ESCA: Contextualizing Embodied Agents via Scene-Graph Generation
+zhou2025code	OK	arxiv-title sim=1.00 id=2412.04455	Code-as-Monitor: Constraint-aware Visual Programming for Reactive and Proactive Robotic Failure Detection
+kim2025multi	OK	arxiv-title sim=1.00 id=2412.17288	Multi-Modal Grounded Planning and Efficient Replanning For Learning Embodied Agents with A Few Examples
+zhang2025llm	OK	arxiv-title sim=1.00 id=2511.07727	LLM-GROP: Visually Grounded Robot Task and Motion Planning with Large Language Models
+joublin2024copal	OK	arxiv-title sim=1.00 id=2310.07263	CoPAL: Corrective Planning of Robot Actions with Large Language Models
+sun2025large	OK	arxiv-title sim=1.00 id=2410.14660	A Large Language Model-Driven Reward Design Framework via Dynamic Feedback for Reinforcement Learning
+sun2025prof	OK	arXiv:2511.13765 sim=1.00	PROF: An LLM-based Reward Code Preference Optimization Framework for Offline Imitation Learning
+zeng2024video2reward	OK	arXiv:2412.05515 sim=1.00	Video2Reward: Generating Reward Function from Videos for Legged Robot Behavior Learning
+shi2025ssr	OK	arXiv:2511.10621 sim=1.00	SSR: Socratic Self-Refine for Large Language Model Reasoning
+wang2025learning	OK	arXiv:2509.00084 sim=1.00	Learning to Refine: Self-Refinement of Parallel Reasoning in LLMs
+gehring2024rlef	OK	arXiv:2410.02089 sim=1.00	RLEF: Grounding Code LLMs in Execution Feedback with Reinforcement Learning
+liu2026learningselfdebatepreparingreasoning	OK	arXiv:2601.22297 sim=1.00	Learning from Self-Debate: Preparing Reasoning Models for Multi-Agent Debate
+zhou2025adaptive	OK	crossref sim=1.00 year=2025 doi=10.1007/s44443-025-00353-3	Adaptive heterogeneous multi-agent debate for enhanced educational and factual reasoning in large language models
+du2026memory	OK	arXiv:2603.07670 sim=1.00	Memory for Autonomous LLM Agents:Mechanisms, Evaluation, and Emerging Frontiers
+tan2025membench	OK	arxiv-title sim=1.00 id=2506.21605	MemBench: Towards More Comprehensive Evaluation on the Memory of LLM-based Agents
+dong2026memory	OK	arxiv-title sim=1.00 id=2503.03704	Memory Injection Attacks on LLM Agents via Query-Only Interaction
+klissarov2026improving	OK	arXiv:2602.16066 sim=1.00	Improving Interactive In-Context Learning from Natural Language Feedback
+bose2024hybrid	OK	arXiv:2412.10616 sim=1.00	Hybrid Preference Optimization for Alignment: Provably Faster Convergence Rates by Combining Offline Preferences with Online Exploration
+liu2025agenticreinforcementlearningimplicit	OK	arXiv:2509.19199 sim=1.00	Agentic Reinforcement Learning with Implicit Step Rewards
+ke2024critiquellm	OK	arxiv-title sim=1.00 id=2311.18702	CritiqueLLM: Towards an Informative Critique Generation Model for Evaluation of Large Language Model Generation
+liu2026generativeadversarialreasonerenhancing	OK	arXiv:2512.16917 sim=1.00	Generative Adversarial Reasoner: Enhancing LLM Reasoning with Adversarial Reinforcement Learning
+khalifa2025processrewardmodelsthink	OK	arXiv:2504.16828 sim=1.00	Process Reward Models That Think
+lin2024criticbench	OK	arxiv-title sim=1.00 id=2402.14809	CriticBench: Benchmarking LLMs for Critique-Correct Reasoning
+wang2026text2gradreinforcementlearningnatural	OK	arXiv:2505.22338 sim=1.00	Text2Grad: Reinforcement Learning from Natural Language Feedback
+bandlamudi2025framework	OK	arXiv:2504.15546 sim=1.00	A Framework for Testing and Adapting REST APIs as LLM Tools
+zhan2025adaptive	OK	arxiv-title sim=1.00 id=2503.00061	Adaptive Attacks Break Defenses Against Indirect Prompt Injection Attacks on LLM Agents
+shi2025prompt	OK	arXiv:2504.19793 sim=1.00	Prompt Injection Attack to Tool Selection in LLM Agents
+chen2025secaligndefendingpromptinjection	OK	arXiv:2410.05451 sim=1.00	SecAlign: Defending Against Prompt Injection with Preference Optimization
+beurer2025design	OK	arXiv:2506.08837 sim=1.00	Design Patterns for Securing LLM Agents against Prompt Injections
+mccallum2023feedback	OK	arXiv:2312.04736 sim=1.00	Is Feedback All You Need? Leveraging Natural Language Feedback in Goal-Conditioned Reinforcement Learning
+sutton1998reinforcement	WHITELISTED	MIT Press book, 1st edition 1998 (books not resolvable by title APIs)	
+meinke2024frontier	OK	arXiv:2412.04984 sim=1.00	Frontier Models are Capable of In-context Scheming
+qian2025dean	OK	arXiv:2508.05952 sim=1.00	Dean of LLM Tutors: A Framework for Automated Quality Review of AI-generated Feedback
+ahtisham2026ai	OK	arxiv-title sim=1.00 id=2511.09785	AI Annotation Orchestration: Evaluating LLM verifiers to Improve the Quality of LLM Annotations in Learning Analytics
+ito2025ensemble	OK	arXiv:2502.16399 sim=1.00	Ensemble ToT of LLMs and Its Application to Automatic Grading System for Supporting Self-Learning
+huang2025medreflect	OK	arXiv:2510.03687 sim=1.00	MedReflect: Teaching Medical LLMs to Self-Improve via Reflective Correction
+zhou2025enhancing	OK	arXiv:2511.10067 sim=1.00	Enhancing the Medical Context-Awareness Ability of LLMs via Multifaceted Self-Refinement Learning
+hatamizadeh2026igrpo	OK	arXiv:2602.09000 sim=1.00	iGRPO: Self-Feedback-Driven LLM Reasoning
+liu2026dual	OK	arXiv:2601.05616 sim=1.00	Dual-Phase LLM Reasoning: Self-Evolved Mathematical Frameworks
+song2026expanding	OK	arXiv:2602.02482 sim=1.00	Expanding the Capabilities of Reinforcement Learning via Text Feedback
+kaufmann2023survey	OK	arXiv:2312.14925 sim=1.00	A Survey of Reinforcement Learning from Human Feedback
+wang2025openhands	OK	arxiv-title sim=1.00 id=2407.16741	OpenHands: An Open Platform for AI Software Developers as Generalist Agents
+feng2024natural	OK	arXiv:2411.14251 sim=1.00	Natural Language Reinforcement Learning
+zhou2025memento	OK	arXiv:2508.16153 sim=1.00	Memento: Fine-tuning LLM Agents without Fine-tuning LLMs
+xie2025capo	OK	arXiv:2508.02298 sim=1.00	CAPO: Towards Enhancing LLM Reasoning through Generative Credit Assignment
+chai2024marlhf	OK	arXiv:2410.02743 sim=1.00	MA-RLHF: Reinforcement Learning from Human Feedback with Macro Actions
+pignatelli2024assessing	OK	arXiv:2409.12798 sim=1.00	Assessing the Zero-Shot Capabilities of LLMs for Action Evaluation in RL
+lin2025speaking	OK	arXiv:2502.03723 sim=1.00	Speaking the Language of Teamwork: LLM-Guided Credit Assignment in Multi-Agent Reinforcement Learning
+li2024red	OK	arXiv:2411.08302 sim=1.00	RED: Unleashing Token-Level Rewards from Holistic Feedback via Reward Redistribution
+zhou2024treg	OK	arXiv:2412.02685 sim=1.00	T-REG: Preference Optimization with Token-Level Reward Regularization
+koo2025learning	OK	arXiv:2504.16272 sim=1.00	Learning Explainable Dense Reward Shapes via Bayesian Optimization
+huang2026bootstrapping	OK	arXiv:2603.04597 sim=1.00	Bootstrapping Exploration with Group-Level Natural Language Feedback in Reinforcement Learning
+zhong2024policy	OK	arXiv:2402.07876 sim=1.00	Policy Improvement using Language Feedback Models
+su2026end	OK	arXiv:2601.08237 sim=1.00	The End of Reward Engineering: How LLMs Are Redefining Multi-Agent Coordination
+cheng2023llfbench	OK	arXiv:2312.06853 sim=1.00	LLF-Bench: Benchmark for Interactive Learning from Language Feedback
+stephan2024rlvf	OK	arXiv:2402.10893 sim=1.00	RLVF: Learning from Verbal Feedback without Overgeneralization
+abdulhai2023lmrl	OK	arXiv:2311.18232 sim=1.00	LMRL Gym: Benchmarks for Multi-Turn Reinforcement Learning with Language Models
+xu2025formalizing	OK	arXiv:2506.10341 sim=1.00	Formalizing Learning from Language Feedback with Provable Guarantees
+he2024words	OK	arXiv:2405.19883 sim=1.00	From Words to Actions: Unveiling the Theoretical Underpinnings of LLM-Driven Autonomous Systems
+zhang2026reasoning	OK	arXiv:2604.09459 sim=1.00	From Reasoning to Agentic: Credit Assignment in Reinforcement Learning for Large Language Models
+wei2025reinforcing	OK	arXiv:2505.11821 sim=1.00	Reinforcing Multi-Turn Reasoning in LLM Agents via Turn-Level Reward Design
+zhou2024archer	OK	arXiv:2402.19446 sim=1.00	ArCHer: Training Language Model Agents via Hierarchical Multi-Turn RL
+wang2025information	OK	arXiv:2510.14967 sim=1.00	Information Gain-based Policy Optimization: A Simple and Effective Approach for Multi-Turn Search Agents
+qu2024latent	OK	arXiv:2412.11120 sim=1.00	Latent Reward: LLM-Empowered Credit Assignment in Episodic Reinforcement Learning
+yan2026memoryr2	OK	arXiv:2605.21768 sim=1.00	Memory-R2: Fair Credit Assignment for Long-Horizon Memory-Augmented LLM Agents
+dong2026how	OK	arXiv:2606.10646 sim=1.00	How Does Reasoning Flow? Tracing Attention-Induced Information Flow for Targeted RL in LLMs
+gunjal2025rubrics	OK	arXiv:2507.17746 sim=1.00	Rubrics as Rewards: Reinforcement Learning Beyond Verifiable Domains
+huang2025reinforcement	OK	arXiv:2508.12790 sim=1.00	Reinforcement Learning with Rubric Anchors
+li2026rubrichub	OK	arXiv:2601.08430 sim=1.00	RubricHub: A Comprehensive and Highly Discriminative Rubric Dataset via Automated Coarse-to-Fine Generation
+yuan2025curing	OK	arXiv:2510.07774 sim=1.00	Curing Miracle Steps in LLM Mathematical Reasoning with Rubric Rewards
+mahmoud2026reward	OK	arXiv:2605.12474 sim=1.00	Reward Hacking in Rubric-Based Reinforcement Learning
+da2025agentrlvr	OK	arXiv:2506.11425 sim=1.00	Agent-RLVR: Training Software Engineering Agents via Guidance and Environment Rewards
+wu2025position	OK	arXiv:2509.21882 sim=1.00	Position: The Hidden Costs and Measurement Gaps of Reinforcement Learning with Verifiable Rewards
+liu2025inferencetime	OK	arXiv:2504.02495 sim=1.00	Inference-Time Scaling for Generalist Reward Modeling
+guo2025reward	OK	arXiv:2505.14674 sim=1.00	Reward Reasoning Model
+wang2025gramr2	OK	arXiv:2509.02492 sim=1.00	GRAM-R$^2$: Self-Training Generative Foundation Reward Models for Reward Reasoning
+wang2024selftaught	OK	arXiv:2408.02666 sim=1.00	Self-Taught Evaluators
+yu2024selfgenerated	OK	arXiv:2411.16646 sim=1.00	Self-Generated Critiques Boost Reward Modeling for Language Models
+saha2025learning	OK	arXiv:2501.18099 sim=1.00	Learning to Plan & Reason for Evaluation with Thinking-LLM-as-a-Judge
+huang2025thinkj	OK	arXiv:2505.14268 sim=1.00	Think-J: Learning to Think for Generative LLM-as-a-Judge
+wu2024metarewarding	OK	arXiv:2407.19594 sim=1.00	Meta-Rewarding Language Models: Self-Improving Alignment with LLM-as-a-Meta-Judge
+wang2026reward	OK	arXiv:2601.07349 sim=1.00	Reward Modeling from Natural Language Human Feedback
+zheng2024processbench	OK	arXiv:2412.06559 sim=1.00	ProcessBench: Identifying Process Errors in Mathematical Reasoning
+yin2025dynamic	OK	arXiv:2507.17849 sim=1.00	Dynamic and Generalizable Process Reward Modeling
+rahman2025spark	OK	arXiv:2512.03244 sim=1.00	SPARK: Stepwise Process-Aware Rewards for Reference-Free Reinforcement Learning
+du2025mmprm	OK	arXiv:2505.13427 sim=1.00	MM-PRM: Enhancing Multimodal Mathematical Reasoning with Scalable Step-Level Supervision
+chen2025rmr1	OK	arXiv:2505.02387 sim=1.00	RM-R1: Reward Modeling as Reasoning
+whitehouse2025j1	OK	arXiv:2505.10320 sim=1.00	J1: Incentivizing Thinking in LLM-as-a-Judge via Reinforcement Learning
+viswanathan2025checklists	OK	arXiv:2507.18624 sim=1.00	Checklists Are Better Than Reward Models For Aligning Language Models
+zhang2025lessons	OK	arXiv:2501.07301 sim=1.00	The Lessons of Developing Process Reward Models in Mathematical Reasoning
+liu2025openrubrics	OK	arXiv:2510.07743 sim=1.00	OpenRubrics: Towards Scalable Synthetic Rubric Generation for Reward Modeling and LLM Alignment
+rezaei2025online	OK	arXiv:2510.07284 sim=1.00	Online Rubrics Elicitation from Pairwise Comparisons
+ye2025selfrewarding	OK	arXiv:2509.25534 sim=1.00	Self-Rewarding Rubric-Based Reinforcement Learning for Open-Ended Reasoning
+xiong2025stepwiser	OK	arXiv:2508.19229 sim=1.00	StepWiser: Stepwise Generative Judges for Wiser Reasoning
+hong2025thinkrm	OK	arXiv:2505.16265 sim=1.00	Think-RM: Enabling Long-Horizon Reasoning in Generative Reward Models
+zhou2025libra	OK	arXiv:2507.21645 sim=1.00	Libra: Assessing and Improving Reward Model by Learning to Think
+wang2025infimedorbit	OK	arXiv:2510.15859 sim=1.00	InfiMed-ORBIT: Aligning LLMs on Open-Ended Complex Tasks via Rubric-Based Incremental Training
+wu2025rlac	OK	arXiv:2511.01758 sim=1.00	RLAC: Reinforcement Learning with Adversarial Critic for Free-Form Generation Tasks
+xu2026rubrics	OK	arXiv:2604.02795 sim=1.00	Rubrics to Tokens: Bridging Response-level Rubrics and Token-level Rewards in Instruction Following Tasks
+guan2026evorubric	OK	arXiv:2605.29847 sim=1.00	EvoRubric: Self-Evolving Rubric-Driven RL for Open-Ended Generation
+chen2026from	OK	arXiv:2606.08625 sim=1.00	From Holistic Evaluation to Structured Criteria: Rubrics Across the Evolving LLM Landscape
+xu2025metatextgrad	OK	arXiv:2505.18524 sim=1.00	metaTextGrad: Automatically optimizing language model optimizers
+xiao2024verbalized	OK	arXiv:2406.04344 sim=1.00	Verbalized Machine Learning: Revisiting Machine Learning with Language Models
+cai2025trainingfree	OK	arXiv:2510.08191 sim=1.00	Training-Free Group Relative Policy Optimization
+zhang2025agentic	OK	arXiv:2510.04618 sim=1.00	Agentic Context Engineering: Evolving Contexts for Self-Improving Language Models
+lee2025compound	OK	arXiv:2506.08234 sim=1.00	Compound AI Systems Optimization: A Survey of Methods, Challenges, and Future Directions
+lin2024scaffolded	OK	arXiv:2410.16392 sim=1.00	Scaffolded Language Models with Language Supervision for Mixed-Autonomy: A Survey
+mei2025survey	OK	arXiv:2507.13334 sim=1.00	A Survey of Context Engineering for Large Language Models
+chen2026learning	OK	arXiv:2603.18620 sim=1.00	Learning to Self-Evolve
+lu2026p2o	OK	arXiv:2603.21877 sim=1.00	P^2O: Joint Policy and Prompt Optimization
+zhang2026evolutionary	OK	arXiv:2602.14697 sim=1.00	Evolutionary System Prompt Learning for Reinforcement Learning in LLMs
+chen2026textual	OK	arXiv:2601.21064 sim=1.00	Textual Equilibrium Propagation for Deep Compound AI Systems
+liu2026reflection	OK	arXiv:2603.18388 sim=1.00	Reflection in the Dark: Exposing and Escaping the Black Box in Reflective Prompt Optimization
+darshan2026when	OK	arXiv:2605.26046 sim=1.00	When Gradients Collide: Failure Modes of Multi-Objective Prompt Optimization for LLM Judges
+nie2024importance	OK	arXiv:2405.16434 sim=1.00	The Importance of Directional Feedback for LLM-based Optimizers
+khattab2023dspy	OK	arXiv:2310.03714 sim=1.00	DSPy: Compiling Declarative Language Model Calls into Self-Improving Pipelines
+cheng2024trace	OK	arXiv:2406.16218 sim=1.00	Trace is the Next AutoDiff: Generative Optimization with Rich Feedback, Execution Traces, and LLMs
+zhou2024symbolic	OK	arXiv:2406.18532 sim=1.00	Symbolic Learning Enables Self-Evolving Agents
+hu2024automated	OK	arXiv:2408.08435 sim=1.00	Automated Design of Agentic Systems
+zhang2024aflow	OK	arXiv:2410.10762 sim=1.00	AFlow: Automating Agentic Workflow Generation
+wang2024how	OK	arXiv:2412.03624 sim=1.00	How to Correctly do Semantic Backpropagation on Language-based Agentic Systems
+yin2025llmautodiff	OK	arXiv:2501.16673 sim=1.00	LLM-AutoDiff: Auto-Differentiate Any LLM Workflow
+zhang2024revolve	OK	arXiv:2412.03092 sim=1.00	REVOLVE: Optimizing AI Systems by Tracking Response Evolution in Textual Optimization
+xiang2025selfsupervised	OK	arXiv:2502.06855 sim=1.00	Self-Supervised Prompt Optimization
+zweiger2025selfadapting	OK	arXiv:2506.10943 sim=1.00	Self-Adapting Language Models
+ma2024are	OK	arXiv:2402.02101 sim=1.00	Are Large Language Models Good Prompt Optimizers?
+das2024greater	OK	arXiv:2412.09722 sim=1.00	GReaTer: Gradients over Reasoning Makes Smaller Language Models Strong Prompt Optimizers
+zhou2025multiagent	OK	arXiv:2502.02533 sim=1.00	Multi-Agent Design: Optimizing Agents with Better Prompts and Topologies
+hebbar2026sia	OK	arXiv:2605.27276 sim=1.00	SIA: Self Improving AI with Harness & Weight Updates
+bai2026maspromptbench	OK	arXiv:2606.23664 sim=1.00	MAS-PromptBench: When Does Prompt Optimization Improve Multi-Agent LLM Systems?
+wang2025evolving	OK	arXiv:2506.17930 sim=1.00	Evolving Prompts In-Context: An Open-ended, Self-replicating Perspective
+wang2024agent	OK	arXiv:2409.07429 sim=1.00	Agent Workflow Memory
+gupta2024metareflection	OK	arXiv:2405.13009 sim=1.00	MetaReflection: Learning Instructions for Language Agents using Past Reflections
+yang2025learning	OK	arXiv:2510.08002 sim=1.00	Learning on the Job: An Experience-Driven Self-Evolving Agent for Long-Horizon Tasks
+xu2025amem	OK	arXiv:2502.12110 sim=1.00	A-MEM: Agentic Memory for LLM Agents
+yan2025memoryr1	OK	arXiv:2508.19828 sim=1.00	Memory-R1: Enhancing Large Language Model Agents to Manage and Utilize Memories via Reinforcement Learning
+zhang2025gmemory	OK	arXiv:2506.07398 sim=1.00	G-Memory: Tracing Hierarchical Memory for Multi-Agent Systems
+zhang2025memevolve	OK	arXiv:2512.18746 sim=1.00	MemEvolve: Meta-Evolution of Agent Memory Systems
+guo2026cascade	OK	arXiv:2605.06702 sim=1.00	CASCADE: Case-Based Continual Adaptation for Large Language Models During Deployment
+ji2026memory	OK	arXiv:2606.06036 sim=1.00	Memory is Reconstructed, Not Retrieved: Graph Memory for LLM Agents
+liu2026mempro	OK	arXiv:2606.00619 sim=1.00	MemPro: Agentic Memory Systems as Evolvable Programs
+lin2026museautoskill	OK	arXiv:2605.27366 sim=1.00	MUSE-Autoskill: Self-Evolving Agents via Skill Creation, Memory, Management, and Evaluation
+zhang2026agentfactory	OK	arXiv:2603.18000 sim=1.00	AgentFactory: A Self-Evolving Framework Through Executable Subagent Accumulation and Reuse
+hu2025evaluating	OK	arXiv:2507.05257 sim=1.00	Evaluating Memory in LLM Agents via Incremental Multi-Turn Interactions
+ouyang2025reasoningbank	OK	arXiv:2509.25140 sim=1.00	ReasoningBank: Scaling Agent Self-Evolving with Reasoning Memory
+chhikara2025mem0	OK	arXiv:2504.19413 sim=1.00	Mem0: Building Production-Ready AI Agents with Scalable Long-Term Memory
+fang2025memp	OK	arXiv:2508.06433 sim=1.00	Memp: Exploring Agent Procedural Memory
+cao2025remember	OK	arXiv:2512.10696 sim=1.00	Remember Me, Refine Me: A Dynamic Procedural Memory Framework for Experience-Driven Agent Evolution
+wei2025evomemory	OK	arXiv:2511.20857 sim=1.00	Evo-Memory: Benchmarking LLM Agent Test-time Learning with Self-Evolving Memory
+zhang2026liveevo	OK	arXiv:2602.02369 sim=1.00	Live-Evo: Online Evolution of Agentic Memory from Continuous Feedback
+zhang2026memskill	OK	arXiv:2602.02474 sim=1.00	MemSkill: Learning and Evolving Memory Skills for Self-Evolving Agents
+xia2026skillrl	OK	arXiv:2602.08234 sim=1.00	SkillRL: Evolving Agents via Recursive Skill-Augmented Reinforcement Learning
+yang2026autoskill	OK	arXiv:2603.01145 sim=1.00	AutoSkill: Experience-Driven Lifelong Learning via Skill Self-Evolution
+zhou2026mementoskills	OK	arXiv:2603.18743 sim=1.00	Memento-Skills: Let Agents Design Agents
+liu2026skillsvote	OK	arXiv:2605.18401 sim=1.00	SkillsVote: Lifecycle Governance of Agent Skills from Collection, Recommendation to Evolution
+zhang2026useful	OK	arXiv:2605.12978 sim=1.00	Useful Memories Become Faulty When Continuously Updated by LLMs
+belikova2026managing	OK	arXiv:2606.23127 sim=1.00	Managing Procedural Memory in LLM Agents: Control, Adaptation, and Evaluation
+wu2026automem	OK	arXiv:2607.01224 sim=1.00	AutoMem: Automated Learning of Memory as a Cognitive Skill
+yang2025revisiting	OK	arXiv:2505.22960 sim=1.00	Revisiting Multi-Agent Debate as Test-Time Scaling: A Systematic Study of Conditional Effectiveness
+lin2025enhancing	OK	arXiv:2509.14034 sim=1.00	Enhancing Multi-Agent Debate System Performance via Confidence Expression
+nguyen2026hear	OK	arXiv:2603.20640 sim=1.00	Hear Both Sides: Efficient Multi-Agent Debate via Diversity-Aware Message Retention
+zhang2025stop	OK	arXiv:2502.08788 sim=1.00	Stop Overvaluing Multi-Agent Debate -- We Must Rethink Evaluation and Embrace Model Heterogeneity
+lan2024training	OK	arXiv:2410.15287 sim=1.00	Training Language Models to Critique With Multi-agent Feedback
+xi2025critiquerl	OK	arXiv:2510.24320 sim=1.00	Critique-RL: Training Language Models for Critiquing through Two-Stage Reinforcement Learning
+yang2025deepcritic	OK	arXiv:2505.00662 sim=1.00	DeepCritic: Deliberate Critique with Large Language Models
+xi2024enhancing	OK	arXiv:2411.16579 sim=1.00	Enhancing LLM Reasoning via Critique Models with Test-Time and Training-Time Supervision
+xie2025teaching	OK	arXiv:2502.03492 sim=1.00	Teaching Language Models to Critique via Reinforcement Learning
+chen2025spc	OK	arXiv:2504.19162 sim=1.00	SPC: Evolving Self-Play Critic via Adversarial Games for LLM Reasoning
+yang2025lighthouse	OK	arXiv:2503.16024 sim=1.00	The Lighthouse of Language: Enhancing LLM Agents via Critique-Guided Improvement
+yuan2025agentr	OK	arXiv:2501.11425 sim=1.00	Agent-R: Training Language Model Agents to Reflect via Iterative Self-Training
+subramaniam2025multiagent	OK	arXiv:2501.05707 sim=1.00	Multiagent Finetuning: Self Improvement with Diverse Reasoning Chains
+motwani2024malt	OK	arXiv:2412.01928 sim=1.00	MALT: Improving Reasoning with Multi-Agent LLM Training
+park2025maporl	OK	arXiv:2502.18439 sim=1.00	MAPoRL: Multi-Agent Post-Co-Training for Collaborative Large Language Models with Reinforcement Learning
+stengeleskin2024teaching	OK	arXiv:2410.14596 sim=1.00	Teaching Models to Balance Resisting and Accepting Persuasion
+horst2025playpen	OK	arXiv:2504.08590 sim=1.00	Playpen: An Environment for Exploring Learning Through Conversational Interaction
+cheng2024selfplaying	OK	arXiv:2404.10642 sim=1.00	Self-playing Adversarial Language Game Enhances LLM Reasoning
+kuba2025language	OK	arXiv:2509.07414 sim=1.00	Language Self-Play For Data-Free Training
+chen2025multiagent	OK	arXiv:2510.23595 sim=1.00	Multi-Agent Evolve: LLM Self-Improve through Co-evolution
+sarkar2025training	OK	arXiv:2502.06060 sim=1.00	Training Language Models for Social Deduction with Multi-Agent Reinforcement Learning
+yi2026latent	OK	arXiv:2604.24881 sim=1.00	Latent Agents: A Post-Training Procedure for Internalized Multi-Agent Debate
+kirchner2024prover	OK	arXiv:2407.13692 sim=1.00	Prover-Verifier Games improve legibility of LLM outputs
+sukovic2024reward	OK	arXiv:2402.15826 sim=1.00	Reward Design for Justifiable Sequential Decision-Making
+khan2024debating	OK	arXiv:2402.06782 sim=1.00	Debating with More Persuasive LLMs Leads to More Truthful Answers
+kenton2024scalable	OK	arXiv:2407.04622 sim=1.00	On scalable oversight with weak LLMs judging strong LLMs
+arnesen2024training	OK	arXiv:2409.16636 sim=1.00	Training Language Models to Win Debates with Self-Play Improves Judge Accuracy
+lang2025debate	OK	arXiv:2501.13124 sim=1.00	Debate Helps Weak-to-Strong Generalization
+shi2024yell	OK	arXiv:2403.12910 sim=1.00	Yell At Your Robot: Improving On-the-Fly from Language Corrections
+zha2023distilling	OK	arXiv:2311.10678 sim=1.00	Distilling and Retrieving Generalizable Knowledge for Robot Manipulation via Language Corrections
+cui2023no	OK	arXiv:2301.02555 sim=1.00	"No, to the Right" -- Online Language Corrections for Robotic Manipulation via Shared Autonomy
+xi2024teaching	OK	arXiv:2410.24218 sim=1.00	Teaching Embodied Reinforcement Learning Agents: Informativeness and Diversity of Language Use
+lee2026roboreward	OK	arXiv:2601.00675 sim=1.00	RoboReward: General-Purpose Vision-Language Reward Models for Robotics
+tan2025robodopamine	OK	arXiv:2512.23703 sim=1.00	Robo-Dopamine: General Process Reward Modeling for High-Precision Robotic Manipulation
+belkhale2024rth	OK	arXiv:2403.01823 sim=1.00	RT-H: Action Hierarchies Using Language
+duan2024aha	OK	arXiv:2410.00371 sim=1.00	AHA: A Vision-Language-Model for Detecting and Reasoning Over Failures in Robotic Manipulation
+ma2024dreureka	OK	arXiv:2406.01967 sim=1.00	DrEureka: Language Model Guided Sim-To-Real Transfer
+wang2024rlvlmf	OK	arXiv:2402.03681 sim=1.00	RL-VLM-F: Reinforcement Learning from Vision Language Foundation Model Feedback
+hwang2024motif	OK	arXiv:2409.10683 sim=1.00	MotIF: Motion Instruction Fine-tuning
+dai2024racer	OK	arXiv:2409.14674 sim=1.00	RACER: Rich Language-Guided Failure Recovery Policies for Imitation Learning
+wybitul2024vista	OK	arXiv:2411.13211 sim=1.00	ViSTa Dataset: Do vision-language models understand sequential tasks?
+huang2024vlmrl	OK	arXiv:2412.15544 sim=1.00	VLM-RL: A Unified Vision Language Models and Reinforcement Learning Framework for Safe Autonomous Driving
+lu2025vlarl	OK	arXiv:2505.18719 sim=1.00	VLA-RL: Towards Masterful and General Robotic Manipulation with Scalable Reinforcement Learning
+lin2025failsafe	OK	arXiv:2510.01642 sim=1.00	FailSafe: Reasoning and Recovery from Failures in Vision-Language-Action Models
+pacaud2025scaling	OK	arXiv:2512.01946 sim=1.00	Scaling Cross-Environment Failure Reasoning Data for Vision-Language Robotic Manipulation
+wu2026large	OK	arXiv:2603.16065 sim=1.00	Large Reward Models: Generalizable Online Robot Reward Generation with Vision-Language Models
+schroeder2026soler1	OK	arXiv:2603.28730 sim=1.00	SOLE-R1: Video-Language Reasoning as the Sole Reward for On-Robot Reinforcement Learning
+schoepp2025evolving	OK	arXiv:2502.15214 sim=1.00	The Evolving Landscape of LLM- and VLM-Integrated Reinforcement Learning
+lambert2024rewardbench	OK	arXiv:2403.13787 sim=1.00	RewardBench: Evaluating Reward Models for Language Modeling
+malik2025rewardbench	OK	arXiv:2506.01937 sim=1.00	RewardBench 2: Advancing Reward Model Evaluation
+liu2024rmbench	OK	arXiv:2410.16184 sim=1.00	RM-Bench: Benchmarking Reward Models of Language Models with Subtlety and Style
+kim2024evaluating	OK	arXiv:2410.01729 sim=1.00	Evaluating Robustness of Reward Models for Mathematical Reasoning
+wen2026ifrewardbench	OK	arXiv:2603.04738 sim=1.00	IF-RewardBench: Benchmarking Judge Models for Instruction-Following Evaluation
+lan2024criticeval	OK	arXiv:2402.13764 sim=1.00	CriticEval: Evaluating Large Language Model as Critic
+tang2025realcritic	OK	arXiv:2501.14492 sim=1.00	RealCritic: Towards Effectiveness-Driven Evaluation of Language Model Critiques
+zhang2025codecriticbench	OK	arXiv:2502.16614 sim=1.00	CodeCriticBench: A Holistic Code Critique Benchmark for Large Language Models
+nath2025toolcomp	OK	arXiv:2501.01290 sim=1.00	ToolComp: A Multi-Tool Reasoning & Process Supervision Benchmark
+zhou2025evaluating	OK	arXiv:2504.15253 sim=1.00	Evaluating Judges as Evaluators: The JETTS Benchmark of LLM-as-Judges as Test-Time Scaling Evaluators
+zeng2023evaluating	OK	arXiv:2310.07641 sim=1.00	Evaluating Large Language Models at Evaluating Instruction Following
+wang2023mint	OK	arXiv:2309.10691 sim=1.00	MINT: Evaluating LLMs in Multi-turn Interaction with Tools and Language Feedback
+han2025convcodeworld	OK	arXiv:2502.19852 sim=1.00	ConvCodeWorld: Benchmarking Conversational Code Generation in Reproducible Feedback Environments
+wang2025scan	OK	arXiv:2505.06698 sim=1.00	SCAN: Structured Capability Assessment and Navigation for LLMs
+tan2024judgebench	OK	arXiv:2410.12784 sim=1.00	JudgeBench: A Benchmark for Evaluating LLM-based Judges
+song2025prmbench	OK	arXiv:2501.03124 sim=1.00	PRMBench: A Fine-grained and Challenging Benchmark for Process-Level Reward Models
+jiang2025feedback	OK	arXiv:2506.11930 sim=1.00	Feedback Friction: LLMs Struggle to Fully Incorporate External Feedback
+son2024mmeval	OK	arXiv:2410.17578 sim=1.00	MM-Eval: A Multilingual Meta-Evaluation Benchmark for LLM-as-a-Judge and Reward Models
+zhou2024rmb	OK	arXiv:2410.09893 sim=1.00	RMB: Comprehensively Benchmarking Reward Models in LLM Alignment
+frick2024how	OK	arXiv:2410.14872 sim=1.00	How to Evaluate Reward Models for RLHF
+ye2024justice	OK	arXiv:2410.02736 sim=1.00	Justice or Prejudice? Quantifying Biases in LLM-as-a-Judge
+yan2025verifybench	OK	arXiv:2505.15801 sim=1.00	VerifyBench: Benchmarking Reference-based Reward Systems for Large Language Models
+huang2025from	OK	arXiv:2505.22203 sim=1.00	From Accuracy to Robustness: A Study of Rule- and Model-based Verifiers in Mathematical Reasoning
+lu2025agentrewardbench	OK	arXiv:2504.08942 sim=1.00	AgentRewardBench: Evaluating Automatic Evaluations of Web Agent Trajectories
+feng2025are	OK	arXiv:2512.16041 sim=1.00	Are We on the Right Way to Assessing LLM-as-a-Judge?
+feuer2025when	OK	arXiv:2509.20293 sim=1.00	When Judgment Becomes Noise: How Design Failures in LLM Judge Benchmarks Silently Undermine Validity
+ma2026personalized	OK	arXiv:2604.07343 sim=1.00	Personalized RewardBench: Evaluating Reward Models with Human Aligned Personalization
+wang2026aligning	OK	arXiv:2604.08178 sim=1.00	Aligning Agents via Planning: A Benchmark for Trajectory-Level Reward Modeling
+lai2026biasscope	OK	arXiv:2602.09383 sim=1.00	BiasScope: Towards Automated Detection of Bias in LLM-as-a-Judge Evaluation
+shi2024optimization	OK	arXiv:2403.17710 sim=1.00	Optimization-based Prompt Injection Attack to LLM-as-a-Judge
+zhao2025one	OK	arXiv:2507.08794 sim=1.00	One Token to Fool LLM-as-a-Judge
+maloyan2025adversarial	OK	arXiv:2504.18333 sim=1.00	Adversarial Attacks on LLM-as-a-Judge Systems: Insights from Prompt Injections
+raina2024is	OK	arXiv:2402.14016 sim=1.00	Is LLM-as-a-Judge Robust? Investigating Universal Adversarial Attacks on Zero-shot LLM Assessment
+li2025llms	OK	arXiv:2506.09443 sim=1.00	LLMs Cannot Reliably Judge (Yet?): A Comprehensive Assessment on the Robustness of LLM-as-a-Judge
+yang2026turning	OK	arXiv:2605.26156 sim=1.00	Turning Bias into Bugs: Bandit-Guided Style Manipulation Attacks on LLM Judges
+chen2025safer	OK	arXiv:2503.09347 sim=1.00	Safer or Luckier? LLMs as Safety Evaluators Are Not Robust to Artifacts
+schwinn2026coin	OK	arXiv:2603.06594 sim=1.00	A Coin Flip for Safety: LLM Judges Fail to Reliably Measure Adversarial Robustness
+evtimov2025wasp	OK	arXiv:2504.18575 sim=1.00	WASP: Benchmarking Web Agent Security Against Prompt Injection Attacks
+dziemian2026how	OK	arXiv:2603.15714 sim=1.00	How Vulnerable Are AI Agents to Indirect Prompt Injections? Insights from a Large-Scale Public Competition
+zhao2025are	OK	arXiv:2510.14381 sim=1.00	Are My Optimized Prompts Compromised? Exploring Vulnerabilities of LLM-based Optimizers
+baumgartner2024best	OK	arXiv:2404.05530 sim=1.00	Best-of-Venom: Attacking RLHF by Injecting Poisoned Preference Data
+pathmanathan2024is	OK	arXiv:2406.12091 sim=1.00	Is poisoning a real threat to LLM alignment? Maybe more so than you think
+hahm2026alignment	OK	arXiv:2605.27355 sim=1.00	Alignment Tampering: How Reinforcement Learning from Human Feedback Is Exploited to Optimize Misaligned Biases
+pan2024feedback	OK	arXiv:2402.06627 sim=1.00	Feedback Loops With Language Models Drive In-Context Reward Hacking
+taylor2025school	OK	arXiv:2508.17511 sim=1.00	School of Reward Hacks: Hacking harmless tasks generalizes to misaligned behavior in LLMs
+wang2026reproducing	OK	arXiv:2606.04923 sim=1.00	Reproducing, Analyzing, and Detecting Reward Hacking in Rubric-Based Reinforcement Learning
+roth2026hack	OK	arXiv:2605.20744 sim=1.00	Hack-Verifiable Environments: Towards Evaluating Reward Hacking at Scale
+alazraki2025reverse	OK	arXiv:2505.15795 sim=1.00	Reverse Engineering Human Preferences with Reinforcement Learning
+fanous2025syceval	OK	arXiv:2502.08177 sim=1.00	SycEval: Evaluating LLM Sycophancy
+hong2025measuring	OK	arXiv:2505.23840 sim=1.00	Measuring Sycophancy of Language Models in Multi-turn Dialogues
+cheng2025elephant	OK	arXiv:2505.13995 sim=1.00	ELEPHANT: Measuring and understanding social sycophancy in LLMs
+malmqvist2024sycophancy	OK	arXiv:2411.15287 sim=1.00	Sycophancy in Large Language Models: Causes and Mitigations
+pandey2026llms	OK	arXiv:2604.19117 sim=1.00	LLMs Know They're Wrong and Agree Anyway: The Shared Sycophancy-Lying Circuit
+bukharin2025adversarial	OK	arXiv:2504.06141 sim=1.00	Adversarial Training of Reward Models
+papadatos2024linear	OK	arXiv:2412.00967 sim=1.00	Linear Probe Penalties Reduce LLM Sycophancy
+beigi2025sycophancy	OK	arXiv:2509.16742 sim=1.00	Sycophancy Mitigation Through Reinforcement Learning with Uncertainty-Aware Adaptive Reasoning Trajectories
+zhang2025landscape	OK	arXiv:2509.02547 sim=1.00	The Landscape of Agentic Reinforcement Learning for LLMs: A Survey
+pan2023automatically	OK	arXiv:2308.03188 sim=1.00	Automatically Correcting Large Language Models: Surveying the landscape of diverse self-correction strategies
+fernandes2023bridging	OK	arXiv:2305.00955 sim=1.00	Bridging the Gap: A Survey on Integrating (Human) Feedback for Natural Language Generation
+zhang2025testtime	OK	arXiv:2503.24235 sim=1.00	A Survey on Test-Time Scaling in Large Language Models: What, How, Where, and How Well?
+venktesh2025trust	OK	arXiv:2508.16665 sim=1.00	Trust but Verify! A Survey on Verification Design for Test-time Scaling
+li2025survey	OK	arXiv:2501.10069 sim=1.00	A Survey on LLM Test-Time Compute via Search: Tasks, LLM Profiling, Search Algorithms, and Relevant Frameworks
+xiao2024comprehensive	OK	arXiv:2410.15595 sim=1.00	A Comprehensive Survey of Direct Preference Optimization: Datasets, Theories, Variants, and Applications
+wang2024reinforcement	OK	arXiv:2412.10400 sim=1.00	Reinforcement Learning Enhanced LLMs: A Survey
+srivastava2025technical	OK	arXiv:2507.04136 sim=1.00	A Technical Survey of Reinforcement Learning Techniques for Large Language Models
+liu2026reinforcement	OK	arXiv:2604.02507 sim=1.00	Reinforcement Learning from Human Feedback: A Statistical Perspective
+gao2025survey	OK	arXiv:2507.21046 sim=1.00	A Survey of Self-Evolving Agents: What, When, How, and Where to Evolve on the Path to Artificial Super Intelligence
+fang2025comprehensive	OK	arXiv:2508.07407 sim=1.00	A Comprehensive Survey of Self-Evolving AI Agents: A New Paradigm Bridging Foundation Models and Lifelong Agentic Systems
+du2025survey	OK	arXiv:2503.12434 sim=1.00	A Survey on the Optimization of Large Language Model-based Agents
+gu2024survey	OK	arXiv:2411.15594 sim=1.00	A Survey on LLM-as-a-Judge
+li2024generation	OK	arXiv:2411.16594 sim=1.00	From Generation to Judgment: Opportunities and Challenges of LLM-as-a-judge
+ke2025survey	OK	arXiv:2504.09037 sim=1.00	A Survey of Frontiers in LLM Reasoning: Inference Scaling, Learning to Reason, and Agentic Systems
+zheng2025lifelong	OK	arXiv:2501.07278 sim=1.00	Lifelong Learning of Large Language Model based Agents: A Roadmap
+surana2026generate	OK	arXiv:2605.02913 sim=1.00	Generate, Filter, Control, Replay: A Comprehensive Survey of Rollout Strategies for LLM Reinforcement Learning
+ji2025survey	OK	arXiv:2505.02666 sim=1.00	A Survey on Progress in LLM Alignment from the Perspective of Reward Design
+sumers2023cognitive	OK	arXiv:2309.02427 sim=1.00	Cognitive Architectures for Language Agents
+wu2025sailing	OK	arXiv:2505.02686 sim=1.00	Sailing by the Stars: A Survey on Reward Models and Learning Strategies for Learning from Rewards
+liu2025enhancing	OK	arXiv:2510.01925 sim=1.00	Enhancing Large Language Model Reasoning with Reward Models: An Analytical Survey
+wei2025unifying	OK	arXiv:2510.09988 sim=1.00	Unifying Tree Search Algorithm and Reward Design for LLM Reasoning: A Survey
+tao2024survey	OK	arXiv:2404.14387 sim=1.00	A Survey on Self-Evolution of Large Language Models
+liang2024internal	OK	arXiv:2407.14507 sim=1.00	Internal Consistency and Self-Feedback in Large Language Models: A Survey
+li2024judges	OK	arXiv:2412.05579 sim=1.00	LLMs-as-Judges: A Comprehensive Survey on LLM-based Evaluation Methods
+zhang2025reinforcement	OK	arXiv:2509.08827 sim=1.00	A Survey of Reinforcement Learning for Large Reasoning Models
+xu2025towards	OK	arXiv:2501.09686 sim=1.00	Towards Large Reasoning Models: A Survey of Reinforced Reasoning with Large Language Models
+you2026agent	OK	arXiv:2601.05111 sim=1.00	Agent-as-a-Judge
