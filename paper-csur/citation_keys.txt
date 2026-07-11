@@ -102,6 +102,7 @@ gao2025survey
 gehring2024rlef
 gou2024critic
 gou2024toratoolintegratedreasoningagent
+greenspoon1955reinforcing
 greshake2023not
 gu2024survey
 guan2026evorubric
@@ -167,6 +168,7 @@ klissarov2023motif
 klissarov2026improving
 knox2009interactively
 koo2025learning
+krasner1958studies
 kuba2025language
 kumar2025score
 lai2026biasscope

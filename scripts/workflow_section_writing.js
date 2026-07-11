@@ -102,11 +102,18 @@ const SECTIONS = [
 
 phase('Write')
 
+// args.skip: section ids whose draft already exists on disk from a previous
+// run (writer completed the file but the run died before returning); skip the
+// write agent and go straight to critique.
+const SKIP = new Set((args && args.skip) || [])
+
 const results = await pipeline(
   SECTIONS,
-  s => agent(`${COMMON}
+  s => SKIP.has(s.id)
+    ? { file: `${ROOT}/paper-csur/sections/${s.file}`, words: 0, cited_keys: [], missing_refs: [], notes: 'pre-existing draft from prior run; write skipped' }
+    : agent(`${COMMON}
 YOUR SECTION: ${s.file} (label ${s.label}, word budget ~${s.budget} words of body text, +-20%).
-The stub with your writing brief: ${ROOT}/paper-csur/sections/${s.file} (READ IT FIRST; the brief comments are your requirements; delete them in your draft).
+The stub with your writing brief: ${ROOT}/paper-csur/sections/${s.file} (READ IT FIRST; the brief comments are your requirements; delete them in your draft). If that file no longer contains the brief comments (a draft already replaced it), recover the brief with: cd ${ROOT} && git show HEAD:paper-csur/sections/${s.file}
 Your source material (read all):
 ${s.sources.map(x => '- ' + ROOT + '/' + x).join('\n')}
 - ${ROOT}/notes/arr_reviews_2026_may.md (fix what applies to your section)

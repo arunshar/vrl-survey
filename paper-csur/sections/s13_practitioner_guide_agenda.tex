@@ -1,12 +1,96 @@
 \section{Practitioner Guide, Related Surveys, and Research Agenda}
-\label{sec:guide}
-% BRIEF (new; fixes weaknesses (e), (f), (g)):
-% 1. Decision tree/table: language as reward vs state vs action guidance vs deliberation
-%    vs training signal, keyed to task verifiability, feedback latency/cost, and risk
-%    (hacking, sycophancy, poisoning). Prescriptive, with named methods per leaf.
-% 2. Comparison table vs ~15-21 surveys (rows from T9 notes; columns: scope, organizing
-%    axis, feedback types, lifecycle stages, formalism?, guidance?, safety?).
-% 3. Research agenda (10 items), led by missing theory: sample efficiency of verbal vs
-%    scalar feedback; optimality/convergence under language-shaped rewards; feedback
-%    provenance and robustness; standardized feedback-quality evaluation.
-\todonote{Draft from T9 notes + S8/S11/S12 open problems.}
+\label{sec:practitioner}
+
+The preceding sections classify the literature; this section turns the classification outward. We first distill the taxonomy of \S\ref{sec:taxonomy} into prescriptive guidance for choosing a verbal-feedback mechanism (\S\ref{subsec:mechanism}), then position the survey against sixteen prior surveys and frameworks (\S\ref{subsec:priorsurveys}), and close with a ten-item research agenda assembled from the gaps named in \S\ref{sec:framework} through \S\ref{sec:safety} (\S\ref{subsec:agenda}).
+
+\subsection{Choosing a Verbal-Feedback Mechanism}
+\label{subsec:mechanism}
+
+Table~\ref{tab:practitioner} states when each role for language is the right choice, keyed to properties a practitioner can assess before building anything: whether task outcomes are mechanically verifiable, whether model weights are accessible, the latency and cost budget available for producing feedback, and the dominant risk that must be monitored once the mechanism is in place. The six rows correspond to the placements developed in \S\ref{sec:grounding} through \S\ref{sec:rewardstack}; representative methods are drawn from the sections where each mechanism is analyzed.
+
+\begin{table}[t]
+    \centering
+    \footnotesize
+    \renewcommand{\arraystretch}{1.2}
+    \caption{Practitioner guidance: when to use language in each role, what it costs, and what to monitor.}
+    \label{tab:practitioner}
+    \begin{tabularx}{\textwidth}{@{} >{\raggedright\arraybackslash}p{0.13\textwidth} >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}p{0.155\textwidth} >{\raggedright\arraybackslash}p{0.15\textwidth} >{\raggedright\arraybackslash}p{0.17\textwidth} @{}}
+        \toprule
+        \textbf{Language as} & \textbf{Preconditions} & \textbf{Latency and cost} & \textbf{Dominant risk} & \textbf{Representative} \\
+        \midrule
+        Reward (compiled to code or rubric) & Success expressible as checks; simulator or executor available; weights and training budget accessible & Offline compilation; cheap per episode once compiled & Objective mis-specification; reward hacking & Eureka \citep{ma2024eureka}; Text2Reward \citep{xie2024text2reward} \\
+        State or task grounding & Raw observations too complex or task underspecified; language abstracts them faithfully & Per-step description cost; no training required & Information loss; state aliasing & ALFWorld \citep{shridhar2020alfworld}; SayCan \citep{ahn2022can} \\
+        Action guidance & Open-ended action space; LLM priors informative; actions executable and checkable & Per-step generation cost & Exploration collapse under the prior; unexecutable actions & ReAct \citep{yao2023react}; ProgPrompt \citep{singh2022progprompt}; CodeAct \citep{wang2024executable} \\
+        Deliberative feedback & No weight access; latency budget allows iteration; a grounded critic (tools, tests) exists & Multiplies inference cost per query & Circular self-critique; unbounded revision loops & Self-Refine \citep{madaan2023selfrefine}; CRITIC \citep{gou2024critic}; ToT \citep{yao2023tree} \\
+        Memory & Tasks recur across episodes; lessons are reusable & Cheap writes; retrieval overhead per episode & Error persistence; memory poisoning & Reflexion \citep{shinn2023reflexion}; ExpeL \citep{zhao2024expel}; Voyager \citep{wang2023voyager} \\
+        Training signal & Persistent improvement needed; feedback plentiful; weights accessible & Highest upfront cost; amortizes across deployment & Sycophancy to wrong critiques; filter bias & FCP \citep{luo2025fcp}; STaR \citep{zelikman2022star}; PRMs \citep{lightman2024let} \\
+        \bottomrule
+    \end{tabularx}
+\end{table}
+
+The choice of mechanism also constrains the choice of optimizer: each feedback form pairs with a particular optimization family, and each pairing imports its own assumptions into the decision problem, as analyzed in \S\ref{sec:credit}. The guidance below therefore fixes the feedback form first and treats the optimizer as a downstream consequence of that choice.
+
+The table compresses into four ordered questions. First, is the outcome mechanically verifiable, and are weights accessible? If both hold, compile the language into an executable reward or rubric and train against it (\S\ref{sec:rewardstack}); the monitoring burden then shifts to hacking of the compiled objective. Second, if weights are inaccessible but the latency budget allows iteration, use deliberative feedback, and prefer a critic grounded in tools or tests over prompted self-critique, which does not succeed without reliable external signal \citep{kamoi2024can,gou2024critic}. Third, if tasks recur across episodes, persist distilled lessons as memory and audit the store for stale or poisoned entries (\S\ref{sec:safety}). Fourth, if the bottleneck is specification rather than optimization, spend the language budget on grounding: describing states, defining the task, or constraining actions before any feedback loop is built. \todonote{FIGURE: decision tree mapping the four questions (verifiable outcome? weight access? iteration budget? recurring tasks?) to the six rows of Table~\ref{tab:practitioner}, with one named method per leaf}
+
+\subsection{Comparison with Prior Surveys}
+\label{subsec:priorsurveys}
+
+To our knowledge, this survey is the first organized around the verbal signal itself: which component of the decision problem a linguistic artifact modifies and when it takes effect. Table~\ref{tab:surveys} makes the positioning explicit against sixteen prior surveys and frameworks. The pattern across rows is consistent. Shelf neighbors organize by mechanism (correction timing, evolution phase, rollout stage), by agent component (memory, capability, module under optimization), or by algorithm family (RLHF, preference optimization, agentic RL). None combines a signal-centric axis with a formal framework, lifecycle coverage from problem definition through inference to training, and treatment of the feedback channel's safety; that fourfold combination is the position this survey occupies.
+
+\begin{table}[t]
+    \centering
+    \footnotesize
+    \renewcommand{\arraystretch}{1.15}
+    \caption{Positioning against prior surveys and frameworks. Feedback types: S = scalar, P = preference, V = verbal; a letter in parentheses marks a feedback type the work treats only partially. Stages: D = problem definition and grounding, I = inference, T = training. Formal (formal framework), Guide (prescriptive practitioner guidance), and Safety (feedback-channel safety): Y = yes, P = partial, N = not claimed in the work's own framing.}
+    \label{tab:surveys}
+    \begin{tabularx}{\textwidth}{@{} l >{\raggedright\arraybackslash}p{0.14\textwidth} >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}p{0.075\textwidth} p{0.05\textwidth} c c c @{}}
+        \toprule
+        \textbf{Survey} & \textbf{Scope} & \textbf{Organizing axis} & \textbf{Feedb.} & \textbf{Stages} & \textbf{Formal} & \textbf{Guide} & \textbf{Safety} \\
+        \midrule
+        \citet{luketina2019survey} & language-informed RL (pre-LLM) & task setting & S & T & N & N & N \\
+        \citet{pan2023automatically} & LLM self-correction & correction timing & V, (S) & I, T & N & P & N \\
+        \citet{kamoi2024can} & self-correction critique & research question $\times$ feedback source & V & I, T & N & Y & N \\
+        \citet{fernandes2023bridging} & feedback for generation & format $\times$ objective $\times$ use & S, P, V & I, T & Y & P & P \\
+        \citet{wang2024reinforcement} & RL-enhanced LLMs & training technique (RLHF, RLAIF, DPO) & S, P & T & N & P & N \\
+        \citet{xiao2024comprehensive} & preference optimization & research questions & P & T & P & P & N \\
+        \citet{zhang2025survey} & agent memory & design, evaluation, application & (V) & I & P & P & N \\
+        \citet{zhang2025testtime} & test-time scaling & what/how/where/how well & (S), (V) & I & P & Y & N \\
+        \citet{gao2025survey} & self-evolving agents & what/when/how to evolve & S, V & I, T & P & P & Y \\
+        \citet{fang2025comprehensive} & self-evolving agents & component under optimization & (S), (V) & I, T & Y & P & Y \\
+        \citet{zhang2025landscape} & agentic RL & capability $\times$ domain & S, (P) & T & Y & P & N \\
+        \citet{srivastava2025technical} & RL for LLMs & reward $\times$ feedback $\times$ optimization & S, P, (V) & T & Y & Y & P \\
+        \citet{ji2025survey} & alignment & reward-mechanism dimensions & S, P & T & Y & Y & N \\
+        \citet{wu2025sailing} & learning from rewards & reward model $\times$ strategy $\times$ stage & S, P, (V) & I, T & N & P & N \\
+        \citet{surana2026generate} & RL rollout design & rollout stage & S, (V) & T & Y & Y & P \\
+        \citet{feng2024natural} & NLRL (framework) & RL-component analogues in language & V & I, T & Y & N & N \\
+        \midrule
+        This survey & verbal RL & the signal: what it modifies, when it acts & V, (S), (P) & D, I, T & Y & Y & Y \\
+        \bottomrule
+    \end{tabularx}
+\end{table}
+
+Two rows anchor the history of the idea. \citet{luketina2019survey} argued in 2019 that language should inform a scalar-reward learner; the era surveyed here inverts that premise, since language is now simultaneously the policy medium, the feedback, and increasingly the optimizer trace (\S\ref{sec:optimizers}). Natural language reinforcement learning \citep{feng2024natural} is the closest formal neighbor, but it is one value-centric instantiation, extending RL components into language space, whereas our framework in \S\ref{sec:framework} types the full range of signals and maps the empirical field that the formalism alone does not cover. This positioning also resolves the terminological collision noted in \S\ref{sec:intro}: the coinage of verbal reinforcement learning for self-reflective agents \citep{shinn2023reflexion} names the inference-stage cell of our taxonomy, natural language reinforcement learning names a training-stage formal instantiation, and this survey supplies the signal-centric umbrella over both.
+
+A second cluster fixes the feedback signal in advance and organizes by mechanism. \citet{pan2023automatically} taxonomize by when correction happens; in our terms, correction is one consumption pattern, and we follow the same signals into grounding and the trained reward stack. \citet{kamoi2024can} contribute the field's sharpest negative result, that prompted self-feedback alone does not produce successful self-correction; in our frame this becomes a statement about signal provenance that generalizes across all three pillars. \citet{zhang2025testtime} treat feedback as an implementation detail of scaling, whereas we make the signal the object of study and connect the same signal to training-time consumption. \citet{fernandes2023bridging} offer the closest prior signal typing, a formalization of feedback by format, objective, and use, but it predates agents, verifiable-reward training, rubric rewards, and experiential memory; we extend the typing to the agentic lifecycle and to adversarially supplied feedback.
+
+A third cluster organizes by agent component. \citet{zhang2025survey} survey memory as a module; we treat persisted verbal experience as a learning signal governed by an explicit boundary rule (\S\ref{sec:taxonomy}). The two self-evolution surveys \citep{gao2025survey,fang2025comprehensive} classify by which component evolves; we classify by the signal that drives evolution and supply the decision rules for signal choice that a component axis leaves unaddressed. \citet{zhang2025landscape} formalize agentic RL as a shift from single-step to temporally extended decision problems, but their capability-by-domain taxonomy leaves the verbal channel implicit, and their training-centric frame underplays the problem-definition and inference stages we cover.
+
+The final cluster is reward-centric. \citet{wang2024reinforcement} and \citet{xiao2024comprehensive} survey pipelines in which feedback is scalarized into preferences before optimization; our \S\ref{sec:learning} examines precisely what that scalarization discards, namely the verbal rationale attached to a preference and the conditions under which retaining it pays. \citet{srivastava2025technical} bring algorithmic failure-mode depth to RL for LLMs, yet their taxonomy also scalarizes feedback before analyzing it, whereas we keep the language structure of the signal and analyze credit assignment on it directly (\S\ref{sec:credit}). \citet{ji2025survey} read alignment progress as reward-design refinement, assuming the signal must become a reward; we ask when language should remain language. \citet{wu2025sailing} span training, inference, and post-inference stages but from a reward-model-centric view that excludes problem-definition grounding and non-scalarized signals. \citet{surana2026generate} locate where signals enter the rollout pipeline; we specify the semantics of those signals and cover the stages outside the training pipeline entirely.
+
+\subsection{Research Agenda}
+\label{subsec:agenda}
+
+The gaps identified across \S\ref{sec:framework} through \S\ref{sec:safety} assemble into a concrete agenda. We order it theory first, because most downstream items are blocked by the absence of a formal account of what a verbal signal contributes beyond its scalarization.
+
+\begin{enumerate}[leftmargin=1.6em]
+    \item \textbf{Sample efficiency of verbal versus scalar feedback.} There is no formal characterization of when a critique is worth more than a reward. The transfer-eluder analysis presented in \S\ref{sec:framework} \citep{xu2025formalizing} anchors one end of the question by separating rich feedback from scalar reward; what is missing is coverage of the intermediate formats that dominate practice. If verbal critics are modeled as noisy oracles with bounded error, PAC-style analyses \citep{strehl2009reinforcement} could bound VRL sample complexity, with critic benchmarks \citep{lin2024criticbench} supplying empirical error-rate estimates; statistical treatments of preference-based training \citep{liu2026reinforcement} offer a template for the analogous verbal theory.
+    \item \textbf{Optimality and convergence under language-shaped rewards.} When the reward is compiled from language (\S\ref{sec:rewardstack}), mis-specification enters the objective itself. Conditions under which policy optimization against compiled or rubric rewards converges to the intended behavior are unknown, and the reward-hacking failures surveyed for scalar reward models \citep{casper2023open} have no counterpart analysis for language-specified objectives.
+    \item \textbf{Temporal credit assignment over free-form critiques.} Process reward models (PRMs) assign step-level scalar credit \citep{lightman2024let}, and span-level feedback gradients \citep{wang2026text2gradreinforcementlearningnatural} push credit into the text itself, but no framework specifies which tokens, steps, or decisions a critique should be charged to (\S\ref{sec:credit}).
+    \item \textbf{Information retention across scalarization.} A rate-distortion account of what a preference label or scalar score destroys, relative to the critique that produced it, would clarify when preference objectives \citep{rafailov2023direct} suffice and when feedback-conditioned methods \citep{luo2025fcp} preserve signal that matters.
+    \item \textbf{Feedback provenance and adversarial robustness.} Because VRL agents act on feedback by design, adversarial feedback is policy manipulation, and adaptive attacks have been shown to circumvent existing defenses \citep{zhan2025adaptive}, including through injected tool output \citep{shi2025prompt} and poisoned memory \citep{dong2026memory}. The channel needs provenance mechanisms that verify source integrity and assign trust, and adversarial-feedback benchmarks that score robustness as a primary metric (\S\ref{sec:safety}).
+    \item \textbf{Separate evaluation of feedback quality and feedback utilization.} Models often fail to incorporate even accurate feedback \citep{jiang2025feedback}, so the two quantities must be reported separately. Producer-side benchmarks exist \citep{lin2024criticbench,lambert2024rewardbench,zheng2024processbench}; utilization lacks a standard protocol (\S\ref{sec:evaluation}).
+    \item \textbf{Feedback-tuned models.} Dedicated critics outperform reusing the generator as its own critic \citep{wang2023shepherd,mcaleese2024criticgpt}. As the field once invested in instruction tuning \citep{ouyang2022training}, it should now train feedback-tuned models whose objectives target error localization, actionability, and calibration.
+    \item \textbf{Machine-readable feedback interfaces.} Ambiguous tool outputs cause a large share of agent failures \citep{bandlamudi2025framework}, agent-oriented interfaces measurably help \citep{yang2024swe}, and tool quality bounds what iterative refinement can achieve \citep{ning2026code}. Needed: a tool-output compliance metric, and structured metadata that separates task-level errors from infrastructure failures so agents can select recovery strategies (\S\ref{sec:deliberative}).
+    \item \textbf{The inference/training boundary.} The transient-versus-durable distinction drawn for rewards in tree search \citep{wei2025unifying} should be generalized to every verbal signal type: when replayed memory \citep{zhang2025survey} constitutes training is the hybrid case our decision rules in \S\ref{sec:taxonomy} adjudicate, but the boundary deserves a formal statement within the framework of \S\ref{sec:framework}.
+    \item \textbf{Validity and transfer in embodied and high-stakes settings.} Self-correction succeeds only with reliable external feedback, large-scale fine-tuning, or tasks exceptionally suited to it \citep{kamoi2024can}, and sycophancy arises even from benign incorrect feedback \citep{sharma2024towards}. Establishing when language-grounded policies transfer to physical environments (\S\ref{sec:embodied}), and who is harmed when feedback is wrong in coding, clinical, educational, or robotic deployments, is a prerequisite for responsible use (\S\ref{sec:safety}).
+\end{enumerate}

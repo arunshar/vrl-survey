@@ -1,9 +1,81 @@
 \section{Taxonomy}
 \label{sec:taxonomy}
-% BRIEF: upgrade of paper-acl/new_section/taxonomy.tex. Keep the three pillars as
-% signal-classification (where a signal acts), NOT a lifecycle loop. Add: explicit
-% assignment rule (placed by what the signal modifies at the moment it takes effect);
-% hybrid-cases table (reward-code generation, experiential memory, Constitutional AI,
-% critique-distillation) with multi-pillar tags; the coding-agent example reframed as
-% one system consuming signals in three regimes. Fixes weaknesses (c) and Q27s-3.
-\todonote{Draft; port pillar-overview table from ACL version.}
+
+The framework of \S\ref{sec:framework} identifies the sites at which a linguistic signal can enter an agent's operation. This section turns those sites into a taxonomy. We organize the verbal reinforcement learning (VRL) literature along a single axis: \emph{when} a linguistic signal takes effect and, consequently, \emph{what} it modifies. The axis yields three pillars, summarized in Table~\ref{tab:pillar-overview} and illustrated in Figure~\ref{fig:taxonomy}. Two commitments guard against misreadings that this axis invites. First, the pillars classify signals, not systems: a deployed agent typically consumes signals from several pillars at once, and we tag such methods rather than force them into a single cell (\S\ref{subsec:assignment}). Second, the axis is not a lifecycle: we make no claim that any method traverses a loop from grounding through deliberation to learning, and the worked example in \S\ref{subsec:coding-agent} shows coexistence of signal kinds rather than succession of stages.
+
+\begin{figure}[t]
+    \centering
+    \todonote{FIGURE: port taxonomy figure from paper\_images/ (three-pillar signal classification with representative methods per pillar)}
+    \caption{The three-pillar taxonomy of VRL. Each pillar groups methods by when the linguistic signal takes effect (problem-definition time, inference time, training time) and by what it modifies at that moment.}
+    \label{fig:taxonomy}
+\end{figure}
+
+The first pillar, \textbf{language as grounding signal} (\S\ref{sec:grounding}), acts at problem-definition time and specifies the decision problem itself, using the vocabulary of Markov decision processes \citep{sutton1998reinforcement}: goals, states, actions, and rewards. A natural-language task description such as ``You are in a room with two doors'' defines what the agent perceives, how it can act, and what counts as success, all before any policy runs. The signal here does not evaluate behavior; it constructs the space in which behavior will later be evaluated.
+
+The second pillar, \textbf{language as deliberative feedback} (\S\ref{sec:deliberative}), acts at inference time and refines outputs or reasoning traces through critique, memory retrieval, debate, or search, without updating parameters \citep{madaan2023selfrefine,shinn2023reflexion}. A message such as ``Step~3 has an error; try dividing by~2, not~4'' redirects a single generation episode but leaves the model unchanged for future tasks. The signal modifies a context, not a weight.
+
+The third pillar, \textbf{language as learning signal} (\S\ref{sec:learning}), acts at training time, where verbal feedback is distilled into gradient updates that persistently reshape the policy \citep{zelikman2022star,yuan2025selfrewarding}. A judgment such as ``Response~A is better than B because it addresses the edge case'' becomes a preference pair or a training target that alters model weights and therefore affects all subsequent interactions.
+
+The distinction that carries the taxonomy is \emph{persistence}: a grounding signal defines the task space, deliberative feedback improves a single episode, and a learning signal permanently reshapes the policy. Throughout, the vocabulary of Markov decision processes serves as an organizing lens rather than a claim that every method admits an MDP formulation. Many language-agent settings are partially observable, non-Markovian, or lack explicit transition and reward functions, and \S\ref{sec:framework} makes precise where the formalism stops applying.
+
+\begin{table}[t]
+    \centering
+    \small
+    \renewcommand{\arraystretch}{1.15}
+    \caption{Overview of the three VRL pillars. Each column classifies signals by when they take effect and what they modify at that moment; the final row points to the corresponding pillar chapter.}
+    \label{tab:pillar-overview}
+    \begin{tabularx}{\textwidth}{@{} l *{3}{>{\raggedright\arraybackslash}X} @{}}
+        \toprule
+        \textbf{Axis} & \textbf{Grounding signal} & \textbf{Deliberative feedback} & \textbf{Learning signal} \\
+        \midrule
+        \textbf{When} & Problem-definition time & Inference time & Training time \\
+        \textbf{Modifies} & Task, state, action, and reward specification & Outputs or reasoning traces & Model weights and training data \\
+        \textbf{Persistence} & Defines the task & Single episode (extendable via memory) & All future interactions \\
+        \textbf{Mechanisms} & Environment and reward specification & Prompting, critique, memory, search & SFT, PPO, DPO over verbal feedback \\
+        \textbf{Challenges} & Grounding gap; compositionality & Feedback quality; compute cost & Signal compression; filter quality \\
+        \textbf{Surveyed in} & \S\ref{sec:grounding} & \S\ref{sec:deliberative} & \S\ref{sec:learning} \\
+        \bottomrule
+    \end{tabularx}
+\end{table}
+
+\subsection{An Explicit Assignment Rule for Hybrid Methods}
+\label{subsec:assignment}
+
+Methods whose signals cross pillar boundaries are common enough that a taxonomy without a placement procedure invites arbitrariness. We therefore adopt an explicit assignment rule:
+\begin{quote}
+    \emph{A method is placed by what its linguistic signal modifies at the moment the signal takes effect.}
+\end{quote}
+The rule resolves the recurring hybrid cases, and Table~\ref{tab:hybrid} records the outcome together with each method's secondary role, which we tag rather than suppress. In reward-code generation, a language model turns a natural-language behavior description into an executable reward function \citep{ma2024eureka,xie2024text2reward}. The linguistic signal takes effect when the reward function is constructed, at which moment it modifies the task specification, so the primary placement is grounding; the constructed reward subsequently drives conventional policy optimization, a secondary learning-signal role that \S\ref{sec:rewardstack} takes up. In experiential memory, an agent writes verbal lessons or strategies during earlier attempts and retrieves them on later ones \citep{shinn2023reflexion,suzgun2026dynamic}. Each retrieved lesson takes effect inside the inference-time context and modifies a reasoning trace, never a weight, so the primary placement is deliberative feedback, while the persistence of the memory store across episodes borders long-term adaptation and is flagged as such. Constitutional AI generates self-critiques and revisions at inference time, but these are intermediate products: the revised outputs become training data, and the signal that persists takes effect as a parameter update \citep{bai2022constitutional}, so the primary placement is learning signal with the inference-time critique as a secondary role. Feedback-conditioned fine-tuning is the converse case: motivated explicitly against compressing critiques, the feedback-conditional policy keeps the critique as conditioning context while maximum-likelihood training on response-feedback pairs carries the persistent signal \citep{luo2025fcp}; that signal takes effect as a weight update, so the placement is again learning signal, with the conditioning role tagged as deliberative. Because the pillars classify signals rather than systems, these methods legitimately reappear in more than one pillar chapter, each time viewed from the side of the signal under discussion.
+
+\begin{table}[t]
+    \centering
+    \small
+    \renewcommand{\arraystretch}{1.15}
+    \caption{The assignment rule applied to recurring hybrid cases. Placement follows what the linguistic signal modifies at the moment it takes effect; secondary roles are tagged, not suppressed. P1 denotes grounding signal, P2 deliberative feedback, and P3 learning signal.}
+    \label{tab:hybrid}
+    \begin{tabularx}{\textwidth}{@{} >{\raggedright\arraybackslash}p{0.32\textwidth} c >{\raggedright\arraybackslash}X @{}}
+        \toprule
+        \textbf{Hybrid case} & \textbf{Primary} & \textbf{Secondary role} \\
+        \midrule
+        Reward-code generation \citep{ma2024eureka,xie2024text2reward} & P1 & Constructed reward later trains a policy (P3) \\
+        Experiential memory \citep{shinn2023reflexion,suzgun2026dynamic} & P2 & Lessons persist across episodes, bordering long-term adaptation \\
+        Constitutional AI \citep{bai2022constitutional} & P3 & Self-critique generates the revisions at inference time (P2) \\
+        Feedback-conditioned fine-tuning \citep{luo2025fcp} & P3 & Critique persists as conditioning context for generation (P2) \\
+        \bottomrule
+    \end{tabularx}
+\end{table}
+
+\subsection{Why Temporal Scope}
+\label{subsec:why-temporal}
+
+Alternative organizations of this literature exist. One could classify by feedback source (human, model, or tool), by modality (free text, scalar score, or executable code), or by a binary split on whether parameters are updated. The temporal-scope axis subsumes the last of these: training-time signals are exactly the parametric ones, but the binary split conflates signals that define a task with signals that revise an output, two regimes with little in common beyond frozen weights. Against organizations by source or modality, the decisive argument is that the same sentence produces fundamentally different effects depending on when it is consumed. Consider the critique ``The gripper pressure is too high.'' Embedded in a task description, it constrains what counts as a valid grasp and grounds the problem. Surfaced during planning, it helps a robot recover from a dropped cup and serves as deliberative feedback. Fed to a reward-code generator whose output trains the policy, it permanently shapes the learned notion of a successful grasp and becomes a learning signal. The sentence is identical in all three cases; its temporal scope alone determines its effect. Each temporal regime also poses its own technical challenge: grounding methods must bridge the gap between language and executable task components, deliberative methods must secure feedback quality without circular self-evaluation, and learning methods must compress rich verbal signals into gradient updates without discarding what made them informative. Organizing by temporal scope groups methods that share failure modes and remedies, which an organization by source or modality would scatter across categories.
+
+\subsection{Working Example: A Coding Agent}
+\label{subsec:coding-agent}
+
+The pillars are complementary, and a single system can consume signals in all three regimes. Consider an agent tasked with resolving a GitHub issue \citep{wang2025openhands}. Grounding signals define the problem: the natural-language issue description states the goal, the repository structure delimits the state space, and the test suite implicitly encodes a reward function. During the attempt, deliberative feedback drives the repair loop: the agent generates a patch, executes the tests, reads tracebacks and error messages as verbal critique, and revises. If successful and failed trajectories are later harvested to fine-tune the underlying model through preference optimization, the same traces re-enter as learning signals that persistently improve the policy. We stress what this example does and does not show. It does not show a pipeline in which one regime hands off to the next, nor a lifecycle that any single method implements. It shows one system in which signals of the three kinds coexist, consumed on different timescales, by different components, with different persistence. A traceback is deliberative feedback when the running agent conditions on it and a learning signal when it reappears in a training corpus; the classification follows the signal, not the system.
+
+\subsection{Reading Guide}
+\label{subsec:reading-guide}
+
+Sections \ref{sec:grounding}, \ref{sec:deliberative}, and \ref{sec:learning} survey the three pillars in turn, each closing with the shared bottleneck that limits its methods. All three consume the same evaluative substrate, the verbal reward stack of rubrics, LLM judges, and process reward models (PRMs), which \S\ref{sec:rewardstack} dissects before the cross-cutting chapters on credit assignment, optimization, embodiment, evaluation, and safety; the full chapter-by-chapter roadmap appears at the end of \S\ref{sec:intro}.
