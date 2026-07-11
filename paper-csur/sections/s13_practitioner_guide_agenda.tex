@@ -30,7 +30,43 @@ Table~\ref{tab:practitioner} states when each role for language is the right cho
 
 The choice of mechanism also constrains the choice of optimizer: each feedback form pairs with a particular optimization family, and each pairing imports its own assumptions into the decision problem, as analyzed in \S\ref{sec:credit}. The guidance below therefore fixes the feedback form first and treats the optimizer as a downstream consequence of that choice.
 
-The table compresses into four ordered questions. First, is the outcome mechanically verifiable, and are weights accessible? If both hold, compile the language into an executable reward or rubric and train against it (\S\ref{sec:rewardstack}); the monitoring burden then shifts to hacking of the compiled objective. Second, if weights are inaccessible but the latency budget allows iteration, use deliberative feedback, and prefer a critic grounded in tools or tests over prompted self-critique, which does not succeed without reliable external signal \citep{kamoi2024can,gou2024critic}. Third, if tasks recur across episodes, persist distilled lessons as memory and audit the store for stale or poisoned entries (\S\ref{sec:safety}). Fourth, if the bottleneck is specification rather than optimization, spend the language budget on grounding: describing states, defining the task, or constraining actions before any feedback loop is built. \todonote{FIGURE: decision tree mapping the four questions (verifiable outcome? weight access? iteration budget? recurring tasks?) to the six rows of Table~\ref{tab:practitioner}, with one named method per leaf}
+The table compresses into four ordered questions. First, is the outcome mechanically verifiable, and are weights accessible? If both hold, compile the language into an executable reward or rubric and train against it (\S\ref{sec:rewardstack}); the monitoring burden then shifts to hacking of the compiled objective. Second, if weights are inaccessible but the latency budget allows iteration, use deliberative feedback, and prefer a critic grounded in tools or tests over prompted self-critique, which does not succeed without reliable external signal \citep{kamoi2024can,gou2024critic}. Third, if tasks recur across episodes, persist distilled lessons as memory and audit the store for stale or poisoned entries (\S\ref{sec:safety}). Fourth, if the bottleneck is specification rather than optimization, spend the language budget on grounding: describing states, defining the task, or constraining actions before any feedback loop is built. Figure~\ref{fig:decision-tree} arranges the four questions as a decision tree.
+
+\begin{figure}[t]
+    \centering
+    \begin{tikzpicture}[
+        font=\footnotesize,
+        >={Stealth[length=2.2mm]},
+        every node/.append style={execute at begin node={\hyphenpenalty=10000\exhyphenpenalty=10000\relax}},
+        decision/.style={diamond, aspect=2.2, draw, align=center,
+            inner sep=1pt, text width=1.85cm, fill=black!6},
+        leaf/.style={rectangle, rounded corners=3pt, draw, align=center,
+            inner sep=3pt, text width=2.35cm, fill=black!12},
+        ans/.style={font=\scriptsize, fill=white, inner sep=1.5pt}
+    ]
+        \node[decision] (d1) at (6.2,0)      {model weights accessible?};
+        \node[decision] (d2) at (2.85,-2.6)  {outcome mechanically verifiable?};
+        \node[decision] (d3) at (9.5,-2.6)   {latency budget allows iteration?};
+        \node[decision] (d4) at (11.8,-5.2)  {tasks recur across episodes?};
+
+        \node[leaf] (l1) at (1.4,-5.2)  {Language as reward, compiled to code or rubric: \textbf{Eureka}\\[1pt]{\scriptsize monitor reward hacking}};
+        \node[leaf] (l2) at (4.35,-5.2) {Training signal from plentiful verbal feedback: \textbf{FCP}\\[1pt]{\scriptsize monitor sycophancy and filter bias}};
+        \node[leaf] (l3) at (7.3,-5.2)  {Deliberative feedback, critic grounded in tools or tests: \textbf{CRITIC}\\[1pt]{\scriptsize monitor circular self-critique}};
+        \node[leaf] (l4) at (10.1,-7.9) {Experiential memory of distilled lessons: \textbf{Reflexion}\\[1pt]{\scriptsize audit for stale or poisoned entries}};
+        \node[leaf] (l5) at (13.3,-7.9) {Grounding: describe states and task (\textbf{SayCan}), guide actions (\textbf{ReAct})\\[1pt]{\scriptsize before any feedback loop}};
+
+        \draw[->] (d1) -- node[ans, pos=0.45] {yes} (d2);
+        \draw[->] (d1) -- node[ans, pos=0.45] {no}  (d3);
+        \draw[->] (d2) -- node[ans, pos=0.45] {yes} (l1);
+        \draw[->] (d2) -- node[ans, pos=0.45] {no}  (l2);
+        \draw[->] (d3) -- node[ans, pos=0.45] {yes} (l3);
+        \draw[->] (d3) -- node[ans, pos=0.45] {no}  (d4);
+        \draw[->] (d4) -- node[ans, pos=0.45] {yes} (l4);
+        \draw[->] (d4) -- node[ans, pos=0.45] {no}  (l5);
+    \end{tikzpicture}
+    \caption{Choosing a verbal-feedback mechanism: the four ordered questions of \S\ref{subsec:mechanism} arranged as a decision tree. Each leaf names a row of Table~\ref{tab:practitioner} with one representative method; the final leaf covers the two grounding roles.}
+    \label{fig:decision-tree}
+\end{figure}
 
 \subsection{Comparison with Prior Surveys}
 \label{subsec:priorsurveys}

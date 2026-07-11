@@ -1,7 +1,14 @@
 \section{Introduction}
 \label{sec:intro}
 
-\todonote{FIGURE: introduction overview showing the three signal roles (grounding signal, deliberative feedback, learning signal), each annotated with where the signal acts and what it modifies at the moment it takes effect; adapt the ACL main figure but remove the lifecycle-loop arrows (Q27s-3).}
+\begin{figure}[!th]
+    \centering
+    \includegraphics[width=0.85\linewidth]{paper_images/main_figure.pdf}
+    \caption{Language plays three complementary roles as a signal in agentic systems: grounding the task and environment, scaffolding intermediate deliberation, and serving as a learning signal for training. The three roles classify signals, not system stages; a single deployed system may consume all three (\S\ref{sec:taxonomy}).}
+    \label{fig:overview}
+    % Author-side: re-export the artwork without lifecycle-loop arrows and with
+    % "grounding signal" labels (reviewer Q27s-3 / pqAY terminology point).
+\end{figure}
 
 Classical reinforcement learning couples an agent with a well-specified environment, an action space, and a task-specific reward function, and this coupling has produced landmark systems: Atari play from raw pixels \citep{mnih2015human}, championship Go \citep{silver2016mastering}, chip placement \citep{mirhoseini2021graph}, and tokamak plasma control \citep{degrave2022magnetic}. Each success, however, rests on heavy domain-specific engineering: the environment must be formalized, the interaction space fixed, and the reward function must capture the intended behavior closely enough that optimizing it yields what the designer meant \citep{vamplew2021scalarrewardenoughresponse}. Writing such specifications is a long-standing bottleneck \citep{amodei2016concrete}, and it binds most tightly exactly where modern agents are deployed: tasks whose goals are ambiguous, context-dependent, and difficult to encode as a scalar objective.
 

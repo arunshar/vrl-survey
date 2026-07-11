@@ -3,7 +3,14 @@
 
 With the task specified through a grounding signal (\S\ref{sec:grounding}), we turn to methods that refine behavior within an episode without updating model parameters, the regime closest to test-time compute scaling \citep{snell2024scaling}. The five cells of this pillar differ in where critique originates: the model itself, external tools, peer models, past episodes, or parallel candidate paths. Following the assignment rule of \S\ref{sec:taxonomy}, a method belongs here when the linguistic feedback it produces is consumed in the current context window; when the same feedback is instead compressed into a dataset, a reward, or weights, the method moves to \S\ref{sec:learning}. We discuss self-generated and tool-generated critique together, since they share one loop structure and differ mainly in the origin and reliability of the feedback.
 
-\todonote{FIGURE: five feedback-loop schematics side by side (self-critique loop; grounded critique with a tool oracle; multi-agent debate converging on a refined output; experiential memory reading and writing a cross-episode store; evaluator feedback pruning a search tree), updated from ACL Figure 3 with the fifth cell renamed to evaluator feedback in search.}
+\begin{figure}[!t]
+    \centering
+    \includegraphics[width=\linewidth]{paper_images/Figure-3-new.png}
+    \caption{Inference-time verbal feedback mechanisms. Each subcategory exhibits a distinct feedback-loop structure: (a) self-critique loops within a single model, (b) externally grounded critique incorporates verified tool or environment output, (c) multi-agent debate distributes critique across parallel model instances and converges to a refined output, (d) experiential memory persists lessons across episodes, and (e) evaluator feedback in search explores and prunes multiple candidate paths.}
+    \label{fig:inference_time}
+    % Author-side: re-export panel (e) label from "search-guided deliberation"
+    % to "evaluator feedback in search" inside the PNG artwork.
+\end{figure}
 
 \subsection{Self-Critique and Externally Grounded Critique}
 \label{subsec:critique}

@@ -5,7 +5,70 @@ The framework of \S\ref{sec:framework} identifies the sites at which a linguisti
 
 \begin{figure}[t]
     \centering
-    \todonote{FIGURE: port taxonomy figure from paper\_images/ (three-pillar signal classification with representative methods per pillar)}
+    %% Local figure-only definitions (ported from the ACL taxonomy tree in
+    %% paper-acl/sections/problemFormulation_taxonomy.tex and paper-acl/main.tex)
+    %% so this section compiles without the ACL preamble.
+    \providecolor{taxopone}{HTML}{E67E22}
+    \providecolor{taxoptwo}{HTML}{2E86C1}
+    \providecolor{taxopthree}{HTML}{27AE60}
+    \providecolor{taxoleafbg}{HTML}{F0F4F8}
+    \providecommand{\taxocites}[1]{{\scriptsize #1}}
+    \providecommand{\taxoleaf}[2]{\textbf{#1}\\\taxocites{#2}}
+    \begin{adjustbox}{max width=\textwidth}
+    \begin{forest}
+      forked edges,
+      for tree={
+        grow'=0,
+        parent anchor=east,
+        child anchor=west,
+        anchor=west,
+        align=left,
+        draw=gray!60,
+        rounded corners=2pt,
+        inner xsep=4pt,
+        inner ysep=2.5pt,
+        edge={draw=black!55, semithick},
+        l sep=7mm,
+        s sep=1.6mm,
+        fork sep=3.5mm,
+      },
+      where level=0{
+        draw=black!80, fill=black!8, font=\small\bfseries,
+        align=center, inner xsep=6pt, inner ysep=5pt,
+      }{},
+      where level=1{
+        font=\small, align=center, inner xsep=5pt, inner ysep=4pt,
+      }{},
+      where level=2{
+        fill=taxoleafbg, font=\footnotesize, text width=8.6cm,
+      }{},
+      [Verbal RL
+        [Grounding Signal\\{\scriptsize (problem-definition time, \S\ref{sec:grounding})},
+          draw=taxopone!80, fill=taxopone!12
+          [\taxoleaf{Goal grounding}{\citeauthor{chevalier2018babyai}; \citeauthor{ahn2022can}; \citeauthor{li2026ground}}]
+          [\taxoleaf{State grounding}{\citeauthor{cote2018textworld}; \citeauthor{yao2020keep}; \citeauthor{shridhar2020alfworld}}]
+          [\taxoleaf{Action grounding}{\citeauthor{huang2022inner}; \citeauthor{singh2022progprompt}; \citeauthor{huang2023voxposer}}]
+          [\taxoleaf{Reward grounding}{\citeauthor{ma2024eureka}; \citeauthor{xie2024text2reward}; \citeauthor{yu2023language}}]
+        ]
+        [Deliberative Feedback\\{\scriptsize (inference time, \S\ref{sec:deliberative})},
+          draw=taxoptwo!80, fill=taxoptwo!12
+          [\taxoleaf{Self-critique and grounded critique}{\citeauthor{madaan2023selfrefine}; \citeauthor{paul2024refiner}; \citeauthor{gou2024critic}}]
+          [\taxoleaf{Multi-agent debate}{\citeauthor{du2023debate}; \citeauthor{chan2023chatevalbetterllmbasedevaluators}; \citeauthor{khan2024debating}}]
+          [\taxoleaf{Experiential memory}{\citeauthor{shinn2023reflexion}; \citeauthor{zhao2024expel}; \citeauthor{suzgun2026dynamic}}]
+          [\taxoleaf{Evaluator feedback in search}{\citeauthor{yao2023tree}; \citeauthor{hao2023reasoning}; \citeauthor{zhou2024lats}}]
+        ]
+        [Learning Signal\\{\scriptsize (training time, \S\ref{sec:learning})},
+          draw=taxopthree!80, fill=taxopthree!12
+          [\taxoleaf{Feedback-conditioned modeling}{\citeauthor{lloret2024towards}; \citeauthor{luo2025fcp}; \citeauthor{stephan2024rlvf}}]
+          [\taxoleaf{Self-improvement}{\citeauthor{zelikman2022star}; \citeauthor{huang2022selfimprove}; \citeauthor{yuan2024self}}]
+          [\taxoleaf{Trained critics and critique fine-tuning}{\citeauthor{lan2024training}; \citeauthor{xie2025teaching}; \citeauthor{yang2025deepcritic}}]
+          [\taxoleaf{Multi-agent and self-play training}{\citeauthor{motwani2024malt}; \citeauthor{park2025maporl}; \citeauthor{cheng2024selfplaying}}]
+          [\taxoleaf{Process supervision}{\citeauthor{lightman2024let}; \citeauthor{wang2024mathshepherdverifyreinforcellms}; \citeauthor{zhao2025genprm}}]
+          [\taxoleaf{Preference shaping}{\citeauthor{ouyang2022training}; \citeauthor{rafailov2023direct}; \citeauthor{yuan2025selfrewarding}}]
+        ]
+      ]
+    \end{forest}
+    \end{adjustbox}
     \caption{The three-pillar taxonomy of VRL. Each pillar groups methods by when the linguistic signal takes effect (problem-definition time, inference time, training time) and by what it modifies at that moment.}
     \label{fig:taxonomy}
 \end{figure}
