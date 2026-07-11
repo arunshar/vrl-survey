@@ -1,0 +1,33 @@
+paper-csur/sections/s06_pillar_learning.tex
+  s_bf18bbc67718dc::t_f1f44fc4dd2c2f 4-7,9-64,67-69
+  s_bf18bbc67718dc::t_d82dc79130b465 8
+  s_bf18bbc67718dc::t_39e1ef3fdc46be 65-66
+paper-csur/sections/s01_introduction.tex
+  s_bf18bbc67718dc::t_5492ba63f22b41 4-11
+paper-csur/sections/s04_pillar_grounding.tex
+  s_bf18bbc67718dc::t_724a3e67626707 23,25,27,29
+  s_bf18bbc67718dc::t_895513be168c7c 6-12,15-22,24,26,28,30-50
+  s_bf18bbc67718dc::t_772383b780c849 13-14
+paper-csur/sections/s05_pillar_deliberative.tex
+  s_bf18bbc67718dc::t_7216498f6cf049 6-13
+paper-csur/sections/s03_taxonomy.tex
+  s_bf18bbc67718dc::t_7a81934b8cba79 8-71
+paper-csur/sections/s13_practitioner_guide_agenda.tex
+  s_bf18bbc67718dc::t_705c945c9b492a 33-69
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.12",
+  "base_commit_sha": "229b0f43c7e9e824526ac029f407e77db60ca62a",
+  "prompts": {},
+  "sessions": {
+    "s_bf18bbc67718dc": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "a9f52875-eaef-4d6d-9da3-22e5787685f7",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Arun Sharma <sharm485@umn.edu>"
+    }
+  }
+}
