@@ -477,3 +477,5 @@ li2024judges	OK	arXiv:2412.05579 sim=1.00	LLMs-as-Judges: A Comprehensive Survey
 zhang2025reinforcement	OK	arXiv:2509.08827 sim=1.00	A Survey of Reinforcement Learning for Large Reasoning Models
 xu2025towards	OK	arXiv:2501.09686 sim=1.00	Towards Large Reasoning Models: A Survey of Reinforced Reasoning with Large Language Models
 you2026agent	OK	arXiv:2601.05111 sim=1.00	Agent-as-a-Judge
+greenspoon1955reinforcing	OK	crossref sim=1.00 year=1955 doi=10.2307/1418524	The Reinforcing Effect of Two Spoken Sounds on the Frequency of Two Responses
+krasner1958studies	WHITELISTED	Psychological Bulletin 55(3):148-170 (1958), DOI 10.1037/h0040492; verified via Crossref DOI lookup 2026-07-11 (title-only query ranks a different 1962 paper at sim=0.40)	

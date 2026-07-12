@@ -38,12 +38,10 @@ cai2025trainingfree
 cao2025remember
 casper2023open
 chai2024marlhf
-chan2023chateval
 chan2023chatevalbetterllmbasedevaluators
 chaplot2018gated
 chen2020simple
 chen2022codet
-chen2023selfdebug
 chen2024ilf
 chen2024teaching
 chen2025multiagent
@@ -149,8 +147,8 @@ ji2026memory
 jiang2025feedback
 jimenez2024swebenchlanguagemodelsresolve
 joublin2024copal
+kaelbling1998planning
 kamoi2024can
-kamoi2024whencan
 kapusuzoglu2025cgd
 kaufmann2023survey
 ke2024critiquellm
@@ -193,7 +191,6 @@ li2026rubrichub
 liang2022code
 liang2024encouragingdivergentthinkinglarge
 liang2024internal
-liang2024mad
 lightman2024let
 lin2024criticbench
 lin2024scaffolded
@@ -299,7 +296,6 @@ shumailov2023curse
 silver2016mastering
 singh2022progprompt
 singh2023beyond
-singh2024restem
 singhal2023long
 snell2024scaling
 son2024mmeval
@@ -318,8 +314,6 @@ sun2023adaplanner
 sun2025large
 sun2025prof
 surana2026generate
-sutton1998reinforcement
-sutton2018reinforcement
 suzgun2026dynamic
 szymanski2023autonomous
 tan2024judgebench
@@ -345,7 +339,6 @@ wang2024agent
 wang2024executable
 wang2024how
 wang2024mathshepherd
-wang2024mathshepherdverifyreinforcellms
 wang2024reinforcement
 wang2024rlvlmf
 wang2024selftaught
@@ -424,7 +417,6 @@ yu2024tripost
 yuan2024self
 yuan2025agentr
 yuan2025curing
-yuan2025selfrewarding
 yuksekgonul2024textgrad
 zelikman2022star
 zelikman2024quietstar

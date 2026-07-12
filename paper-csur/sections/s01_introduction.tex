@@ -3,11 +3,29 @@
 
 \begin{figure}[!th]
     \centering
-    \includegraphics[width=0.85\linewidth]{paper_images/main_figure.pdf}
+    \begin{tikzpicture}[
+        font=\small,
+        example/.style={draw=black!45, rounded corners=6pt, align=center, minimum width=3.6cm, minimum height=1.05cm, fill=black!5, font=\footnotesize\itshape},
+        role/.style={draw=black!70, rounded corners=2pt, align=center, minimum width=3.6cm, minimum height=1.1cm, fill=blue!8},
+        agent/.style={draw=black!70, thick, rounded corners=2pt, align=center, minimum width=12.4cm, minimum height=1.0cm, fill=orange!12},
+        sig/.style={-{Stealth[length=2.5mm]}, semithick}
+    ]
+        \node[example] (ex1) {``You are in a room\\with two doors.''};
+        \node[example, right=1.0cm of ex1] (ex2) {``Step 3 has an error;\\divide by 2, not 4.''};
+        \node[example, right=1.0cm of ex2] (ex3) {``Response A is\\better than B.''};
+        \node[role, below=0.5cm of ex1] (r1) {Language as \emph{grounding signal}\\\footnotesize defines the task};
+        \node[role, below=0.5cm of ex2] (r2) {Language as \emph{deliberative feedback}\\\footnotesize refines behavior at inference time};
+        \node[role, below=0.5cm of ex3] (r3) {Language as \emph{learning signal}\\\footnotesize shapes parameters at training time};
+        \draw[sig] (ex1) -- (r1);
+        \draw[sig] (ex2) -- (r2);
+        \draw[sig] (ex3) -- (r3);
+        \node[agent, below=0.8cm of r2] (agent) {Agent: a single deployed system may consume all three signal kinds at once};
+        \draw[sig] (r1.south) -- (r1.south |- agent.north);
+        \draw[sig] (r2.south) -- (agent.north);
+        \draw[sig] (r3.south) -- (r3.south |- agent.north);
+    \end{tikzpicture}
     \caption{Language plays three complementary roles as a signal in agentic systems: grounding the task and environment, scaffolding intermediate deliberation, and serving as a learning signal for training. The three roles classify signals, not system stages; a single deployed system may consume all three (\S\ref{sec:taxonomy}).}
     \label{fig:overview}
-    % Author-side: re-export the artwork without lifecycle-loop arrows and with
-    % "grounding signal" labels (reviewer Q27s-3 / pqAY terminology point).
 \end{figure}
 
 Classical reinforcement learning couples an agent with a well-specified environment, an action space, and a task-specific reward function, and this coupling has produced landmark systems: Atari play from raw pixels \citep{mnih2015human}, championship Go \citep{silver2016mastering}, chip placement \citep{mirhoseini2021graph}, and tokamak plasma control \citep{degrave2022magnetic}. Each success, however, rests on heavy domain-specific engineering: the environment must be formalized, the interaction space fixed, and the reward function must capture the intended behavior closely enough that optimizing it yields what the designer meant \citep{vamplew2021scalarrewardenoughresponse}. Writing such specifications is a long-standing bottleneck \citep{amodei2016concrete}, and it binds most tightly exactly where modern agents are deployed: tasks whose goals are ambiguous, context-dependent, and difficult to encode as a scalar objective.
@@ -18,7 +36,7 @@ We call the resulting family of methods \textbf{verbal reinforcement learning (V
 
 The term itself has a short but crowded genealogy. \citet{shinn2023reflexion} coined it to describe self-reflective agents that improve by storing and rereading their own verbal self-critiques, a specific instance of what we classify as deliberative feedback. Our usage is deliberately broader, covering any method that meets the two criteria above rather than only the reflective mechanism for which the term was coined; \S\ref{sec:framework} states the generalization precisely. The nearest adjacent coinage, Natural Language Reinforcement Learning \citep{feng2024natural}, recasts individual reinforcement-learning components such as value functions in language space; it is a framework proposal rather than a survey, and in our terms one formal instantiation of the training-stage cell. Farther back, \citet{luketina2019survey} surveyed reinforcement learning informed by language at a time when language could only inform a scalar-reward learner; in the systems reviewed here that relation is inverted, with language serving simultaneously as the policy medium, the feedback, and increasingly the optimizer trace. The term also has an older life in behaviorist psychology, which \S\ref{sec:framework} takes up alongside the formal genealogy.
 
-Early results indicate that the verbal channel is more than a convenience. \citet{ahn2022can} used language to ground high-level instructions in physical affordances, enabling real-world robotic planning. \citet{shinn2023reflexion} reached 91\% pass@1 on HumanEval through verbal self-reflection alone, and \citet{madaan2023selfrefine} showed that iterative verbal critique yields gains across diverse generation tasks. Even in fully scalarized form, human judgments proved potent: \citet{ouyang2022training} trained a 1.3B-parameter model on preference judgments that outperformed the 175B GPT-3 baseline, and a recurring question in this survey is how much additional value survives when the linguistic structure of feedback is retained rather than compressed away. Nor are these isolated demonstrations: arXiv publications referencing ``self-refine,'' ``self-correction,'' ``verbal feedback,'' and ``language-feedback alignment'' have grown from a handful in early 2020 to several hundred today, spanning coding assistants \citep{yang2024swe, jimenez2024swebenchlanguagemodelsresolve}, scientific discovery \citep{m2024augmenting, lu2024ai}, robotics \citep{wang2023voyager}, mathematical reasoning \citep{hatamizadeh2026igrpo, liu2026dual, shi2025ssr}, clinical decision support \citep{huang2025medreflect, zhou2025enhancing}, and education \citep{qian2025dean, ahtisham2026ai}.
+Early results indicate that the verbal channel is more than a convenience. \citet{ahn2022can} used language to ground high-level instructions in physical affordances, enabling real-world robotic planning. \citet{shinn2023reflexion} reached 91\% pass@1 on HumanEval through verbal self-reflection alone, and \citet{madaan2023selfrefine} showed that iterative verbal critique yields gains across diverse generation tasks. Even in fully scalarized form, human judgments proved potent: \citet{ouyang2022training} trained a 1.3B-parameter model on preference judgments that outperformed the 175B GPT-3 baseline, and a recurring question in this survey is how much additional value survives when the linguistic structure of feedback is retained rather than compressed away. Nor are these isolated demonstrations: verbal-feedback methods now appear across coding assistants \citep{yang2024swe, jimenez2024swebenchlanguagemodelsresolve}, scientific discovery \citep{m2024augmenting, lu2024ai}, robotics \citep{wang2023voyager}, mathematical reasoning \citep{hatamizadeh2026igrpo, liu2026dual, shi2025ssr}, clinical decision support \citep{huang2025medreflect, zhou2025enhancing}, and education \citep{qian2025dean, ahtisham2026ai}.
 
 These methods differ in mechanism: some operate during inference, others modify training data, and some redefine the task itself. What they share is the use of natural language to guide, refine, and ground agent behavior. We therefore organize the field along a single axis, when a verbal signal takes effect and what it modifies, yielding three pillars: language as \emph{grounding signal}, which defines the task by specifying goals, states, actions, and reward structure; language as \emph{deliberative feedback}, which refines behavior at inference time without parameter updates; and language as \emph{learning signal}, which shapes parameters at training time. The pillars classify signals, not systems: a single agent may consume signals in several regimes at once, and we make no claim that methods traverse the pillars as a lifecycle loop.
 
