@@ -1,0 +1,19 @@
+README.md
+  s_491f8a7d277081::t_1fb82d25896c88 49,51-64
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.12",
+  "base_commit_sha": "7aefbe92b0b8452153b23200736c60d576b0ea59",
+  "prompts": {},
+  "sessions": {
+    "s_491f8a7d277081": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "771dc3d4-2720-4312-999b-b22c86335fc8",
+        "model": "claude-sonnet-5"
+      },
+      "human_author": "Arun Sharma <sharm485@umn.edu>"
+    }
+  }
+}
