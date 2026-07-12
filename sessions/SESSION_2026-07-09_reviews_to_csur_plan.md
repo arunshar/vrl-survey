@@ -61,3 +61,11 @@ Phases executed this session:
 Broken infra this session: WebSearch + WebFetch backends down (glm-4.7); browser tool blocked at first by glm-5.2 classifier outage; arXiv API 429s under contention; DBLP temporary IP block. Worked around via OpenAlex/S2/DBLP/HF MCP/curl.
 
 Next: Phase D assembly (abstract, compile, length), Phase E figures/tables, Phase F adversarial panel, then Arun-side G (post-Jul-30 arXiv + CSUR submission).
+
+## 2026-07-11 (later): Phases D/E/F executed; full CSUR draft built
+
+- Phase D: 14 sections written -> per-section critic -> reviser (two session-limit interruptions; resumed via workflow cache + args.skip for on-disk drafts). ~19k body words; abstract 96 words per CSUR rules.
+- Phase E: 6 figures. Ported assets (Figure-3-new.png) + rebuilt taxonomy tree as forest TikZ matching the CSUR pillars + new TikZ (grounding-MDP mapping, compression spectrum with VRL fence, practitioner decision tree). Intro overview later rebuilt as native TikZ by a panel fixer (kills the lifecycle-loop artwork objection).
+- Phase F round 1: 8-agent panel (ARR pqAY/Q27s/3gqM/bnae replays, 2 CSUR-style, citation auditor, style auditor) -> 49 findings; all 7 blockers + 27 should-fixes agent-applied; 13 nits hand-fixed (incl. LMRL Gym + LaRe table corrections, POMDP cite to Kaelbling-Littman-Cassandra 1998, MDP first-use binding, kamoi+sutton1998 bib dedup -> 472 keys).
+- FINAL STATE: paper-csur/main.pdf = 67pp manuscript acmart, 0 errors, 0 undefined refs/citations, 0 em dashes, 0 todonotes. Commits through c6d125d.
+- OPEN: (a) author-side artwork re-exports (Figure-3 panel (e) label; overview art); (b) s05/s07 synthesis-density editorial pass; (c) optional panel round 2 (Arun's call, spend-aware); (d) length strategy vs CSUR 35pp-incl-refs rule (trim/supplement split at submission prep); (e) Arun: post ARR responses before Jul 13 AoE; Jul 30 meta-review; arXiv + CSUR submission (Arun submits).
