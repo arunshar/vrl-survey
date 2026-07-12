@@ -1,0 +1,85 @@
+% Standalone, editable vector source for Figure fig:taxonomy.
+% Artwork contains literal method names only. Citations remain in manuscript prose.
+\documentclass[11pt,border=4pt]{standalone}
+\usepackage[T1]{fontenc}
+\usepackage{libertine}
+\usepackage[edges]{forest}
+\usepackage{adjustbox}
+\usepackage{xcolor}
+
+\definecolor{taxorange}{HTML}{E67E22}
+\definecolor{taxblue}{HTML}{2E86C1}
+\definecolor{taxgreen}{HTML}{278B4E}
+\definecolor{taxleaf}{HTML}{F3F6F9}
+
+\newcommand{\taxoleaf}[2]{\textbf{#1}\\[-1pt]{\footnotesize #2}}
+\newcommand{\taxoleafnote}[3]{\textbf{#1}\\[-1pt]{\footnotesize #2}\\[-1pt]{\footnotesize\itshape #3}}
+\newcommand{\taxotrainedcriticleaf}{\textbf{Trained critics and}\\\textbf{critique fine-tuning}\\[-1pt]{\footnotesize DeepCritic}}
+
+\begin{document}
+\begin{adjustbox}{max width=355pt}
+\begin{forest}
+  forked edges,
+  for tree={
+    grow'=0,
+    parent anchor=east,
+    child anchor=west,
+    anchor=west,
+    align=left,
+    draw=gray!65,
+    rounded corners=2pt,
+    inner xsep=4pt,
+    inner ysep=3pt,
+    edge={draw=black!60, semithick},
+    l sep=7mm,
+    s sep=1.8mm,
+    fork sep=3.5mm,
+  },
+  where level=0{
+    draw=black!85,
+    fill=black!8,
+    font=\small\bfseries,
+    align=center,
+    inner xsep=7pt,
+    inner ysep=6pt,
+  }{},
+  where level=1{
+    font=\small,
+    align=center,
+    inner xsep=5pt,
+    inner ysep=4pt,
+  }{},
+  where level=2{
+    fill=taxleaf,
+    font=\small,
+    text width=5.9cm,
+  }{},
+  [Verbal RL
+    [Grounding Signal\\{\footnotesize problem-definition time},
+      draw=taxorange!85, fill=taxorange!12
+      [\taxoleaf{Goal grounding}{SayCan}]
+      [\taxoleaf{State grounding}{Closed-Loop State Feedback}]
+      [\taxoleaf{Action grounding}{Inner Monologue}]
+      [\taxoleaf{Reward grounding}{Eureka}]
+    ]
+    [Deliberative Feedback\\{\footnotesize inference time},
+      draw=taxblue!85, fill=taxblue!12
+      [\taxoleaf{Self-critique and grounded critique}{Self-Refine}]
+      [\taxoleaf{Multi-agent debate}{ChatEval}]
+      [\taxoleaf{Experiential memory}{Reflexion}]
+      [\taxoleaf{Evaluator feedback in search}{Tree of Thoughts}]
+    ]
+    [Learning Signal\\{\footnotesize training time},
+      draw=taxgreen!85, fill=taxgreen!12
+      [\taxoleaf{Feedback-conditioned modeling}{FCP}]
+      [\taxoleaf{Self-improvement}{STaR}]
+      [\taxotrainedcriticleaf]
+      [\taxoleaf{Multi-agent and self-play training}{MALT}]
+      [\taxoleafnote{Process supervision}{GenPRM}{generative PRMs remain inside the fence}]
+      [\taxoleafnote{Preference shaping}{DPO}{outside the VRL fence; retained for contrast},
+        draw=black!75, densely dashed]
+    ]
+  ]
+\end{forest}
+\end{adjustbox}
+\end{document}

@@ -1,16 +1,21 @@
-# CSUR length-compliance plan
+# CSUR length-compliance record
 
-Measured 2026-07-11 with `\documentclass[acmsmall,screen,review]{acmart}`.
+Measured 2026-07-11 with the `acmart` CSUR `acmsmall` layout.
 
-## Current footprint and target
+## Completed outcome
 
-- Current total: 70 pages.
-- Main text, figures, and tables: pages 1–49.
-- References: pages 50–70.
+- Compliance main paper: 27 pages total.
+- Main text, figures, and tables: pages 1–21.
+- References: pages 22–27.
+- Main section prose: roughly 8,306 words.
+- Main-paper citation set: 123 unique keys.
+- Standalone electronic supplement: 33 pages.
+- Anonymous single-column review build: 26 pages.
+- Combined arXiv build: 55 pages.
+- Main paper plus supplement bibliography: 378 synchronized, verified entries.
 - CSUR limit: 35 pages including references.
-- Working target: 24 pages for the article and 11 pages for roughly 200–230 main-paper references. Reserve one page inside that budget for float movement and final metadata.
-- Current section text: roughly 27,100 words and 558 section-level unique citation occurrences before cross-section deduplication.
-- Target main text: 12,000–14,000 words. The supplement retains the extended method catalog, detailed evidence, and citations moved out of the main article.
+
+The original 70-page build consisted of article pages 1–49, references around pages 50–67, and three stranded float pages at the end. The earlier description of all pages 50–70 as references was therefore too coarse. The completed split reduced the main paper below the 35-page limit while preserving the detailed method catalog and supporting evidence in the electronic supplement.
 
 The electronic supplement is not an overflow copy of the main paper. It should contain the evidence catalog that supports the main synthesis: representative-system details, secondary benchmark results, expanded taxonomies, and extended threat and evaluation inventories. Citations move with the claims they support. A citation removed from the main article remains in the supplement bibliography if the corresponding claim moves there; it is removed from the main bibliography and main citation manifest.
 
@@ -23,7 +28,9 @@ The following material stays in the main article even if other content moves:
 3. Practitioner decision rules, including the decision tree.
 4. The comparison table against prior surveys.
 
-## Section budget and split
+## Baseline section budget and completed split
+
+The following table records the planning baseline used to execute the split. It is retained for provenance and should not be read as the current word count.
 
 | Section | Current words | Main target | Keep in main | Move to supplement |
 |---|---:|---:|---|---|
@@ -58,11 +65,11 @@ Total target: about 13,600 words. This is a ceiling, not a quota.
 
 ## Execution gates
 
-Apply the split in four bounded passes. Recompile after every pass.
+The four bounded passes are complete. The manuscript was recompiled after each pass.
 
-1. Move catalogs from Sections 4, 5, 9, 10, and 12. Target: main body at or below 39 pages before references.
-2. Compress Sections 6, 7, and 11 around their organizing claims. Target: main body at or below 32 pages before references.
-3. Tighten Sections 1–3 and 14 without weakening definitions. Target: main body at or below 25 pages before references.
-4. Curate the main reference set by retaining anchors, surveys, and evidence directly used by surviving claims. Move all other still-used entries to the supplement bibliography. Target: at most 35 total pages, zero undefined references, and synchronized manifests.
+1. Completed: moved catalogs from Sections 4, 5, 9, 10, and 12.
+2. Completed: compressed Sections 6, 7, and 11 around their organizing claims.
+3. Completed: tightened Sections 1–3 and 14 without weakening the definitions or four protected differentiators.
+4. Completed: curated main-paper citations and synchronized the union bibliography and manifest across the main paper and supplement.
 
-The final gate is `latexmk -pdf main.tex`, followed by checks for zero LaTeX errors, zero undefined citations or references, no em dashes in prose, and no citation key absent from its document's manifest.
+The final validation gate covers `main.tex`, `main-submission.tex`, `supplement.tex`, and `main-arxiv.tex`. Each build must have zero LaTeX errors, zero undefined citations or references, no em dashes in prose, and no cited key absent from the synchronized manifest.

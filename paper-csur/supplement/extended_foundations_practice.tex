@@ -1,0 +1,114 @@
+\section{Extended Foundations and Practice}
+\label{supp:sec:foundations-practice}
+
+This supplement preserves detailed historical, boundary, taxonomy, practitioner, positioning, and agenda material that supports the synthesis in the main article.
+
+\subsection{Terminology and Application Breadth}
+\label{supp:subsec:genealogy-applications}
+
+The phrase \emph{verbal reinforcement} predates machine learning. In mid-twentieth-century behavioral psychology it denoted approving utterances used to shape a subject's responses \citep{greenspoon1955reinforcing,krasner1958studies}. In the LLM era, \citet{shinn2023reflexion} used ``verbal reinforcement learning'' for agents that reflect on task feedback and preserve those reflections in episodic memory. The main article generalizes that mechanism-specific coinage through its two membership criteria.
+
+Natural Language Reinforcement Learning \citep{feng2024natural} is the nearest adjacent formalism. It replaces scalar RL objects with language counterparts, including narrative value functions and language-space policy iteration. Earlier work on language-informed RL instead treated language as a task input or auxiliary knowledge source \citep{branavan2009reinforcement,luketina2019survey}. The historical shift is therefore from language informing a scalar-reward learner to language serving as evaluation, revision, memory, and sometimes the optimizer trace itself.
+
+The application surface is broad. Language grounds high-level instructions in physical affordances \citep{ahn2022can}; self-reflection and iterative critique improve program generation \citep{shinn2023reflexion,madaan2023selfrefine}; and verbal-feedback mechanisms now appear in coding agents \citep{yang2024swe,jimenez2024swebenchlanguagemodelsresolve}, scientific discovery \citep{m2024augmenting,lu2024ai}, robotics \citep{wang2023voyager}, mathematical reasoning \citep{hatamizadeh2026igrpo,liu2026dual,shi2025ssr}, clinical decision support \citep{huang2025medreflect,zhou2025enhancing}, and education \citep{qian2025dean,ahtisham2026ai}. These examples establish breadth, not uniform maturity or evidence quality.
+
+\subsection{Neighboring Formalisms and Extended Boundary Cases}
+\label{supp:subsec:framework-boundaries}
+
+Two neighboring formalisms clarify what the framework adds. A feedback-conditional policy \citep{luo2025fcp} learns a response distribution conditioned on feedback and therefore keeps the feedback string inside the objective. Memento \citep{zhou2025memento} instead makes memory the learned object in a memory-augmented Markov decision process, with adaptation occurring through case writing and retrieval rather than fine-tuning. CoALA \citep{sumers2023cognitive} organizes the location of memory, action, and decision modules inside an agent. The signal-centric view is complementary: it classifies what flows through those modules and what the signal modifies.
+
+The POMDP notation has hard limits. Open-ended web and tool-use tasks may provide neither an explicit transition kernel nor an executable reward. Dialogue may lack a compact Markov state, and persistent memory changes later episodes, weakening stationarity. Multi-turn language interaction also has two levels, with utterance decisions layered over token decisions \citep{abdulhai2023lmrl,zhou2024archer}. In these regimes, the formalism supplies vocabulary rather than permission to import POMDP guarantees.
+
+Membership is adjudicated by tracing dataflow to the scalarization boundary. A rationale-annotated preference qualifies when the rationale enters a revision or training objective, but not when only its preference bit survives. A step-level critique qualifies when downstream machinery converts its content into credit \citep{xie2025capo}; it reduces to scalar process supervision when only per-step scores survive \citep{lightman2024let}. A generative process reward model may reason in language before emitting a score \citep{zhao2025genprm}. Its linguistic structure is consumed inside reward computation, while the optimizer still receives scalars. Routing the critique itself into revision or supervision moves the boundary later \citep{wang2026reward}.
+
+Current theory covers only selected regimes. The transfer-eluder analysis of \citet{xu2025formalizing} separates rich feedback from scalar reward under assumptions that make latent-objective learning possible. The hierarchical analysis of \citet{he2024words} shows that language-mediated planning still requires exploration. Neither result proves that arbitrary critique, memory, or language-shaped reward improves a policy. No measurable certificate yet reveals how much of a linguistic artifact a consumer actually exploits, and no general bound covers self-generated, noisy, strategic, or adversarial feedback.
+
+\subsection{Detailed Taxonomy Aids}
+\label{supp:subsec:taxonomy-aids}
+
+Table~\ref{supp:tab:pillar-overview} expands the compact three-pillar definition by making persistence, mechanisms, and bottlenecks explicit.
+
+\begin{table}[t]
+    \centering
+    \small
+    \renewcommand{\arraystretch}{1.15}
+    \caption{Detailed overview of the three verbal reinforcement learning pillars.}
+    \label{supp:tab:pillar-overview}
+    \begin{tabular}{@{} p{0.13\textwidth} p{0.26\textwidth} p{0.26\textwidth} p{0.26\textwidth} @{}}
+        \toprule
+        \textbf{Axis} & \textbf{Grounding signal} & \textbf{Deliberative feedback} & \textbf{Learning signal} \\
+        \midrule
+        \textbf{When} & Problem-definition time & Inference time & Training time \\
+        \textbf{Modifies} & Task, state, action, and reward specification & Outputs, context, or memory & Model weights and training data \\
+        \textbf{Persistence} & Defines the task & One episode or persistent memory & Future interactions \\
+        \textbf{Mechanisms} & Environment and reward specification & Prompting, critique, memory, search & Conditioned or filtered training; on-policy and multi-agent RL \\
+        \textbf{Bottleneck} & Grounding fidelity & Feedback quality and compute & Signal compression and filter quality \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+Temporal scope is preferable to source or modality because the same sentence can produce different effects at different points of use. ``The gripper pressure is too high'' constrains the problem when embedded in a task specification, repairs a plan when delivered during execution, and shapes learned behavior when consumed by a reward-code generator. A source taxonomy would place all three together even though their failure modes differ. Temporal scope instead groups grounding fidelity, deliberative circularity, and training-time information loss with the mechanisms that must address them.
+
+\subsubsection{Working Example: A Coding Agent}
+\label{supp:subsubsec:coding-agent}
+
+Consider an agent resolving a GitHub issue \citep{wang2025openhands}. The issue description supplies the goal, repository files form the observable state, and tests define success. During execution, tracebacks and test messages act as deliberative feedback: the agent reads them and revises its patch. If those trajectories later enter fine-tuning, the same messages become learning signals. This is coexistence, not a required pipeline. A traceback is deliberative when the running agent conditions on it and a learning signal when a training process consumes it. Classification follows each use of the signal, not the identity of the surrounding system.
+
+\subsection{Extended Practitioner Matrix}
+\label{supp:subsec:practitioner-matrix}
+
+Table~\ref{supp:tab:practitioner} expands the decision tree with preconditions, cost, and monitoring obligations. Mechanism selection precedes optimizer selection because each feedback form restricts the compatible update families.
+
+\begin{table}[t]
+    \centering
+    \footnotesize
+    \renewcommand{\arraystretch}{1.2}
+    \caption{Practitioner guidance: when to use language in each role, what it costs, and what to monitor.}
+    \label{supp:tab:practitioner}
+    \begin{tabular}{@{} p{0.12\textwidth} p{0.25\textwidth} p{0.15\textwidth} p{0.15\textwidth} p{0.18\textwidth} @{}}
+        \toprule
+        \textbf{Language as} & \textbf{Preconditions} & \textbf{Latency and cost} & \textbf{Dominant risk} & \textbf{Representative} \\
+        \midrule
+        Reward & Success expressible as checks; simulator or executor available; training budget accessible & Offline compilation; cheap per episode & Objective mis-specification; reward hacking & Eureka \citep{ma2024eureka}; Text2Reward \citep{xie2024text2reward} \\
+        State or task grounding & Raw observations complex or task underspecified; language abstracts them faithfully & Per-step description cost & Information loss; state aliasing & ALFWorld \citep{shridhar2020alfworld}; SayCan \citep{ahn2022can} \\
+        Action guidance & Open action space; actions executable and checkable & Per-step generation cost & Exploration collapse; invalid actions & ReAct \citep{yao2023react}; ProgPrompt \citep{singh2022progprompt}; CodeAct \citep{wang2024executable} \\
+        Deliberative feedback & No weight access; iteration affordable; grounded critic available & Multiplies inference cost & Circular critique; unbounded loops & Self-Refine \citep{madaan2023selfrefine}; CRITIC \citep{gou2024critic}; ToT \citep{yao2023tree} \\
+        Memory & Tasks recur; lessons reusable & Cheap writes; retrieval overhead & Error persistence; poisoning & Reflexion \citep{shinn2023reflexion}; ExpeL \citep{zhao2024expel}; Voyager \citep{wang2023voyager} \\
+        Training signal & Persistent improvement needed; feedback plentiful; weights accessible & Highest upfront cost & Sycophancy; filter bias & FCP \citep{luo2025fcp}; STaR \citep{zelikman2022star}; generative PRMs \citep{zhao2025genprm} \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsection{Detailed Positioning Against Prior Surveys}
+\label{supp:subsec:prior-survey-clusters}
+
+Two works anchor the history. \citet{luketina2019survey} treated language as information supplied to a scalar-reward learner. Natural Language Reinforcement Learning \citep{feng2024natural} extends RL components into language space but remains one value-centric formal instantiation. The signal-centric framework covers both while distinguishing the stage and consumer of each artifact.
+
+A mechanism-centered cluster fixes the feedback type and organizes its use. \citet{pan2023automatically} classify correction timing, \citet{kamoi2024can} analyze when self-correction succeeds, and \citet{zhang2025testtime} treat feedback within test-time scaling. \citet{fernandes2023bridging} provide the closest prior signal typing through feedback format, objective, and use, but predate agentic memory, rubric rewards, and verifiable-reward training.
+
+A component-centered cluster organizes memory, self-evolution, or optimization location. Memory surveys treat persistence as a module \citep{zhang2025survey}; self-evolution surveys classify the component that changes \citep{gao2025survey,fang2025comprehensive}; and agent optimization surveys split parameter-driven from parameter-free updates \citep{du2025survey}. The signal-centric view instead follows one critique across context revision, memory, and weight updates.
+
+A reward-centered cluster begins after scalarization. Surveys of RL-enhanced language models and preference optimization emphasize RLHF, RLAIF, or DPO \citep{wang2024reinforcement,xiao2024comprehensive}. Other treatments organize alignment by reward design \citep{ji2025survey}, learning by reward model and stage \citep{wu2025sailing}, rollout design by pipeline location \citep{surana2026generate}, or credit assignment by granularity and method \citep{zhang2026reasoning}. These views provide depth after a reward or training mechanism has been chosen. The main article's decision rule operates earlier by asking whether language should remain language and which consumer should receive it.
+
+\subsection{Supporting Evidence for the Research Agenda}
+\label{supp:subsec:agenda-evidence}
+
+\begin{enumerate}[leftmargin=1.6em]
+    \item \textbf{Sample efficiency.} The transfer-eluder result separates rich feedback from reward \citep{xu2025formalizing}, but intermediate formats such as rationale-bearing preferences and step critiques lack comparable complexity measures. Noisy-oracle analyses could connect critic error rates to learning efficiency \citep{strehl2009reinforcement,lin2024criticbench}.
+    \item \textbf{Optimality under language-shaped rewards.} Compiled and rubric rewards place specification error inside the optimized objective. Existing reward-hacking evidence \citep{casper2023open} does not yet yield conditions under which the intended behavior remains optimal.
+    \item \textbf{Temporal credit assignment.} Scalar process rewards attach values to steps \citep{lightman2024let}; textual gradients attach critique to spans \citep{wang2026text2gradreinforcementlearningnatural}. A general rule connecting free-form critique to responsible decisions remains absent.
+    \item \textbf{Information retention.} A rate-distortion account could measure what a scalar score or preference label discards relative to its generating critique, clarifying when DPO \citep{rafailov2023direct} suffices and when feedback-conditioned training \citep{luo2025fcp} retains necessary structure.
+    \item \textbf{Provenance and robustness.} Adaptive attacks bypass feedback defenses \citep{zhan2025adaptive}, including injected tool output \citep{shi2025prompt} and poisoned memory \citep{dong2026memory}. Systems need source authentication, trust assignment, and benchmarks that score adversarial feedback directly.
+    \item \textbf{Quality versus utilization.} Models may fail to use accurate feedback \citep{jiang2025feedback}. Producer-side benchmarks exist \citep{lin2024criticbench,lambert2024rewardbench,zheng2024processbench}, but utilization still lacks a standard protocol.
+    \item \textbf{Feedback-tuned models.} Dedicated critics can outperform generator self-critique \citep{wang2023shepherd,mcaleese2024criticgpt}. Training objectives should target localization, actionability, and calibration rather than only verdict accuracy.
+    \item \textbf{Machine-readable interfaces.} Ambiguous tool output causes agent failures \citep{bandlamudi2025framework}; agent-oriented interfaces help \citep{yang2024swe}; and tool quality bounds refinement \citep{ning2026code}. Interfaces should separate task errors from infrastructure failures.
+    \item \textbf{Inference versus training.} The transient-versus-durable distinction for search rewards \citep{wei2025unifying} should extend to every signal. Persistent or replayed memory \citep{zhang2025survey} makes the boundary particularly difficult.
+    \item \textbf{Transfer and affected parties.} Self-correction depends on reliable external signal or favorable tasks \citep{kamoi2024can}, while incorrect feedback induces sycophancy \citep{sharma2024towards}. Embodied and high-stakes deployment therefore requires transfer studies and explicit analysis of who bears failures.
+\end{enumerate}
+
+\subsection{Extended Limitations and Deployment Evidence}
+\label{supp:subsec:limitations-evidence}
+
+Language feedback has failure modes that are not yet bounded. A specification compiled from language can be executable yet encode the wrong objective, and policies exploit omissions in rubrics and verifiers \citep{mahmoud2026reward}. Generative verifiers can be fooled by superficial ``master keys'' \citep{zhao2025one}, while preference models may reward persuasive agreement over correctness \citep{sharma2024towards}.
+
+Grounding remains weak in sequential environments. Vision-language judges may recognize objects while missing task order \citep{wybitul2024vista}, and single-frame success detectors miss failures expressed through motion \citep{hwang2024motif}. Text2Reward, DrEureka, and RACER demonstrate real-robot deployments \citep{xie2024text2reward,ma2024dreureka,dai2024racer}, but these platform-specific results do not establish broad transfer. High-stakes harms are also no longer hypothetical: sycophantic answer changes appear in medical-advice tasks \citep{fanous2025syceval}, and injection attacks affect tool-calling, coding, and computer-use agents \citep{dziemian2026how}. These results motivate stronger claims only after systematic cross-platform evaluation.

@@ -1,9 +1,6 @@
 mnih2015human	Nature 518:529-533 (2015), DOI 10.1038/nature14236; verified via OpenAlex 2026-07-11 (not on arXiv)
-senior2020improved	Nature 577:706-710 (2020), DOI 10.1038/s41586-019-1923-7; verified via OpenAlex 2026-07-11 (not on arXiv)
 branavan2009reinforcement	ACL-IJCNLP 2009, DOI 10.3115/1687878.1687892; verified via OpenAlex 2026-07-11 (not on arXiv)
-sutton1998reinforcement	MIT Press book, 1st edition 1998 (books not resolvable by title APIs)
 sutton2018reinforcement	MIT Press book, 2nd edition 2018 (books not resolvable by title APIs); restored because the CSUR manuscript cites the second edition
-knox2009interactively	K-CAP 2009 pp.9-16, DOI 10.1145/1597735.1597738 (TAMER); verified via Crossref 2026-07-11
 chen2024ilf	TMLR 2024 title of arXiv:2303.16749 precursor (retitled at TMLR); same 8 authors; verified via OpenAlex + arXiv id 2026-07-11
 guo2024evoprompt	ICLR 2024 published title; arXiv v3 retitled "EvoPrompt: Connecting LLMs..."; eprint 2309.08532 verified by id 2026-07-11
 strehl2009reinforcement	JMLR 10(84):2413-2444, 2009; verified directly on jmlr.org 2026-07-11

@@ -1,0 +1,22 @@
+\section{Extended Evidence on Credit Assignment}
+\label{supp:credit}
+
+This section records implementation details and paper-specific empirical evidence that support the credit-assignment synthesis in the main article. Reported numbers are not directly comparable because the methods use different benchmarks and baselines.
+
+\subsection{Token- and Step-Level Mechanisms}
+
+MA-RLHF performs policy-gradient updates over macro actions, sequences of tokens or higher-level constructs, shrinking the temporal distance between action and reward without extra inference compute. Its authors report gains of up to 30\% on summarization and code generation, 18\% on dialogue, and 8\% on question answering, reaching parity with vanilla RLHF 1.7--2 times faster in training time \citep{chai2024marlhf}. RED instead reallocates a sequence-level reward to individual tokens with an existing reward model and no additional training stage \citep{li2024red}. LaRe generalizes redistribution to episodic settings through a latent, multidimensional performance evaluation constructed from LLM-generated executable code \citep{qu2024latent}.
+
+Model-internal methods derive credit from the scorer itself. One approach estimates per-token rewards from SHAP and LIME attributions and uses Bayesian optimization to tune the shaping function; feature-additive attributions preserve the optimal policy of the original reward \citep{koo2025learning}. FlowTracer builds an attention-induced graph over tokens and uses information flow toward the answer as a shaping signal \citep{dong2026how}.
+
+Critique-derived methods make localization explicit. CAPO generates all stepwise critiques in one pass, converts them into deterministic token credits, and votes over critiques for robustness \citep{xie2025capo}. T-REG uses contrastive prompting to self-generate token rewards that regularize the distribution of sequence-level preference reward \citep{zhou2024treg}. iStar alternates policy optimization with an implicit process reward model and derives step rewards without extra rollouts or step labels \citep{liu2025agenticreinforcementlearningimplicit}. Text2Grad aligns free-form critiques with the token spans they indict and backpropagates span-level rewards \citep{wang2026text2gradreinforcementlearningnatural}.
+
+\subsection{Multi-Turn and Memory-Conditioned Credit}
+
+ArCHer combines an off-policy value learner across utterances with a within-turn token-level policy-gradient learner; its authors report roughly 100 times the sample efficiency of prior methods on their agent tasks \citep{zhou2024archer}. Multi-turn variants of PPO and group-relative optimization show that well-designed turn rewards can improve stability and convergence over trajectory-only rewards \citep{wei2025reinforcing}. IGPO uses the marginal increase in the policy's probability of the correct answer as an intrinsic turn reward, requiring no reward model or Monte Carlo estimate \citep{wang2025information}. LMRL-Gym provides multi-turn dialogue and text-game tasks for studying this regime \citep{abdulhai2023lmrl}.
+
+Memory turns write operations into actions that also require credit. Memento realizes policy improvement through memory rewriting and retrieval \citep{zhou2025memento}. Memory-R2 shows that writes cause rollouts to diverge in their effective environment, violating assumptions behind group-relative baselines; it combines a global long-horizon objective with local rerollouts from the same intermediate memory state \citep{yan2026memoryr2}.
+
+\subsection{External Language Models as Credit Annotators}
+
+CALM decomposes a task into subgoals and judges whether transitions achieve them, creating auxiliary option-termination rewards without examples or fine-tuning \citep{pignatelli2024assessing}. Language feedback models learn from LLM judgments over verbalized trajectories and identify actions for imitation learning, including in unseen environments \citep{zhong2024policy}. In multi-agent RL, LLM-generated dense, agent-specific rewards can be stabilized through potential-based reward learning over multiple queries \citep{lin2025speaking}. Group-level critique can also guide exploration through off-policy scaffolds rather than assign credit directly \citep{huang2026bootstrapping}. These methods are most useful when the policy is not itself a language model or when an existing RL pipeline must remain unchanged, but annotator errors then become systematic reward errors.

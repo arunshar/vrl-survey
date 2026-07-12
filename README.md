@@ -9,7 +9,16 @@ An earlier, shorter version of this paper went through an external review round.
 ## What's in this repo
 
 ### The manuscript ([paper-csur/](paper-csur/))
-A 14-section manuscript in the `acmart` class, now measured in the CSUR `acmsmall` style for length compliance. The current build is **70 pages**: 49 pages of article content and 21 pages of references. It contains about 27,100 words of section prose, 6 figures, and a 473-entry bibliography where every citation has been checked against a primary source or the hand-verified whitelist. [paper-csur/main.pdf](paper-csur/main.pdf) is the current draft.
+A 14-section manuscript in the `acmart` class, organized in the CSUR `acmsmall` publication style. The compliance build is **27 pages**: 21 pages of article content and 6 pages of references. It contains about 8,300 words of section prose, 4 main-paper figures, and 123 main-paper citation keys. The standalone supplement preserves the detailed evidence catalogs in 33 pages. The combined arXiv build is 55 pages. Across the main paper and supplement, the synchronized bibliography contains 378 verified entries. [paper-csur/main.pdf](paper-csur/main.pdf) is the current compliance draft.
+
+LaTeX entry points:
+
+| File | Purpose |
+|---|---|
+| [main.tex](paper-csur/main.tex) | Named-author CSUR `acmsmall` compliance build |
+| [main-submission.tex](paper-csur/main-submission.tex) | Anonymous single-column review build for ScholarOne checks |
+| [supplement.tex](paper-csur/supplement.tex) | Standalone electronic supplement |
+| [main-arxiv.tex](paper-csur/main-arxiv.tex) | Full arXiv build with the supplement as appendices and one bibliography |
 
 Section map:
 
@@ -36,6 +45,9 @@ A LaTeX source that compiles to two PDFs from one `\ifmarkup` toggle: a **marked
 ### Supporting material
 - [notes/threads/](notes/threads/) (T1-T9): literature notes from a 9-thread ingestion pass (~290 verified papers, ~100 more discovered and verified), one file per thread, each entry with a canonical title, verified arXiv id, method summary, and abstract-grounded key claim.
 - [notes/csur_submission_requirements.md](notes/csur_submission_requirements.md): ACM Computing Surveys' submission rules (format, length limit, submission system), recovered via Wayback Machine snapshots and the acmart CTAN documentation.
+- [notes/acm_format_exemplar_audit.md](notes/acm_format_exemplar_audit.md): a format-only audit of the supplied ACM source archive, including what was reused and what was deliberately excluded.
+- [paper-csur/ARXIV_README.md](paper-csur/ARXIV_README.md): the future arXiv source-package entry point, compilation command, and packaging checklist.
+- [paper-csur/supplement/](paper-csur/supplement/): extended foundations, method catalogs, credit-assignment examples, evaluation evidence, and safety material moved out of the length-limited main paper without deleting it.
 - [notes/bib_whitelist.tsv](notes/bib_whitelist.tsv): a short list of hand-verified bibliography entries (books, pre-arXiv classics) that automated verification cannot resolve, with the verification method recorded for each.
 - [scripts/verify_bib.py](scripts/verify_bib.py): the citation-integrity gate. Checks every bib entry's title against the arXiv API, falls back to an arXiv title search, then Crossref, and finally the whitelist. Run it with `python3 scripts/verify_bib.py <path-to-bib>`.
 - [sessions/](sessions/): a running log of what happened in each work session, in case the thread is picked up later.
@@ -48,17 +60,17 @@ A LaTeX source that compiles to two PDFs from one `\ifmarkup` toggle: a **marked
 
 ## Progress (as of 2026-07-11)
 
-**5 of 8 phases done; phases 6 and 7 are in progress.**
+**7 of 8 phases done. Only author-confirmed metadata and disclosures, final proofing, and submission remain.**
 
 | # | Phase | Status | Notes |
 |---|---|---|---|
 | 1 | Literature review | ✅ Done | 9 topical threads; ~290 seed papers verified + ~100 more discovered and verified |
-| 2 | Citation verification | ✅ Done | All 472 bibliography entries checked against a primary source or hand-whitelisted; 0 unresolved |
+| 2 | Citation verification | ✅ Done | All 378 final bibliography entries checked against a primary source or hand-whitelisted; 0 unresolved |
 | 3 | Manuscript drafting | ✅ Done | All 14 sections written against the taxonomy and outline |
-| 4 | Figures and tables | ✅ Done | 6 figures built and placed (taxonomy tree, MDP mapping, compression spectrum, decision tree, and 2 ported figures) |
+| 4 | Figures and tables | ✅ Done | 6 figures retained across the main paper and supplement; 5 were rebuilt as editable vector sources and TAPS-safe PDFs, and the supplied raster figure already contains the corrected panel (e) label |
 | 5 | Adversarial review, round 1 | ✅ Done | Multi-reviewer pass (comprehensiveness, technical rigor, citation accuracy, style); every blocking and should-fix finding resolved |
-| 6 | Editorial polish | 🟨 In progress | Experiential memory and rubric supply were rewritten around design choices and operating conditions. Figure 3 panel (e) remains blocked because the repo contains only raster PNG exports; the editable artwork must be re-exported by an author with the label "Evaluator feedback in search." |
-| 7 | Length compliance | 🟨 In progress | The `acmsmall` compliance build is 70 pages: 49 pages of article content and 21 pages of references. A section-level 24-page article plus 11-page reference budget, protected-differentiator list, and electronic-supplement map are recorded in `notes/length_compliance_plan.md`. The content split remains to be executed. |
-| 8 | Submission | ⬜ Not started | Final author proofread, cover letter, ORCID registration, then submission via ACM Manuscript Central |
+| 6 | Editorial polish | ✅ Done | Synthesis edits are complete, and all six figures have accessible descriptions. The current panel (e) raster already reads "Evaluator feedback in search." |
+| 7 | Length compliance | ✅ Done | The `acmsmall` main build is 27 pages including references; the anonymous review build is 26 pages, the standalone supplement is 33 pages, and the combined arXiv build is 55 pages. All four protected differentiators remain in the main paper. |
+| 8 | Submission | ⬜ Human action | Confirm the four coauthors' affiliations and emails plus valid ORCIDs for all authors; add author-confirmed funding and prior-appearance disclosures; conduct the final proofread; prepare the cover letter; and submit through ScholarOne. Nothing has been submitted automatically. |
 
 Update this table whenever a phase's status changes so the repo stays an accurate snapshot for anyone picking the thread back up.
