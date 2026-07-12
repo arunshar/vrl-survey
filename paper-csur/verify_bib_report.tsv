@@ -471,3 +471,4 @@ you2026agent	OK	arXiv:2601.05111 sim=1.00	Agent-as-a-Judge
 greenspoon1955reinforcing	OK	crossref sim=1.00 year=1955 doi=10.2307/1418524	The Reinforcing Effect of Two Spoken Sounds on the Frequency of Two Responses
 krasner1958studies	WHITELISTED	Psychological Bulletin 55(3):148-170 (1958), DOI 10.1037/h0040492; verified via Crossref DOI lookup 2026-07-11 (title-only query ranks a different 1962 paper at sim=0.40)	
 kaelbling1998planning	OK	crossref sim=1.00 year=1998 doi=10.1016/s0004-3702(98)00023-x	Planning and acting in partially observable stochastic domains
+sutton2018reinforcement	WHITELISTED	MIT Press book, 2nd edition 2018 (books not resolvable by title APIs); restored because the CSUR manuscript cites the second edition

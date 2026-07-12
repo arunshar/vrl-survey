@@ -9,7 +9,7 @@ An earlier, shorter version of this paper went through an external review round.
 ## What's in this repo
 
 ### The manuscript ([paper-csur/](paper-csur/))
-A 14-section manuscript in the `acmart` class (`manuscript,screen,review` options), compiling clean to **67 pages**, ~28,500 words of body prose, 6 figures, and a 472-entry bibliography where every single citation has been checked against a primary source (arXiv, DBLP, OpenAlex, Crossref, or the publisher page). [paper-csur/main.pdf](paper-csur/main.pdf) is the current draft.
+A 14-section manuscript in the `acmart` class, now measured in the CSUR `acmsmall` style for length compliance. The current build is **70 pages**: 49 pages of article content and 21 pages of references. It contains about 27,100 words of section prose, 6 figures, and a 473-entry bibliography where every citation has been checked against a primary source or the hand-verified whitelist. [paper-csur/main.pdf](paper-csur/main.pdf) is the current draft.
 
 Section map:
 
@@ -48,7 +48,7 @@ A LaTeX source that compiles to two PDFs from one `\ifmarkup` toggle: a **marked
 
 ## Progress (as of 2026-07-11)
 
-**5 of 8 phases done.**
+**5 of 8 phases done; phases 6 and 7 are in progress.**
 
 | # | Phase | Status | Notes |
 |---|---|---|---|
@@ -57,8 +57,8 @@ A LaTeX source that compiles to two PDFs from one `\ifmarkup` toggle: a **marked
 | 3 | Manuscript drafting | ✅ Done | All 14 sections written against the taxonomy and outline |
 | 4 | Figures and tables | ✅ Done | 6 figures built and placed (taxonomy tree, MDP mapping, compression spectrum, decision tree, and 2 ported figures) |
 | 5 | Adversarial review, round 1 | ✅ Done | Multi-reviewer pass (comprehensiveness, technical rigor, citation accuracy, style); every blocking and should-fix finding resolved |
-| 6 | Editorial polish | ⬜ Not started | `paper_images/Figure-3-new.png` panel (e) still shows the old label "Search-guided" in the artwork itself, the caption already says "evaluator feedback in search"; needs re-exporting. Two sections (s05 experiential-memory subsection, s07 rubric-supply subsection) read as citation-dense listing rather than synthesis and could use a tighter pass |
-| 7 | Length compliance | ⬜ Not started | Current draft is 67 pages; CSUR's long-survey limit is 35 pages including references, so material needs trimming or moving to an electronic supplement |
+| 6 | Editorial polish | 🟨 In progress | Experiential memory and rubric supply were rewritten around design choices and operating conditions. Figure 3 panel (e) remains blocked because the repo contains only raster PNG exports; the editable artwork must be re-exported by an author with the label "Evaluator feedback in search." |
+| 7 | Length compliance | 🟨 In progress | The `acmsmall` compliance build is 70 pages: 49 pages of article content and 21 pages of references. A section-level 24-page article plus 11-page reference budget, protected-differentiator list, and electronic-supplement map are recorded in `notes/length_compliance_plan.md`. The content split remains to be executed. |
 | 8 | Submission | ⬜ Not started | Final author proofread, cover letter, ORCID registration, then submission via ACM Manuscript Central |
 
 Update this table whenever a phase's status changes so the repo stays an accurate snapshot for anyone picking the thread back up.
