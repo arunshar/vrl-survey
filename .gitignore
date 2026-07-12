@@ -10,3 +10,5 @@
 main.pdf
 paper-csur/main.pdf
 .DS_Store
+scripts/__pycache__/
+**/__pycache__/
