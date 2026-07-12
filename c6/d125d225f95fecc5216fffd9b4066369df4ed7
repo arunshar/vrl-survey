@@ -1,0 +1,102 @@
+paper-csur/paper_images/main_figure_src.tex
+  s_bf18bbc67718dc::t_ae69ad46c55415 1-34,37-40,42-44,46-48,50-52,54,56,58-68
+  s_bf18bbc67718dc::t_f3583575156c9a 35-36,41,45,49,53,55,57
+paper-csur/sections/s04_pillar_grounding.tex
+  s_bf18bbc67718dc::t_99b01003739694 34
+  s_bf18bbc67718dc::t_33b8b2e3cd4788 4,72
+paper-csur/sections/s02_formal_framework.tex
+  s_bf18bbc67718dc::t_f5e18cef1df4b1 36
+  s_bf18bbc67718dc::t_8ec55e566a799d 37
+  s_bf18bbc67718dc::t_95dc3bd836e909 9
+  s_bf18bbc67718dc::t_2cd71d9e3fef37 35
+  s_bf18bbc67718dc::t_f584dc68385beb 59
+  s_bf18bbc67718dc::t_38458ead8771c2 61
+  s_bf18bbc67718dc::t_a766d9d945608a 28
+paper-csur/sections/s06_pillar_learning.tex
+  s_bf18bbc67718dc::t_b2995b57bcb712 96
+  s_bf18bbc67718dc::t_11437fd01174a5 69
+  s_bf18bbc67718dc::t_29ca0cf5e0931c 45,47-48
+  s_bf18bbc67718dc::t_dbeda3f28403cf 4
+paper-csur/sections/s13_practitioner_guide_agenda.tex
+  s_bf18bbc67718dc::t_e694ed9185747a 114
+  s_bf18bbc67718dc::t_48d343148cf4c2 96
+  s_bf18bbc67718dc::t_d9fa1e345b3bb6 99
+  s_bf18bbc67718dc::t_1e0598258fdd22 4
+  s_bf18bbc67718dc::t_5ec5af7ec62bf1 112
+  s_bf18bbc67718dc::t_7fd5747a819073 26
+  s_bf18bbc67718dc::t_dd458eee4be89c 80
+  s_bf18bbc67718dc::t_0ff2e1d04dcdd3 74
+  s_bf18bbc67718dc::t_bf0d241c859dd3 116
+  s_bf18bbc67718dc::t_458240186890d5 33
+  s_bf18bbc67718dc::t_eb32d7be58010f 67
+  s_bf18bbc67718dc::t_39bf257f687fb8 131
+paper-csur/sections/s14_conclusion.tex
+  s_bf18bbc67718dc::t_4ea524da6c40bb 13
+paper-csur/main.tex
+  s_bf18bbc67718dc::t_c4732624fe3cbf 24-25
+  s_bf18bbc67718dc::t_cd2ae0d47b891d 41
+paper-csur/sections/s08_credit_assignment.tex
+  s_bf18bbc67718dc::t_628068013de528 40
+  s_bf18bbc67718dc::t_15050d26903a84 47
+  s_bf18bbc67718dc::t_ee02c0716710cb 34
+  s_bf18bbc67718dc::t_4165f5a8a44749 52
+  s_bf18bbc67718dc::t_37a172912bff6d 45
+  s_bf18bbc67718dc::t_7a72879880e6c5 16,59
+paper-csur/references.bib
+  s_bf18bbc67718dc::t_5f529c744e9497 3669-3671,3831
+  s_bf18bbc67718dc::t_fe1bb3223434ae 1414-1416
+  s_bf18bbc67718dc::t_d3989544a89724 3672
+  s_bf18bbc67718dc::t_c23d40223c035e 3822-3823
+  s_bf18bbc67718dc::t_1cc070475477aa 1728,3824-3830,3832-3834
+paper-csur/sections/s09_language_space_optimizers.tex
+  s_bf18bbc67718dc::t_01ce0820a6520d 49
+  s_bf18bbc67718dc::t_61cd816072ba49 4
+paper-csur/sections/s05_pillar_deliberative.tex
+  s_bf18bbc67718dc::t_92409ad18d180d 4
+  s_bf18bbc67718dc::t_0195e286082e40 9
+  s_bf18bbc67718dc::t_1bf0a9dddf42ee 38
+  s_bf18bbc67718dc::t_e7b2623054bb1b 48
+paper-csur/sections/s01_introduction.tex
+  s_bf18bbc67718dc::t_dbd9e06a07f21d 6-26
+  s_bf18bbc67718dc::t_1d60a792b5fce1 39
+paper-csur/sections/s03_taxonomy.tex
+  s_bf18bbc67718dc::t_bf711caa92797b 4
+  s_bf18bbc67718dc::t_58eb44d7dacc34 76
+  s_bf18bbc67718dc::t_171d13ca3e4f94 49
+  s_bf18bbc67718dc::t_4503d7061e44d7 67
+  s_bf18bbc67718dc::t_1334fedb1c5731 80
+  s_bf18bbc67718dc::t_8ee3da48c00223 72
+  s_bf18bbc67718dc::t_4005faaa17f368 97
+  s_bf18bbc67718dc::t_b50c8a5cf005f5 66
+  s_bf18bbc67718dc::t_af55f7d3c8f29d 82
+paper-csur/sections/s11_evaluation.tex
+  s_bf18bbc67718dc::t_5c6e3bacfaff19 29-30
+  s_bf18bbc67718dc::t_9076dd83baafc3 53
+  s_bf18bbc67718dc::t_da94043c57cffd 58
+  s_bf18bbc67718dc::t_9dc5664d90dea2 44
+  s_bf18bbc67718dc::t_f0355168eeb907 49
+  s_bf18bbc67718dc::t_5a4842d3ff64b9 7
+  s_bf18bbc67718dc::t_03dc733ca65df8 4,12,24,42-43,60
+paper-csur/sections/s10_embodied.tex
+  s_bf18bbc67718dc::t_71455e03dfa6a9 19
+paper-csur/citation_keys.txt
+  s_bf18bbc67718dc::t_0520758777acb3 150
+paper-csur/verify_bib_report.tsv
+  s_bf18bbc67718dc::t_e05c0f921a1fa8 480-481
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.12",
+  "base_commit_sha": "c6d125d225f95fecc5216fffd9b4066369df4ed7",
+  "prompts": {},
+  "sessions": {
+    "s_bf18bbc67718dc": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "a9f52875-eaef-4d6d-9da3-22e5787685f7",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Arun Sharma <sharm485@umn.edu>"
+    }
+  }
+}
