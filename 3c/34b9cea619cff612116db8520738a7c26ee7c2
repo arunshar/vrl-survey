@@ -1,0 +1,35 @@
+paper-csur/references.bib
+  s_9c1f58f294ad3f::t_6ad5ae8efeb3b9 3836-3843
+notes/bib_whitelist.tsv
+  s_9c1f58f294ad3f::t_d70f82da6f878c 5
+README.md
+  s_9c1f58f294ad3f::t_16afa1f6e08e5e 12,51,60-61
+notes/length_compliance_plan.md
+  s_9c1f58f294ad3f::t_16afa1f6e08e5e 1-68
+paper-csur/citation_keys.txt
+  s_9c1f58f294ad3f::t_6ad5ae8efeb3b9 473
+paper-csur/verify_bib_report.tsv
+  s_9c1f58f294ad3f::t_d70f82da6f878c 474
+paper-csur/sections/s07_verbal_reward_stack.tex
+  s_9c1f58f294ad3f::t_6ad5ae8efeb3b9 32
+paper-csur/sections/s05_pillar_deliberative.tex
+  s_9c1f58f294ad3f::t_6ad5ae8efeb3b9 36,38
+paper-csur/main.tex
+  s_9c1f58f294ad3f::t_6ad5ae8efeb3b9 2-3
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.12",
+  "base_commit_sha": "3c34b9cea619cff612116db8520738a7c26ee7c2",
+  "prompts": {},
+  "sessions": {
+    "s_9c1f58f294ad3f": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019f54b9-6a49-7d52-9f7c-c37d6c23f526",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Arun Sharma <sharm485@umn.edu>"
+    }
+  }
+}
