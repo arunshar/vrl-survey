@@ -1,0 +1,29 @@
+.gitignore
+  s_491f8a7d277081::t_fb3b5a1a89d2f0 13-14
+notes/bib_whitelist.tsv
+  s_bf18bbc67718dc::t_3fdf44ef9f18dd 11
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.12",
+  "base_commit_sha": "3ca44ca203beec4deba2f77b1386025848e87725",
+  "prompts": {},
+  "sessions": {
+    "s_491f8a7d277081": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "771dc3d4-2720-4312-999b-b22c86335fc8",
+        "model": "claude-sonnet-5"
+      },
+      "human_author": "Arun Sharma <sharm485@umn.edu>"
+    },
+    "s_bf18bbc67718dc": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "a9f52875-eaef-4d6d-9da3-22e5787685f7",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Arun Sharma <sharm485@umn.edu>"
+    }
+  }
+}
