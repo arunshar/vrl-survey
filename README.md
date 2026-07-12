@@ -57,7 +57,7 @@ A LaTeX source that compiles to two PDFs from one `\ifmarkup` toggle: a **marked
 | 3 | Manuscript drafting | ✅ Done | All 14 sections written against the taxonomy and outline |
 | 4 | Figures and tables | ✅ Done | 6 figures built and placed (taxonomy tree, MDP mapping, compression spectrum, decision tree, and 2 ported figures) |
 | 5 | Adversarial review, round 1 | ✅ Done | Multi-reviewer pass (comprehensiveness, technical rigor, citation accuracy, style); every blocking and should-fix finding resolved |
-| 6 | Editorial polish | ⬜ Not started | 2 source figures need re-exporting with updated labels; 2 sections could use a tighter, less citation-dense pass |
+| 6 | Editorial polish | ⬜ Not started | `paper_images/Figure-3-new.png` panel (e) still shows the old label "Search-guided" in the artwork itself, the caption already says "evaluator feedback in search"; needs re-exporting. Two sections (s05 experiential-memory subsection, s07 rubric-supply subsection) read as citation-dense listing rather than synthesis and could use a tighter pass |
 | 7 | Length compliance | ⬜ Not started | Current draft is 67 pages; CSUR's long-survey limit is 35 pages including references, so material needs trimming or moving to an electronic supplement |
 | 8 | Submission | ⬜ Not started | Final author proofread, cover letter, ORCID registration, then submission via ACM Manuscript Central |
 
