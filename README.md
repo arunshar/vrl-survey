@@ -46,6 +46,19 @@ A LaTeX source that compiles to two PDFs from one `\ifmarkup` toggle: a **marked
 - **No em dashes.** En dashes only for numeric ranges.
 - **Nothing auto-submitted.** No automation posts to OpenReview, arXiv, or ACM Manuscript Central. The authors do that by hand.
 
-## Current status (as of 2026-07-11)
+## Progress (as of 2026-07-11)
 
-The manuscript has been through one full adversarial review round (four reviewers replaying prior feedback against the current draft, two fresh reviewers checking comprehensiveness and rigor, a citation auditor, and a style auditor); every blocking and should-fix finding from that round has been resolved. What's left before submission: a couple of source figures need re-exporting with updated labels, two sections could use a tighter editorial pass, and the 67-page draft needs to be brought in line with CSUR's 35-page limit (including references) by trimming or moving material to an electronic supplement.
+**5 of 8 phases done.**
+
+| # | Phase | Status | Notes |
+|---|---|---|---|
+| 1 | Literature review | ✅ Done | 9 topical threads; ~290 seed papers verified + ~100 more discovered and verified |
+| 2 | Citation verification | ✅ Done | All 472 bibliography entries checked against a primary source or hand-whitelisted; 0 unresolved |
+| 3 | Manuscript drafting | ✅ Done | All 14 sections written against the taxonomy and outline |
+| 4 | Figures and tables | ✅ Done | 6 figures built and placed (taxonomy tree, MDP mapping, compression spectrum, decision tree, and 2 ported figures) |
+| 5 | Adversarial review, round 1 | ✅ Done | Multi-reviewer pass (comprehensiveness, technical rigor, citation accuracy, style); every blocking and should-fix finding resolved |
+| 6 | Editorial polish | ⬜ Not started | 2 source figures need re-exporting with updated labels; 2 sections could use a tighter, less citation-dense pass |
+| 7 | Length compliance | ⬜ Not started | Current draft is 67 pages; CSUR's long-survey limit is 35 pages including references, so material needs trimming or moving to an electronic supplement |
+| 8 | Submission | ⬜ Not started | Final author proofread, cover letter, ORCID registration, then submission via ACM Manuscript Central |
+
+Update this table whenever a phase's status changes so the repo stays an accurate snapshot for anyone picking the thread back up.
