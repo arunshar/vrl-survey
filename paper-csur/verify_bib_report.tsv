@@ -19,7 +19,6 @@ jimenez2024swebenchlanguagemodelsresolve	OK	arXiv:2310.06770 sim=1.00	SWE-bench:
 sharma2024towards	OK	arxiv-title sim=1.00 id=2310.13548	Towards Understanding Sycophancy in Language Models
 lloret2024towards	OK	arxiv-title sim=1.00 id=2407.16970	Towards Aligning Language Models with Textual Feedback
 luo2024improve	OK	arXiv:2406.06592 sim=1.00	Improve Mathematical Reasoning in Language Models by Automated Process Supervision
-wang2024mathshepherdverifyreinforcellms	OK	arXiv:2312.08935 sim=1.00	Math-Shepherd: Verify and Reinforce LLMs Step-by-step without Human Annotations
 uesato2022solving	OK	arXiv:2211.14275 sim=1.00	Solving math word problems with process- and outcome-based feedback
 shumailov2023curse	OK	arXiv:2305.17493 sim=1.00	The Curse of Recursion: Training on Generated Data Makes Models Forget
 huang2023large	OK	arxiv-title sim=1.00 id=2310.01798	Large Language Models Cannot Self-Correct Reasoning Yet
@@ -51,7 +50,6 @@ andreas2017modular	OK	arXiv:1611.01796 sim=1.00	Modular Multitask Reinforcement 
 hausknecht2020interactive	OK	arxiv-title sim=1.00 id=1909.05398	Interactive Fiction Games: A Colossal Adventure
 lynch2021language	OK	arxiv-title sim=1.00 id=2005.07648	Language Conditioned Imitation Learning over Unstructured Data
 yao2023tree	OK	arxiv-title sim=1.00 id=2305.10601	Tree of Thoughts: Deliberate Problem Solving with Large Language Models
-sutton2018reinforcement	WHITELISTED	MIT Press book, 2nd edition 2018 (books not resolvable by title APIs); near-duplicate of sutton1998reinforcement, dedup at CSUR merge	
 shinn2023reflexion	OK	arxiv-title sim=1.00 id=2303.11366	Reflexion: Language Agents with Verbal Reinforcement Learning
 madaan2023selfrefine	OK	arxiv-title sim=1.00 id=2303.17651	Self-Refine: Iterative Refinement with Self-Feedback
 casper2023open	OK	arXiv:2307.15217 sim=1.00	Open Problems and Fundamental Limitations of Reinforcement Learning from Human Feedback
@@ -62,7 +60,6 @@ christiano2017deep	OK	arXiv:1706.03741 sim=1.00	Deep reinforcement learning from
 singhal2023long	OK	arXiv:2310.03716 sim=1.00	A Long Way to Go: Investigating Length Correlations in RLHF
 gou2024critic	OK	arXiv:2305.11738 sim=1.00	CRITIC: Large Language Models Can Self-Correct with Tool-Interactive Critiquing
 kim2023rci	OK	arxiv-title sim=1.00 id=2303.17491	Language Models can Solve Computer Tasks
-chen2023selfdebug	OK	arXiv:2304.05128 sim=1.00	Teaching Large Language Models to Self-Debug
 ferraz2024decrim	OK	arXiv:2410.06458 sim=1.00	LLM Self-Correction with DeCRIM: Decompose, Critique, and Refine for Enhanced Following of Instructions with Multiple Constraints
 xu2024llmrefine	OK	arXiv:2311.09336 sim=1.00	LLMRefine: Pinpointing and Refining Large Language Models via Fine-Grained Actionable Feedback
 first2023baldur	OK	arXiv:2303.04910 sim=1.00	Baldur: Whole-Proof Generation and Repair with Large Language Models
@@ -123,8 +120,6 @@ wang2026memento2	OK	arXiv:2512.22716 sim=1.00	Memento 2: Learning by Stateful Re
 zhou2024lats	OK	arxiv-title sim=1.00 id=2310.04406	Language Agent Tree Search Unifies Reasoning Acting and Planning in Language Models
 lee2025feedback	OK	arxiv-title sim=1.00 id=2511.07919	Feedback Descent: Open-Ended Text Optimization via Pairwise Comparison
 du2023debate	OK	arxiv-title sim=1.00 id=2305.14325	Improving Factuality and Reasoning in Language Models through Multiagent Debate
-liang2024mad	OK	arxiv-title sim=1.00 id=2305.19118	Encouraging Divergent Thinking in Large Language Models through Multi-Agent Debate
-chan2023chateval	OK	arXiv:2308.07201 sim=1.00	ChatEval: Towards Better LLM-based Evaluators through Multi-Agent Debate
 wu2023autogen	OK	arXiv:2308.08155 sim=0.93	AutoGen: Enabling Next-Gen LLM Applications via Multi-Agent Conversation
 bai2022constitutional	OK	arXiv:2212.08073 sim=1.00	Constitutional AI: Harmlessness from AI Feedback
 luo2025fcp	OK	arXiv:2509.22638 sim=1.00	Language Models Can Learn from Verbal Feedback Without Scalar Rewards
@@ -139,14 +134,12 @@ wadhwa2025dcr	OK	arxiv-title sim=1.00 id=2407.02397	Learning to Refine with Fine
 chen2024ilf	WHITELISTED	TMLR 2024 title of arXiv:2303.16749 precursor (retitled at TMLR); same 8 authors; verified via OpenAlex + arXiv id 2026-07-11	
 liu2023coh	OK	arXiv:2302.02676 sim=1.00	Chain of Hindsight Aligns Language Models with Feedback
 akyurek2023rl4f	OK	arxiv-title sim=1.00 id=2305.08844	RL4F: Generating Natural Language Feedback with Reinforcement Learning for Repairing Model Outputs
-yuan2025selfrewarding	OK	arXiv:2401.10020 sim=1.00	Self-Rewarding Language Models
 qu2024rise	OK	arXiv:2407.18219 sim=1.00	Recursive Introspection: Teaching Language Model Agents How to Self-Improve
 kumar2025score	OK	arXiv:2409.12917 sim=1.00	Training Language Models to Self-Correct via Reinforcement Learning
 scheurer2023training	OK	arXiv:2303.16755 sim=1.00	Training Language Models with Language Feedback at Scale
 huang2022selfimprove	OK	arXiv:2210.11610 sim=1.00	Large Language Models Can Self-Improve
 rafailov2023direct	OK	arxiv-title sim=1.00 id=2305.18290	Direct Preference Optimization: Your Language Model is Secretly a Reward Model
 gulcehre2023rest	OK	arXiv:2308.08998 sim=1.00	Reinforced Self-Training (ReST) for Language Modeling
-singh2024restem	OK	arXiv:2312.06585 sim=1.00	Beyond Human Data: Scaling Self-Training for Problem-Solving with Language Models
 zelikman2022star	OK	arxiv-title sim=1.00 id=2203.14465	STaR: Bootstrapping Reasoning With Reasoning
 zelikman2024quietstar	OK	arXiv:2403.09629 sim=1.00	Quiet-STaR: Language Models Can Teach Themselves to Think Before Speaking
 hosseini2024vstar	OK	arXiv:2402.06457 sim=1.00	V-STaR: Training Verifiers for Self-Taught Reasoners
@@ -176,8 +169,7 @@ zhao2024expel	OK	arxiv-title sim=1.00 id=2308.10144	ExpeL: LLM Agents Are Experi
 yao2023react	OK	arxiv-title sim=1.00 id=2210.03629	ReAct: Synergizing Reasoning and Acting in Language Models
 kim2025reflact	OK	arxiv-title sim=1.00 id=2505.15182	ReflAct: World-Grounded Decision Making in LLM Agents via Goal-State Reflection
 li2025revisor	OK	arxiv-title sim=1.00 id=2511.13026	REVISOR: Beyond Textual Reflection, Towards Multimodal Introspective Reasoning in Long-Form Video Understanding
-kamoi2024whencan	OK	arxiv-title sim=1.00 id=2406.01297	When Can LLMs Actually Correct Their Own Mistakes? A Critical Survey of Self-Correction of LLMs
-anonymous2025selfimprovement	OK	arxiv-title sim=1.00 id=2603.25681	Self-Improvement of Large Language Models: A Technical Overview and Future Outlook
+anonymous2025selfimprovement	OK	arXiv:2603.25681 sim=1.00	Self-Improvement of Large Language Models: A Technical Overview and Future Outlook
 snell2024scaling	OK	arXiv:2408.03314 sim=1.00	Scaling LLM Test-Time Compute Optimally can be More Effective than Scaling Model Parameters
 ning2026code	OK	arXiv:2605.18747 sim=1.00	Code as Agent Harness
 cohen2025compositional	OK	arXiv:2501.12539 sim=1.00	Compositional Instruction Following with Language Models and Reinforcement Learning
@@ -216,7 +208,6 @@ shi2025prompt	OK	arXiv:2504.19793 sim=1.00	Prompt Injection Attack to Tool Selec
 chen2025secaligndefendingpromptinjection	OK	arXiv:2410.05451 sim=1.00	SecAlign: Defending Against Prompt Injection with Preference Optimization
 beurer2025design	OK	arXiv:2506.08837 sim=1.00	Design Patterns for Securing LLM Agents against Prompt Injections
 mccallum2023feedback	OK	arXiv:2312.04736 sim=1.00	Is Feedback All You Need? Leveraging Natural Language Feedback in Goal-Conditioned Reinforcement Learning
-sutton1998reinforcement	WHITELISTED	MIT Press book, 1st edition 1998 (books not resolvable by title APIs)	
 meinke2024frontier	OK	arXiv:2412.04984 sim=1.00	Frontier Models are Capable of In-context Scheming
 qian2025dean	OK	arXiv:2508.05952 sim=1.00	Dean of LLM Tutors: A Framework for Automated Quality Review of AI-generated Feedback
 ahtisham2026ai	OK	arxiv-title sim=1.00 id=2511.09785	AI Annotation Orchestration: Evaluating LLM verifiers to Improve the Quality of LLM Annotations in Learning Analytics
@@ -479,3 +470,4 @@ xu2025towards	OK	arXiv:2501.09686 sim=1.00	Towards Large Reasoning Models: A Sur
 you2026agent	OK	arXiv:2601.05111 sim=1.00	Agent-as-a-Judge
 greenspoon1955reinforcing	OK	crossref sim=1.00 year=1955 doi=10.2307/1418524	The Reinforcing Effect of Two Spoken Sounds on the Frequency of Two Responses
 krasner1958studies	WHITELISTED	Psychological Bulletin 55(3):148-170 (1958), DOI 10.1037/h0040492; verified via Crossref DOI lookup 2026-07-11 (title-only query ranks a different 1962 paper at sim=0.40)	
+kaelbling1998planning	OK	crossref sim=1.00 year=1998 doi=10.1016/s0004-3702(98)00023-x	Planning and acting in partially observable stochastic domains
