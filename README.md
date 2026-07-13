@@ -62,6 +62,8 @@ A LaTeX source that compiles to two PDFs from one `\ifmarkup` toggle: a **marked
 
 **7 of 8 phases done. Only author-confirmed metadata and disclosures, final proofing, and submission remain.**
 
+Continuation checklist for humans and AI tools: [TODO.md](TODO.md).
+
 | # | Phase | Status | Notes |
 |---|---|---|---|
 | 1 | Literature review | ✅ Done | 9 topical threads; ~290 seed papers verified + ~100 more discovered and verified |
