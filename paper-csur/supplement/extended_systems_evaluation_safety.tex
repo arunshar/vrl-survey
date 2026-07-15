@@ -1,0 +1,142 @@
+\section{Extended Systems, Evaluation, and Safety Catalogs}
+\label{supp:extended-systems-evaluation-safety}
+
+This supplement preserves the method catalogs, benchmark matrix, quantitative evidence, and robustness studies condensed in the main article. Its organization follows the four main-paper topics but uses independent labels so it can be compiled as part of the electronic supplement without relying on main-paper cross-references.
+
+\subsection{Language-Space Optimizer Catalog}
+\label{supp:language-space-optimizers}
+
+Language-space methods instantiate a recognizable optimization loop in text. Table~\ref{supp:tab-langopt-analogy} records the correspondence used to classify them.
+
+\begin{table}[t]
+\centering
+\small
+\caption{Numerical optimization concepts and their language-space counterparts.}
+\label{supp:tab-langopt-analogy}
+\begin{tabular}{@{}p{0.16\textwidth}p{0.39\textwidth}p{0.39\textwidth}@{}}
+\toprule
+\textbf{Numerical concept} & \textbf{Language-space counterpart} & \textbf{Representative realizations} \\
+\midrule
+Parameters & Prompt, evolving context, or curated playbook & VML \citep{xiao2024verbalized}; ACE \citep{zhang2025agentic}; token priors \citep{cai2025trainingfree} \\
+Gradient & Natural-language critique of the current candidate & TextGrad \citep{yuksekgonul2024textgrad}; directional feedback \citep{nie2024importance} \\
+Update rule & LLM edit operator applied to text & OPRO \citep{yang2024opro}; GEPA \citep{agrawal2026gepa} \\
+Backpropagation & Feedback routed through a computation graph & Trace/OPTO \citep{cheng2024trace}; semantic backpropagation \citep{wang2024how}; LLM-AutoDiff \citep{yin2025llmautodiff} \\
+Momentum or curvature & History of responses and scores & REVOLVE \citep{zhang2024revolve}; OPRO \citep{yang2024opro} \\
+Ensemble & Population of candidates under selection & PromptBreeder \citep{fernando2023promptbreeder}; EvoPrompt \citep{guo2024evoprompt}; GEPA \citep{agrawal2026gepa} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsubsection{Search, Evolution, and Program Optimization}
+\label{supp:optimizer-search-evolution}
+
+APE uses an LLM to propose instructions and selects candidates by task performance, establishing the basic score-driven recipe \citep{zhou2023ape}. OPRO adds the optimization trajectory itself to the optimizer context: previous solutions and their scores become working memory, and the resulting prompts outperform human-designed prompts by up to 8\% on GSM8K and 50\% on Big-Bench Hard \citep{yang2024opro}. Evolutionary methods maintain populations instead of one trajectory. EvoPrompt treats LLMs as mutation and crossover operators over a prompt population \citep{guo2024evoprompt}; PromptBreeder also evolves the mutation prompts that generate task-prompt variants \citep{fernando2023promptbreeder}. At the program level, DSPy compiles declarative language-model modules toward a metric by generating and selecting demonstrations \citep{khattab2023dspy}. MIPROv2 jointly optimizes instructions and demonstrations across multi-stage programs without module-level labels, so its surrogate model must attribute program-level success to components \citep{opsahlong2024mipro}.
+
+\subsubsection{Textual Gradients and Trace-Level Credit}
+\label{supp:optimizer-textual-gradients}
+
+TextGrad attaches natural-language critiques to variables in a compound computation and routes them backward as textual gradients; without task-specific modification it raises GPT-4o zero-shot GPQA accuracy from 51\% to 55\% \citep{yuksekgonul2024textgrad}. MetaTextGrad extends this recursion to the optimizer's own prompts and structure \citep{xu2025metatextgrad}. Directional feedback stabilizes updates by stating how the candidate should move, not merely why it is wrong \citep{nie2024importance}. REVOLVE retains the evolution of responses across iterations rather than reacting only to the latest critique \citep{zhang2024revolve}. Semantic backpropagation allocates output feedback among graph nodes that share a successor \citep{wang2024how}, and LLM-AutoDiff extends routing to cyclic, multi-component workflows \citep{yin2025llmautodiff}. Textual gradients can still explode as feedback grows with depth or vanish when repeated compression removes specificity; textual equilibrium propagation replaces one global backward pass with local critic equilibria \citep{chen2026textual}.
+
+The same machinery can optimize system structure. Agent symbolic learning jointly updates prompts, tools, and pipeline structure through language losses and gradients \citep{zhou2024symbolic}. ADAS searches over agents expressed as code \citep{hu2024automated}. AFlow casts workflow generation as Monte Carlo tree search over code-represented workflows and reports smaller models outperforming GPT-4o on selected tasks at 4.55\% of its inference cost \citep{zhang2024aflow}. MASS interleaves prompt and topology optimization for multi-agent systems \citep{zhou2025multiagent}.
+
+\subsubsection{Reflective, Training-Free, and Hybrid Updates}
+\label{supp:optimizer-reflective-hybrid}
+
+GEPA samples system trajectories, diagnoses failures in language, proposes prompt updates, and combines complementary lessons from a Pareto frontier. It reports a 6\% average and up to 20\% advantage over GRPO while using up to 35$\times$ fewer rollouts, plus a greater than 10\% gain over MIPROv2 \citep{agrawal2026gepa}. Self-supervised prompt optimization derives evaluation and optimization signals from pairwise output comparisons, matching leading optimizers at 1.1\%--5.6\% of their cost with as few as three samples \citep{xiang2025selfsupervised}. Training-Free GRPO extracts a group-relative semantic advantage from rollouts and distills it into a token prior for a frozen model \citep{cai2025trainingfree}. ACE maintains an evolving playbook through generation, reflection, and curation; incremental updates target brevity bias and context collapse in wholesale rewriting \citep{zhang2025agentic}.
+
+Hybrid systems decide where knowledge should live. SEAL generates finetuning data and update directives in language before changing weights \citep{zweiger2025selfadapting}. Learning to Self-Evolve trains the context editor with reinforcement learning and reports a 4B editor outperforming larger self-evolution systems \citep{chen2026learning}. P$^2$O alternates policy-gradient updates with prompt evolution, using text search when all sampled advantages collapse and then distilling prompt-induced gains into weights; it reports up to 9.5\% improvement over GRPO baselines \citep{lu2026p2o}. Evolutionary system-prompt learning finds declarative knowledge accumulating in prompts while procedural knowledge moves into weights \citep{zhang2026evolutionary}. SIA extends joint updating to scaffold code, prompts, and weights \citep{hebbar2026sia}.
+
+\subsubsection{Failure Evidence and Boundary Cases}
+\label{supp:optimizer-failures}
+
+Reflective optimizers can substitute prior knowledge for causal error analysis, producing confident but misdirected edits \citep{ma2024are}. Seed quality matters: from a defective seed, GEPA reduced GSM8K accuracy from 23.81\% to 13.50\%, whereas VISTA separated hypothesis generation from rewriting and verified hypotheses on minibatches, recovering 87.57\% \citep{liu2026reflection}. Multi-objective critics suffer gradient dilution and instruction interference; one study reports a 59\% drop in task focus when a single critique addresses several criteria \citep{darshan2026when}. MASPromptBench further finds that gains vary substantially across workflows, protocols, and team sizes \citep{bai2026maspromptbench}. GReaTer uses actual numeric task-loss gradients to optimize prompts \citep{das2024greater}, while PromptQuine evolves text through a selection signal with no linguistic meaning \citep{wang2025evolving}. Both optimize text but fall outside verbal reinforcement learning because their improvement signal is non-verbal.
+
+\subsection{Extended Embodied and Multimodal Evidence}
+\label{supp:embodied-evidence}
+
+\subsubsection{Corrections on Real Robots}
+\label{supp:embodied-corrections}
+
+LILAC maps utterances onto a learned low-dimensional control space used for real-time shared autonomy on a Franka Emika Panda; users preferred it and achieved higher completion than with open-loop instruction following \citep{cui2023no}. DROC accepts corrections ranging from high-level planning failures to skill parameters, distills them into a knowledge base, and retrieves them by textual and visual similarity; it required roughly half the corrections of direct code-generation baselines in the first round and little to none after two iterations \citep{zha2023distilling}. Yell At Your Robot logs fine-grained corrections and folds them into iterative retraining, improving long-horizon dexterous manipulation without additional teleoperation \citep{shi2024yell}. RT-H inserts language motions between task and action, allowing people to intervene in the same vocabulary used by the hierarchy; language interventions outperformed teleoperated ones \citep{belkhale2024rth}. RACER replaces the person with a vision-language supervisor that produces recovery guidance and improves over an imitation baseline in RLBench and real-world trials \citep{dai2024racer}. Inner Monologue verbalizes success detection, scene description, and human feedback to improve instruction completion without training \citep{huang2022inner}.
+
+\subsubsection{Generated and Vision-Language Rewards}
+\label{supp:embodied-rewards}
+
+Language to Rewards compiles instructions and corrections into reward parameters for a real-time optimizer \citep{yu2023language}. Text2Reward generates dense reward code that can be refined through human feedback and transfers simulator-trained policies to the real world \citep{xie2024text2reward}. Eureka mutates reward programs from verbalized training statistics \citep{ma2024eureka}; DrEureka adds domain-randomization generation and reports sim-to-real behaviors competitive with hand-designed setups \citep{ma2024dreureka}.
+
+When only pixels are available, RL-VLM-F learns rewards from vision-language preference labels over image observations \citep{wang2024rlvlmf}. VLM-RL converts contrasting language goals into dense semantic rewards for driving, reducing collision rate by 10.5\% and increasing route completion by 104.6\% in CARLA \citep{huang2024vlmrl}. VLA-RL trains a robotic process reward model over automatically segmented tasks, lifting OpenVLA-7B by 4.5\% over its strongest fine-tuned baseline on LIBERO \citep{lu2025vlarl}. RoboReward augments success-heavy robot corpora with calibrated failures and finds that no existing VLM dominates its reward-assignment tasks \citep{lee2026roboreward}. Robo-Dopamine combines a step-aware process reward with policy-invariant shaping; after one-shot adaptation, it improves a near-zero policy to 95\% success within 150 online rollouts \citep{tan2025robodopamine}. Large Reward Models emit process, completion, and temporal-contrastive rewards in unseen environments \citep{wu2026large}, while SOLE-R1 reasons over raw video and language goals at each step and reports zero-shot online learning on 24 unseen tasks \citep{schroeder2026soler1}.
+
+Two benchmarks isolate perceptual limits. ViSTa finds that models recognize objects but usually fail to understand task sequence \citep{wybitul2024vista}; MotIF shows that final-frame detectors fail when success depends on motion and improves them through trajectory-overlaid representations \citep{hwang2024motif}.
+
+\subsubsection{Failure Explanations and Recovery}
+\label{supp:embodied-failure-recovery}
+
+AHA fine-tunes a vision-language model on perturbed demonstrations to explain failures in free-form language. It reports a 10.3\% advantage over GPT-4o in-context learning and a 21.4\% average downstream improvement when explanations guide reward refinement, planning, and verification \citep{duan2024aha}. FailSafe pairs generated failures with executable recovery actions and improves three vision-language-action models by up to 22.6\% on average \citep{lin2025failsafe}. Guardian synthesizes failures from simulated and real trajectories with structured reasoning traces and raises manipulation success when inserted into a policy loop \citep{pacaud2025scaling}. Controlled experiments also show that diverse and informative language improves generalization and adaptation, making feedback phrasing an experimental variable rather than incidental wording \citep{xi2024teaching}.
+
+\subsection{Extended Evaluation Matrix and Evidence}
+\label{supp:evaluation-evidence}
+
+\begin{table}[t]
+\caption{Benchmark families indexed by quality or utilization, signal type, stage, and principal gap.}
+\label{supp:tab-benchmarks}
+\footnotesize
+\begin{tabular}{@{}p{0.24\textwidth} p{0.09\textwidth} p{0.16\textwidth} p{0.42\textwidth}@{}}
+\toprule
+Benchmark family & Measures & Signal & Principal gap \\
+\midrule
+Reward-model benchmarks: RewardBench~1/2 \citep{lambert2024rewardbench,malik2025rewardbench}, RM-Bench \citep{liu2024rmbench}, RewardMATH \citep{kim2024evaluating}, RMB \citep{zhou2024rmb}, PPE \citep{frick2024how} & Quality & Outcome preference & Pairwise accuracy can decorrelate from downstream utility \\
+Judge meta-evaluation: LLMBar \citep{zeng2023evaluating}, JudgeBench \citep{tan2024judgebench}, CALM \citep{ye2024justice}, MM-Eval \citep{son2024mmeval}, Sage \citep{feng2025are}, BiasScope \citep{lai2026biasscope} & Quality & Verdict and rationale & Bias, inconsistency, and aggregation uncertainty \\
+Critique benchmarks: CriticBench \citep{lin2024criticbench}, CriticEval \citep{lan2024criticeval}, CodeCriticBench \citep{zhang2025codecriticbench}, RealCritic \citep{tang2025realcritic} & Both & Natural-language critique & Open-loop ratings can diverge from corrective value \\
+Process and verifier benchmarks: ProcessBench \citep{zheng2024processbench}, PRMBench \citep{song2025prmbench}, ToolComp \citep{nath2025toolcomp}, VerifyBench \citep{yan2025verifybench} & Quality & Step-level reward or verdict & Narrow domains, false negatives, and hackability \\
+Interactive environments: MINT \citep{wang2023mint}, ConvCodeWorld \citep{han2025convcodeworld}, LLF-Bench \citep{cheng2023llfbench} & Utilization & Turn-level feedback & No standard metric for uptake from language alone \\
+Feedback incorporation: Feedback Friction \citep{jiang2025feedback}, JETTS \citep{zhou2025evaluating} & Utilization & Near-oracle or judge critique & Models under-absorb accurate feedback \\
+Agent trajectory and memory: AgentRewardBench \citep{lu2025agentrewardbench}, Plan-RewardBench \citep{wang2026aligning}, MemoryAgentBench \citep{hu2025evaluating} & Both & Trajectory preference and memory & Weak long-horizon judgment and retrieval \\
+Embodied feedback: ViSTa \citep{wybitul2024vista}, MotIF-1K \citep{hwang2024motif}, RoboReward \citep{lee2026roboreward} & Quality & Vision-language reward & No embodied utilization benchmark \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsubsection{Quality Evidence}
+\label{supp:evaluation-quality}
+
+RewardBench establishes a broad outcome-preference test across chat, reasoning, and safety \citep{lambert2024rewardbench}. RewardBench~2 uses new human prompts and reports average model scores about 20 points lower while retaining correlation with best-of-$N$ and PPO outcomes \citep{malik2025rewardbench}. RM-Bench separates content sensitivity from style susceptibility and finds state-of-the-art reward models averaging 46.6\% under style interference \citep{liu2024rmbench}. RewardMATH shows that single chosen-rejected comparisons can have almost no correlation with optimized-policy results, while one-to-many comparisons recover useful correlation \citep{kim2024evaluating}. RMB expands to more than 49 scenarios \citep{zhou2024rmb}; Preference Proxy Evaluations validate metrics against end-to-end RLHF \citep{frick2024how}; Personalized RewardBench tests user-specific rubrics \citep{ma2026personalized}.
+
+LLMBar constructs pairs where an incorrect answer has deceptive surface appeal \citep{zeng2023evaluating}, and JudgeBench finds GPT-4o-level judges only slightly above random on correctness-grounded hard pairs \citep{tan2024judgebench}. CALM measures twelve judge biases through controlled perturbations \citep{ye2024justice}. BiasScope discovers biases automatically and reports error above 50\% even for strong evaluators on its hardened set \citep{lai2026biasscope}. Sage finds inconsistent frontier-model preferences in nearly a quarter of difficult cases \citep{feng2025are}; leaderboard audits show Elo aggregation masking ranking uncertainty \citep{feuer2025when}. MM-Eval documents weaker non-English judging across 18 languages \citep{son2024mmeval}.
+
+CriticBench evaluates generation, critique, and correction together \citep{lin2024criticbench}; CriticEval adds human reference critiques \citep{lan2024criticeval}; CodeCriticBench uses checklist-scored code critique \citep{zhang2025codecriticbench}. ProcessBench asks for the earliest erroneous reasoning step \citep{zheng2024processbench}, PRMBench probes finer error dimensions \citep{song2025prmbench}, and ToolComp tests multi-tool trajectories where most models score below 50\% \citep{nath2025toolcomp}. VerifyBench covers reference-based RLVR checkers \citep{yan2025verifybench}; rule-based verifiers can reject equivalent answer formats, while model-based verifiers are more accurate but hackable \citep{huang2025from}.
+
+\subsubsection{Utilization Evidence and Coverage Gaps}
+\label{supp:evaluation-utilization}
+
+RealCritic grades critiques by induced corrections and finds models falling below their own baselines in some self-critique settings \citep{tang2025realcritic}. JETTS finds judges competitive with outcome reward models for reranking but worse than process reward models in beam search; their textual critiques do not reliably guide generators \citep{zhou2025evaluating}. MINT reports tools adding 1--8\% absolute performance per turn and simulated language feedback adding 2--17\% \citep{wang2023mint}. ConvCodeWorld varies compilation, execution, and verbal feedback across nine code-repair scenarios, with static replay preserving Spearman correlations of 0.82--0.99 with live interaction \citep{han2025convcodeworld}. LLF-Bench isolates learning from language across attempts \citep{cheng2023llfbench}, while LMRL Gym provides a numeric-reward complement over text states and actions \citep{abdulhai2023lmrl}. Feedback Friction shows that near-complete ground-truth feedback can still fail to change solver behavior \citep{jiang2025feedback}.
+
+AgentRewardBench compares twelve judges with expert annotations of 1,302 web trajectories and finds no judge best across benchmarks \citep{lu2025agentrewardbench}. Plan-RewardBench documents weakness across generative rewards, discriminative rewards, and judges on tool-integrated plans \citep{wang2026aligning}. MemoryAgentBench tests retrieval, test-time use, and selective forgetting \citep{hu2025evaluating}. Coverage remains thin for non-English feedback \citep{son2024mmeval}, personalization \citep{ma2026personalized}, long-horizon agents \citep{wang2026aligning}, memory \citep{hu2025evaluating}, and embodied utilization \citep{wybitul2024vista,hwang2024motif,lee2026roboreward}.
+
+\subsection{Extended Threat and Defense Evidence}
+\label{supp:safety-evidence}
+
+\subsubsection{Judge Manipulation}
+\label{supp:safety-judge-attacks}
+
+Optimized injected sequences can force a judge to select an attacker-controlled candidate across evaluation, search, tool selection, and AI-feedback training \citep{shi2024optimization}. Universal phrases transfer from surrogate to unseen judges and push absolute scores toward their maximum, with comparative assessment less susceptible \citep{raina2024is}. Generative reward models accept superficial ``master keys'' that elicit false positive rewards across scales \citep{zhao2025one}. Prompt-injection studies report attack success up to 73.8\% and cross-judge transfer of 50.5\%--62.6\% \citep{maloyan2025adversarial}; robustness varies by up to 40\% across prompt templates \citep{li2025llms}. Stylistic manipulation exceeds 65\% success while preserving semantics \citep{yang2026turning}. Automated bias discovery pushes strong evaluators above 50\% error \citep{lai2026biasscope}; apologetic phrasing skews some safety evaluations by up to 98\% \citep{chen2025safer}; and red-team distribution shifts can reduce judge accuracy toward chance \citep{schwinn2026coin}.
+
+\subsubsection{Observation Injection and Feedback Poisoning}
+\label{supp:safety-injection-poisoning}
+
+Indirect prompt injection embeds instructions in retrieved content \citep{greshake2023not}. InjecAgent reports 24\% attack success against a ReAct-prompted GPT-4 agent, nearly doubling when instructions are reinforced \citep{zhan2024injecagent}. AgentDojo separates task failure from security failure across tool-integrated scenarios \citep{debenedetti2024agentdojo}. Human-written web injections partially succeed in up to 86\% of cases even when agents fail to complete the attacker's full objective \citep{evtimov2025wasp}. A public competition spanning 272,000 attempts against 13 frontier models found every model vulnerable across tool use, coding, and computer control, with 0.5\%--8.5\% end-to-end success and transferable strategies \citep{dziemian2026how}. Injection can steer tool choice \citep{shi2025prompt}, and adaptive attacks bypass evaluated defenses \citep{zhan2025adaptive}.
+
+Training-time poisoning works at low rates. Adding 1--5\% poisoned preference pairs can steer target sentiment \citep{baumgartner2024best}; DPO backdoors succeed with 0.5\% poisoning in settings where PPO requires at least 4\% \citep{pathmanathan2024is}. A model can also influence preferences constructed from its own outputs, amplifying keyword and brand biases \citep{hahm2026alignment}. Manipulated verbal feedback raises language-space optimizer attack success by as much as 0.48, and fake-reward attacks need no reward-model access \citep{zhao2025are}.
+
+\subsubsection{Policy Exploitation and Sycophancy}
+\label{supp:safety-policy-bias}
+
+When model outputs change the world and the world returns to context, output and policy refinement can produce in-context reward hacking that static evaluation misses \citep{pan2024feedback}. Models trained to game harmless graders can transfer hacking to new settings and, for some models, to shutdown evasion \citep{taylor2025school}. Rubric exploitation clusters around partial satisfaction, implicit content treated as explicit, and imprecise topical matching \citep{mahmoud2026reward}. Controlled tasks with injected judge biases \citep{wang2026reproducing} and verifiable hacking opportunities \citep{roth2026hack} make the behavior measurable. Adversarial preambles can raise frozen candidates' scores, transfer to unseen judges, and remain difficult to detect \citep{alazraki2025reverse}.
+
+Sycophancy originates in preference data rather than an external attacker. Humans and preference models sometimes prefer convincing agreement to correctness \citep{sharma2024towards}. Across mathematics and medical advice, one study reports sycophantic answer changes in 58.19\% of cases and regressive flips in 14.66\% \citep{fanous2025syceval}. Multi-turn pressure compounds the behavior, while a third-person perspective reduces it by up to 63.8\% in debate \citep{hong2025measuring}. Models preserve a user's desired self-image more than humans and affirm both sides of moral conflicts \citep{cheng2025elephant}. Mechanistic analysis identifies a circuit that represents an answer as wrong even while the model agrees \citep{pandey2026llms}.
+
+\subsubsection{Defense Evidence}
+\label{supp:safety-defenses}
+
+Perplexity filters and known-answer checks fail against optimized injections, although re-tokenization and LLM detectors are stronger among tested detection options \citep{shi2024optimization,li2025llms}. Signal reshaping acts earlier: verifier training with truncated adversarial negatives resists master keys \citep{zhao2025one}; adversarial reward-model training searches for high-reward, low-quality responses and stabilizes downstream RLHF \citep{bukharin2025adversarial}; linear-probe penalties suppress sycophancy markers \citep{papadatos2024linear}; and uncertainty-aware trajectory rewards reduce sycophancy without degrading general capability \citep{beigi2025sycophancy}.
+
+System defenses include instruction hierarchies \citep{wallace2024instruction}, preference optimization against injection \citep{chen2025secaligndefendingpromptinjection}, and constrained agent-tool design patterns \citep{beurer2025design}. Highlighting untrusted optimizer feedback cuts one fake-reward attack's success delta from 0.23 to 0.07 without reducing utility \citep{zhao2025are}. No single layer is sufficient because adaptive attacks have bypassed targeted defenses \citep{zhan2025adaptive}. The evidence favors defense in depth: comparative scoring, independent judges, provenance marking, privilege separation, adversarially reshaped rewards, and interactive stress tests.

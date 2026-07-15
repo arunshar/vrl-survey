@@ -1,7 +1,6 @@
-%% CSUR publication-style build used to enforce the 35-page limit.
-\documentclass[acmsmall,screen]{acmart}
+%% Full arXiv build: compliant main survey followed by extended evidence appendices.
+\documentclass[acmsmall,screen,nonacm]{acmart}
 \input{preamble}
-\acmJournal{CSUR}
 
 \begin{document}
 \input{authors}
@@ -22,6 +21,12 @@
 \input{sections/s12_safety}
 \input{sections/s13_practitioner_guide_agenda}
 \input{sections/s14_conclusion}
+
+\appendix
+\input{supplement/extended_foundations_practice}
+\input{supplement/extended_pillars}
+\input{supplement/extended_credit}
+\input{supplement/extended_systems_evaluation_safety}
 
 \clearpage
 \bibliographystyle{ACM-Reference-Format}
