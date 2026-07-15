@@ -1,0 +1,19 @@
+docs/ARR_response_qa_2026-07-15.md
+  s_491f8a7d277081::t_a3f1d3a2faac60 1,3,8,10,12,14,24,26,28
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.14",
+  "base_commit_sha": "7300536e42d36d6e23e91d41cb5540d00dcd134a",
+  "prompts": {},
+  "sessions": {
+    "s_491f8a7d277081": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "771dc3d4-2720-4312-999b-b22c86335fc8",
+        "model": "claude-sonnet-5"
+      },
+      "human_author": "Arun Sharma <sharm485@umn.edu>"
+    }
+  }
+}
