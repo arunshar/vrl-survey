@@ -1,0 +1,22 @@
+README.md
+  s_9c1f58f294ad3f::t_7aec39e9828f38 65-66
+TODO.md
+  s_9c1f58f294ad3f::t_c4e983ee5a9a7d 129
+  s_9c1f58f294ad3f::t_7aec39e9828f38 1-128,130-146
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.12",
+  "base_commit_sha": "286df73c84709ce80fb5a860afb4be6a3b9f5844",
+  "prompts": {},
+  "sessions": {
+    "s_9c1f58f294ad3f": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019f54b9-6a49-7d52-9f7c-c37d6c23f526",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Arun Sharma <sharm485@umn.edu>"
+    }
+  }
+}

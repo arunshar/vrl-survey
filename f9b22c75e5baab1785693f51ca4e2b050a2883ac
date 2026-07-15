@@ -1,0 +1,130 @@
+paper-csur/ARXIV_README.md
+  s_9c1f58f294ad3f::t_8c2d83092895ea 17,25
+  s_9c1f58f294ad3f::t_56ecb53b3ebd2a 1-16,18-24
+paper-csur/sections/s13_practitioner_guide_agenda.tex
+  s_9c1f58f294ad3f::t_9d8dec118a12c2 4,9,14-15,62,65-74
+  s_9c1f58f294ad3f::t_a1283d67e00cb4 55
+  s_9c1f58f294ad3f::t_8c2d83092895ea 57
+  s_9c1f58f294ad3f::t_1c65dfd6b6154d 13
+  s_9c1f58f294ad3f::t_189fa14f2ce5c9 30
+  s_9c1f58f294ad3f::t_e03dd4b28882a7 11
+paper-csur/sections/s01_introduction.tex
+  s_9c1f58f294ad3f::t_1c65dfd6b6154d 6
+  s_9c1f58f294ad3f::t_60c30d5b829c88 7,12,14,16,18,22-25,28
+paper-csur/sections/s06_pillar_learning.tex
+  s_9c1f58f294ad3f::t_1c65dfd6b6154d 8-9
+  s_9c1f58f294ad3f::t_8e8e5d75d16640 4,10,17,22,27,32,37,42,44-45
+paper-csur/sections/s05_pillar_deliberative.tex
+  s_9c1f58f294ad3f::t_56e9ec902dae5a 9,14,20,26,29-30
+  s_9c1f58f294ad3f::t_878fb492478158 4,15,21,27
+paper-csur/main-submission.tex
+  s_9c1f58f294ad3f::t_1c03842b2069a7 1-6,8-30
+  s_9c1f58f294ad3f::t_8c2d83092895ea 7
+paper-csur/sections/s14_conclusion.tex
+  s_9c1f58f294ad3f::t_ccbb1c72543f1b 4,6,11
+paper-csur/figure_sources/decision_tree.tex
+  s_9c1f58f294ad3f::t_81ee43c76873a2 1-38
+paper-csur/figure_sources/taxonomy_tree.tex
+  s_9c1f58f294ad3f::t_32553c8828ba86 20
+  s_9c1f58f294ad3f::t_e7707366614cc1 17,76
+  s_9c1f58f294ad3f::t_e4cf59456f0cf0 7,84
+  s_9c1f58f294ad3f::t_098c10af4ab93c 1-2,6,8-15,18-19,21-75,77,80-83,85
+  s_9c1f58f294ad3f::t_21f68d7e1a0d67 3-5,16,78-79
+paper-csur/figure_sources/compression_spectrum.tex
+  s_9c1f58f294ad3f::t_81ee43c76873a2 1-58
+paper-csur/preamble.tex
+  s_9c1f58f294ad3f::t_1c03842b2069a7 1-11
+paper-csur/supplement/extended_foundations_practice.tex
+  s_9c1f58f294ad3f::t_f864e0becea972 1-36,38-46,48-67,69-78,80-114
+  s_9c1f58f294ad3f::t_a1283d67e00cb4 47,68,79
+  s_9c1f58f294ad3f::t_189fa14f2ce5c9 37
+paper-csur/supplement/extended_systems_evaluation_safety.tex
+  s_9c1f58f294ad3f::t_220ebce579dc7e 1-15,17-26,28-82,84-95,97-142
+  s_9c1f58f294ad3f::t_189fa14f2ce5c9 83
+  s_9c1f58f294ad3f::t_a1283d67e00cb4 16,27,96
+paper-csur/main-arxiv.tex
+  s_9c1f58f294ad3f::t_8c2d83092895ea 6
+  s_9c1f58f294ad3f::t_1c03842b2069a7 1-5,7-35
+paper-csur/sections/s08_credit_assignment.tex
+  s_9c1f58f294ad3f::t_2a714c17dc3afa 4,8,29,31,34,36,38,41,43,46,51
+paper-csur/sections/s04_pillar_grounding.tex
+  s_9c1f58f294ad3f::t_878fb492478158 30
+  s_9c1f58f294ad3f::t_1fa219bde684d3 4,9,14,19,24,29
+paper-csur/frontmatter.tex
+  s_9c1f58f294ad3f::t_1c03842b2069a7 1-31
+README.md
+  s_9c1f58f294ad3f::t_9f801745cb5d26 63
+  s_9c1f58f294ad3f::t_21a5bb0ce11319 14-21,48-50,68,70,72
+  s_9c1f58f294ad3f::t_8808d59c14f81a 12,73
+  s_9c1f58f294ad3f::t_af07b27f8c3af3 74
+  s_9c1f58f294ad3f::t_1a63cee3f93420 13
+paper-csur/authors.tex
+  s_9c1f58f294ad3f::t_8c2d83092895ea 1-24
+paper-csur/sections/s09_language_space_optimizers.tex
+  s_9c1f58f294ad3f::t_a563e9cc99dfc1 4,6,9,13,16,18
+  s_9c1f58f294ad3f::t_90cb5177660b75 11
+paper-csur/sections/s11_evaluation.tex
+  s_9c1f58f294ad3f::t_90cb5177660b75 24-25
+  s_9c1f58f294ad3f::t_a563e9cc99dfc1 4,9,16,20,23,27
+  s_9c1f58f294ad3f::t_ec567a9043bebe 11,18
+paper-csur/supplement/extended_pillars.tex
+  s_9c1f58f294ad3f::t_69e0ba3e1452aa 1-10,13-38
+  s_9c1f58f294ad3f::t_1c65dfd6b6154d 11-12
+  s_9c1f58f294ad3f::t_d58a4d19df8a86 46
+  s_9c1f58f294ad3f::t_8916e781f7bdd7 84-114
+  s_9c1f58f294ad3f::t_db2af33476b17f 39-45,47-83
+  s_9c1f58f294ad3f::t_534abb41ca0a91 115-145
+paper-csur/main.tex
+  s_9c1f58f294ad3f::t_1c03842b2069a7 1-4,8,26
+  s_9c1f58f294ad3f::t_8c2d83092895ea 7
+paper-csur/authors-anonymous.tex
+  s_9c1f58f294ad3f::t_8c2d83092895ea 1-4
+paper-csur/sections/s12_safety.tex
+  s_9c1f58f294ad3f::t_ec567a9043bebe 6,34
+  s_9c1f58f294ad3f::t_90cb5177660b75 33
+  s_9c1f58f294ad3f::t_a563e9cc99dfc1 4,11,16,18,21,23,27,29,32
+  s_9c1f58f294ad3f::t_11ef8ff51f2a69 5
+paper-csur/supplement.tex
+  s_9c1f58f294ad3f::t_1c03842b2069a7 1-28
+paper-csur/supplement/extended_credit.tex
+  s_9c1f58f294ad3f::t_2a714c17dc3afa 1-22
+paper-csur/sections/s10_embodied.tex
+  s_9c1f58f294ad3f::t_90cb5177660b75 17
+  s_9c1f58f294ad3f::t_a563e9cc99dfc1 4,6,9,11,13,15,19,22
+notes/length_compliance_plan.md
+  s_9c1f58f294ad3f::t_8808d59c14f81a 13-14
+  s_9c1f58f294ad3f::t_21a5bb0ce11319 1,3,5,7-12,15,17-18,31-33,68,70-73,75
+notes/acm_format_exemplar_audit.md
+  s_9c1f58f294ad3f::t_58cf149cf3a2dd 1-38
+paper-csur/sections/s03_taxonomy.tex
+  s_9c1f58f294ad3f::t_307446ef8d0ba2 4,9-10,16,21,25,45
+  s_9c1f58f294ad3f::t_a1283d67e00cb4 33,42
+  s_9c1f58f294ad3f::t_098c10af4ab93c 14
+  s_9c1f58f294ad3f::t_e03dd4b28882a7 6,8
+paper-csur/sections/s02_formal_framework.tex
+  s_9c1f58f294ad3f::t_0a0a19800b052b 4,9,11,13,16,18,20-25,28,33,35,37,39,44,46
+paper-csur/figure_sources/grounding_mapping.tex
+  s_9c1f58f294ad3f::t_81ee43c76873a2 1-37
+paper-csur/sections/s07_verbal_reward_stack.tex
+  s_9c1f58f294ad3f::t_486ad59fef9e70 4,7,15-17,25,31,37,43,49,51
+  s_9c1f58f294ad3f::t_878fb492478158 26,32,38,44
+  s_9c1f58f294ad3f::t_189fa14f2ce5c9 10
+paper-csur/figure_sources/overview.tex
+  s_9c1f58f294ad3f::t_81ee43c76873a2 1-29
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.12",
+  "base_commit_sha": "f9b22c75e5baab1785693f51ca4e2b050a2883ac",
+  "prompts": {},
+  "sessions": {
+    "s_9c1f58f294ad3f": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019f54b9-6a49-7d52-9f7c-c37d6c23f526",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Arun Sharma <sharm485@umn.edu>"
+    }
+  }
+}
